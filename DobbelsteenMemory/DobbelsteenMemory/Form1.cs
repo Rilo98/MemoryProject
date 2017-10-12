@@ -12,23 +12,23 @@ namespace DobbelsteenMemory
 {
     public partial class Dobbelsteen : Form
     {
+        int dice_1, dice_2;
+        
         public Dobbelsteen()                                            //Main
         {
             InitializeComponent();
-           
+
+            afterlb.Text = "";
         }
 
         private void Gooi_1_Click(object sender, EventArgs e)           //Gooi button
         {
             dobbelsteen();
+            after();
         }
 
         private void dobbelsteen()                                     //Dobbelsteen code
         {
-
-            int dice_1, dice_2;
-            string tekst = "";
-
             Random rnd = new Random();
 
             dice_1 = rnd.Next(1, 7);
@@ -97,7 +97,33 @@ namespace DobbelsteenMemory
             {
                 pictureBox2.Image = Properties.Resources._6;
             }
+
         }
 
+        private void after()                    //Geeft aan wie gewonnen heeft
+        {
+            dobbelsteen();
+
+            string tekst = "";
+
+            if (dice_1 > dice_2)
+            {
+                tekst = tekst + "Speler 1 mag als eerste beginnen.";
+                afterlb.Text = Convert.ToString(tekst);
+            }
+
+            if (dice_1 < dice_2)
+            {
+                tekst = tekst + "Speler 2 mag als eerste beginnen.";
+                afterlb.Text = Convert.ToString(tekst);
+            }
+
+            if (dice_1 == dice_2)
+            {
+                tekst = tekst + "Gooi opnieuw!";
+                afterlb.Text = Convert.ToString(tekst);
+            }
+
+        }
     }
 }

@@ -33,6 +33,7 @@
             this.Speler2 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.afterlb = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -84,12 +85,22 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
+            // afterlb
+            // 
+            this.afterlb.AutoSize = true;
+            this.afterlb.Location = new System.Drawing.Point(225, 330);
+            this.afterlb.Name = "afterlb";
+            this.afterlb.Size = new System.Drawing.Size(28, 13);
+            this.afterlb.TabIndex = 7;
+            this.afterlb.Text = "after";
+            // 
             // Dobbelsteen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(534, 411);
+            this.Controls.Add(this.afterlb);
             this.Controls.Add(this.Speler2);
             this.Controls.Add(this.Speler1);
             this.Controls.Add(this.pictureBox2);
@@ -111,6 +122,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label Speler1;
         private System.Windows.Forms.Label Speler2;
+        private System.Windows.Forms.Label afterlb;
     }
 }
 
