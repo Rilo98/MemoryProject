@@ -61,17 +61,17 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -80,6 +80,60 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture 0.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture 1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture 2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture 3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture 4.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture 5.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture 6.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture 7.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture 8.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture 9.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture 10.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture 11.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture 12.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture 13.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture 14.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picture 15.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\defaultpic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\defaultpic1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
