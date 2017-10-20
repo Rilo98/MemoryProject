@@ -13,14 +13,16 @@ namespace WindowsFormsApp3
 {
     public partial class Form1 : Form
     {
-        int arrayid1, arrayid2, textboxint1, textboxint2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0,picturenumber2 = 1;
+        int arrayid1, arrayid2, textboxint1, textboxint2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0,picturenumber2 = 1, Player1_score, Player2_score;
         Button firstButton = null, secondButton = null;
+        bool multiplayer = false, Player1_beurt = true, Player2_beurt = false;
 
         public Form1()
         {
             InitializeComponent();
+            label1.Text = "Please fill in the grid size <4-8>";
         }
-
+        
         private void defaulttheme(Image[,] arrayimage)
         {
             var rm = new System.Resources.ResourceManager(((System.Reflection.Assembly)System.Reflection.Assembly.GetExecutingAssembly()).GetName().Name + ".Properties.Resources", ((System.Reflection.Assembly)System.Reflection.Assembly.GetExecutingAssembly()));
@@ -115,7 +117,7 @@ namespace WindowsFormsApp3
             return tmpnumber;
         }
 
-        private void rotatebutton(object sender, int[,,] array, Image[,] arrayimage)                            //changes color based on button number
+        private void rotatebutton(object sender, int[,,] array, Image[,] arrayimage)                            //changes image based on button number
         {
             Button button = (Button)sender;
             string buttontext = button.Name;
@@ -209,11 +211,46 @@ namespace WindowsFormsApp3
             }
         }
 
+        private void PlayerScore()
+        {
+            if (Player1_beurt == true)
+            {
+                Player1_score = Player1_score + 1;
+                Label_Player1score.Text = Convert.ToString(Player1_score);
+            }
+            if (Player2_beurt == true)
+            {
+                Player2_score = Player2_score + 1;
+                Label_Player2Score.Text = Convert.ToString(Player2_score);
+
+            }
+        }
+        private void SwitchTurn()
+        {
+            if (Player1_beurt == true)
+            {
+                BeurtIndicator1.BackColor = ColorTranslator.FromHtml("#76FF03");
+                BeurtIndicator2.BackColor = ColorTranslator.FromHtml("#F5F5F5");
+                Player2_beurt = true;
+                Player1_beurt = false;
+            }
+            else if (Player2_beurt == true)
+            {
+                BeurtIndicator1.BackColor = ColorTranslator.FromHtml("#F5F5F5");
+                BeurtIndicator2.BackColor = ColorTranslator.FromHtml("#76FF03");
+                Player1_beurt = true;
+                Player2_beurt = false;
+
+            }
+
+        }
         private void timer1_Tick(object sender, EventArgs e)
         {
+            SwitchTurn();
             timer1.Stop();
             if ((arrayid1 == arrayid2 - textboxint3) || (arrayid1 == arrayid2 + textboxint3))
             {
+                PlayerScore();
                 firstButton.Enabled = false;
                 firstButton.BackgroundImage = null;
                 firstButton.BackColor = Color.Transparent;
@@ -225,7 +262,6 @@ namespace WindowsFormsApp3
             }
             else
             {
-
                 firstButton.BackgroundImage = Properties.Resources.defaultpic;
                 secondButton.BackgroundImage = Properties.Resources.defaultpic;
                 firstButton = null;
@@ -236,41 +272,107 @@ namespace WindowsFormsApp3
         //buttons ---------------------------------------------
         private void Apply_Click(object sender, EventArgs e)
         {
-            textboxint1 = Convert.ToInt32(textBox1.Text);
-            textboxint2 = Convert.ToInt32(textBox2.Text);
-            textboxint3 = (textboxint1 * textboxint2) / 2;
-            textboxint4 = (textboxint1 * textboxint2) + 1;
-            textboxint5 = (textboxint1 * textboxint2);
-            int[,,] array = new int[2, textboxint3, 3];
-            Image[,] arrayimage = new Image[2, textboxint3];
+            if (multiplayer == true)
+            {
+                Singleplayer.Visible = false;
+                Multiplayer.Visible = false;
+                BeurtIndicator1.Visible = Enabled;
+                BeurtIndicator2.Visible = Enabled;
+                label2.Visible = Enabled;
+                label3.Visible = Enabled;
+                Label_Player1score.Visible = Enabled;
+                Label_Player2Score.Visible = Enabled;
+                textboxint1 = Convert.ToInt32(textBox1.Text);
+                textboxint2 = Convert.ToInt32(textBox2.Text);
+                textboxint3 = (textboxint1 * textboxint2) / 2;
+                textboxint4 = (textboxint1 * textboxint2) + 1;
+                textboxint5 = (textboxint1 * textboxint2);
+                int[,,] array = new int[2, textboxint3, 3];
+                Image[,] arrayimage = new Image[2, textboxint3];
 
-            if ((textboxint1 > 8 || textboxint1 < 4) || (textboxint2 > 8 || textboxint2 < 4))
-            {
-                label1.Text = "Please provide a number between 4 and 6.";
-                label1.ForeColor = Color.Red;
-                return;
+                if ((textboxint1 > 8 || textboxint1 < 4) || (textboxint2 > 8 || textboxint2 < 4) || textBox1 == null || textBox2 == null)
+                {
+                    label1.Text = "Please provide a number between 4 and 8.";
+                    label1.ForeColor = Color.Red;
+                    return;
+                }
+                else if ((textboxint1 == 7 && textboxint2 == 7) || (textboxint1 == 5 && textboxint2 == 5) || (textboxint1 == 7 && textboxint2 == 5) || (textboxint1 == 5 && textboxint2 == 7))
+                {
+                    label1.Text = "Please provide 2 even numbers, or an even and an odd number";
+                    label1.ForeColor = Color.Red;
+                    return;
+                }
+                else
+                {
+                    reset.Visible = Enabled;
+                    defaulttheme(arrayimage);
+                    fillarray(array);
+                    label1.Text = "";
+                    createbuttons(array, arrayimage);
+                    textBox1.Visible = false;
+                    textBox2.Visible = false;
+                    Apply.Visible = false;
+                }
             }
-            else if ((textboxint1 == 7 && textboxint2 == 7) || (textboxint1 == 5 && textboxint2 == 5))
-            {
-                label1.Text = "Please provide 2 even numbers, or an even and an odd number";
-                label1.ForeColor = Color.Red;
-                return;
-            }
+            
             else
             {
-                defaulttheme(arrayimage);
-                fillarray(array);
-                label1.Text = "";
-                createbuttons(array, arrayimage);
-                textBox1.Visible = false;
-                textBox2.Visible = false;
-                Apply.Visible = false;
+                Singleplayer.Visible = false;
+                Multiplayer.Visible = false;
+                textboxint1 = Convert.ToInt32(textBox1.Text);
+                textboxint2 = Convert.ToInt32(textBox2.Text);
+                textboxint3 = (textboxint1 * textboxint2) / 2;
+                textboxint4 = (textboxint1 * textboxint2) + 1;
+                textboxint5 = (textboxint1 * textboxint2);
+                int[,,] array = new int[2, textboxint3, 3];
+                Image[,] arrayimage = new Image[2, textboxint3];
+
+                if ((textboxint1 > 8 || textboxint1 < 4) || (textboxint2 > 8 || textboxint2 < 4) || textBox1 == null || textBox2 == null)
+                {
+                    label1.Text = "Please provide a number between 4 and 8.";
+                    label1.ForeColor = Color.Red;
+                    return;
+                }
+                else if ((textboxint1 == 7 && textboxint2 == 7) || (textboxint1 == 5 && textboxint2 == 5))
+                {
+                    label1.Text = "Please provide 2 even numbers, or an even and an odd number";
+                    label1.ForeColor = Color.Red;
+                    return;
+                }
+                else
+                {
+                    reset.Visible = Enabled;
+                    defaulttheme(arrayimage);
+                    fillarray(array);
+                    label1.Text = "";
+                    createbuttons(array, arrayimage);
+                    textBox1.Visible = false;
+                    textBox2.Visible = false;
+                    Apply.Visible = false;
+                }
             }
         }
 
         private void ButtonClickHandler(object sender, EventArgs e, int[,,] array, Image[,] arrayimage)
         {
             rotatebutton(sender,array,arrayimage);
+            
+        }
+
+        private void Singleplayer_CheckedChanged(object sender, EventArgs e)
+        {
+            multiplayer = false;
+        }
+
+        private void Multiplayer_CheckedChanged(object sender, EventArgs e)
+        {
+            multiplayer = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Controls.Clear();
+            this.InitializeComponent();
         }
     }
 }
