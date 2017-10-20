@@ -14,7 +14,8 @@ namespace WindowsFormsApp3
     public partial class Form1 : Form
     {
         int arrayid1, arrayid2, textboxint1, textboxint2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0,picturenumber2 = 1;
-        Button firstButton = null, secondButton = null, button = null;
+        Button firstButton = null, secondButton = null;
+
         public Form1()
         {
             InitializeComponent();
@@ -23,10 +24,6 @@ namespace WindowsFormsApp3
         private void defaulttheme(Image[,] arrayimage)
         {
             var rm = new System.Resources.ResourceManager(((System.Reflection.Assembly)System.Reflection.Assembly.GetExecutingAssembly()).GetName().Name + ".Properties.Resources", ((System.Reflection.Assembly)System.Reflection.Assembly.GetExecutingAssembly()));
-
-            
-
-            //fill colors
             for (int i = 0; i < textboxint5/2; i++)
             {
                 picturenumber1 = picturenumber1 + 2;
@@ -269,10 +266,6 @@ namespace WindowsFormsApp3
                 textBox2.Visible = false;
                 Apply.Visible = false;
             }
-          // else
-          // {
-          //     label1.Text = "Invalid imput";
-          // }
         }
 
         private void ButtonClickHandler(object sender, EventArgs e, int[,,] array, Image[,] arrayimage)
