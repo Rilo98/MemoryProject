@@ -356,7 +356,6 @@ namespace WindowsFormsApp3
         private void ButtonClickHandler(object sender, EventArgs e, int[,,] array, Image[,] arrayimage)
         {
             rotatebutton(sender,array,arrayimage);
-            
         }
 
         private void Singleplayer_CheckedChanged(object sender, EventArgs e)
