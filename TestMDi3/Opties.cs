@@ -16,6 +16,9 @@ namespace TestMDi3
         {
             InitializeComponent();
 
+            string[] files = System.IO.Directory.GetDirectories(@"\");
+            this.dropdown.Items.AddRange(files);
+
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(0, 0);
         }
@@ -26,6 +29,25 @@ namespace TestMDi3
             f2.MdiParent = this.ParentForm;
             f2.Show();
             Close();
+        }
+
+        private void upload_Click(object sender, EventArgs e)
+        {
+            String imagelocation = "";
+            try
+            {
+                OpenFileDialog dialog = new OpenFileDialog();
+                dialog.Filter = "jpg files(*.jpg)|*.jph| PNG files(*.png)|*.png| All files (*.*)|*.*|";
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    imagelocation = dialog.FileName;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("An error occured", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
