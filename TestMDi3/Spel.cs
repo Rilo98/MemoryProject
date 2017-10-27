@@ -15,7 +15,7 @@ namespace TestMDi3
     {
         public static int length, width;
         public static bool multiplayer, Player1_beurt, Player2_beurt;
-        public static string singlenaam, multinaam1, multinaam2;
+        public static string singlenaam, multinaam1, multinaam2, selectedtheme,defaultpic = "Properties.Resources.defaultpic";
 
         SingleNameninvoeren singlenameninvoeren = new SingleNameninvoeren();
         int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0,picturenumber2 = 1, Player1_score, Player2_score;
@@ -60,7 +60,7 @@ namespace TestMDi3
                 int[,,] array = new int[2, textboxint3, 3];
                 Image[,] arrayimage = new Image[2, textboxint3];
                 reset.Visible = Enabled;
-                defaulttheme(arrayimage);
+                theme(arrayimage);
                 fillarray(array);
                 createbuttons(array, arrayimage, length, width);
 
@@ -81,9 +81,22 @@ namespace TestMDi3
                 int[,,] array = new int[2, textboxint3, 3];
                 Image[,] arrayimage = new Image[2, textboxint3];
                 reset.Visible = Enabled;
-                defaulttheme(arrayimage);
+                theme(arrayimage);
                 fillarray(array);
                 createbuttons(array, arrayimage, length, width);
+            }
+        }
+
+        private void theme(Image[,] arrayimage)
+        {
+            if (selectedtheme == "")
+            {
+                defaulttheme(arrayimage);
+            }
+
+            else
+            {
+                customtheme(arrayimage);
             }
         }
 
@@ -101,7 +114,21 @@ namespace TestMDi3
                 picturenumber2 = picturenumber2 + 2;
                 arrayimage[1, e] = (Bitmap)rm.GetObject("Picture_" + Convert.ToInt32(picturenumber2));
             }
+        }
 
+        private void customtheme(Image[,] arrayimage)
+        {
+            for (int i = 0; i < textboxint5 / 2; i++)
+            {
+                picturenumber1 = picturenumber1 + 2;
+                arrayimage[0, i] = (Bitmap)Image.FromFile(selectedtheme + @"\" + "Picture " + Convert.ToInt32(picturenumber1) + ".png" );
+            }
+
+            for (int e = 0; e < textboxint5 / 2; e++)
+            {
+                picturenumber2 = picturenumber2 + 2;
+                arrayimage[1, e] = (Bitmap)Image.FromFile(selectedtheme + @"\" + "Picture " + Convert.ToInt32(picturenumber2) + ".png");
+            }
         }
 
         private void createbuttons(int[,,] array, Image[,] arrayimage, int length, int width)
@@ -130,10 +157,22 @@ namespace TestMDi3
                 button.Name = "button" + (i + 1).ToString();
                 button.Dock = DockStyle.Fill;
                 this.tableLayoutPanel1.Controls.Add(button);
-                button.BackgroundImage = Properties.Resources.defaultpic;
-                button.BackgroundImageLayout = ImageLayout.Stretch;
-                button.Click += delegate (object sender, EventArgs e)
-                { ButtonClickHandler(sender, e, array, arrayimage); };
+                if (selectedtheme == "")
+                {
+                    button.BackgroundImage = Properties.Resources.defaultpic;
+                    button.BackgroundImageLayout = ImageLayout.Stretch;
+                    button.Click += delegate (object sender, EventArgs e)
+                    { ButtonClickHandler(sender, e, array, arrayimage); };
+                }
+
+                else
+                {
+                    button.BackgroundImage = (Bitmap)Image.FromFile(selectedtheme + @"\" + "defaultpic.png"); ;
+                    button.BackgroundImageLayout = ImageLayout.Stretch;
+                    button.Click += delegate (object sender, EventArgs e)
+                    { ButtonClickHandler(sender, e, array, arrayimage); };
+                }
+
             }
         }
 
@@ -348,10 +387,21 @@ namespace TestMDi3
             }
             else
             {
-                firstButton.BackgroundImage = Properties.Resources.defaultpic;
-                secondButton.BackgroundImage = Properties.Resources.defaultpic;
-                firstButton = null;
-                secondButton = null;
+                if (selectedtheme == null)
+                {
+                    firstButton.BackgroundImage = Properties.Resources.defaultpic;
+                    secondButton.BackgroundImage = Properties.Resources.defaultpic;
+                    firstButton = null;
+                    secondButton = null;
+                }
+
+                else
+                {
+                    firstButton.BackgroundImage = (Bitmap)Image.FromFile(selectedtheme + @"\" + "defaultpic.png");
+                    secondButton.BackgroundImage = (Bitmap)Image.FromFile(selectedtheme + @"\" + "defaultpic.png");
+                    firstButton = null;
+                    secondButton = null;
+                }
             }
         }
 

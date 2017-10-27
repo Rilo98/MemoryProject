@@ -7,20 +7,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace TestMDi3
 {
     public partial class Opties : Form
     {
+
         public Opties()
         {
             InitializeComponent();
+            if (!Directory.Exists(@"Themes\" + themename.Text))
+            {
+                Directory.CreateDirectory(@"Themes\");
+                string[] files = Directory.GetDirectories(@"Themes\");
+                this.dropdown.Items.AddRange(files);
+                this.StartPosition = FormStartPosition.Manual;
+                this.Location = new Point(0, 0);
+            }
 
-            string[] files = System.IO.Directory.GetDirectories(@"\");
-            this.dropdown.Items.AddRange(files);
+            else
+            {
+                string[] files = Directory.GetDirectories(@"Themes\");
+                this.dropdown.Items.AddRange(files);
+                this.StartPosition = FormStartPosition.Manual;
+                this.Location = new Point(0, 0);
+            }
 
-            this.StartPosition = FormStartPosition.Manual;
-            this.Location = new Point(0, 0);
+
         }
 
         private void Terug_Click(object sender, EventArgs e)
@@ -33,21 +47,56 @@ namespace TestMDi3
 
         private void upload_Click(object sender, EventArgs e)
         {
-            String imagelocation = "";
+            string targetPath = @"Themes\" + themename.Text;
+            string source = "";
             try
             {
-                OpenFileDialog dialog = new OpenFileDialog();
-                dialog.Filter = "jpg files(*.jpg)|*.jph| PNG files(*.png)|*.png| All files (*.*)|*.*|";
+                FolderBrowserDialog dialog = new FolderBrowserDialog();
 
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    imagelocation = dialog.FileName;
+                    source = dialog.SelectedPath;
+                    DirectoryCopy(source, targetPath);
+                    string[] files = Directory.GetDirectories(@"Themes\");
+                    this.dropdown.Items.AddRange(files);
                 }
             }
             catch (Exception)
             {
                 MessageBox.Show("An error occured", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+
+        private static void DirectoryCopy(string sourceDirName, string destDirName)
+        {
+            // Get the subdirectories for the specified directory.
+            DirectoryInfo dir = new DirectoryInfo(sourceDirName);
+
+            if (!dir.Exists)
+            {
+                throw new DirectoryNotFoundException(
+                    "Source directory does not exist or could not be found: "
+                    + sourceDirName);
+            }
+
+            DirectoryInfo[] dirs = dir.GetDirectories();
+            if (!Directory.Exists(destDirName))
+            {
+                Directory.CreateDirectory(destDirName);
+            }
+
+            FileInfo[] files = dir.GetFiles();
+            foreach (FileInfo file in files)
+            {
+                string temppath = Path.Combine(destDirName, file.Name);
+                file.CopyTo(temppath, false);
+            }
+        }
+
+        private void Apply_Click(object sender, EventArgs e)
+        {
+            Spel.selectedtheme = dropdown.Text;
         }
     }
 }

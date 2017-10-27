@@ -31,6 +31,10 @@
             this.Terug = new System.Windows.Forms.Button();
             this.dropdown = new System.Windows.Forms.ComboBox();
             this.upload = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.themename = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Apply = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Terug
@@ -48,14 +52,14 @@
             // 
             this.dropdown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.dropdown.FormattingEnabled = true;
-            this.dropdown.Location = new System.Drawing.Point(156, 85);
+            this.dropdown.Location = new System.Drawing.Point(847, 12);
             this.dropdown.Name = "dropdown";
             this.dropdown.Size = new System.Drawing.Size(121, 21);
             this.dropdown.TabIndex = 8;
             // 
             // upload
             // 
-            this.upload.Location = new System.Drawing.Point(178, 112);
+            this.upload.Location = new System.Drawing.Point(106, 52);
             this.upload.Name = "upload";
             this.upload.Size = new System.Drawing.Size(75, 23);
             this.upload.TabIndex = 9;
@@ -63,11 +67,52 @@
             this.upload.UseVisualStyleBackColor = true;
             this.upload.Click += new System.EventHandler(this.upload_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(95, 15);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Nieuw Thema";
+            // 
+            // themename
+            // 
+            this.themename.Location = new System.Drawing.Point(92, 26);
+            this.themename.Name = "themename";
+            this.themename.Size = new System.Drawing.Size(100, 20);
+            this.themename.TabIndex = 11;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 29);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 13);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Thema Naam:";
+            // 
+            // Apply
+            // 
+            this.Apply.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Apply.Location = new System.Drawing.Point(420, 357);
+            this.Apply.Name = "Apply";
+            this.Apply.Size = new System.Drawing.Size(135, 42);
+            this.Apply.TabIndex = 13;
+            this.Apply.Text = "Apply";
+            this.Apply.UseVisualStyleBackColor = true;
+            this.Apply.Click += new System.EventHandler(this.Apply_Click);
+            // 
             // Opties
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(980, 557);
+            this.Controls.Add(this.Apply);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.themename);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.upload);
             this.Controls.Add(this.dropdown);
             this.Controls.Add(this.Terug);
@@ -75,6 +120,7 @@
             this.Name = "Opties";
             this.Text = "Opties";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -83,5 +129,9 @@
         private System.Windows.Forms.Button Terug;
         private System.Windows.Forms.ComboBox dropdown;
         private System.Windows.Forms.Button upload;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox themename;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button Apply;
     }
 }
