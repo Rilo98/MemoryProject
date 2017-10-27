@@ -51,6 +51,12 @@
     <Compile Include="Dobbelsteen.designer.cs">
       <DependentUpon>Dobbelsteen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Opties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Opties.Designer.cs">
+      <DependentUpon>Opties.cs</DependentUpon>
+    </Compile>
     <Compile Include="Spel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MultiNameninvoeren.resx">
       <DependentUpon>MultiNameninvoeren.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Opties.resx">
+      <DependentUpon>Opties.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

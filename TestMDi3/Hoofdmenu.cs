@@ -32,5 +32,13 @@ namespace TestMDi3
         {
             ((MainForm)this.MdiParent).afsluiten();
         }
+
+        private void Opties_Click(object sender, EventArgs e)
+        {
+            Opties opties = new Opties();
+            opties.MdiParent = this.ParentForm;
+            opties.Show();
+            Close();
+        }
     }
 }

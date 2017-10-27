@@ -55,6 +55,7 @@
             this.Opties.Text = "Opties";
             this.Opties.UseVisualStyleBackColor = true;
             this.Opties.UseWaitCursor = true;
+            this.Opties.Click += new System.EventHandler(this.Opties_Click);
             // 
             // Afsluiten
             // 
