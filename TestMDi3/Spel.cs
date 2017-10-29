@@ -15,7 +15,7 @@ namespace TestMDi3
     {
         public static int length, width;
         public static bool multiplayer, Player1_beurt, Player2_beurt;
-        public static string singlenaam, multinaam1, multinaam2, selectedtheme = "";
+        public static string singlenaam, multinaam1, multinaam2, selectedtheme = "Default";
 
         SingleNameninvoeren singlenameninvoeren = new SingleNameninvoeren();
         int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0,picturenumber2 = 1, Player1_score, Player2_score;
