@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace TestMDi3
 {
     public partial class Hoofdmenu : Form
@@ -39,6 +40,11 @@ namespace TestMDi3
             opties.MdiParent = this.ParentForm;
             opties.Show();
             Close();
+        }
+        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Spel.helpmenu();
         }
     }
 }

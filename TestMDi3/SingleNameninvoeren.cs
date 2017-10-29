@@ -33,7 +33,7 @@ namespace TestMDi3
 
         public void Volgende_Click(object sender, EventArgs e)
         {
-            if ((Convert.ToInt32(Lengte.Text) > 8 || Convert.ToInt32(Lengte.Text) < 4) || (Convert.ToInt32(Breedte.Text) > 8 || Convert.ToInt32(Breedte.Text) < 4)  || Breedte == null || Lengte == null)
+            if (Breedte.Text == "" || Lengte.Text == "" || (Convert.ToInt32(Lengte.Text) > 8 || Convert.ToInt32(Lengte.Text) < 4) || (Convert.ToInt32(Breedte.Text) > 8 || Convert.ToInt32(Breedte.Text) < 4))
             {
                 status.Text = "Voer een getal tussen de 4 en de 8 in.";
                 status.ForeColor = Color.Red;

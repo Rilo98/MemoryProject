@@ -15,7 +15,7 @@ namespace TestMDi3
     {
         public static int length, width;
         public static bool multiplayer, Player1_beurt, Player2_beurt;
-        public static string singlenaam, multinaam1, multinaam2, selectedtheme,defaultpic = "Properties.Resources.defaultpic";
+        public static string singlenaam, multinaam1, multinaam2, selectedtheme = "";
 
         SingleNameninvoeren singlenameninvoeren = new SingleNameninvoeren();
         int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0,picturenumber2 = 1, Player1_score, Player2_score;
@@ -89,7 +89,7 @@ namespace TestMDi3
 
         private void theme(Image[,] arrayimage)
         {
-            if (selectedtheme == "")
+            if (selectedtheme =="Default")
             {
                 defaulttheme(arrayimage);
             }
@@ -157,7 +157,7 @@ namespace TestMDi3
                 button.Name = "button" + (i + 1).ToString();
                 button.Dock = DockStyle.Fill;
                 this.tableLayoutPanel1.Controls.Add(button);
-                if (selectedtheme == "")
+                if (selectedtheme =="Default")
                 {
                     button.BackgroundImage = Properties.Resources.defaultpic;
                     button.BackgroundImageLayout = ImageLayout.Stretch;
@@ -387,7 +387,7 @@ namespace TestMDi3
             }
             else
             {
-                if (selectedtheme == null)
+                if (selectedtheme =="Default")
                 {
                     firstButton.BackgroundImage = Properties.Resources.defaultpic;
                     secondButton.BackgroundImage = Properties.Resources.defaultpic;
@@ -403,6 +403,17 @@ namespace TestMDi3
                     secondButton = null;
                 }
             }
+        }
+
+        public static void helpmenu()
+        {
+            byte[] PDF = Properties.Resources.Spelregels;
+            System.IO.MemoryStream ms = new System.IO.MemoryStream(PDF);
+            System.IO.FileStream f = new System.IO.FileStream("help.pdf", System.IO.FileMode.OpenOrCreate);
+            ms.WriteTo(f);
+            f.Close();
+            ms.Close();
+            System.Diagnostics.Process.Start("help.pdf");
         }
 
         //buttons ---------------------------------------------

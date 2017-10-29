@@ -35,6 +35,8 @@
             this.themename = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.Apply = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Terug
@@ -52,9 +54,9 @@
             // 
             this.dropdown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.dropdown.FormattingEnabled = true;
-            this.dropdown.Location = new System.Drawing.Point(847, 12);
+            this.dropdown.Location = new System.Drawing.Point(92, 117);
             this.dropdown.Name = "dropdown";
-            this.dropdown.Size = new System.Drawing.Size(121, 21);
+            this.dropdown.Size = new System.Drawing.Size(100, 21);
             this.dropdown.TabIndex = 8;
             // 
             // upload
@@ -70,10 +72,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("MS Reference Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 15);
+            this.label1.Size = new System.Drawing.Size(84, 13);
             this.label1.TabIndex = 10;
             this.label1.Text = "Nieuw Thema";
             // 
@@ -96,19 +98,40 @@
             // Apply
             // 
             this.Apply.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Apply.Location = new System.Drawing.Point(420, 357);
+            this.Apply.Location = new System.Drawing.Point(102, 144);
             this.Apply.Name = "Apply";
-            this.Apply.Size = new System.Drawing.Size(135, 42);
+            this.Apply.Size = new System.Drawing.Size(79, 23);
             this.Apply.TabIndex = 13;
             this.Apply.Text = "Apply";
             this.Apply.UseVisualStyleBackColor = true;
             this.Apply.Click += new System.EventHandler(this.Apply_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(12, 101);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(128, 13);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Selecteer een Thema";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 120);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(74, 13);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Thema Naam:";
             // 
             // Opties
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(980, 557);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.Apply);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.themename);
@@ -133,5 +156,7 @@
         private System.Windows.Forms.TextBox themename;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button Apply;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

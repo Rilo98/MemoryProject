@@ -22,6 +22,7 @@ namespace TestMDi3
                 Directory.CreateDirectory(@"Themes\");
                 string[] files = Directory.GetDirectories(@"Themes\");
                 this.dropdown.Items.AddRange(files);
+                this.dropdown.Items.Add("Default");
                 this.StartPosition = FormStartPosition.Manual;
                 this.Location = new Point(0, 0);
             }
@@ -30,6 +31,7 @@ namespace TestMDi3
             {
                 string[] files = Directory.GetDirectories(@"Themes\");
                 this.dropdown.Items.AddRange(files);
+                this.dropdown.Items.Add("Default");
                 this.StartPosition = FormStartPosition.Manual;
                 this.Location = new Point(0, 0);
             }
@@ -47,6 +49,7 @@ namespace TestMDi3
 
         private void upload_Click(object sender, EventArgs e)
         {
+            //upload een folder voor de themes 
             string targetPath = @"Themes\" + themename.Text;
             string source = "";
             try
@@ -59,6 +62,7 @@ namespace TestMDi3
                     DirectoryCopy(source, targetPath);
                     string[] files = Directory.GetDirectories(@"Themes\");
                     this.dropdown.Items.AddRange(files);
+                    this.dropdown.Items.Add("Default");
                 }
             }
             catch (Exception)
@@ -70,14 +74,12 @@ namespace TestMDi3
 
         private static void DirectoryCopy(string sourceDirName, string destDirName)
         {
-            // Get the subdirectories for the specified directory.
+            // Haalt de mapjes op.
             DirectoryInfo dir = new DirectoryInfo(sourceDirName);
 
             if (!dir.Exists)
             {
-                throw new DirectoryNotFoundException(
-                    "Source directory does not exist or could not be found: "
-                    + sourceDirName);
+                throw new DirectoryNotFoundException("De geselecteerde map kon niet worden gevonden: " + sourceDirName);
             }
 
             DirectoryInfo[] dirs = dir.GetDirectories();

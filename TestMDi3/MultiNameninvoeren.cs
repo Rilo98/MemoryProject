@@ -34,7 +34,7 @@ namespace TestMDi3
 
         private void Volgende_Click(object sender, EventArgs e)
         {
-            if ((Convert.ToInt32(Lengte.Text) > 8 || Convert.ToInt32(Lengte.Text) < 4) || (Convert.ToInt32(Breedte.Text) > 8 || Convert.ToInt32(Breedte.Text) < 4) || Breedte == null || Lengte == null)
+            if (Breedte.Text == "" || Lengte.Text == "" || (Convert.ToInt32(Lengte.Text) > 8 || Convert.ToInt32(Lengte.Text) < 4) || (Convert.ToInt32(Breedte.Text) > 8 || Convert.ToInt32(Breedte.Text) < 4))
             {
                 status.Text = "Voer een getal tussen de 4 en de 8 in.";
                 status.ForeColor = Color.Red;
@@ -49,15 +49,25 @@ namespace TestMDi3
 
             else
             {
-                Spel.length = Convert.ToInt32(Lengte.Text);
-                Spel.width = Convert.ToInt32(Breedte.Text);
-                Spel.multinaam1 = speler1.Text;
-                Spel.multinaam2 = speler2.Text;
-                Spel.multiplayer = true;
-                Dobbelsteen f6 = new Dobbelsteen();
-                f6.MdiParent = this.ParentForm;
-                f6.Show();
-                Close();
+                if (speler1.Text == "" || speler2.Text == "")
+                {
+                    errornaam.Text = "Vul een naam in.";
+                    errornaam.ForeColor = Color.Red;
+                    return;
+                }
+
+                else
+                {
+                    Spel.length = Convert.ToInt32(Lengte.Text);
+                    Spel.width = Convert.ToInt32(Breedte.Text);
+                    Spel.multinaam1 = speler1.Text;
+                    Spel.multinaam2 = speler2.Text;
+                    Spel.multiplayer = true;
+                    Dobbelsteen f6 = new Dobbelsteen();
+                    f6.MdiParent = this.ParentForm;
+                    f6.Show();
+                    Close();
+                }
             }
 
         }
