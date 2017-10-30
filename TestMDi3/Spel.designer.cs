@@ -40,6 +40,7 @@
             this.BeurtIndicator2 = new System.Windows.Forms.Button();
             this.Stopwatch = new System.Windows.Forms.Label();
             this.timer_Sw = new System.Windows.Forms.Timer(this.components);
+            this.SaveSP = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // timer1
@@ -147,18 +148,13 @@
             this.Stopwatch.Text = "N/A";
             this.Stopwatch.Visible = false;
             // 
-            // timer_Sw
-            // 
-            this.timer_Sw.Enabled = true;
-            this.timer_Sw.Interval = 1000;
-            this.timer_Sw.Tick += new System.EventHandler(this.timer_Sw_Tick);
-            // 
             // Spel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(90)))), ((int)(((byte)(100)))));
             this.ClientSize = new System.Drawing.Size(980, 557);
+            this.Controls.Add(this.SaveSP);
             this.Controls.Add(this.Stopwatch);
             this.Controls.Add(this.BeurtIndicator2);
             this.Controls.Add(this.BeurtIndicator1);
@@ -190,6 +186,7 @@
         private System.Windows.Forms.Button BeurtIndicator2;
         private System.Windows.Forms.Label Stopwatch;
         private System.Windows.Forms.Timer timer_Sw;
+        private System.Windows.Forms.Button SaveSP;
     }
 }
 

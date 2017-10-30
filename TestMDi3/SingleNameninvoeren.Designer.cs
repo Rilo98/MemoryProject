@@ -63,7 +63,7 @@
             // 
             this.Volgende.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Volgende.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Volgende.Location = new System.Drawing.Point(322, 442);
+            this.Volgende.Location = new System.Drawing.Point(602, 432);
             this.Volgende.Name = "Volgende";
             this.Volgende.Size = new System.Drawing.Size(166, 42);
             this.Volgende.TabIndex = 2;
@@ -75,7 +75,7 @@
             // 
             this.Terug.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Terug.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Terug.Location = new System.Drawing.Point(565, 442);
+            this.Terug.Location = new System.Drawing.Point(389, 432);
             this.Terug.Name = "Terug";
             this.Terug.Size = new System.Drawing.Size(166, 42);
             this.Terug.TabIndex = 3;

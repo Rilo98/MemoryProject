@@ -34,6 +34,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.LoadSP = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Speel
@@ -105,12 +106,25 @@
             this.button2.Text = "Highscores";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // LoadSP
+            // 
+            this.LoadSP.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.LoadSP.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoadSP.Location = new System.Drawing.Point(602, 178);
+            this.LoadSP.Name = "LoadSP";
+            this.LoadSP.Size = new System.Drawing.Size(180, 52);
+            this.LoadSP.TabIndex = 6;
+            this.LoadSP.Text = "Laad SP";
+            this.LoadSP.UseVisualStyleBackColor = true;
+            this.LoadSP.Click += new System.EventHandler(this.LoadSP_Click);
+            // 
             // Hoofdmenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(90)))), ((int)(((byte)(100)))));
             this.ClientSize = new System.Drawing.Size(980, 557);
+            this.Controls.Add(this.LoadSP);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
@@ -133,5 +147,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button LoadSP;
     }
 }
