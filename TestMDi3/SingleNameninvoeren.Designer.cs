@@ -43,28 +43,29 @@
             // 
             // Singlenaam
             // 
-            this.Singlenaam.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Singlenaam.Location = new System.Drawing.Point(378, 162);
+            this.Singlenaam.Font = new System.Drawing.Font("Ravie", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Singlenaam.Location = new System.Drawing.Point(428, 85);
             this.Singlenaam.Name = "Singlenaam";
-            this.Singlenaam.Size = new System.Drawing.Size(245, 53);
+            this.Singlenaam.Size = new System.Drawing.Size(245, 61);
             this.Singlenaam.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(235, 162);
+            this.label1.Font = new System.Drawing.Font("Ravie", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(235, 83);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 46);
+            this.label1.Size = new System.Drawing.Size(187, 54);
             this.label1.TabIndex = 1;
             this.label1.Text = "Naam:";
             // 
             // Volgende
             // 
             this.Volgende.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Volgende.Location = new System.Drawing.Point(378, 329);
+            this.Volgende.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Volgende.Location = new System.Drawing.Point(322, 442);
             this.Volgende.Name = "Volgende";
-            this.Volgende.Size = new System.Drawing.Size(135, 42);
+            this.Volgende.Size = new System.Drawing.Size(166, 42);
             this.Volgende.TabIndex = 2;
             this.Volgende.Text = "Volgende";
             this.Volgende.UseVisualStyleBackColor = true;
@@ -73,9 +74,10 @@
             // Terug
             // 
             this.Terug.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Terug.Location = new System.Drawing.Point(378, 377);
+            this.Terug.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Terug.Location = new System.Drawing.Point(565, 442);
             this.Terug.Name = "Terug";
-            this.Terug.Size = new System.Drawing.Size(135, 42);
+            this.Terug.Size = new System.Drawing.Size(166, 42);
             this.Terug.TabIndex = 3;
             this.Terug.Text = "Terug";
             this.Terug.UseVisualStyleBackColor = true;
@@ -84,50 +86,56 @@
             // GrooteSpeelveldSingle
             // 
             this.GrooteSpeelveldSingle.AutoSize = true;
-            this.GrooteSpeelveldSingle.Location = new System.Drawing.Point(375, 239);
+            this.GrooteSpeelveldSingle.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GrooteSpeelveldSingle.Location = new System.Drawing.Point(393, 197);
             this.GrooteSpeelveldSingle.Name = "GrooteSpeelveldSingle";
-            this.GrooteSpeelveldSingle.Size = new System.Drawing.Size(90, 13);
+            this.GrooteSpeelveldSingle.Size = new System.Drawing.Size(252, 30);
             this.GrooteSpeelveldSingle.TabIndex = 4;
             this.GrooteSpeelveldSingle.Text = "Groote speelveld:";
             // 
             // Lengte
             // 
-            this.Lengte.Location = new System.Drawing.Point(378, 255);
+            this.Lengte.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lengte.Location = new System.Drawing.Point(545, 255);
             this.Lengte.Name = "Lengte";
-            this.Lengte.Size = new System.Drawing.Size(100, 20);
+            this.Lengte.Size = new System.Drawing.Size(100, 35);
             this.Lengte.TabIndex = 5;
             // 
             // Breedte
             // 
-            this.Breedte.Location = new System.Drawing.Point(378, 281);
+            this.Breedte.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Breedte.Location = new System.Drawing.Point(545, 305);
             this.Breedte.Name = "Breedte";
-            this.Breedte.Size = new System.Drawing.Size(100, 20);
+            this.Breedte.Size = new System.Drawing.Size(100, 35);
             this.Breedte.TabIndex = 6;
             // 
             // LengteLB
             // 
             this.LengteLB.AutoSize = true;
-            this.LengteLB.Location = new System.Drawing.Point(329, 258);
+            this.LengteLB.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LengteLB.Location = new System.Drawing.Point(393, 255);
             this.LengteLB.Name = "LengteLB";
-            this.LengteLB.Size = new System.Drawing.Size(43, 13);
+            this.LengteLB.Size = new System.Drawing.Size(118, 30);
             this.LengteLB.TabIndex = 7;
             this.LengteLB.Text = "Lengte:";
             // 
             // BreedteLB
             // 
             this.BreedteLB.AutoSize = true;
-            this.BreedteLB.Location = new System.Drawing.Point(325, 284);
+            this.BreedteLB.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BreedteLB.Location = new System.Drawing.Point(393, 308);
             this.BreedteLB.Name = "BreedteLB";
-            this.BreedteLB.Size = new System.Drawing.Size(47, 13);
+            this.BreedteLB.Size = new System.Drawing.Size(133, 30);
             this.BreedteLB.TabIndex = 8;
             this.BreedteLB.Text = "Breedte:";
             // 
             // status
             // 
             this.status.AutoSize = true;
-            this.status.Location = new System.Drawing.Point(375, 304);
+            this.status.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.status.Location = new System.Drawing.Point(393, 358);
             this.status.Name = "status";
-            this.status.Size = new System.Drawing.Size(92, 13);
+            this.status.Size = new System.Drawing.Size(270, 30);
             this.status.TabIndex = 9;
             this.status.Text = "Voer 2 getallen in.";
             // 
@@ -143,6 +151,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(90)))), ((int)(((byte)(100)))));
             this.ClientSize = new System.Drawing.Size(980, 557);
             this.Controls.Add(this.errornaam);
             this.Controls.Add(this.status);

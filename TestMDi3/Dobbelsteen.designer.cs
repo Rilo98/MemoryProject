@@ -42,9 +42,10 @@
             // 
             // Gooi_1
             // 
-            this.Gooi_1.Location = new System.Drawing.Point(456, 413);
+            this.Gooi_1.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Gooi_1.Location = new System.Drawing.Point(390, 361);
             this.Gooi_1.Name = "Gooi_1";
-            this.Gooi_1.Size = new System.Drawing.Size(75, 23);
+            this.Gooi_1.Size = new System.Drawing.Size(162, 44);
             this.Gooi_1.TabIndex = 0;
             this.Gooi_1.Text = "Gooi!";
             this.Gooi_1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -54,25 +55,27 @@
             // Speler1
             // 
             this.Speler1.AutoSize = true;
-            this.Speler1.Location = new System.Drawing.Point(341, 383);
+            this.Speler1.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Speler1.Location = new System.Drawing.Point(230, 298);
             this.Speler1.Name = "Speler1";
-            this.Speler1.Size = new System.Drawing.Size(46, 13);
+            this.Speler1.Size = new System.Drawing.Size(120, 30);
             this.Speler1.TabIndex = 5;
             this.Speler1.Text = "Speler 1";
             // 
             // Speler2
             // 
             this.Speler2.AutoSize = true;
-            this.Speler2.Location = new System.Drawing.Point(611, 383);
+            this.Speler2.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Speler2.Location = new System.Drawing.Point(562, 298);
             this.Speler2.Name = "Speler2";
-            this.Speler2.Size = new System.Drawing.Size(46, 13);
+            this.Speler2.Size = new System.Drawing.Size(126, 30);
             this.Speler2.TabIndex = 6;
             this.Speler2.Text = "Speler 2";
             // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Location = new System.Drawing.Point(503, 126);
+            this.pictureBox2.Location = new System.Drawing.Point(503, 45);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(250, 250);
             this.pictureBox2.TabIndex = 4;
@@ -81,7 +84,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Location = new System.Drawing.Point(243, 126);
+            this.pictureBox1.Location = new System.Drawing.Point(172, 45);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(250, 250);
             this.pictureBox1.TabIndex = 3;
@@ -90,17 +93,19 @@
             // afterlb
             // 
             this.afterlb.AutoSize = true;
-            this.afterlb.Location = new System.Drawing.Point(453, 439);
+            this.afterlb.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.afterlb.Location = new System.Drawing.Point(399, 408);
             this.afterlb.Name = "afterlb";
-            this.afterlb.Size = new System.Drawing.Size(28, 13);
+            this.afterlb.Size = new System.Drawing.Size(95, 30);
             this.afterlb.TabIndex = 7;
             this.afterlb.Text = "after";
             // 
             // Terug
             // 
-            this.Terug.Location = new System.Drawing.Point(404, 474);
+            this.Terug.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Terug.Location = new System.Drawing.Point(265, 474);
             this.Terug.Name = "Terug";
-            this.Terug.Size = new System.Drawing.Size(75, 23);
+            this.Terug.Size = new System.Drawing.Size(179, 46);
             this.Terug.TabIndex = 8;
             this.Terug.Text = "Terug";
             this.Terug.UseVisualStyleBackColor = true;
@@ -109,9 +114,10 @@
             // volgende
             // 
             this.volgende.Enabled = false;
-            this.volgende.Location = new System.Drawing.Point(503, 474);
+            this.volgende.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.volgende.Location = new System.Drawing.Point(485, 474);
             this.volgende.Name = "volgende";
-            this.volgende.Size = new System.Drawing.Size(75, 23);
+            this.volgende.Size = new System.Drawing.Size(185, 46);
             this.volgende.TabIndex = 9;
             this.volgende.Text = "Volgende";
             this.volgende.UseVisualStyleBackColor = true;
@@ -121,7 +127,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(90)))), ((int)(((byte)(100)))));
             this.ClientSize = new System.Drawing.Size(980, 557);
             this.Controls.Add(this.volgende);
             this.Controls.Add(this.Terug);

@@ -60,9 +60,10 @@
             // 
             // reset
             // 
-            this.reset.Location = new System.Drawing.Point(12, 476);
+            this.reset.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reset.Location = new System.Drawing.Point(25, 457);
             this.reset.Name = "reset";
-            this.reset.Size = new System.Drawing.Size(100, 23);
+            this.reset.Size = new System.Drawing.Size(164, 45);
             this.reset.TabIndex = 26;
             this.reset.Text = "Reset";
             this.reset.UseVisualStyleBackColor = true;
@@ -72,9 +73,10 @@
             // Label_Player1score
             // 
             this.Label_Player1score.AutoSize = true;
-            this.Label_Player1score.Location = new System.Drawing.Point(92, 16);
+            this.Label_Player1score.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label_Player1score.Location = new System.Drawing.Point(210, 88);
             this.Label_Player1score.Name = "Label_Player1score";
-            this.Label_Player1score.Size = new System.Drawing.Size(13, 13);
+            this.Label_Player1score.Size = new System.Drawing.Size(29, 30);
             this.Label_Player1score.TabIndex = 29;
             this.Label_Player1score.Text = "0";
             this.Label_Player1score.Visible = false;
@@ -82,9 +84,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(38, 16);
+            this.label2.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(69, 88);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 13);
+            this.label2.Size = new System.Drawing.Size(135, 30);
             this.label2.TabIndex = 30;
             this.label2.Text = "Player 1:";
             this.label2.Visible = false;
@@ -92,9 +95,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(38, 42);
+            this.label3.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(63, 140);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 13);
+            this.label3.Size = new System.Drawing.Size(141, 30);
             this.label3.TabIndex = 31;
             this.label3.Text = "Player 2:";
             this.label3.Visible = false;
@@ -102,9 +106,10 @@
             // Label_Player2Score
             // 
             this.Label_Player2Score.AutoSize = true;
-            this.Label_Player2Score.Location = new System.Drawing.Point(92, 42);
+            this.Label_Player2Score.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label_Player2Score.Location = new System.Drawing.Point(210, 140);
             this.Label_Player2Score.Name = "Label_Player2Score";
-            this.Label_Player2Score.Size = new System.Drawing.Size(13, 13);
+            this.Label_Player2Score.Size = new System.Drawing.Size(29, 30);
             this.Label_Player2Score.TabIndex = 32;
             this.Label_Player2Score.Text = "0";
             this.Label_Player2Score.Visible = false;
@@ -112,9 +117,9 @@
             // BeurtIndicator1
             // 
             this.BeurtIndicator1.Enabled = false;
-            this.BeurtIndicator1.Location = new System.Drawing.Point(12, 12);
+            this.BeurtIndicator1.Location = new System.Drawing.Point(12, 81);
             this.BeurtIndicator1.Name = "BeurtIndicator1";
-            this.BeurtIndicator1.Size = new System.Drawing.Size(20, 20);
+            this.BeurtIndicator1.Size = new System.Drawing.Size(38, 37);
             this.BeurtIndicator1.TabIndex = 33;
             this.BeurtIndicator1.UseVisualStyleBackColor = true;
             this.BeurtIndicator1.Visible = false;
@@ -122,9 +127,9 @@
             // BeurtIndicator2
             // 
             this.BeurtIndicator2.Enabled = false;
-            this.BeurtIndicator2.Location = new System.Drawing.Point(12, 38);
+            this.BeurtIndicator2.Location = new System.Drawing.Point(12, 129);
             this.BeurtIndicator2.Name = "BeurtIndicator2";
-            this.BeurtIndicator2.Size = new System.Drawing.Size(20, 20);
+            this.BeurtIndicator2.Size = new System.Drawing.Size(38, 41);
             this.BeurtIndicator2.TabIndex = 34;
             this.BeurtIndicator2.UseVisualStyleBackColor = true;
             this.BeurtIndicator2.Visible = false;
@@ -133,6 +138,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(90)))), ((int)(((byte)(100)))));
             this.ClientSize = new System.Drawing.Size(980, 557);
             this.Controls.Add(this.BeurtIndicator2);
             this.Controls.Add(this.BeurtIndicator1);

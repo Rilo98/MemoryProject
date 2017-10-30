@@ -24,6 +24,11 @@ namespace TestMDi3
             this.Location = new Point(0, 0);
         }
 
+        private void Lengte_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void Terug_Click(object sender, EventArgs e)
         {
             Spelers f3 = new Spelers();
