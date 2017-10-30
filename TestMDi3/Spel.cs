@@ -18,7 +18,7 @@ namespace TestMDi3
         public static string singlenaam, multinaam1, multinaam2, selectedtheme = "Default";
 
         SingleNameninvoeren singlenameninvoeren = new SingleNameninvoeren();
-        int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0,picturenumber2 = 1, Player1_score, Player2_score;
+        int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0,picturenumber2 = 1, Player1_score, Player2_score, counterint = (length * width / 2);
         Button firstButton = null, secondButton = null;
 
         public void Spel_Load(object sender, EventArgs e)
@@ -34,6 +34,7 @@ namespace TestMDi3
             else
             {
                 label2.Text = singlenaam;
+                Stopwatch.Text = Convert.ToString(counterint);
             }
         }
 
@@ -69,11 +70,15 @@ namespace TestMDi3
             else
             {
                 label2.Text = singlenaam;
+                BeurtIndicator1.Visible = false;
                 BeurtIndicator2.Visible = false;
                 label2.Visible = Enabled;
                 label3.Visible = false;
                 Label_Player1score.Visible = Enabled;
                 Label_Player2Score.Visible = false;
+
+                Stopwatch.Visible = true;
+                timer_Sw.Enabled = true;
 
                 textboxint3 = (length * width) / 2;
                 textboxint4 = (length * width) + 1;
@@ -84,6 +89,42 @@ namespace TestMDi3
                 theme(arrayimage);
                 fillarray(array);
                 createbuttons(array, arrayimage, length, width);
+            }
+        }
+
+        private void timer_Sw_Tick(object sender, EventArgs e)
+        {
+            Stopwatch.Text = Convert.ToString(counterint = counterint - 1);
+            if (counterint == 0)
+            {
+                timer_Sw.Stop();
+
+                MainForm mainform = new MainForm();
+                string message = "Wilt u het spel herstarten?." + Environment.NewLine + "Druk op Yes om te herstarten." + Environment.NewLine + "Druk op No om terug te gaan naar het hoofdmenu.";
+                string caption = "De tijd is om!";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result;
+
+                // Displays the MessageBox.
+                result = MessageBox.Show(this, message, caption, buttons);
+
+                if (result == DialogResult.Yes)
+                {
+                    Spel.multiplayer = false;
+                    Spel spel = new Spel();
+                    spel.MdiParent = this.ParentForm;
+                    spel.Show();
+                    Close();
+                    this.Close();
+                }
+                else if (result == DialogResult.No)
+                {
+                    Hoofdmenu hoofdmenu = new Hoofdmenu();
+                    hoofdmenu.MdiParent = this.ParentForm;
+                    hoofdmenu.Show();
+                    Close();
+                    this.Close();
+                }
             }
         }
 
@@ -334,6 +375,8 @@ namespace TestMDi3
             {
                 Player1_score = Player1_score + 1;
                 Label_Player1score.Text = Convert.ToString(Player1_score);
+                counterint = counterint + (length * width / 4);
+                Stopwatch.Text = Convert.ToString(counterint);
             }
         }
         private void SwitchTurn()
