@@ -42,7 +42,7 @@
             // 
             // Gooi_1
             // 
-            this.Gooi_1.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Gooi_1.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Gooi_1.Location = new System.Drawing.Point(390, 361);
             this.Gooi_1.Name = "Gooi_1";
             this.Gooi_1.Size = new System.Drawing.Size(162, 44);
@@ -55,20 +55,20 @@
             // Speler1
             // 
             this.Speler1.AutoSize = true;
-            this.Speler1.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Speler1.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Speler1.Location = new System.Drawing.Point(230, 298);
             this.Speler1.Name = "Speler1";
-            this.Speler1.Size = new System.Drawing.Size(120, 30);
+            this.Speler1.Size = new System.Drawing.Size(73, 25);
             this.Speler1.TabIndex = 5;
             this.Speler1.Text = "Speler 1";
             // 
             // Speler2
             // 
             this.Speler2.AutoSize = true;
-            this.Speler2.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Speler2.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Speler2.Location = new System.Drawing.Point(562, 298);
             this.Speler2.Name = "Speler2";
-            this.Speler2.Size = new System.Drawing.Size(126, 30);
+            this.Speler2.Size = new System.Drawing.Size(75, 25);
             this.Speler2.TabIndex = 6;
             this.Speler2.Text = "Speler 2";
             // 
@@ -93,16 +93,16 @@
             // afterlb
             // 
             this.afterlb.AutoSize = true;
-            this.afterlb.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.afterlb.Location = new System.Drawing.Point(399, 408);
+            this.afterlb.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.afterlb.Location = new System.Drawing.Point(439, 408);
             this.afterlb.Name = "afterlb";
-            this.afterlb.Size = new System.Drawing.Size(95, 30);
+            this.afterlb.Size = new System.Drawing.Size(49, 25);
             this.afterlb.TabIndex = 7;
             this.afterlb.Text = "after";
             // 
             // Terug
             // 
-            this.Terug.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Terug.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Terug.Location = new System.Drawing.Point(265, 474);
             this.Terug.Name = "Terug";
             this.Terug.Size = new System.Drawing.Size(179, 46);
@@ -114,7 +114,7 @@
             // volgende
             // 
             this.volgende.Enabled = false;
-            this.volgende.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.volgende.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.volgende.Location = new System.Drawing.Point(485, 474);
             this.volgende.Name = "volgende";
             this.volgende.Size = new System.Drawing.Size(185, 46);

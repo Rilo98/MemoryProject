@@ -39,7 +39,7 @@
             // Speel
             // 
             this.Speel.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.Speel.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Speel.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Speel.Location = new System.Drawing.Point(406, 180);
             this.Speel.Name = "Speel";
             this.Speel.Size = new System.Drawing.Size(180, 52);
@@ -52,7 +52,7 @@
             // Opties
             // 
             this.Opties.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.Opties.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Opties.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Opties.Location = new System.Drawing.Point(406, 327);
             this.Opties.Name = "Opties";
             this.Opties.Size = new System.Drawing.Size(180, 52);
@@ -65,7 +65,7 @@
             // Afsluiten
             // 
             this.Afsluiten.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.Afsluiten.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Afsluiten.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Afsluiten.Location = new System.Drawing.Point(406, 398);
             this.Afsluiten.Name = "Afsluiten";
             this.Afsluiten.Size = new System.Drawing.Size(180, 52);
@@ -90,17 +90,17 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Ravie", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(398, 65);
+            this.label1.Font = new System.Drawing.Font("Bernard MT Condensed", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(437, 62);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(196, 43);
+            this.label1.Size = new System.Drawing.Size(112, 38);
             this.label1.TabIndex = 4;
             this.label1.Text = "Memory";
             // 
             // button2
             // 
             this.button2.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.button2.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(406, 254);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(180, 52);
