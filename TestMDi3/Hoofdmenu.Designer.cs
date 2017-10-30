@@ -40,7 +40,7 @@
             // 
             this.Speel.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.Speel.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Speel.Location = new System.Drawing.Point(406, 180);
+            this.Speel.Location = new System.Drawing.Point(406, 178);
             this.Speel.Name = "Speel";
             this.Speel.Size = new System.Drawing.Size(180, 52);
             this.Speel.TabIndex = 0;
