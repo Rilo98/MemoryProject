@@ -46,7 +46,6 @@
             this.Speel.TabIndex = 0;
             this.Speel.Text = "Speel";
             this.Speel.UseVisualStyleBackColor = true;
-            this.Speel.UseWaitCursor = true;
             this.Speel.Click += new System.EventHandler(this.Speel_Click);
             // 
             // Opties
@@ -59,7 +58,6 @@
             this.Opties.TabIndex = 1;
             this.Opties.Text = "Opties";
             this.Opties.UseVisualStyleBackColor = true;
-            this.Opties.UseWaitCursor = true;
             this.Opties.Click += new System.EventHandler(this.Opties_Click);
             // 
             // Afsluiten
@@ -72,7 +70,6 @@
             this.Afsluiten.TabIndex = 2;
             this.Afsluiten.Text = "Afsluiten";
             this.Afsluiten.UseVisualStyleBackColor = true;
-            this.Afsluiten.UseWaitCursor = true;
             this.Afsluiten.Click += new System.EventHandler(this.Afsluiten_Click);
             // 
             // button1
@@ -107,7 +104,6 @@
             this.button2.TabIndex = 5;
             this.button2.Text = "Highscores";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.UseWaitCursor = true;
             // 
             // Hoofdmenu
             // 

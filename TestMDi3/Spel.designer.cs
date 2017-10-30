@@ -75,10 +75,10 @@
             // Label_Player1score
             // 
             this.Label_Player1score.AutoSize = true;
-            this.Label_Player1score.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label_Player1score.Location = new System.Drawing.Point(210, 88);
+            this.Label_Player1score.Font = new System.Drawing.Font("Bernard MT Condensed", 20F);
+            this.Label_Player1score.Location = new System.Drawing.Point(177, 88);
             this.Label_Player1score.Name = "Label_Player1score";
-            this.Label_Player1score.Size = new System.Drawing.Size(22, 25);
+            this.Label_Player1score.Size = new System.Drawing.Size(27, 31);
             this.Label_Player1score.TabIndex = 29;
             this.Label_Player1score.Text = "0";
             this.Label_Player1score.Visible = false;
@@ -86,10 +86,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(69, 88);
+            this.label2.Font = new System.Drawing.Font("Bernard MT Condensed", 20F);
+            this.label2.Location = new System.Drawing.Point(63, 88);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 25);
+            this.label2.Size = new System.Drawing.Size(105, 31);
             this.label2.TabIndex = 30;
             this.label2.Text = "Player 1:";
             this.label2.Visible = false;
@@ -97,10 +97,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(63, 140);
+            this.label3.Font = new System.Drawing.Font("Bernard MT Condensed", 20F);
+            this.label3.Location = new System.Drawing.Point(63, 129);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 25);
+            this.label3.Size = new System.Drawing.Size(108, 31);
             this.label3.TabIndex = 31;
             this.label3.Text = "Player 2:";
             this.label3.Visible = false;
@@ -108,10 +108,10 @@
             // Label_Player2Score
             // 
             this.Label_Player2Score.AutoSize = true;
-            this.Label_Player2Score.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label_Player2Score.Location = new System.Drawing.Point(210, 140);
+            this.Label_Player2Score.Font = new System.Drawing.Font("Bernard MT Condensed", 20F);
+            this.Label_Player2Score.Location = new System.Drawing.Point(177, 131);
             this.Label_Player2Score.Name = "Label_Player2Score";
-            this.Label_Player2Score.Size = new System.Drawing.Size(22, 25);
+            this.Label_Player2Score.Size = new System.Drawing.Size(27, 31);
             this.Label_Player2Score.TabIndex = 32;
             this.Label_Player2Score.Text = "0";
             this.Label_Player2Score.Visible = false;
@@ -139,10 +139,10 @@
             // Stopwatch
             // 
             this.Stopwatch.AutoSize = true;
-            this.Stopwatch.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Stopwatch.Location = new System.Drawing.Point(12, 163);
+            this.Stopwatch.Font = new System.Drawing.Font("Bernard MT Condensed", 20F);
+            this.Stopwatch.Location = new System.Drawing.Point(63, 170);
             this.Stopwatch.Name = "Stopwatch";
-            this.Stopwatch.Size = new System.Drawing.Size(62, 30);
+            this.Stopwatch.Size = new System.Drawing.Size(53, 31);
             this.Stopwatch.TabIndex = 35;
             this.Stopwatch.Text = "N/A";
             this.Stopwatch.Visible = false;
