@@ -29,17 +29,50 @@ namespace TestMDi3
         public void Spel_Load(object sender, EventArgs e)
         {
             SingleNameninvoeren singlenameninvoeren = new SingleNameninvoeren();
-            SwitchTurn();
+            
             if (multiplayer == true)
             {
                 label2.Text = multinaam1;
                 label3.Text = multinaam2;
+                Gamemode.Text = "Local Multiplayer";
+            
+                if (Player1_beurt == true)
+                {
+                    BeurtIndicator1.BackColor = ColorTranslator.FromHtml("#76FF03");
+                    BeurtIndicator2.BackColor = ColorTranslator.FromHtml("#F5F5F5");
+
+                    label2.Font = new Font(label2.Font, FontStyle.Bold);
+                    Label_Player1score.Font = new Font(label2.Font, FontStyle.Bold);
+                    label2.ForeColor = Color.White;
+                    Label_Player1score.ForeColor = Color.White;
+
+                    label3.Font = new Font(label3.Font, FontStyle.Regular);
+                    Label_Player2Score.Font = new Font(label3.Font, FontStyle.Regular);
+                    label3.ForeColor = Color.DimGray;
+                    Label_Player2Score.ForeColor = Color.DimGray;
+                }
+                else if (Player2_beurt == true)
+                {
+                    BeurtIndicator1.BackColor = ColorTranslator.FromHtml("#F5F5F5");
+                    BeurtIndicator2.BackColor = ColorTranslator.FromHtml("#76FF03");
+
+                    label2.Font = new Font(label2.Font, FontStyle.Regular);
+                    Label_Player1score.Font = new Font(label2.Font, FontStyle.Regular);
+                    label2.ForeColor = Color.DimGray;
+                    Label_Player1score.ForeColor = Color.DimGray;
+
+                    label3.Font = new Font(label3.Font, FontStyle.Bold);
+                    Label_Player2Score.Font = new Font(label3.Font, FontStyle.Bold);
+                    label3.ForeColor = Color.White;
+                    Label_Player2Score.ForeColor = Color.White;
+                }
             }
 
             else
             {
                 label2.Text = singlenaam;
                 Stopwatch.Text = Convert.ToString(counterint);
+                Gamemode.Text = "Time Attack";
             }
         }
 
@@ -484,12 +517,12 @@ namespace TestMDi3
             if (multiplayer == true)
             {
 
-                if (Player1_beurt == true)
+                if (BeurtIndicator1.BackColor == ColorTranslator.FromHtml("#76FF03"))
                 {
                     Player1_score = Player1_score + 1;
                     Label_Player1score.Text = Convert.ToString(Player1_score);
                 }
-                if (Player2_beurt == true)
+                if (BeurtIndicator2.BackColor == ColorTranslator.FromHtml("#76FF03"))
                 {
                     Player2_score = Player2_score + 1;
                     Label_Player2Score.Text = Convert.ToString(Player2_score);
@@ -508,26 +541,41 @@ namespace TestMDi3
 
         private void SwitchTurn()
         {
-            if (Player1_beurt == true)
+            if (BeurtIndicator2.BackColor == ColorTranslator.FromHtml("#76FF03"))
             {
                 BeurtIndicator1.BackColor = ColorTranslator.FromHtml("#76FF03");
                 BeurtIndicator2.BackColor = ColorTranslator.FromHtml("#F5F5F5");
-                Player2_beurt = true;
-                Player1_beurt = false;
+
+                label2.Font = new Font(label2.Font, FontStyle.Bold);
+                Label_Player1score.Font = new Font(label2.Font, FontStyle.Bold);
+                label2.ForeColor = Color.White;
+                Label_Player1score.ForeColor = Color.White;
+
+                label3.Font = new Font(label3.Font, FontStyle.Regular);
+                Label_Player2Score.Font = new Font(label3.Font, FontStyle.Regular);
+                label3.ForeColor = Color.DimGray;
+                Label_Player2Score.ForeColor = Color.DimGray;
             }
-            else if (Player2_beurt == true)
+            else if (BeurtIndicator1.BackColor == ColorTranslator.FromHtml("#76FF03"))
             {
                 BeurtIndicator1.BackColor = ColorTranslator.FromHtml("#F5F5F5");
                 BeurtIndicator2.BackColor = ColorTranslator.FromHtml("#76FF03");
-                Player1_beurt = true;
-                Player2_beurt = false;
+
+                label2.Font = new Font(label2.Font, FontStyle.Regular);
+                Label_Player1score.Font = new Font(label2.Font, FontStyle.Regular);
+                label2.ForeColor = Color.DimGray;
+                Label_Player1score.ForeColor = Color.DimGray;
+
+                label3.Font = new Font(label3.Font, FontStyle.Bold);
+                Label_Player2Score.Font = new Font(label3.Font, FontStyle.Bold);
+                label3.ForeColor = Color.White;
+                Label_Player2Score.ForeColor = Color.White;
 
             }
 
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
-            SwitchTurn();
             timer1.Stop();
             if ((arrayid1 == arrayid2 - textboxint3) || (arrayid1 == arrayid2 + textboxint3))
             {
@@ -540,25 +588,12 @@ namespace TestMDi3
                 secondButton.BackColor = Color.Transparent;
                 firstButton = null;
                 secondButton = null;
-                if (Player1_beurt == false)
-                {
-                    BeurtIndicator1.BackColor = ColorTranslator.FromHtml("#F5F5F5");
-                    BeurtIndicator2.BackColor = ColorTranslator.FromHtml("#76FF03");
-                    Player1_beurt = true;
-                    Player2_beurt = false;
-                }
-                else if (Player2_beurt == false)
-                {
-                    BeurtIndicator1.BackColor = ColorTranslator.FromHtml("#76FF03");
-                    BeurtIndicator2.BackColor = ColorTranslator.FromHtml("#F5F5F5");
-                    Player2_beurt = true;
-                    Player1_beurt = false;
-                }
             }
             else
             {
                 if (selectedtheme =="Default")
                 {
+                    SwitchTurn();
                     firstButton.BackgroundImage = Properties.Resources.defaultpic;
                     secondButton.BackgroundImage = Properties.Resources.defaultpic;
                     firstButton = null;
@@ -567,6 +602,7 @@ namespace TestMDi3
 
                 else
                 {
+                    SwitchTurn();
                     firstButton.BackgroundImage = (Bitmap)Image.FromFile(selectedtheme + @"\" + "defaultpic.png");
                     secondButton.BackgroundImage = (Bitmap)Image.FromFile(selectedtheme + @"\" + "defaultpic.png");
                     firstButton = null;
