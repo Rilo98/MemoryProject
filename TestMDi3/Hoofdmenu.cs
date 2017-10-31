@@ -46,25 +46,5 @@ namespace TestMDi3
         {
             Spel.helpmenu();
         }
-
-        private void LoadSP_Click(object sender, EventArgs e)
-        {
-            Spel.Doorgaan1Speler = true;
-            Spel.multiplayer = false;
-            Spel spel = new Spel();
-            spel.MdiParent = this.ParentForm;
-            spel.Show();
-            Close();
-        }
-
-        private void LoadMP_Click(object sender, EventArgs e)
-        {
-            Spel.DoorgaanMultiPlayer = true;
-            Spel.multiplayer = true;
-            Spel spel = new Spel();
-            spel.MdiParent = this.ParentForm;
-            spel.Show();
-            Close();
-        }
     }
 }

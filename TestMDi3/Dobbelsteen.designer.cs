@@ -43,7 +43,7 @@
             // Gooi_1
             // 
             this.Gooi_1.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Gooi_1.Location = new System.Drawing.Point(390, 361);
+            this.Gooi_1.Location = new System.Drawing.Point(412, 361);
             this.Gooi_1.Name = "Gooi_1";
             this.Gooi_1.Size = new System.Drawing.Size(162, 44);
             this.Gooi_1.TabIndex = 0;
@@ -57,7 +57,7 @@
             this.Speler1.AutoSize = true;
             this.Speler1.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Speler1.ForeColor = System.Drawing.Color.White;
-            this.Speler1.Location = new System.Drawing.Point(230, 298);
+            this.Speler1.Location = new System.Drawing.Point(245, 298);
             this.Speler1.Name = "Speler1";
             this.Speler1.Size = new System.Drawing.Size(86, 28);
             this.Speler1.TabIndex = 5;
@@ -68,7 +68,7 @@
             this.Speler2.AutoSize = true;
             this.Speler2.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Speler2.ForeColor = System.Drawing.Color.White;
-            this.Speler2.Location = new System.Drawing.Point(562, 298);
+            this.Speler2.Location = new System.Drawing.Point(655, 298);
             this.Speler2.Name = "Speler2";
             this.Speler2.Size = new System.Drawing.Size(86, 28);
             this.Speler2.TabIndex = 6;
@@ -77,7 +77,8 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Location = new System.Drawing.Point(503, 45);
+            this.pictureBox2.Image = global::TestMDi3.Properties.Resources._1c;
+            this.pictureBox2.Location = new System.Drawing.Point(573, 45);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(250, 250);
             this.pictureBox2.TabIndex = 4;
@@ -86,7 +87,8 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Location = new System.Drawing.Point(172, 45);
+            this.pictureBox1.Image = global::TestMDi3.Properties.Resources._1c;
+            this.pictureBox1.Location = new System.Drawing.Point(159, 45);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(250, 250);
             this.pictureBox1.TabIndex = 3;
@@ -97,7 +99,7 @@
             this.afterlb.AutoSize = true;
             this.afterlb.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.afterlb.ForeColor = System.Drawing.Color.White;
-            this.afterlb.Location = new System.Drawing.Point(395, 408);
+            this.afterlb.Location = new System.Drawing.Point(407, 408);
             this.afterlb.Name = "afterlb";
             this.afterlb.Size = new System.Drawing.Size(55, 28);
             this.afterlb.TabIndex = 7;
@@ -106,7 +108,7 @@
             // Terug
             // 
             this.Terug.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Terug.Location = new System.Drawing.Point(265, 474);
+            this.Terug.Location = new System.Drawing.Point(283, 474);
             this.Terug.Name = "Terug";
             this.Terug.Size = new System.Drawing.Size(179, 46);
             this.Terug.TabIndex = 8;
@@ -118,7 +120,7 @@
             // 
             this.volgende.Enabled = false;
             this.volgende.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.volgende.Location = new System.Drawing.Point(485, 474);
+            this.volgende.Location = new System.Drawing.Point(509, 474);
             this.volgende.Name = "volgende";
             this.volgende.Size = new System.Drawing.Size(185, 46);
             this.volgende.TabIndex = 9;
@@ -130,7 +132,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(90)))), ((int)(((byte)(100)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
             this.ClientSize = new System.Drawing.Size(980, 557);
             this.Controls.Add(this.volgende);
             this.Controls.Add(this.Terug);

@@ -140,8 +140,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(90)))), ((int)(((byte)(100)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
             this.ClientSize = new System.Drawing.Size(980, 557);
+            this.Controls.Add(this.dropdown);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Apply);
@@ -149,7 +150,6 @@
             this.Controls.Add(this.themename);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.upload);
-            this.Controls.Add(this.dropdown);
             this.Controls.Add(this.Terug);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Opties";

@@ -85,7 +85,7 @@
             // 
             this.Terug.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Terug.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Terug.Location = new System.Drawing.Point(590, 438);
+            this.Terug.Location = new System.Drawing.Point(485, 461);
             this.Terug.Name = "Terug";
             this.Terug.Size = new System.Drawing.Size(165, 42);
             this.Terug.TabIndex = 6;
@@ -97,7 +97,7 @@
             // 
             this.Volgende.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Volgende.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Volgende.Location = new System.Drawing.Point(258, 438);
+            this.Volgende.Location = new System.Drawing.Point(485, 413);
             this.Volgende.Name = "Volgende";
             this.Volgende.Size = new System.Drawing.Size(165, 42);
             this.Volgende.TabIndex = 5;
@@ -178,7 +178,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(90)))), ((int)(((byte)(100)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
             this.ClientSize = new System.Drawing.Size(980, 557);
             this.Controls.Add(this.errornaam);
             this.Controls.Add(this.status);

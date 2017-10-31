@@ -22,59 +22,8 @@ namespace TestMDi3
         public static bool multiplayer, Player1_beurt, Player2_beurt, Doorgaan1Speler, DoorgaanMultiPlayer;
         public static string singlenaam, multinaam1, multinaam2, selectedtheme = "Default";
 
-        SingleNameninvoeren singlenameninvoeren = new SingleNameninvoeren();
         int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0, picturenumber2 = 1, Player1_score, Player2_score, counterint = (length * width / 2);
         Button firstButton = null, secondButton = null;
-
-        public void Spel_Load(object sender, EventArgs e)
-        {
-            SingleNameninvoeren singlenameninvoeren = new SingleNameninvoeren();
-            
-            if (multiplayer == true)
-            {
-                label2.Text = multinaam1;
-                label3.Text = multinaam2;
-                Gamemode.Text = "Local Multiplayer";
-            
-                if (Player1_beurt == true)
-                {
-                    BeurtIndicator1.BackColor = ColorTranslator.FromHtml("#76FF03");
-                    BeurtIndicator2.BackColor = ColorTranslator.FromHtml("#F5F5F5");
-
-                    label2.Font = new Font(label2.Font, FontStyle.Bold);
-                    Label_Player1score.Font = new Font(label2.Font, FontStyle.Bold);
-                    label2.ForeColor = Color.White;
-                    Label_Player1score.ForeColor = Color.White;
-
-                    label3.Font = new Font(label3.Font, FontStyle.Regular);
-                    Label_Player2Score.Font = new Font(label3.Font, FontStyle.Regular);
-                    label3.ForeColor = Color.DimGray;
-                    Label_Player2Score.ForeColor = Color.DimGray;
-                }
-                else if (Player2_beurt == true)
-                {
-                    BeurtIndicator1.BackColor = ColorTranslator.FromHtml("#F5F5F5");
-                    BeurtIndicator2.BackColor = ColorTranslator.FromHtml("#76FF03");
-
-                    label2.Font = new Font(label2.Font, FontStyle.Regular);
-                    Label_Player1score.Font = new Font(label2.Font, FontStyle.Regular);
-                    label2.ForeColor = Color.DimGray;
-                    Label_Player1score.ForeColor = Color.DimGray;
-
-                    label3.Font = new Font(label3.Font, FontStyle.Bold);
-                    Label_Player2Score.Font = new Font(label3.Font, FontStyle.Bold);
-                    label3.ForeColor = Color.White;
-                    Label_Player2Score.ForeColor = Color.White;
-                }
-            }
-
-            else
-            {
-                label2.Text = singlenaam;
-                Stopwatch.Text = Convert.ToString(counterint);
-                Gamemode.Text = "Time Attack";
-            }
-        }
 
         public Spel()
         {
@@ -88,6 +37,8 @@ namespace TestMDi3
 
             if (multiplayer == true)
             {
+                Gamemode.Text = "Local Multiplayer";
+
                 if (DoorgaanMultiPlayer == true)
                 {
                     XmlDocument docMP = new XmlDocument();
@@ -113,6 +64,7 @@ namespace TestMDi3
                     theme(arrayimage);
                     LoadOldExceptionsMP(array);
                     createbuttons(array, arrayimage, length, width);
+                    PlayerBeurtStartGame();
                 }
 
                 else
@@ -134,11 +86,13 @@ namespace TestMDi3
                     theme(arrayimage);
                     fillarray(array);
                     createbuttons(array, arrayimage, length, width);
+                    PlayerBeurtStartGame();
                 }
             }
 
             else
             {
+                Gamemode.Text = "Time Attack";
                 if (Doorgaan1Speler == true)
                 {
                     XmlDocument docSP = new XmlDocument();
@@ -385,6 +339,40 @@ namespace TestMDi3
                     Close();
                     this.Close();
                 }
+            }
+        }
+
+        private void PlayerBeurtStartGame()
+        {
+            if (Player1_beurt == true)
+            {
+                BeurtIndicator1.BackColor = ColorTranslator.FromHtml("#76FF03");
+                BeurtIndicator2.BackColor = ColorTranslator.FromHtml("#F5F5F5");
+
+                label2.Font = new Font(label2.Font, FontStyle.Bold);
+                Label_Player1score.Font = new Font(label2.Font, FontStyle.Bold);
+                label2.ForeColor = Color.White;
+                Label_Player1score.ForeColor = Color.White;
+
+                label3.Font = new Font(label3.Font, FontStyle.Regular);
+                Label_Player2Score.Font = new Font(label3.Font, FontStyle.Regular);
+                label3.ForeColor = Color.DimGray;
+                Label_Player2Score.ForeColor = Color.DimGray;
+            }
+            else if (Player2_beurt == true)
+            {
+                BeurtIndicator1.BackColor = ColorTranslator.FromHtml("#F5F5F5");
+                BeurtIndicator2.BackColor = ColorTranslator.FromHtml("#76FF03");
+
+                label2.Font = new Font(label2.Font, FontStyle.Regular);
+                Label_Player1score.Font = new Font(label2.Font, FontStyle.Regular);
+                label2.ForeColor = Color.DimGray;
+                Label_Player1score.ForeColor = Color.DimGray;
+
+                label3.Font = new Font(label3.Font, FontStyle.Bold);
+                Label_Player2Score.Font = new Font(label3.Font, FontStyle.Bold);
+                label3.ForeColor = Color.White;
+                Label_Player2Score.ForeColor = Color.White;
             }
         }
 

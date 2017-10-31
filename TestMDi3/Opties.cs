@@ -99,6 +99,7 @@ namespace TestMDi3
         private void Apply_Click(object sender, EventArgs e)
         {
             Spel.selectedtheme = dropdown.Text;
+            MessageBox.Show(dropdown.Text + " is geselecteerd!");
         }
     }
 }

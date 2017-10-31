@@ -49,7 +49,7 @@
             // 
             this.MultiPlayer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MultiPlayer.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MultiPlayer.Location = new System.Drawing.Point(479, 216);
+            this.MultiPlayer.Location = new System.Drawing.Point(515, 216);
             this.MultiPlayer.Name = "MultiPlayer";
             this.MultiPlayer.Size = new System.Drawing.Size(219, 70);
             this.MultiPlayer.TabIndex = 1;
@@ -61,7 +61,7 @@
             // 
             this.Terugspeler.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Terugspeler.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Terugspeler.Location = new System.Drawing.Point(345, 292);
+            this.Terugspeler.Location = new System.Drawing.Point(357, 318);
             this.Terugspeler.Name = "Terugspeler";
             this.Terugspeler.Size = new System.Drawing.Size(219, 70);
             this.Terugspeler.TabIndex = 2;
@@ -73,7 +73,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(90)))), ((int)(((byte)(100)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
             this.ClientSize = new System.Drawing.Size(980, 557);
             this.Controls.Add(this.Terugspeler);
             this.Controls.Add(this.MultiPlayer);

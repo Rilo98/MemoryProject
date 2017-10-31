@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace TestMDi3
 {
@@ -20,6 +21,11 @@ namespace TestMDi3
 
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(0, 0);
+
+            if (File.Exists(@"SPSave.xml"))
+            {
+                Doorgaan.Enabled = true;
+            }
         }
 
         private void Terug_Click(object sender, EventArgs e)
@@ -29,7 +35,6 @@ namespace TestMDi3
             f3.Show();
             Close();
         }
-
 
         public void Volgende_Click(object sender, EventArgs e)
         {
@@ -66,5 +71,7 @@ namespace TestMDi3
                 }
             }
         }
+
+
     }
 }

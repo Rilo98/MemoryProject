@@ -34,15 +34,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.LoadSP = new System.Windows.Forms.Button();
-            this.LoadMP = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Speel
             // 
             this.Speel.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.Speel.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Speel.Location = new System.Drawing.Point(399, 264);
+            this.Speel.Location = new System.Drawing.Point(410, 166);
             this.Speel.Name = "Speel";
             this.Speel.Size = new System.Drawing.Size(180, 52);
             this.Speel.TabIndex = 0;
@@ -54,7 +52,7 @@
             // 
             this.Opties.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.Opties.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Opties.Location = new System.Drawing.Point(240, 347);
+            this.Opties.Location = new System.Drawing.Point(410, 282);
             this.Opties.Name = "Opties";
             this.Opties.Size = new System.Drawing.Size(180, 52);
             this.Opties.TabIndex = 1;
@@ -66,7 +64,7 @@
             // 
             this.Afsluiten.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.Afsluiten.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Afsluiten.Location = new System.Drawing.Point(565, 347);
+            this.Afsluiten.Location = new System.Drawing.Point(410, 340);
             this.Afsluiten.Name = "Afsluiten";
             this.Afsluiten.Size = new System.Drawing.Size(180, 52);
             this.Afsluiten.TabIndex = 2;
@@ -101,45 +99,19 @@
             // 
             this.button2.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.button2.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(240, 178);
+            this.button2.Location = new System.Drawing.Point(410, 224);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(180, 52);
             this.button2.TabIndex = 5;
             this.button2.Text = "Highscores";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // LoadSP
-            // 
-            this.LoadSP.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.LoadSP.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoadSP.Location = new System.Drawing.Point(565, 178);
-            this.LoadSP.Name = "LoadSP";
-            this.LoadSP.Size = new System.Drawing.Size(180, 52);
-            this.LoadSP.TabIndex = 6;
-            this.LoadSP.Text = "Laad SP";
-            this.LoadSP.UseVisualStyleBackColor = true;
-            this.LoadSP.Click += new System.EventHandler(this.LoadSP_Click);
-            // 
-            // LoadMP
-            // 
-            this.LoadMP.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            this.LoadMP.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoadMP.Location = new System.Drawing.Point(602, 254);
-            this.LoadMP.Name = "LoadMP";
-            this.LoadMP.Size = new System.Drawing.Size(180, 52);
-            this.LoadMP.TabIndex = 7;
-            this.LoadMP.Text = "Laad MP";
-            this.LoadMP.UseVisualStyleBackColor = true;
-            this.LoadMP.Click += new System.EventHandler(this.LoadMP_Click);
-            // 
             // Hoofdmenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(90)))), ((int)(((byte)(100)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
             this.ClientSize = new System.Drawing.Size(980, 557);
-            this.Controls.Add(this.LoadMP);
-            this.Controls.Add(this.LoadSP);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
@@ -162,7 +134,5 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button LoadSP;
-        private System.Windows.Forms.Button LoadMP;
     }
 }
