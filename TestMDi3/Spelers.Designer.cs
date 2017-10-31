@@ -36,7 +36,7 @@
             // SinglePlayer
             // 
             this.SinglePlayer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SinglePlayer.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SinglePlayer.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SinglePlayer.Location = new System.Drawing.Point(207, 216);
             this.SinglePlayer.Name = "SinglePlayer";
             this.SinglePlayer.Size = new System.Drawing.Size(219, 70);
@@ -48,7 +48,7 @@
             // MultiPlayer
             // 
             this.MultiPlayer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MultiPlayer.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MultiPlayer.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MultiPlayer.Location = new System.Drawing.Point(479, 216);
             this.MultiPlayer.Name = "MultiPlayer";
             this.MultiPlayer.Size = new System.Drawing.Size(219, 70);
@@ -60,7 +60,7 @@
             // Terugspeler
             // 
             this.Terugspeler.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Terugspeler.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Terugspeler.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Terugspeler.Location = new System.Drawing.Point(345, 292);
             this.Terugspeler.Name = "Terugspeler";
             this.Terugspeler.Size = new System.Drawing.Size(219, 70);

@@ -45,44 +45,46 @@
             // 
             // speler1
             // 
-            this.speler1.Font = new System.Drawing.Font("Bernard MT Condensed", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.speler1.Font = new System.Drawing.Font("Segoe UI Emoji", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.speler1.Location = new System.Drawing.Point(442, 48);
             this.speler1.Name = "speler1";
-            this.speler1.Size = new System.Drawing.Size(245, 55);
+            this.speler1.Size = new System.Drawing.Size(245, 61);
             this.speler1.TabIndex = 1;
             // 
             // NaamSpeler1
             // 
             this.NaamSpeler1.AutoSize = true;
-            this.NaamSpeler1.Font = new System.Drawing.Font("Bernard MT Condensed", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NaamSpeler1.Font = new System.Drawing.Font("Segoe UI Emoji", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NaamSpeler1.ForeColor = System.Drawing.Color.White;
             this.NaamSpeler1.Location = new System.Drawing.Point(307, 54);
             this.NaamSpeler1.Name = "NaamSpeler1";
-            this.NaamSpeler1.Size = new System.Drawing.Size(116, 47);
+            this.NaamSpeler1.Size = new System.Drawing.Size(136, 53);
             this.NaamSpeler1.TabIndex = 2;
             this.NaamSpeler1.Text = "Naam:";
             // 
             // NaamSpeler2
             // 
             this.NaamSpeler2.AutoSize = true;
-            this.NaamSpeler2.Font = new System.Drawing.Font("Bernard MT Condensed", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NaamSpeler2.Font = new System.Drawing.Font("Segoe UI Emoji", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NaamSpeler2.ForeColor = System.Drawing.Color.White;
             this.NaamSpeler2.Location = new System.Drawing.Point(307, 126);
             this.NaamSpeler2.Name = "NaamSpeler2";
-            this.NaamSpeler2.Size = new System.Drawing.Size(116, 47);
+            this.NaamSpeler2.Size = new System.Drawing.Size(136, 53);
             this.NaamSpeler2.TabIndex = 3;
             this.NaamSpeler2.Text = "Naam:";
             // 
             // speler2
             // 
-            this.speler2.Font = new System.Drawing.Font("Bernard MT Condensed", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.speler2.Font = new System.Drawing.Font("Segoe UI Emoji", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.speler2.Location = new System.Drawing.Point(442, 120);
             this.speler2.Name = "speler2";
-            this.speler2.Size = new System.Drawing.Size(245, 55);
+            this.speler2.Size = new System.Drawing.Size(245, 61);
             this.speler2.TabIndex = 4;
             // 
             // Terug
             // 
             this.Terug.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Terug.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Terug.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Terug.Location = new System.Drawing.Point(590, 438);
             this.Terug.Name = "Terug";
             this.Terug.Size = new System.Drawing.Size(165, 42);
@@ -94,7 +96,7 @@
             // Volgende
             // 
             this.Volgende.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Volgende.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Volgende.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Volgende.Location = new System.Drawing.Point(258, 438);
             this.Volgende.Name = "Volgende";
             this.Volgende.Size = new System.Drawing.Size(165, 42);
@@ -106,30 +108,33 @@
             // status
             // 
             this.status.AutoSize = true;
-            this.status.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.status.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.status.ForeColor = System.Drawing.Color.White;
             this.status.Location = new System.Drawing.Point(457, 348);
             this.status.Name = "status";
-            this.status.Size = new System.Drawing.Size(158, 25);
+            this.status.Size = new System.Drawing.Size(180, 28);
             this.status.TabIndex = 15;
             this.status.Text = "Voer 2 getallen in.";
             // 
             // BreedteLB
             // 
             this.BreedteLB.AutoSize = true;
-            this.BreedteLB.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BreedteLB.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BreedteLB.ForeColor = System.Drawing.Color.White;
             this.BreedteLB.Location = new System.Drawing.Point(425, 291);
             this.BreedteLB.Name = "BreedteLB";
-            this.BreedteLB.Size = new System.Drawing.Size(79, 25);
+            this.BreedteLB.Size = new System.Drawing.Size(88, 28);
             this.BreedteLB.TabIndex = 14;
             this.BreedteLB.Text = "Breedte:";
             // 
             // LengteLB
             // 
             this.LengteLB.AutoSize = true;
-            this.LengteLB.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LengteLB.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LengteLB.ForeColor = System.Drawing.Color.White;
             this.LengteLB.Location = new System.Drawing.Point(425, 252);
             this.LengteLB.Name = "LengteLB";
-            this.LengteLB.Size = new System.Drawing.Size(71, 25);
+            this.LengteLB.Size = new System.Drawing.Size(80, 28);
             this.LengteLB.TabIndex = 13;
             this.LengteLB.Text = "Lengte:";
             // 
@@ -143,20 +148,21 @@
             // 
             // Lengte
             // 
-            this.Lengte.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lengte.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lengte.Location = new System.Drawing.Point(540, 246);
             this.Lengte.Name = "Lengte";
-            this.Lengte.Size = new System.Drawing.Size(110, 32);
+            this.Lengte.Size = new System.Drawing.Size(110, 35);
             this.Lengte.TabIndex = 11;
             this.Lengte.TextChanged += new System.EventHandler(this.Lengte_TextChanged);
             // 
             // GrooteSpeelveldSingle
             // 
             this.GrooteSpeelveldSingle.AutoSize = true;
-            this.GrooteSpeelveldSingle.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GrooteSpeelveldSingle.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GrooteSpeelveldSingle.ForeColor = System.Drawing.Color.White;
             this.GrooteSpeelveldSingle.Location = new System.Drawing.Point(482, 203);
             this.GrooteSpeelveldSingle.Name = "GrooteSpeelveldSingle";
-            this.GrooteSpeelveldSingle.Size = new System.Drawing.Size(149, 25);
+            this.GrooteSpeelveldSingle.Size = new System.Drawing.Size(172, 28);
             this.GrooteSpeelveldSingle.TabIndex = 10;
             this.GrooteSpeelveldSingle.Text = "Groote speelveld:";
             // 
