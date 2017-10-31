@@ -135,18 +135,18 @@
             // 
             // Breedte
             // 
-            this.Breedte.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Breedte.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Breedte.Location = new System.Drawing.Point(540, 285);
             this.Breedte.Name = "Breedte";
-            this.Breedte.Size = new System.Drawing.Size(110, 35);
+            this.Breedte.Size = new System.Drawing.Size(110, 32);
             this.Breedte.TabIndex = 12;
             // 
             // Lengte
             // 
-            this.Lengte.Font = new System.Drawing.Font("Ravie", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lengte.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lengte.Location = new System.Drawing.Point(540, 246);
             this.Lengte.Name = "Lengte";
-            this.Lengte.Size = new System.Drawing.Size(110, 35);
+            this.Lengte.Size = new System.Drawing.Size(110, 32);
             this.Lengte.TabIndex = 11;
             this.Lengte.TextChanged += new System.EventHandler(this.Lengte_TextChanged);
             // 
