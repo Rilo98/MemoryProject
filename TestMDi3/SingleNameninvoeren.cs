@@ -21,11 +21,6 @@ namespace TestMDi3
 
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(0, 0);
-
-            if (File.Exists(@"SPSave.xml"))
-            {
-                Doorgaan.Enabled = true;
-            }
         }
 
         private void Terug_Click(object sender, EventArgs e)
