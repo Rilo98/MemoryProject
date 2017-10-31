@@ -148,6 +148,13 @@
             this.Stopwatch.Text = "N/A";
             this.Stopwatch.Visible = false;
             // 
+            // SaveSP
+            // 
+            this.SaveSP.Location = new System.Drawing.Point(0, 0);
+            this.SaveSP.Name = "SaveSP";
+            this.SaveSP.Size = new System.Drawing.Size(75, 23);
+            this.SaveSP.TabIndex = 0;
+            // 
             // Spel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
