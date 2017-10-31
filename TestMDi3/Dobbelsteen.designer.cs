@@ -94,7 +94,7 @@
             // 
             this.afterlb.AutoSize = true;
             this.afterlb.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.afterlb.Location = new System.Drawing.Point(439, 408);
+            this.afterlb.Location = new System.Drawing.Point(395, 408);
             this.afterlb.Name = "afterlb";
             this.afterlb.Size = new System.Drawing.Size(49, 25);
             this.afterlb.TabIndex = 7;

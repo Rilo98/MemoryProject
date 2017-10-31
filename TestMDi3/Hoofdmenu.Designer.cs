@@ -41,7 +41,7 @@
             // 
             this.Speel.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.Speel.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Speel.Location = new System.Drawing.Point(406, 178);
+            this.Speel.Location = new System.Drawing.Point(399, 264);
             this.Speel.Name = "Speel";
             this.Speel.Size = new System.Drawing.Size(180, 52);
             this.Speel.TabIndex = 0;
@@ -53,7 +53,7 @@
             // 
             this.Opties.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.Opties.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Opties.Location = new System.Drawing.Point(406, 327);
+            this.Opties.Location = new System.Drawing.Point(240, 347);
             this.Opties.Name = "Opties";
             this.Opties.Size = new System.Drawing.Size(180, 52);
             this.Opties.TabIndex = 1;
@@ -65,7 +65,7 @@
             // 
             this.Afsluiten.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.Afsluiten.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Afsluiten.Location = new System.Drawing.Point(406, 398);
+            this.Afsluiten.Location = new System.Drawing.Point(565, 347);
             this.Afsluiten.Name = "Afsluiten";
             this.Afsluiten.Size = new System.Drawing.Size(180, 52);
             this.Afsluiten.TabIndex = 2;
@@ -99,7 +99,7 @@
             // 
             this.button2.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.button2.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(406, 254);
+            this.button2.Location = new System.Drawing.Point(240, 178);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(180, 52);
             this.button2.TabIndex = 5;
@@ -110,7 +110,7 @@
             // 
             this.LoadSP.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.LoadSP.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoadSP.Location = new System.Drawing.Point(602, 178);
+            this.LoadSP.Location = new System.Drawing.Point(565, 178);
             this.LoadSP.Name = "LoadSP";
             this.LoadSP.Size = new System.Drawing.Size(180, 52);
             this.LoadSP.TabIndex = 6;
