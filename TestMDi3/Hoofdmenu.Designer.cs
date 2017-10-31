@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.LoadSP = new System.Windows.Forms.Button();
+            this.LoadMP = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Speel
@@ -119,12 +120,25 @@
             this.LoadSP.UseVisualStyleBackColor = true;
             this.LoadSP.Click += new System.EventHandler(this.LoadSP_Click);
             // 
+            // LoadMP
+            // 
+            this.LoadMP.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.LoadMP.Font = new System.Drawing.Font("Bernard MT Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoadMP.Location = new System.Drawing.Point(602, 254);
+            this.LoadMP.Name = "LoadMP";
+            this.LoadMP.Size = new System.Drawing.Size(180, 52);
+            this.LoadMP.TabIndex = 7;
+            this.LoadMP.Text = "Laad MP";
+            this.LoadMP.UseVisualStyleBackColor = true;
+            this.LoadMP.Click += new System.EventHandler(this.LoadMP_Click);
+            // 
             // Hoofdmenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(90)))), ((int)(((byte)(100)))));
             this.ClientSize = new System.Drawing.Size(980, 557);
+            this.Controls.Add(this.LoadMP);
             this.Controls.Add(this.LoadSP);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
@@ -149,5 +163,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button LoadSP;
+        private System.Windows.Forms.Button LoadMP;
     }
 }

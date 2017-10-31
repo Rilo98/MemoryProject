@@ -19,7 +19,7 @@ namespace TestMDi3
     public partial class Spel : Form
     {
         public static int length, width;
-        public static bool multiplayer, Player1_beurt, Player2_beurt, Doorgaan1Speler;
+        public static bool multiplayer, Player1_beurt, Player2_beurt, Doorgaan1Speler, DoorgaanMultiPlayer;
         public static string singlenaam, multinaam1, multinaam2, selectedtheme = "Default";
 
         SingleNameninvoeren singlenameninvoeren = new SingleNameninvoeren();
@@ -80,40 +80,20 @@ namespace TestMDi3
         {
             InitializeComponent();
 
+            SwitchTurn();
+
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(0, 0);
 
 
             if (multiplayer == true)
             {
-                label2.Text = multinaam1;
-                label3.Text = multinaam2;
-                BeurtIndicator1.Visible = Enabled;
-                BeurtIndicator2.Visible = Enabled;
-                label2.Visible = Enabled;
-                label3.Visible = Enabled;
-                Label_Player1score.Visible = Enabled;
-                Label_Player2Score.Visible = Enabled;
-                textboxint3 = (length * width) / 2;
-                textboxint4 = (length * width) + 1;
-                textboxint5 = (length * width);
-                int[,,] array = new int[2, textboxint3, 3];
-                Image[,] arrayimage = new Image[2, textboxint3];
-                reset.Visible = Enabled;
-                theme(arrayimage);
-                fillarray(array);
-                createbuttons(array, arrayimage, length, width);
-
-            }
-
-            else
-            {
-                if (Doorgaan1Speler == true)
+                if (DoorgaanMultiPlayer == true)
                 {
-                    XmlDocument doc = new XmlDocument();
-                    doc.Load("SPSave.xml");
-                    length = length = Convert.ToInt32(doc.SelectSingleNode("values/ints/length").InnerText);
-                    width = width = Convert.ToInt32(doc.SelectSingleNode("values/ints/width").InnerText);
+                    XmlDocument docMP = new XmlDocument();
+                    docMP.Load("MPSave.xml");
+                    length = length = Convert.ToInt32(docMP.SelectSingleNode("values/ints/length").InnerText);
+                    width = width = Convert.ToInt32(docMP.SelectSingleNode("values/ints/width").InnerText);
 
                     label2.Text = multinaam1;
                     label3.Text = multinaam2;
@@ -131,11 +111,63 @@ namespace TestMDi3
                     Image[,] arrayimage = new Image[2, textboxint3];
                     reset.Visible = Enabled;
                     theme(arrayimage);
-                    LoadOldExceptions(array);
+                    LoadOldExceptionsMP(array);
                     createbuttons(array, arrayimage, length, width);
+                }
 
+                else
+                {
+                    label2.Text = multinaam1;
+                    label3.Text = multinaam2;
+                    BeurtIndicator1.Visible = Enabled;
+                    BeurtIndicator2.Visible = Enabled;
+                    label2.Visible = Enabled;
+                    label3.Visible = Enabled;
+                    Label_Player1score.Visible = Enabled;
+                    Label_Player2Score.Visible = Enabled;
+                    textboxint3 = (length * width) / 2;
+                    textboxint4 = (length * width) + 1;
+                    textboxint5 = (length * width);
+                    int[,,] array = new int[2, textboxint3, 3];
+                    Image[,] arrayimage = new Image[2, textboxint3];
+                    reset.Visible = Enabled;
+                    theme(arrayimage);
+                    fillarray(array);
+                    createbuttons(array, arrayimage, length, width);
+                }
+            }
+
+            else
+            {
+                if (Doorgaan1Speler == true)
+                {
+                    XmlDocument docSP = new XmlDocument();
+                    docSP.Load("SPSave.xml");
+                    length = length = Convert.ToInt32(docSP.SelectSingleNode("values/ints/length").InnerText);
+                    width = width = Convert.ToInt32(docSP.SelectSingleNode("values/ints/width").InnerText);
+
+                    singlenaam = Convert.ToString(docSP.SelectSingleNode("values/ints/singlenaam").InnerText);
+
+                    BeurtIndicator1.Visible = false;
+                    BeurtIndicator2.Visible = false;
+                    label2.Text = singlenaam;
+                    label2.Visible = true;
+                    label3.Visible = false;
+                    Label_Player1score.Visible = true;
+                    Label_Player2Score.Visible = false;
+                    textboxint3 = (length * width) / 2;
+                    textboxint4 = (length * width) + 1;
+                    textboxint5 = (length * width);
+                    int[,,] array = new int[2, textboxint3, 3];
+                    Image[,] arrayimage = new Image[2, textboxint3];
+                    reset.Visible = Enabled;
+                    theme(arrayimage);
+                    LoadOldExceptionsSP(array);
+                    createbuttons(array, arrayimage, length, width);
+                    LoadOldSP();
                     // timer_Sw
                     // 
+                    Stopwatch.Text = Convert.ToString(counterint);
                     this.timer_Sw.Enabled = true;
                     this.timer_Sw.Interval = 1000;
                     this.timer_Sw.Tick += delegate (object sender, EventArgs e)
@@ -143,7 +175,7 @@ namespace TestMDi3
                     Stopwatch.Visible = true;
                     timer_Sw.Enabled = true;
                 }
-
+                
                 else
                 {
                     label2.Text = singlenaam;
@@ -168,6 +200,7 @@ namespace TestMDi3
                     createbuttons(array, arrayimage, length, width);
                     // timer_Sw
                     // 
+                    Stopwatch.Text = Convert.ToString(counterint);
                     this.timer_Sw.Enabled = true;
                     this.timer_Sw.Interval = 1000;
                     this.timer_Sw.Tick += delegate (object sender, EventArgs e)
@@ -214,23 +247,75 @@ namespace TestMDi3
             writer.Close();
         }
 
-        public void LoadOldSP(int[,,] array)
+        public void WriteMP(int[,,] array)
+        {
+            XmlTextWriter writer = new XmlTextWriter("MPSave.xml", Encoding.UTF8);
+            writer.Formatting = Formatting.Indented;
+            writer.WriteStartElement("values");
+            writer.WriteStartElement("ints");
+            writer.WriteElementString("score", Convert.ToString(Player1_score));
+            writer.WriteElementString("singlenaam", Convert.ToString(singlenaam));
+            writer.WriteElementString("length", Convert.ToString(length));
+            writer.WriteElementString("width", Convert.ToString(width));
+            writer.WriteElementString("selectedtheme", Convert.ToString(selectedtheme));
+            writer.WriteElementString("arrayid2", Convert.ToString(arrayid2));
+            writer.WriteElementString("counterint", Convert.ToString(counterint));
+            writer.WriteElementString("score", Convert.ToString(Player1_score));
+            writer.WriteEndElement();
+            writer.WriteStartElement("arrays");
+            writer.WriteStartElement("arrayimage");
+
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    for (int k = 0; k < array.GetLength(2); k++)
+                    {
+                        string ArrayXML = "arrayXML" + Convert.ToString(i) + "-" + Convert.ToString(j) + "-" + Convert.ToString(k);
+
+                        writer.WriteElementString(ArrayXML, Convert.ToString(array[i, j, k]));
+                    }
+                }
+            }
+
+            writer.WriteEndElement();
+            writer.WriteEndElement();
+            writer.Close();
+        }
+
+        public void LoadOldSP()
         {
             XmlDocument doc = new XmlDocument();
             doc.Load("SPSave.xml");
-            singlenaam = Convert.ToString(doc.SelectSingleNode("values/ints/singlenaam").InnerText);
+            length                      = Convert.ToInt32(doc.SelectSingleNode("values/ints/length").InnerText);
+            width                       = Convert.ToInt32(doc.SelectSingleNode("values/ints/width").InnerText);
+            selectedtheme               = Convert.ToString(doc.SelectSingleNode("values/ints/selectedtheme").InnerText);
+            Player1_score               = Convert.ToInt32(doc.SelectSingleNode("values/ints/score").InnerText);
+            counterint                  = Convert.ToInt32(doc.SelectSingleNode("values/ints/counterint").InnerText);
+            label2.Text                 = Convert.ToString(doc.SelectSingleNode("values/ints/singlenaam").InnerText); 
+            Label_Player1score.Text     = Convert.ToString(Player1_score);
+            Stopwatch.Text              = Convert.ToString(counterint);
+        }
+
+        public void LoadOldMP(int[,,] array)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load("MPSave.xml");
+            multinaam1 = Convert.ToString(doc.SelectSingleNode("values/ints/multinaam1").InnerText);
+            multinaam2 = Convert.ToString(doc.SelectSingleNode("values/ints/multinaam2").InnerText);
             length = Convert.ToInt32(doc.SelectSingleNode("values/ints/length").InnerText);
             width = Convert.ToInt32(doc.SelectSingleNode("values/ints/width").InnerText);
             selectedtheme = Convert.ToString(doc.SelectSingleNode("values/ints/selectedtheme").InnerText);
             Player1_score = Convert.ToInt32(doc.SelectSingleNode("values/ints/score").InnerText);
             counterint = Convert.ToInt32(doc.SelectSingleNode("values/ints/counterint").InnerText);
 
-            label2.Text = singlenaam;
+            label2.Text = multinaam1;
+            label3.Text = multinaam2;
             Label_Player1score.Text = Convert.ToString(Player1_score);
             Stopwatch.Text = Convert.ToString(counterint);
         }
 
-        public void LoadOldExceptions(int[,,] array)
+        public void LoadOldExceptionsSP(int[,,] array)
         {
             XmlDocument doc = new XmlDocument();
             doc.Load("SPSave.xml");
@@ -247,9 +332,27 @@ namespace TestMDi3
             }
         }
 
+        public void LoadOldExceptionsMP(int[,,] array)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load("MPSave.xml");
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    for (int k = 0; k < array.GetLength(2); k++)
+                    {
+                        string ArrayXML = "arrayXML" + Convert.ToString(i) + "-" + Convert.ToString(j) + "-" + Convert.ToString(k);
+                        array[i, j, k] = Convert.ToInt32(doc.SelectSingleNode("values/arrays/arrayimage/" + ArrayXML).InnerText);
+                    }
+                }
+            }
+        }
+
         private void timer_Sw_Tick(object sender, EventArgs e, Image[,] arrayimage, int[,,] array)
         {
             WriteSP(array);
+            
 
             Stopwatch.Text = Convert.ToString(counterint = counterint - 1);
             if (counterint == 0)
