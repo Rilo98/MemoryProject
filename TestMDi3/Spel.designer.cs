@@ -175,7 +175,6 @@
             this.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.Name = "Spel";
             this.Text = "Spel";
-            this.Load += new System.EventHandler(this.Spel_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
