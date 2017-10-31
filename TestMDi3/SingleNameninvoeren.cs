@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using TestMDi3;
 
 namespace TestMDi3
 {
     public partial class SingleNameninvoeren : Form
     {
+        
         
         
         public SingleNameninvoeren()
@@ -32,6 +34,11 @@ namespace TestMDi3
         }
 
         public void Volgende_Click(object sender, EventArgs e)
+        {
+            NewSPForm();
+        }
+
+        public void NewSPForm()
         {
             if (Breedte.Text == "" || Lengte.Text == "" || (Convert.ToInt32(Lengte.Text) > 8 || Convert.ToInt32(Lengte.Text) < 4) || (Convert.ToInt32(Breedte.Text) > 8 || Convert.ToInt32(Breedte.Text) < 4))
             {
@@ -66,7 +73,6 @@ namespace TestMDi3
                 }
             }
         }
-
 
     }
 }
