@@ -164,7 +164,8 @@ namespace TestMDi3
                 }
             }
         }
-
+        
+       
         public void WriteSP(int[,,] array)
         {
             XmlTextWriter writer = new XmlTextWriter("SPSave.xml", Encoding.UTF8);
@@ -176,7 +177,6 @@ namespace TestMDi3
             writer.WriteElementString("length", Convert.ToString(length));
             writer.WriteElementString("width", Convert.ToString(width));
             writer.WriteElementString("selectedtheme", Convert.ToString(selectedtheme));
-            writer.WriteElementString("arrayid2", Convert.ToString(arrayid2));
             writer.WriteElementString("counterint", Convert.ToString(counterint));
             writer.WriteElementString("score", Convert.ToString(Player1_score));
             writer.WriteEndElement();
@@ -200,20 +200,21 @@ namespace TestMDi3
             writer.WriteEndElement();
             writer.Close();
         }
-
-        public void WriteMP(int[,,] array)
+        internal void WriteMP(int[,,] array)
         {
             XmlTextWriter writer = new XmlTextWriter("MPSave.xml", Encoding.UTF8);
             writer.Formatting = Formatting.Indented;
+            label2.Text = multinaam1;
+            label3.Text = multinaam2;
             writer.WriteStartElement("values");
             writer.WriteStartElement("ints");
-            writer.WriteElementString("score", Convert.ToString(Player1_score));
-            writer.WriteElementString("singlenaam", Convert.ToString(singlenaam));
+            writer.WriteElementString("Player1_score", Convert.ToString(Player1_score));
+            writer.WriteElementString("Player2_score", Convert.ToString(Player2_score));
+            writer.WriteElementString("multinaam1", Convert.ToString(multinaam1));
+            writer.WriteElementString("multinaam2", Convert.ToString(multinaam2));
             writer.WriteElementString("length", Convert.ToString(length));
             writer.WriteElementString("width", Convert.ToString(width));
             writer.WriteElementString("selectedtheme", Convert.ToString(selectedtheme));
-            writer.WriteElementString("arrayid2", Convert.ToString(arrayid2));
-            writer.WriteElementString("counterint", Convert.ToString(counterint));
             writer.WriteElementString("score", Convert.ToString(Player1_score));
             writer.WriteEndElement();
             writer.WriteStartElement("arrays");
@@ -253,15 +254,15 @@ namespace TestMDi3
 
         public void LoadOldMP(int[,,] array)
         {
-            XmlDocument doc = new XmlDocument();
-            doc.Load("MPSave.xml");
-            multinaam1 = Convert.ToString(doc.SelectSingleNode("values/ints/multinaam1").InnerText);
-            multinaam2 = Convert.ToString(doc.SelectSingleNode("values/ints/multinaam2").InnerText);
-            length = Convert.ToInt32(doc.SelectSingleNode("values/ints/length").InnerText);
-            width = Convert.ToInt32(doc.SelectSingleNode("values/ints/width").InnerText);
-            selectedtheme = Convert.ToString(doc.SelectSingleNode("values/ints/selectedtheme").InnerText);
-            Player1_score = Convert.ToInt32(doc.SelectSingleNode("values/ints/score").InnerText);
-            counterint = Convert.ToInt32(doc.SelectSingleNode("values/ints/counterint").InnerText);
+            XmlDocument MP = new XmlDocument();
+            MP.Load("MPSave.xml");
+            multinaam1 = Convert.ToString(MP.SelectSingleNode("values/ints/multinaam1").InnerText);
+            multinaam2 = Convert.ToString(MP.SelectSingleNode("values/ints/multinaam2").InnerText);
+            length = Convert.ToInt32(MP.SelectSingleNode("values/ints/length").InnerText);
+            width = Convert.ToInt32(MP.SelectSingleNode("values/ints/width").InnerText);
+            selectedtheme = Convert.ToString(MP.SelectSingleNode("values/ints/selectedtheme").InnerText);
+            Player1_score = Convert.ToInt32(MP.SelectSingleNode("values/ints/score").InnerText);
+            counterint = Convert.ToInt32(MP.SelectSingleNode("values/ints/counterint").InnerText);
 
             label2.Text = multinaam1;
             label3.Text = multinaam2;
@@ -286,10 +287,12 @@ namespace TestMDi3
             }
         }
 
+       
+
         public void LoadOldExceptionsMP(int[,,] array)
         {
-            XmlDocument doc = new XmlDocument();
-            doc.Load("MPSave.xml");
+            XmlDocument MP = new XmlDocument();
+            MP.Load("MPSave.xml");
             for (int i = 0; i < array.GetLength(0); i++)
             {
                 for (int j = 0; j < array.GetLength(1); j++)
@@ -297,7 +300,7 @@ namespace TestMDi3
                     for (int k = 0; k < array.GetLength(2); k++)
                     {
                         string ArrayXML = "arrayXML" + Convert.ToString(i) + "-" + Convert.ToString(j) + "-" + Convert.ToString(k);
-                        array[i, j, k] = Convert.ToInt32(doc.SelectSingleNode("values/arrays/arrayimage/" + ArrayXML).InnerText);
+                        array[i, j, k] = Convert.ToInt32(MP.SelectSingleNode("values/arrays/arrayimage/" + ArrayXML).InnerText);
                     }
                 }
             }
@@ -305,7 +308,13 @@ namespace TestMDi3
 
         private void timer_Sw_Tick(object sender, EventArgs e, Image[,] arrayimage, int[,,] array)
         {
-            WriteSP(array);
+            if (multiplayer == true)
+            {
+                WriteMP(array);
+            }
+            else {
+                WriteSP(array);
+            } 
             
 
             Stopwatch.Text = Convert.ToString(counterint = counterint - 1);
@@ -327,6 +336,7 @@ namespace TestMDi3
                     Spel.multiplayer = false;
                     Spel spel = new Spel();
                     spel.MdiParent = this.ParentForm;
+                    counterint = (length * width / 2);
                     spel.Show();
                     Close();
                     this.Close();
