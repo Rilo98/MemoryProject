@@ -64,11 +64,17 @@ namespace TestMDi3
                     textboxint5 = (length * width);
                     int[,,] array = new int[2, textboxint3, 3];
                     Image[,] arrayimage = new Image[2, textboxint3];
+                    string[,] disabledbuttons = new string[2, textboxint3];
                     reset.Visible = Enabled;
                     theme(arrayimage);
                     LoadOldExceptionsMP(array);
                     createbuttons(array, arrayimage, length, width);
                     PlayerBeurtStartGame();
+
+                    this.timer_Sw.Enabled = true;
+                    this.timer_Sw.Interval = 1000;
+                    this.timer_Sw.Tick += delegate (object sender, EventArgs e)
+                    { timer_Sw_Tick(sender, e, arrayimage, array); };
                 }
 
                 else
@@ -90,11 +96,16 @@ namespace TestMDi3
                     textboxint5 = (length * width);
                     int[,,] array = new int[2, textboxint3, 3];
                     Image[,] arrayimage = new Image[2, textboxint3];
+                    string[,] disabledbuttons = new string[2, textboxint3];
                     reset.Visible = Enabled;
                     theme(arrayimage);
                     fillarray(array);
                     createbuttons(array, arrayimage, length, width);
                     PlayerBeurtStartGame();
+
+                    this.timer1.Interval = 250;
+                    this.timer1.Tick += delegate (object sender, EventArgs e)
+                    { timer1_Tick(sender, e, disabledbuttons); };
                 }
             }
 
@@ -126,6 +137,7 @@ namespace TestMDi3
                     textboxint5 = (length * width);
                     int[,,] array = new int[2, textboxint3, 3];
                     Image[,] arrayimage = new Image[2, textboxint3];
+                    string[,] disabledbuttons = new string[2, textboxint3];
                     reset.Visible = Enabled;
                     theme(arrayimage);
                     LoadOldExceptionsSP(array);
@@ -160,6 +172,7 @@ namespace TestMDi3
                     textboxint5 = (length * width);
                     int[,,] array = new int[2, textboxint3, 3];
                     Image[,] arrayimage = new Image[2, textboxint3];
+                    string[,] disabledbuttons = new string[2, textboxint3];
                     reset.Visible = Enabled;
                     theme(arrayimage);
                     fillarray(array);
@@ -251,7 +264,6 @@ namespace TestMDi3
             writer.Close();
         }
 
-       
         public void LoadOldSP()
         {
             XmlDocument doc = new XmlDocument();
@@ -726,12 +738,13 @@ namespace TestMDi3
                 }
             }
         }
-        private void timer1_Tick(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e, string[,] disabledbuttons)
         {
             timer1.Stop();
 
             if ((arrayid1 == arrayid2 - textboxint3) || (arrayid1 == arrayid2 + textboxint3))
             {
+                int disabledcount = 0;
                 x_kaarten = x_kaarten + 1;
                 PlayerScore();
                 firstButton.Enabled = false;
@@ -743,20 +756,51 @@ namespace TestMDi3
                 firstButton = null;
                 secondButton = null;
 
+                for (int i = 0; i < disabledbuttons.GetLength(0); i++)
+                { 
+                    for (int j = 0; j < disabledbuttons.GetLength(1); j++)
+                    {
+                        if (disabledcount < 1)
+                        {
+                            if (disabledbuttons[i, j] == null)
+                            {
+                                disabledcount++;
+                                disabledbuttons[i, j] = Convert.ToString(firstButton);
+                                disabledbuttons[i, j + 1] = Convert.ToString(secondButton);
+
+                                XmlTextWriter writer = new XmlTextWriter("test.xml", Encoding.UTF8);
+                                writer.Formatting = Formatting.Indented;
+
+                                string disabledfirstbutton = "disabledfirstbutton" + i + j, disabledsecondbutton = "disabledsecondbutton" + i + j;
+                                
+                                writer.WriteStartElement("buttons");
+                                writer.WriteElementString(disabledfirstbutton, Convert.ToString(disabledbuttons[i, j]));
+                                writer.WriteElementString(disabledsecondbutton, Convert.ToString(disabledbuttons[i, j + 1]));
+                                writer.WriteEndElement();
+                                writer.Close();
+                            }   
+                        }
+                        else
+                        {
+                            return;
+                        }
+                    }
+                }
+
                 if (Player1_beurt == false)
                 {
                     BeurtIndicator1.BackColor = ColorTranslator.FromHtml("#F5F5F5");
                     BeurtIndicator2.BackColor = ColorTranslator.FromHtml("#76FF03");
                     Player1_beurt = true;
                     Player2_beurt = false;
-                }                                                                               // speler 2 Aantal zetten verhoogt met 1
+                }                                                                               
                 else if (Player2_beurt == false)
                 {
                     BeurtIndicator1.BackColor = ColorTranslator.FromHtml("#76FF03");
                     BeurtIndicator2.BackColor = ColorTranslator.FromHtml("#F5F5F5");
                     Player2_beurt = true;
                     Player1_beurt = false;
-                }                                                                               // speler 1 Aantal zetten verhoogt met 1
+                }                                                                               
             }
             else
             {

@@ -47,12 +47,8 @@
             this.Zetten2 = new System.Windows.Forms.Label();
             this.ZettenP1 = new System.Windows.Forms.Label();
             this.ZettenP2 = new System.Windows.Forms.Label();
+            this.test = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 250;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // tableLayoutPanel1
             // 
@@ -252,6 +248,15 @@
             this.ZettenP2.Text = "0";
             this.ZettenP2.Visible = false;
             // 
+            // test
+            // 
+            this.test.Location = new System.Drawing.Point(19, 93);
+            this.test.Name = "test";
+            this.test.Size = new System.Drawing.Size(75, 23);
+            this.test.TabIndex = 43;
+            this.test.Text = "test";
+            this.test.UseVisualStyleBackColor = true;
+            // 
             // Spel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -259,6 +264,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(980, 557);
+            this.Controls.Add(this.test);
             this.Controls.Add(this.ZettenP2);
             this.Controls.Add(this.ZettenP1);
             this.Controls.Add(this.Zetten2);
@@ -303,6 +309,7 @@
         private System.Windows.Forms.Label Zetten2;
         private System.Windows.Forms.Label ZettenP1;
         private System.Windows.Forms.Label ZettenP2;
+        private System.Windows.Forms.Button test;
     }
 }
 
