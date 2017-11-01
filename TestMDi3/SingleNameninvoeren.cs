@@ -14,9 +14,6 @@ namespace TestMDi3
 {
     public partial class SingleNameninvoeren : Form
     {
-        
-        
-        
         public SingleNameninvoeren()
         {
             InitializeComponent();
@@ -35,11 +32,6 @@ namespace TestMDi3
 
         public void Volgende_Click(object sender, EventArgs e)
         {
-            NewSPForm();
-        }
-
-        public void NewSPForm()
-        {
             if (Breedte.Text == "" || Lengte.Text == "" || (Convert.ToInt32(Lengte.Text) > 8 || Convert.ToInt32(Lengte.Text) < 4) || (Convert.ToInt32(Breedte.Text) > 8 || Convert.ToInt32(Breedte.Text) < 4))
             {
                 status.Text = "Voer een getal tussen de 4 en de 8 in.";
@@ -52,6 +44,7 @@ namespace TestMDi3
                 status.ForeColor = Color.Red;
                 return;
             }
+
             else
             {
                 if (Singlenaam.Text == "")
@@ -73,6 +66,5 @@ namespace TestMDi3
                 }
             }
         }
-
     }
 }

@@ -45,7 +45,6 @@ namespace TestMDi3
                 {
                     SingleNameninvoeren f4 = new SingleNameninvoeren();
                     f4.MdiParent = this.ParentForm;
-                    f4.NewSPForm();
                     f4.Show();
                     Close();
                     
@@ -83,7 +82,6 @@ namespace TestMDi3
                     Spel.multiplayer = true;
                     MultiNameninvoeren f5 = new MultiNameninvoeren();
                     f5.MdiParent = this.ParentForm;
-                    f5.NewMPForm();
                     f5.Show();
                     Close();
                 }

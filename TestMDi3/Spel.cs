@@ -333,6 +333,7 @@ namespace TestMDi3
 
                 if (result == DialogResult.Yes)
                 {
+                    Spel.Doorgaan1Speler = false;
                     Spel.multiplayer = false;
                     Spel spel = new Spel();
                     spel.MdiParent = this.ParentForm;
