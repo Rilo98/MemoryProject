@@ -823,6 +823,16 @@ namespace TestMDi3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap wallpaper2 {
+            get {
+                object obj = ResourceManager.GetObject("wallpaper2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap win30 {
             get {
                 object obj = ResourceManager.GetObject("win30", resourceCulture);

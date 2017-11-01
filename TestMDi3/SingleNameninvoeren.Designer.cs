@@ -89,11 +89,11 @@
             this.GrooteSpeelveldSingle.AutoSize = true;
             this.GrooteSpeelveldSingle.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GrooteSpeelveldSingle.ForeColor = System.Drawing.Color.White;
-            this.GrooteSpeelveldSingle.Location = new System.Drawing.Point(463, 230);
+            this.GrooteSpeelveldSingle.Location = new System.Drawing.Point(450, 230);
             this.GrooteSpeelveldSingle.Name = "GrooteSpeelveldSingle";
-            this.GrooteSpeelveldSingle.Size = new System.Drawing.Size(236, 28);
+            this.GrooteSpeelveldSingle.Size = new System.Drawing.Size(249, 28);
             this.GrooteSpeelveldSingle.TabIndex = 4;
-            this.GrooteSpeelveldSingle.Text = "Groote speelveld <4-8>:";
+            this.GrooteSpeelveldSingle.Text = "Formaat speelveld <4-8>:";
             // 
             // Lengte
             // 
@@ -116,7 +116,7 @@
             this.LengteLB.AutoSize = true;
             this.LengteLB.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LengteLB.ForeColor = System.Drawing.Color.White;
-            this.LengteLB.Location = new System.Drawing.Point(513, 261);
+            this.LengteLB.Location = new System.Drawing.Point(513, 264);
             this.LengteLB.Name = "LengteLB";
             this.LengteLB.Size = new System.Drawing.Size(80, 28);
             this.LengteLB.TabIndex = 7;
@@ -155,7 +155,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(980, 557);
             this.Controls.Add(this.errornaam);
             this.Controls.Add(this.status);

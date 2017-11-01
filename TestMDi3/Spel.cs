@@ -37,7 +37,7 @@ namespace TestMDi3
 
             if (multiplayer == true)
             {
-                Gamemode.Text = "Local Multiplayer";
+                Gamemode.Text = "Multiplayer";
 
                 if (DoorgaanMultiPlayer == true)
                 {
@@ -128,7 +128,7 @@ namespace TestMDi3
 
             else
             {
-                Gamemode.Text = "Time Attack";
+                Gamemode.Text = "Race tegen de klok";
                 if (Doorgaan1Speler == true)
                 {
                     XmlDocument docSP = new XmlDocument();
@@ -366,7 +366,7 @@ namespace TestMDi3
                     if (button != "empty")
                     {
                         {
-                            tableLayoutPanel1.Controls[button].Enabled = true;
+                            tableLayoutPanel1.Controls[button].Enabled = false;
                             tableLayoutPanel1.Controls[button].BackgroundImage = null;
                             tableLayoutPanel1.Controls[button].BackColor = Color.Transparent;
                         }
@@ -843,6 +843,14 @@ namespace TestMDi3
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Hoofdmenu f2 = new Hoofdmenu();
+            f2.MdiParent = this.MdiParent;
+            f2.Show();
+            this.Close();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
             if (multiplayer == true)
             {
                 MultiNameninvoeren multinameninvoeren = new MultiNameninvoeren();
@@ -857,7 +865,11 @@ namespace TestMDi3
                 singlenameninvoeren.Show();
                 Close();
             }
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ((MainForm)this.MdiParent).afsluiten();
         }
 
     }

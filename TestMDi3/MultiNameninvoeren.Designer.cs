@@ -168,17 +168,17 @@
             this.GrooteSpeelveldSingle.AutoSize = true;
             this.GrooteSpeelveldSingle.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GrooteSpeelveldSingle.ForeColor = System.Drawing.Color.White;
-            this.GrooteSpeelveldSingle.Location = new System.Drawing.Point(471, 245);
+            this.GrooteSpeelveldSingle.Location = new System.Drawing.Point(458, 245);
             this.GrooteSpeelveldSingle.Name = "GrooteSpeelveldSingle";
-            this.GrooteSpeelveldSingle.Size = new System.Drawing.Size(236, 28);
+            this.GrooteSpeelveldSingle.Size = new System.Drawing.Size(249, 28);
             this.GrooteSpeelveldSingle.TabIndex = 10;
-            this.GrooteSpeelveldSingle.Text = "Groote speelveld <4-8>:";
+            this.GrooteSpeelveldSingle.Text = "Formaat speelveld <4-8>:";
             // 
             // MultiNameninvoeren
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(980, 557);
             this.Controls.Add(this.errornaam);
             this.Controls.Add(this.status);
@@ -195,6 +195,7 @@
             this.Controls.Add(this.speler1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MultiNameninvoeren";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "MultiNameninvoeren";
             this.ResumeLayout(false);
             this.PerformLayout();

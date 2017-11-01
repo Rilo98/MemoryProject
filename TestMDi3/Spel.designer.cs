@@ -45,6 +45,8 @@
             this.Gamemode_Label = new System.Windows.Forms.Label();
             this.test = new System.Windows.Forms.Button();
             this.TimerMP = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -62,14 +64,13 @@
             // 
             // reset
             // 
-            this.reset.Font = new System.Drawing.Font("Segoe UI Emoji", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reset.Location = new System.Drawing.Point(13, 492);
+            this.reset.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reset.Location = new System.Drawing.Point(12, 446);
             this.reset.Name = "reset";
-            this.reset.Size = new System.Drawing.Size(126, 45);
+            this.reset.Size = new System.Drawing.Size(95, 29);
             this.reset.TabIndex = 26;
             this.reset.Text = "Hoofdmenu";
             this.reset.UseVisualStyleBackColor = true;
-            this.reset.Visible = false;
             this.reset.Click += new System.EventHandler(this.button1_Click);
             // 
             // Label_Player1score
@@ -189,9 +190,9 @@
             this.Gamemode_Label.ForeColor = System.Drawing.Color.White;
             this.Gamemode_Label.Location = new System.Drawing.Point(12, 9);
             this.Gamemode_Label.Name = "Gamemode_Label";
-            this.Gamemode_Label.Size = new System.Drawing.Size(124, 28);
+            this.Gamemode_Label.Size = new System.Drawing.Size(119, 28);
             this.Gamemode_Label.TabIndex = 38;
-            this.Gamemode_Label.Text = "Gamemode:";
+            this.Gamemode_Label.Text = "Spelmodus:";
             // 
             // test
             // 
@@ -206,13 +207,37 @@
             // 
             this.TimerMP.Tick += new System.EventHandler(this.TimerMP_Tick);
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(12, 481);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(95, 29);
+            this.button1.TabIndex = 44;
+            this.button1.Text = "Herstart";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(12, 516);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(95, 29);
+            this.button2.TabIndex = 45;
+            this.button2.Text = "Afsluiten";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Spel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(980, 557);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.test);
             this.Controls.Add(this.Gamemode_Label);
             this.Controls.Add(this.Gamemode);
@@ -252,6 +277,8 @@
         private System.Windows.Forms.Label Gamemode_Label;
         private System.Windows.Forms.Button test;
         private System.Windows.Forms.Timer TimerMP;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 
