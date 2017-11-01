@@ -198,7 +198,7 @@ namespace TestMDi3
             for (int i = 0; i < array.GetLength(0); i++)
             {
                 for (int j = 0; j < array.GetLength(1); j++)
-                {
+                    {
                     for (int k = 0; k < array.GetLength(2); k++)
                     {
                         string ArrayXML = "arrayXML" + Convert.ToString(i) + "-" + Convert.ToString(j) + "-" + Convert.ToString(k);
@@ -208,11 +208,13 @@ namespace TestMDi3
                 }
             }
 
+            
+
             writer.WriteEndElement();
             writer.WriteEndElement();
             writer.Close();
         }
-        internal void WriteMP(int[,,] array)
+        public void WriteMP(int[,,] arrayMP)
         {
             XmlTextWriter writer = new XmlTextWriter("MPSave.xml", Encoding.UTF8);
             writer.Formatting = Formatting.Indented;
@@ -227,20 +229,19 @@ namespace TestMDi3
             writer.WriteElementString("length", Convert.ToString(length));
             writer.WriteElementString("width", Convert.ToString(width));
             writer.WriteElementString("selectedtheme", Convert.ToString(selectedtheme));
-            writer.WriteElementString("score", Convert.ToString(Player1_score));
             writer.WriteEndElement();
             writer.WriteStartElement("arrays");
             writer.WriteStartElement("arrayimage");
 
-            for (int i = 0; i < array.GetLength(0); i++)
+            for (int i = 0; i < arrayMP.GetLength(0); i++)
             {
-                for (int j = 0; j < array.GetLength(1); j++)
+                for (int j = 0; j < arrayMP.GetLength(1); j++)
                 {
-                    for (int k = 0; k < array.GetLength(2); k++)
+                    for (int k = 0; k < arrayMP.GetLength(2); k++)
                     {
                         string ArrayXML = "arrayXML" + Convert.ToString(i) + "-" + Convert.ToString(j) + "-" + Convert.ToString(k);
 
-                        writer.WriteElementString(ArrayXML, Convert.ToString(array[i, j, k]));
+                        writer.WriteElementString(ArrayXML, Convert.ToString(arrayMP[i, j, k]));
                     }
                 }
             }
@@ -250,6 +251,7 @@ namespace TestMDi3
             writer.Close();
         }
 
+       
         public void LoadOldSP()
         {
             XmlDocument doc = new XmlDocument();
@@ -318,52 +320,7 @@ namespace TestMDi3
             }
         }
 
-        private void timer_Sw_Tick(object sender, EventArgs e, Image[,] arrayimage, int[,,] array)
-        {
-            if (multiplayer == true)
-            {
-                WriteMP(array);
-            }
-            else {
-                WriteSP(array);
-            } 
-            
-
-            Stopwatch.Text = Convert.ToString(counterint = counterint - 1);
-            if (counterint == 0)
-            {
-                timer_Sw.Stop();
-
-                MainForm mainform = new MainForm();
-                string message = "Wilt u het spel herstarten?." + Environment.NewLine + "Druk op Yes om te herstarten." + Environment.NewLine + "Druk op No om terug te gaan naar het hoofdmenu.";
-                string caption = "De tijd is om!";
-                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                DialogResult result;
-
-                // Displays the MessageBox.
-                result = MessageBox.Show(this, message, caption, buttons);
-
-                if (result == DialogResult.Yes)
-                {
-                    Spel.Doorgaan1Speler = false;
-                    Spel.multiplayer = false;
-                    Spel spel = new Spel();
-                    spel.MdiParent = this.ParentForm;
-                    counterint = (length * width / 2);
-                    spel.Show();
-                    Close();
-                    this.Close();
-                }
-                else if (result == DialogResult.No)
-                {
-                    Hoofdmenu hoofdmenu = new Hoofdmenu();
-                    hoofdmenu.MdiParent = this.ParentForm;
-                    hoofdmenu.Show();
-                    Close();
-                    this.Close();
-                }
-            }
-        }
+       
 
         private void PlayerBeurtStartGame()
         {
@@ -546,6 +503,7 @@ namespace TestMDi3
 
         private void rotatebutton(object sender, int[,,] array, Image[,] arrayimage)                            //changes image based on button number
         {
+            WriteMP(array);
             Button button = (Button)sender;
             string buttontext = button.Name;
 
@@ -726,9 +684,52 @@ namespace TestMDi3
             }
 
         }
+        private void timer_Sw_Tick(object sender, EventArgs e, Image[,] arrayimage, int[,,] array)
+        {
+
+            WriteSP(array);
+
+
+
+            Stopwatch.Text = Convert.ToString(counterint = counterint - 1);
+            if (counterint == 0)
+            {
+                timer_Sw.Stop();
+
+                MainForm mainform = new MainForm();
+                string message = "Wilt u het spel herstarten?." + Environment.NewLine + "Druk op Yes om te herstarten." + Environment.NewLine + "Druk op No om terug te gaan naar het hoofdmenu.";
+                string caption = "De tijd is om!";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result;
+
+                // Displays the MessageBox.
+                result = MessageBox.Show(this, message, caption, buttons);
+
+                if (result == DialogResult.Yes)
+                {
+                    Spel.Doorgaan1Speler = false;
+                    Spel.multiplayer = false;
+                    Spel spel = new Spel();
+                    spel.MdiParent = this.ParentForm;
+                    counterint = (length * width / 2);
+                    spel.Show();
+                    Close();
+                    this.Close();
+                }
+                else if (result == DialogResult.No)
+                {
+                    Hoofdmenu hoofdmenu = new Hoofdmenu();
+                    hoofdmenu.MdiParent = this.ParentForm;
+                    hoofdmenu.Show();
+                    Close();
+                    this.Close();
+                }
+            }
+        }
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer1.Stop();
+
             if ((arrayid1 == arrayid2 - textboxint3) || (arrayid1 == arrayid2 + textboxint3))
             {
                 x_kaarten = x_kaarten + 1;
