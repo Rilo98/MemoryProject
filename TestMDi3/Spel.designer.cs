@@ -43,6 +43,10 @@
             this.Score = new System.Windows.Forms.Label();
             this.Gamemode = new System.Windows.Forms.Label();
             this.Gamemode_Label = new System.Windows.Forms.Label();
+            this.Zetten = new System.Windows.Forms.Label();
+            this.Zetten2 = new System.Windows.Forms.Label();
+            this.ZettenP1 = new System.Windows.Forms.Label();
+            this.ZettenP2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // timer1
@@ -107,7 +111,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI Emoji", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(35, 201);
+            this.label3.Location = new System.Drawing.Point(35, 253);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(104, 32);
             this.label3.TabIndex = 31;
@@ -120,7 +124,7 @@
             this.Label_Player2Score.BackColor = System.Drawing.Color.Transparent;
             this.Label_Player2Score.Font = new System.Drawing.Font("Segoe UI Emoji", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label_Player2Score.ForeColor = System.Drawing.Color.White;
-            this.Label_Player2Score.Location = new System.Drawing.Point(132, 201);
+            this.Label_Player2Score.Location = new System.Drawing.Point(132, 253);
             this.Label_Player2Score.Name = "Label_Player2Score";
             this.Label_Player2Score.Size = new System.Drawing.Size(28, 32);
             this.Label_Player2Score.TabIndex = 32;
@@ -140,7 +144,7 @@
             // BeurtIndicator2
             // 
             this.BeurtIndicator2.Enabled = false;
-            this.BeurtIndicator2.Location = new System.Drawing.Point(10, 205);
+            this.BeurtIndicator2.Location = new System.Drawing.Point(10, 257);
             this.BeurtIndicator2.Name = "BeurtIndicator2";
             this.BeurtIndicator2.Size = new System.Drawing.Size(25, 25);
             this.BeurtIndicator2.TabIndex = 34;
@@ -153,7 +157,7 @@
             this.Stopwatch.BackColor = System.Drawing.Color.Transparent;
             this.Stopwatch.Font = new System.Drawing.Font("Segoe UI Emoji", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Stopwatch.ForeColor = System.Drawing.Color.White;
-            this.Stopwatch.Location = new System.Drawing.Point(35, 233);
+            this.Stopwatch.Location = new System.Drawing.Point(35, 221);
             this.Stopwatch.Name = "Stopwatch";
             this.Stopwatch.Size = new System.Drawing.Size(108, 32);
             this.Stopwatch.TabIndex = 35;
@@ -196,6 +200,58 @@
             this.Gamemode_Label.TabIndex = 38;
             this.Gamemode_Label.Text = "Gamemode:";
             // 
+            // Zetten
+            // 
+            this.Zetten.AutoSize = true;
+            this.Zetten.BackColor = System.Drawing.Color.Transparent;
+            this.Zetten.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Zetten.ForeColor = System.Drawing.Color.DimGray;
+            this.Zetten.Location = new System.Drawing.Point(37, 200);
+            this.Zetten.Name = "Zetten";
+            this.Zetten.Size = new System.Drawing.Size(57, 21);
+            this.Zetten.TabIndex = 39;
+            this.Zetten.Text = "Zetten:";
+            this.Zetten.Visible = false;
+            // 
+            // Zetten2
+            // 
+            this.Zetten2.AutoSize = true;
+            this.Zetten2.BackColor = System.Drawing.Color.Transparent;
+            this.Zetten2.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Zetten2.ForeColor = System.Drawing.Color.DimGray;
+            this.Zetten2.Location = new System.Drawing.Point(37, 285);
+            this.Zetten2.Name = "Zetten2";
+            this.Zetten2.Size = new System.Drawing.Size(57, 21);
+            this.Zetten2.TabIndex = 40;
+            this.Zetten2.Text = "Zetten:";
+            this.Zetten2.Visible = false;
+            // 
+            // ZettenP1
+            // 
+            this.ZettenP1.AutoSize = true;
+            this.ZettenP1.BackColor = System.Drawing.Color.Transparent;
+            this.ZettenP1.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ZettenP1.ForeColor = System.Drawing.Color.DimGray;
+            this.ZettenP1.Location = new System.Drawing.Point(100, 200);
+            this.ZettenP1.Name = "ZettenP1";
+            this.ZettenP1.Size = new System.Drawing.Size(19, 21);
+            this.ZettenP1.TabIndex = 41;
+            this.ZettenP1.Text = "0";
+            this.ZettenP1.Visible = false;
+            // 
+            // ZettenP2
+            // 
+            this.ZettenP2.AutoSize = true;
+            this.ZettenP2.BackColor = System.Drawing.Color.Transparent;
+            this.ZettenP2.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ZettenP2.ForeColor = System.Drawing.Color.DimGray;
+            this.ZettenP2.Location = new System.Drawing.Point(100, 285);
+            this.ZettenP2.Name = "ZettenP2";
+            this.ZettenP2.Size = new System.Drawing.Size(19, 21);
+            this.ZettenP2.TabIndex = 42;
+            this.ZettenP2.Text = "0";
+            this.ZettenP2.Visible = false;
+            // 
             // Spel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -203,6 +259,10 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(980, 557);
+            this.Controls.Add(this.ZettenP2);
+            this.Controls.Add(this.ZettenP1);
+            this.Controls.Add(this.Zetten2);
+            this.Controls.Add(this.Zetten);
             this.Controls.Add(this.Gamemode_Label);
             this.Controls.Add(this.Gamemode);
             this.Controls.Add(this.Score);
@@ -239,6 +299,10 @@
         private System.Windows.Forms.Label Score;
         private System.Windows.Forms.Label Gamemode;
         private System.Windows.Forms.Label Gamemode_Label;
+        private System.Windows.Forms.Label Zetten;
+        private System.Windows.Forms.Label Zetten2;
+        private System.Windows.Forms.Label ZettenP1;
+        private System.Windows.Forms.Label ZettenP2;
     }
 }
 

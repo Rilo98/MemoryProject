@@ -22,7 +22,7 @@ namespace TestMDi3
         public static bool multiplayer, Player1_beurt, Player2_beurt, Doorgaan1Speler, DoorgaanMultiPlayer;
         public static string singlenaam, multinaam1, multinaam2, selectedtheme = "Default";
 
-        int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0, picturenumber2 = 1, Player1_score, Player2_score, counterint = (length * width / 2), x_kaarten;
+        int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0, picturenumber2 = 1, Player1_score, Player2_score, counterint = (length * width / 2), x_kaarten, Player1_zetten, Player2_zetten;
         Button firstButton = null, secondButton = null;
 
         public Spel()
@@ -55,6 +55,10 @@ namespace TestMDi3
                     label3.Visible = Enabled;
                     Label_Player1score.Visible = Enabled;
                     Label_Player2Score.Visible = Enabled;
+                    ZettenP1.Visible = true;
+                    ZettenP2.Visible = true;
+                    Zetten.Visible = true;
+                    Zetten2.Visible = true;
                     textboxint3 = (length * width) / 2;
                     textboxint4 = (length * width) + 1;
                     textboxint5 = (length * width);
@@ -77,6 +81,10 @@ namespace TestMDi3
                     label3.Visible = Enabled;
                     Label_Player1score.Visible = Enabled;
                     Label_Player2Score.Visible = Enabled;
+                    ZettenP1.Visible = true;
+                    ZettenP2.Visible = true;
+                    Zetten.Visible = true;
+                    Zetten2.Visible = true;
                     textboxint3 = (length * width) / 2;
                     textboxint4 = (length * width) + 1;
                     textboxint5 = (length * width);
@@ -109,6 +117,10 @@ namespace TestMDi3
                     label3.Visible = false;
                     Label_Player1score.Visible = true;
                     Label_Player2Score.Visible = false;
+                    ZettenP1.Visible = true;
+                    ZettenP2.Visible = false;
+                    Zetten.Visible = true;
+                    Zetten2.Visible = false;
                     textboxint3 = (length * width) / 2;
                     textboxint4 = (length * width) + 1;
                     textboxint5 = (length * width);
@@ -369,6 +381,12 @@ namespace TestMDi3
                 Label_Player2Score.Font = new Font(label3.Font, FontStyle.Regular);
                 label3.ForeColor = Color.DimGray;
                 Label_Player2Score.ForeColor = Color.DimGray;
+
+
+                ZettenP1.ForeColor = Color.White;
+                Zetten.ForeColor = Color.White;
+                ZettenP2.ForeColor = Color.DimGray;
+                Zetten2.ForeColor = Color.DimGray;
             }
             else if (Player2_beurt == true)
             {
@@ -384,6 +402,12 @@ namespace TestMDi3
                 Label_Player2Score.Font = new Font(label3.Font, FontStyle.Bold);
                 label3.ForeColor = Color.White;
                 Label_Player2Score.ForeColor = Color.White;
+
+
+                ZettenP1.ForeColor = Color.DimGray;
+                Zetten.ForeColor = Color.DimGray;
+                ZettenP2.ForeColor = Color.White;
+                Zetten2.ForeColor = Color.White;
             }
         }
 
@@ -655,6 +679,9 @@ namespace TestMDi3
         {
             if (BeurtIndicator2.BackColor == ColorTranslator.FromHtml("#76FF03"))
             {
+
+                Player2_zetten = Player2_zetten + 1;
+                ZettenP2.Text = Convert.ToString(Player2_zetten);
                 BeurtIndicator1.BackColor = ColorTranslator.FromHtml("#76FF03");
                 BeurtIndicator2.BackColor = ColorTranslator.FromHtml("#F5F5F5");
 
@@ -667,9 +694,17 @@ namespace TestMDi3
                 Label_Player2Score.Font = new Font(label3.Font, FontStyle.Regular);
                 label3.ForeColor = Color.DimGray;
                 Label_Player2Score.ForeColor = Color.DimGray;
+
+                ZettenP1.ForeColor = Color.White;
+                Zetten.ForeColor = Color.White;
+                ZettenP2.ForeColor = Color.DimGray;
+                Zetten2.ForeColor = Color.DimGray;
             }
             else if (BeurtIndicator1.BackColor == ColorTranslator.FromHtml("#76FF03"))
             {
+
+                Player1_zetten = Player1_zetten + 1;
+                ZettenP1.Text = Convert.ToString(Player1_zetten);
                 BeurtIndicator1.BackColor = ColorTranslator.FromHtml("#F5F5F5");
                 BeurtIndicator2.BackColor = ColorTranslator.FromHtml("#76FF03");
 
@@ -682,6 +717,11 @@ namespace TestMDi3
                 Label_Player2Score.Font = new Font(label3.Font, FontStyle.Bold);
                 label3.ForeColor = Color.White;
                 Label_Player2Score.ForeColor = Color.White;
+
+                ZettenP1.ForeColor = Color.DimGray;
+                Zetten.ForeColor = Color.DimGray;
+                ZettenP2.ForeColor = Color.White;
+                Zetten2.ForeColor = Color.White;
 
             }
 
@@ -701,6 +741,21 @@ namespace TestMDi3
                 secondButton.BackColor = Color.Transparent;
                 firstButton = null;
                 secondButton = null;
+
+                if (Player1_beurt == false)
+                {
+                    BeurtIndicator1.BackColor = ColorTranslator.FromHtml("#F5F5F5");
+                    BeurtIndicator2.BackColor = ColorTranslator.FromHtml("#76FF03");
+                    Player1_beurt = true;
+                    Player2_beurt = false;
+                }                                                                               // speler 2 Aantal zetten verhoogt met 1
+                else if (Player2_beurt == false)
+                {
+                    BeurtIndicator1.BackColor = ColorTranslator.FromHtml("#76FF03");
+                    BeurtIndicator2.BackColor = ColorTranslator.FromHtml("#F5F5F5");
+                    Player2_beurt = true;
+                    Player1_beurt = false;
+                }                                                                               // speler 1 Aantal zetten verhoogt met 1
             }
             else
             {
