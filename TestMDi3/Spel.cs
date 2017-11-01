@@ -22,7 +22,7 @@ namespace TestMDi3
         public static bool multiplayer, Player1_beurt, Player2_beurt, Doorgaan1Speler, DoorgaanMultiPlayer;
         public static string singlenaam, multinaam1, multinaam2, selectedtheme = "Default";
 
-        int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0, picturenumber2 = 1, Player1_score, Player2_score, counterint = (length * width / 2), x_kaarten, Player1_zetten, Player2_zetten;
+        int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0, picturenumber2 = 1, Player1_score, Player2_score, counterint = (length * width / 2), x_kaarten, Player1_zetten, Player2_zetten, disabledint;
         Button firstButton = null, secondButton = null;
 
         public Spel()
@@ -46,8 +46,19 @@ namespace TestMDi3
                     length = length = Convert.ToInt32(docMP.SelectSingleNode("values/ints/length").InnerText);
                     width = width = Convert.ToInt32(docMP.SelectSingleNode("values/ints/width").InnerText);
 
+                    multinaam1 = docMP.SelectSingleNode("values/ints/multinaam1").InnerText;
+                    multinaam2 = docMP.SelectSingleNode("values/ints/multinaam2").InnerText;
+
                     label2.Text = multinaam1;
                     label3.Text = multinaam2;
+
+
+                    selectedtheme = Convert.ToString(docMP.SelectSingleNode("values/ints/selectedtheme").InnerText);
+
+                    Player1_score = Convert.ToInt32(docMP.SelectSingleNode("values/ints/Player1_score").InnerText);
+                    Player2_score = Convert.ToInt32(docMP.SelectSingleNode("values/ints/Player2_score").InnerText);
+                    Label_Player1score.Text = Convert.ToString(Player1_score);
+                    Label_Player2Score.Text = Convert.ToString(Player2_score);
 
                     BeurtIndicator1.Visible = Enabled;
                     BeurtIndicator2.Visible = Enabled;
@@ -55,26 +66,30 @@ namespace TestMDi3
                     label3.Visible = Enabled;
                     Label_Player1score.Visible = Enabled;
                     Label_Player2Score.Visible = Enabled;
-                    ZettenP1.Visible = true;
-                    ZettenP2.Visible = true;
-                    Zetten.Visible = true;
-                    Zetten2.Visible = true;
+                    reset.Visible = Enabled;
                     textboxint3 = (length * width) / 2;
                     textboxint4 = (length * width) + 1;
                     textboxint5 = (length * width);
+
                     int[,,] array = new int[2, textboxint3, 3];
                     Image[,] arrayimage = new Image[2, textboxint3];
                     string[,] disabledbuttons = new string[2, textboxint3];
-                    reset.Visible = Enabled;
-                    theme(arrayimage);
-                    LoadOldExceptionsMP(array);
-                    createbuttons(array, arrayimage, length, width);
-                    PlayerBeurtStartGame();
 
-                    this.timer_Sw.Enabled = true;
-                    this.timer_Sw.Interval = 1000;
-                    this.timer_Sw.Tick += delegate (object sender, EventArgs e)
-                    { timer_Sw_Tick(sender, e, arrayimage, array); };
+
+                    theme(arrayimage);
+                    LoadOldExceptionsMP(array, disabledbuttons);
+                    createbuttons(array, arrayimage,disabledbuttons , length, width);
+                    PlayerBeurtStartGame();
+                    LoadDisabledButtons(array);
+
+                    this.TimerMP.Enabled = true;
+                    this.TimerMP.Interval = 1000;
+                    this.TimerMP.Tick += delegate (object sender, EventArgs e)
+                    { TimerMP_Tick(sender, e, disabledbuttons, array); };
+                    
+                    this.timer1.Interval = 250;
+                    this.timer1.Tick += delegate (object sender, EventArgs e)
+                    { timer1_Tick(sender, e, disabledbuttons); };
                 }
 
                 else
@@ -87,10 +102,6 @@ namespace TestMDi3
                     label3.Visible = Enabled;
                     Label_Player1score.Visible = Enabled;
                     Label_Player2Score.Visible = Enabled;
-                    ZettenP1.Visible = true;
-                    ZettenP2.Visible = true;
-                    Zetten.Visible = true;
-                    Zetten2.Visible = true;
                     textboxint3 = (length * width) / 2;
                     textboxint4 = (length * width) + 1;
                     textboxint5 = (length * width);
@@ -100,8 +111,14 @@ namespace TestMDi3
                     reset.Visible = Enabled;
                     theme(arrayimage);
                     fillarray(array);
-                    createbuttons(array, arrayimage, length, width);
+                    createbuttons(array, arrayimage, disabledbuttons, length, width);
                     PlayerBeurtStartGame();
+
+
+                    this.TimerMP.Enabled = true;
+                    this.TimerMP.Interval = 1000;
+                    this.TimerMP.Tick += delegate (object sender, EventArgs e)
+                    { TimerMP_Tick(sender, e, disabledbuttons, array); };
 
                     this.timer1.Interval = 250;
                     this.timer1.Tick += delegate (object sender, EventArgs e)
@@ -128,10 +145,6 @@ namespace TestMDi3
                     label3.Visible = false;
                     Label_Player1score.Visible = true;
                     Label_Player2Score.Visible = false;
-                    ZettenP1.Visible = true;
-                    ZettenP2.Visible = false;
-                    Zetten.Visible = true;
-                    Zetten2.Visible = false;
                     textboxint3 = (length * width) / 2;
                     textboxint4 = (length * width) + 1;
                     textboxint5 = (length * width);
@@ -141,7 +154,7 @@ namespace TestMDi3
                     reset.Visible = Enabled;
                     theme(arrayimage);
                     LoadOldExceptionsSP(array);
-                    createbuttons(array, arrayimage, length, width);
+                    createbuttons(array, arrayimage, disabledbuttons, length, width);
                     LoadOldSP();
                     // timer_Sw
                     // 
@@ -176,7 +189,8 @@ namespace TestMDi3
                     reset.Visible = Enabled;
                     theme(arrayimage);
                     fillarray(array);
-                    createbuttons(array, arrayimage, length, width);
+                    createbuttons(array, arrayimage, disabledbuttons, length, width);
+                    
                     // timer_Sw
                     // 
                     Stopwatch.Text = Convert.ToString(counterint);
@@ -227,18 +241,16 @@ namespace TestMDi3
             writer.WriteEndElement();
             writer.Close();
         }
-        public void WriteMP(int[,,] arrayMP)
+        public void WriteMP(int[,,] arrayMP, string[,] disabledbuttons)
         {
             XmlTextWriter writer = new XmlTextWriter("MPSave.xml", Encoding.UTF8);
             writer.Formatting = Formatting.Indented;
-            label2.Text = multinaam1;
-            label3.Text = multinaam2;
             writer.WriteStartElement("values");
             writer.WriteStartElement("ints");
             writer.WriteElementString("Player1_score", Convert.ToString(Player1_score));
             writer.WriteElementString("Player2_score", Convert.ToString(Player2_score));
-            writer.WriteElementString("multinaam1", Convert.ToString(multinaam1));
-            writer.WriteElementString("multinaam2", Convert.ToString(multinaam2));
+            writer.WriteElementString("multinaam1", multinaam1);
+            writer.WriteElementString("multinaam2", multinaam2);
             writer.WriteElementString("length", Convert.ToString(length));
             writer.WriteElementString("width", Convert.ToString(width));
             writer.WriteElementString("selectedtheme", Convert.ToString(selectedtheme));
@@ -253,12 +265,27 @@ namespace TestMDi3
                     for (int k = 0; k < arrayMP.GetLength(2); k++)
                     {
                         string ArrayXML = "arrayXML" + Convert.ToString(i) + "-" + Convert.ToString(j) + "-" + Convert.ToString(k);
-
                         writer.WriteElementString(ArrayXML, Convert.ToString(arrayMP[i, j, k]));
                     }
                 }
             }
+            writer.WriteEndElement();
 
+            writer.WriteStartElement("arraydisabledbuttons");
+            for (int i = 0; i < arrayMP.GetLength(0); i++)
+            {
+                for (int j = 0; j < arrayMP.GetLength(1); j++)
+                {
+                    if (disabledbuttons[i,j] != null)
+                    {
+                        writer.WriteElementString("disabledbuttons" + i + "-" + j, Convert.ToString(disabledbuttons[i, j]));
+                    }
+                    else
+                    {
+                        writer.WriteElementString("disabledbuttons" + i + "-" + j, "empty");
+                    }
+                }
+            }
             writer.WriteEndElement();
             writer.WriteEndElement();
             writer.Close();
@@ -278,22 +305,16 @@ namespace TestMDi3
             Stopwatch.Text              = Convert.ToString(counterint);
         }
 
+        private void TimerMP_Tick(object sender, EventArgs e)
+        {
+
+        }
+
         public void LoadOldMP(int[,,] array)
         {
             XmlDocument MP = new XmlDocument();
             MP.Load("MPSave.xml");
-            multinaam1 = Convert.ToString(MP.SelectSingleNode("values/ints/multinaam1").InnerText);
-            multinaam2 = Convert.ToString(MP.SelectSingleNode("values/ints/multinaam2").InnerText);
-            length = Convert.ToInt32(MP.SelectSingleNode("values/ints/length").InnerText);
-            width = Convert.ToInt32(MP.SelectSingleNode("values/ints/width").InnerText);
-            selectedtheme = Convert.ToString(MP.SelectSingleNode("values/ints/selectedtheme").InnerText);
-            Player1_score = Convert.ToInt32(MP.SelectSingleNode("values/ints/score").InnerText);
-            counterint = Convert.ToInt32(MP.SelectSingleNode("values/ints/counterint").InnerText);
 
-            label2.Text = multinaam1;
-            label3.Text = multinaam2;
-            Label_Player1score.Text = Convert.ToString(Player1_score);
-            Stopwatch.Text = Convert.ToString(counterint);
         }
 
         public void LoadOldExceptionsSP(int[,,] array)
@@ -313,9 +334,8 @@ namespace TestMDi3
             }
         }
 
-       
 
-        public void LoadOldExceptionsMP(int[,,] array)
+        public void LoadOldExceptionsMP(int[,,] array, string[,] disabledbuttons)
         {
             XmlDocument MP = new XmlDocument();
             MP.Load("MPSave.xml");
@@ -323,6 +343,8 @@ namespace TestMDi3
             {
                 for (int j = 0; j < array.GetLength(1); j++)
                 {
+                    string button = MP.SelectSingleNode("values/arrays/arraydisabledbuttons/" + "disabledbuttons" + Convert.ToString(i) + "-" + Convert.ToString(j)).InnerText;
+                    disabledbuttons[i, j] = button;
                     for (int k = 0; k < array.GetLength(2); k++)
                     {
                         string ArrayXML = "arrayXML" + Convert.ToString(i) + "-" + Convert.ToString(j) + "-" + Convert.ToString(k);
@@ -332,8 +354,26 @@ namespace TestMDi3
             }
         }
 
-       
-
+        public void LoadDisabledButtons(int[,,] array)
+        {
+            XmlDocument MP = new XmlDocument();
+            MP.Load("MPSave.xml");
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    string button = MP.SelectSingleNode("values/arrays/arraydisabledbuttons/" + "disabledbuttons" + Convert.ToString(i) + "-" + Convert.ToString(j)).InnerText;
+                    if (button != "empty")
+                    {
+                        {
+                            tableLayoutPanel1.Controls[button].Enabled = true;
+                            tableLayoutPanel1.Controls[button].BackgroundImage = null;
+                            tableLayoutPanel1.Controls[button].BackColor = Color.Transparent;
+                        }
+                    }
+                }
+            }
+        }
         private void PlayerBeurtStartGame()
         {
             if (Player1_beurt == true)
@@ -350,12 +390,6 @@ namespace TestMDi3
                 Label_Player2Score.Font = new Font(label3.Font, FontStyle.Regular);
                 label3.ForeColor = Color.DimGray;
                 Label_Player2Score.ForeColor = Color.DimGray;
-
-
-                ZettenP1.ForeColor = Color.White;
-                Zetten.ForeColor = Color.White;
-                ZettenP2.ForeColor = Color.DimGray;
-                Zetten2.ForeColor = Color.DimGray;
             }
             else if (Player2_beurt == true)
             {
@@ -371,12 +405,6 @@ namespace TestMDi3
                 Label_Player2Score.Font = new Font(label3.Font, FontStyle.Bold);
                 label3.ForeColor = Color.White;
                 Label_Player2Score.ForeColor = Color.White;
-
-
-                ZettenP1.ForeColor = Color.DimGray;
-                Zetten.ForeColor = Color.DimGray;
-                ZettenP2.ForeColor = Color.White;
-                Zetten2.ForeColor = Color.White;
             }
         }
 
@@ -424,7 +452,7 @@ namespace TestMDi3
             }
         }
 
-        private void createbuttons(int[,,] array, Image[,] arrayimage, int length, int width)
+        private void createbuttons(int[,,] array, Image[,] arrayimage,string[,] disabledbuttons, int length, int width)
         {
             var columnCount = length;
             var rowCount = width;
@@ -455,7 +483,7 @@ namespace TestMDi3
                     button.BackgroundImage = Properties.Resources.defaultpic;
                     button.BackgroundImageLayout = ImageLayout.Stretch;
                     button.Click += delegate (object sender, EventArgs e)
-                    { ButtonClickHandler(sender, e, array, arrayimage); };
+                    { ButtonClickHandler(sender, e, array, arrayimage, disabledbuttons); };
                 }
 
                 else
@@ -463,7 +491,7 @@ namespace TestMDi3
                     button.BackgroundImage = (Bitmap)Image.FromFile(selectedtheme + @"\" + "defaultpic.png"); ;
                     button.BackgroundImageLayout = ImageLayout.Stretch;
                     button.Click += delegate (object sender, EventArgs e)
-                    { ButtonClickHandler(sender, e, array, arrayimage); };
+                    { ButtonClickHandler(sender, e, array, arrayimage, disabledbuttons); };
                 }
 
             }
@@ -513,9 +541,8 @@ namespace TestMDi3
             return tmpnumber;
         }
 
-        private void rotatebutton(object sender, int[,,] array, Image[,] arrayimage)                            //changes image based on button number
+        private void rotatebutton(object sender, int[,,] array, Image[,] arrayimage, string[,] disabledbuttons)                            //changes image based on button number
         {
-            WriteMP(array);
             Button button = (Button)sender;
             string buttontext = button.Name;
 
@@ -651,7 +678,6 @@ namespace TestMDi3
             {
 
                 Player2_zetten = Player2_zetten + 1;
-                ZettenP2.Text = Convert.ToString(Player2_zetten);
                 BeurtIndicator1.BackColor = ColorTranslator.FromHtml("#76FF03");
                 BeurtIndicator2.BackColor = ColorTranslator.FromHtml("#F5F5F5");
 
@@ -664,17 +690,11 @@ namespace TestMDi3
                 Label_Player2Score.Font = new Font(label3.Font, FontStyle.Regular);
                 label3.ForeColor = Color.DimGray;
                 Label_Player2Score.ForeColor = Color.DimGray;
-
-                ZettenP1.ForeColor = Color.White;
-                Zetten.ForeColor = Color.White;
-                ZettenP2.ForeColor = Color.DimGray;
-                Zetten2.ForeColor = Color.DimGray;
             }
             else if (BeurtIndicator1.BackColor == ColorTranslator.FromHtml("#76FF03"))
             {
 
                 Player1_zetten = Player1_zetten + 1;
-                ZettenP1.Text = Convert.ToString(Player1_zetten);
                 BeurtIndicator1.BackColor = ColorTranslator.FromHtml("#F5F5F5");
                 BeurtIndicator2.BackColor = ColorTranslator.FromHtml("#76FF03");
 
@@ -688,21 +708,12 @@ namespace TestMDi3
                 label3.ForeColor = Color.White;
                 Label_Player2Score.ForeColor = Color.White;
 
-                ZettenP1.ForeColor = Color.DimGray;
-                Zetten.ForeColor = Color.DimGray;
-                ZettenP2.ForeColor = Color.White;
-                Zetten2.ForeColor = Color.White;
-
             }
 
         }
         private void timer_Sw_Tick(object sender, EventArgs e, Image[,] arrayimage, int[,,] array)
         {
-
             WriteSP(array);
-
-
-
             Stopwatch.Text = Convert.ToString(counterint = counterint - 1);
             if (counterint == 0)
             {
@@ -744,7 +755,6 @@ namespace TestMDi3
 
             if ((arrayid1 == arrayid2 - textboxint3) || (arrayid1 == arrayid2 + textboxint3))
             {
-                int disabledcount = 0;
                 x_kaarten = x_kaarten + 1;
                 PlayerScore();
                 firstButton.Enabled = false;
@@ -753,39 +763,13 @@ namespace TestMDi3
                 secondButton.Enabled = false;
                 secondButton.BackgroundImage = null;
                 secondButton.BackColor = Color.Transparent;
+
+                disabledint++;
+                disabledbuttons[0, disabledint] = firstButton.Name;
+                disabledbuttons[1, disabledint] = secondButton.Name;
+
                 firstButton = null;
                 secondButton = null;
-
-                for (int i = 0; i < disabledbuttons.GetLength(0); i++)
-                { 
-                    for (int j = 0; j < disabledbuttons.GetLength(1); j++)
-                    {
-                        if (disabledcount < 1)
-                        {
-                            if (disabledbuttons[i, j] == null)
-                            {
-                                disabledcount++;
-                                disabledbuttons[i, j] = Convert.ToString(firstButton);
-                                disabledbuttons[i, j + 1] = Convert.ToString(secondButton);
-
-                                XmlTextWriter writer = new XmlTextWriter("test.xml", Encoding.UTF8);
-                                writer.Formatting = Formatting.Indented;
-
-                                string disabledfirstbutton = "disabledfirstbutton" + i + j, disabledsecondbutton = "disabledsecondbutton" + i + j;
-                                
-                                writer.WriteStartElement("buttons");
-                                writer.WriteElementString(disabledfirstbutton, Convert.ToString(disabledbuttons[i, j]));
-                                writer.WriteElementString(disabledsecondbutton, Convert.ToString(disabledbuttons[i, j + 1]));
-                                writer.WriteEndElement();
-                                writer.Close();
-                            }   
-                        }
-                        else
-                        {
-                            return;
-                        }
-                    }
-                }
 
                 if (Player1_beurt == false)
                 {
@@ -824,11 +808,17 @@ namespace TestMDi3
             }
         }
 
+
+        private void TimerMP_Tick(object sender, EventArgs e, string[,] disabledbuttons, int[,,] array)
+        {
+            WriteMP(array, disabledbuttons);
+        }
+
         public static void helpmenu()
         {
             byte[] PDF = Properties.Resources.Spelregels;
-            System.IO.MemoryStream ms = new System.IO.MemoryStream(PDF);
-            System.IO.FileStream f = new System.IO.FileStream("help.pdf", System.IO.FileMode.OpenOrCreate);
+            MemoryStream ms = new MemoryStream(PDF);
+            FileStream f = new FileStream("help.pdf", FileMode.OpenOrCreate);
             ms.WriteTo(f);
             f.Close();
             ms.Close();
@@ -836,9 +826,9 @@ namespace TestMDi3
         }
 
         //buttons ---------------------------------------------
-        private void ButtonClickHandler(object sender, EventArgs e, int[,,] array, Image[,] arrayimage)
+        private void ButtonClickHandler(object sender, EventArgs e, int[,,] array, Image[,] arrayimage, string [,] disabledbuttons)
         {
-            rotatebutton(sender,array,arrayimage);
+            rotatebutton(sender,array, arrayimage,disabledbuttons);
         }
 
         private void Singleplayer_CheckedChanged(object sender, EventArgs e)
