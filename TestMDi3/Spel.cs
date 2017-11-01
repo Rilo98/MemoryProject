@@ -22,7 +22,7 @@ namespace TestMDi3
         public static bool multiplayer, Player1_beurt, Player2_beurt, Doorgaan1Speler, DoorgaanMultiPlayer;
         public static string singlenaam, multinaam1, multinaam2, selectedtheme = "Default";
 
-        int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0, picturenumber2 = 1, Player1_score, Player2_score, counterint = (length * width / 2);
+        int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0, picturenumber2 = 1, Player1_score, Player2_score, counterint = (length * width / 2), x_kaarten;
         Button firstButton = null, secondButton = null;
 
         public Spel()
@@ -621,12 +621,22 @@ namespace TestMDi3
 
                 if (BeurtIndicator1.BackColor == ColorTranslator.FromHtml("#76FF03"))
                 {
+                    // Speler 1 scoort een punt
                     Player1_score = Player1_score + 1;
+                    if (x_kaarten == textboxint3)
+                    {
+                        Player1_score = Player1_score - 1;
+                    }
                     Label_Player1score.Text = Convert.ToString(Player1_score);
                 }
                 if (BeurtIndicator2.BackColor == ColorTranslator.FromHtml("#76FF03"))
                 {
+                    // Speler 2 scoort een punt
                     Player2_score = Player2_score + 1;
+                    if (x_kaarten == textboxint3)
+                    {
+                        Player2_score = Player2_score - 1;
+                    }
                     Label_Player2Score.Text = Convert.ToString(Player2_score);
                 }
             }
@@ -681,6 +691,7 @@ namespace TestMDi3
             timer1.Stop();
             if ((arrayid1 == arrayid2 - textboxint3) || (arrayid1 == arrayid2 + textboxint3))
             {
+                x_kaarten = x_kaarten + 1;
                 PlayerScore();
                 firstButton.Enabled = false;
                 firstButton.BackgroundImage = null;
