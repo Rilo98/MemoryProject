@@ -165,6 +165,10 @@ namespace TestMDi3
                     { timer_Sw_Tick(sender, e, arrayimage, array); };
                     Stopwatch.Visible = true;
                     timer_Sw.Enabled = true;
+
+                    this.timer1.Interval = 250;
+                    this.timer1.Tick += delegate (object sender, EventArgs e)
+                    { timer1_Tick(sender, e, disabledbuttons); };
                 }
                 
                 else
@@ -200,6 +204,10 @@ namespace TestMDi3
                     { timer_Sw_Tick(sender, e, arrayimage, array); };
                     Stopwatch.Visible = true;
                     timer_Sw.Enabled = true;
+
+                    this.timer1.Interval = 250;
+                    this.timer1.Tick += delegate (object sender, EventArgs e)
+                    { timer1_Tick(sender, e, disabledbuttons); };
                 }
             }
         }
@@ -635,7 +643,7 @@ namespace TestMDi3
             }
         }
 
-        private void PlayerScore()
+        private void PlayerScore()                                                                                                          //adds score based on player turn
         {
             if (multiplayer == true)
             {
@@ -672,7 +680,7 @@ namespace TestMDi3
 
         
 
-        private void SwitchTurn()
+        private void SwitchTurn()                                                                                                                                                   //switches turns
         {
             if (BeurtIndicator2.BackColor == ColorTranslator.FromHtml("#76FF03"))
             {
@@ -711,7 +719,7 @@ namespace TestMDi3
             }
 
         }
-        private void timer_Sw_Tick(object sender, EventArgs e, Image[,] arrayimage, int[,,] array)
+        private void timer_Sw_Tick(object sender, EventArgs e, Image[,] arrayimage, int[,,] array)                                                  //when the time is up in singleplayer it will stop the game and prompt the player to restart/go to the main menu
         {
             WriteSP(array);
             Stopwatch.Text = Convert.ToString(counterint = counterint - 1);
@@ -749,7 +757,7 @@ namespace TestMDi3
                 }
             }
         }
-        private void timer1_Tick(object sender, EventArgs e, string[,] disabledbuttons)
+        private void timer1_Tick(object sender, EventArgs e, string[,] disabledbuttons)                                             //timer waits 250ms before turning the cards back around
         {
             timer1.Stop();
 
@@ -809,7 +817,7 @@ namespace TestMDi3
         }
 
 
-        private void TimerMP_Tick(object sender, EventArgs e, string[,] disabledbuttons, int[,,] array)
+        private void TimerMP_Tick(object sender, EventArgs e, string[,] disabledbuttons, int[,,] array)                         
         {
             WriteMP(array, disabledbuttons);
         }

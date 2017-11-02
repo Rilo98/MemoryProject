@@ -20,6 +20,15 @@ namespace TestMDi3
 
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(0, 0);
+
+            Lengte.Value = 4;
+            Lengte.Maximum = 8;
+            Lengte.Minimum = 4;
+
+
+            Breedte.Value = 4;
+            Breedte.Maximum = 8;
+            Breedte.Minimum = 4;
         }
 
         private void Terug_Click(object sender, EventArgs e)
