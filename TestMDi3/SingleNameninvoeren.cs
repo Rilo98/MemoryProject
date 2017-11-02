@@ -24,8 +24,7 @@ namespace TestMDi3
             Lengte.Value = 4;
             Lengte.Maximum = 8;
             Lengte.Minimum = 4;
-
-
+            
             Breedte.Value = 4;
             Breedte.Maximum = 8;
             Breedte.Minimum = 4;

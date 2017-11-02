@@ -735,6 +735,7 @@ namespace TestMDi3
 
                 // Displays the MessageBox.
                 result = MessageBox.Show(this, message, caption, buttons);
+                File.Delete("SPSave.xml");
 
                 if (result == DialogResult.Yes)
                 {
