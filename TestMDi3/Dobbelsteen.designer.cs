@@ -36,6 +36,7 @@
             this.afterlb = new System.Windows.Forms.Label();
             this.Terug = new System.Windows.Forms.Button();
             this.volgende = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -43,7 +44,7 @@
             // Gooi_1
             // 
             this.Gooi_1.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Gooi_1.Location = new System.Drawing.Point(412, 361);
+            this.Gooi_1.Location = new System.Drawing.Point(419, 387);
             this.Gooi_1.Name = "Gooi_1";
             this.Gooi_1.Size = new System.Drawing.Size(162, 44);
             this.Gooi_1.TabIndex = 0;
@@ -54,31 +55,31 @@
             // 
             // Speler1
             // 
-            this.Speler1.AutoSize = true;
             this.Speler1.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Speler1.ForeColor = System.Drawing.Color.White;
-            this.Speler1.Location = new System.Drawing.Point(245, 298);
+            this.Speler1.Location = new System.Drawing.Point(205, 330);
             this.Speler1.Name = "Speler1";
-            this.Speler1.Size = new System.Drawing.Size(86, 28);
+            this.Speler1.Size = new System.Drawing.Size(255, 28);
             this.Speler1.TabIndex = 5;
             this.Speler1.Text = "Speler 1";
+            this.Speler1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Speler2
             // 
-            this.Speler2.AutoSize = true;
             this.Speler2.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Speler2.ForeColor = System.Drawing.Color.White;
-            this.Speler2.Location = new System.Drawing.Point(655, 298);
+            this.Speler2.Location = new System.Drawing.Point(546, 330);
             this.Speler2.Name = "Speler2";
-            this.Speler2.Size = new System.Drawing.Size(86, 28);
+            this.Speler2.Size = new System.Drawing.Size(250, 28);
             this.Speler2.TabIndex = 6;
             this.Speler2.Text = "Speler 2";
+            this.Speler2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = global::TestMDi3.Properties.Resources._1c;
-            this.pictureBox2.Location = new System.Drawing.Point(573, 45);
+            this.pictureBox2.Location = new System.Drawing.Point(546, 77);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(250, 250);
             this.pictureBox2.TabIndex = 4;
@@ -88,7 +89,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::TestMDi3.Properties.Resources._1c;
-            this.pictureBox1.Location = new System.Drawing.Point(159, 45);
+            this.pictureBox1.Location = new System.Drawing.Point(210, 77);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(250, 250);
             this.pictureBox1.TabIndex = 3;
@@ -96,14 +97,15 @@
             // 
             // afterlb
             // 
-            this.afterlb.AutoSize = true;
+            this.afterlb.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.afterlb.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.afterlb.ForeColor = System.Drawing.Color.White;
-            this.afterlb.Location = new System.Drawing.Point(407, 408);
+            this.afterlb.Location = new System.Drawing.Point(116, 434);
             this.afterlb.Name = "afterlb";
-            this.afterlb.Size = new System.Drawing.Size(55, 28);
+            this.afterlb.Size = new System.Drawing.Size(766, 28);
             this.afterlb.TabIndex = 7;
             this.afterlb.Text = "after";
+            this.afterlb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Terug
             // 
@@ -120,7 +122,7 @@
             // 
             this.volgende.Enabled = false;
             this.volgende.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.volgende.Location = new System.Drawing.Point(509, 474);
+            this.volgende.Location = new System.Drawing.Point(546, 474);
             this.volgende.Name = "volgende";
             this.volgende.Size = new System.Drawing.Size(185, 46);
             this.volgende.TabIndex = 9;
@@ -128,12 +130,24 @@
             this.volgende.UseVisualStyleBackColor = true;
             this.volgende.Click += new System.EventHandler(this.volgende_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(345, 46);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(303, 28);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Gooi om te bepalen wie begint!";
+            // 
             // Dobbelsteen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(980, 557);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.volgende);
             this.Controls.Add(this.Terug);
             this.Controls.Add(this.afterlb);
@@ -162,6 +176,7 @@
         private System.Windows.Forms.Label afterlb;
         private System.Windows.Forms.Button Terug;
         private System.Windows.Forms.Button volgende;
+        public System.Windows.Forms.Label label1;
     }
 }
 

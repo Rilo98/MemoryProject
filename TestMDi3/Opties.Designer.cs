@@ -43,7 +43,7 @@
             // 
             this.Terug.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Terug.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Terug.Location = new System.Drawing.Point(475, 400);
+            this.Terug.Location = new System.Drawing.Point(419, 400);
             this.Terug.Name = "Terug";
             this.Terug.Size = new System.Drawing.Size(135, 42);
             this.Terug.TabIndex = 7;
@@ -64,11 +64,11 @@
             // upload
             // 
             this.upload.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.upload.Location = new System.Drawing.Point(161, 110);
+            this.upload.Location = new System.Drawing.Point(161, 96);
             this.upload.Name = "upload";
-            this.upload.Size = new System.Drawing.Size(170, 35);
+            this.upload.Size = new System.Drawing.Size(170, 40);
             this.upload.TabIndex = 9;
-            this.upload.Text = "Upload";
+            this.upload.Text = "Uploaden";
             this.upload.UseVisualStyleBackColor = true;
             this.upload.Click += new System.EventHandler(this.upload_Click);
             // 
@@ -79,9 +79,9 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(12, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 28);
+            this.label1.Size = new System.Drawing.Size(136, 28);
             this.label1.TabIndex = 10;
-            this.label1.Text = "Nieuw Thema";
+            this.label1.Text = "Nieuw thema";
             // 
             // themename
             // 
@@ -98,19 +98,19 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(12, 55);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(142, 28);
+            this.label2.Size = new System.Drawing.Size(138, 28);
             this.label2.TabIndex = 12;
-            this.label2.Text = "Thema Naam:";
+            this.label2.Text = "Thema naam:";
             // 
             // Apply
             // 
             this.Apply.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Apply.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Apply.Location = new System.Drawing.Point(161, 307);
+            this.Apply.Location = new System.Drawing.Point(161, 290);
             this.Apply.Name = "Apply";
             this.Apply.Size = new System.Drawing.Size(170, 40);
             this.Apply.TabIndex = 13;
-            this.Apply.Text = "Apply";
+            this.Apply.Text = "Toepassen";
             this.Apply.UseVisualStyleBackColor = true;
             this.Apply.Click += new System.EventHandler(this.Apply_Click);
             // 
@@ -119,11 +119,11 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(12, 200);
+            this.label3.Location = new System.Drawing.Point(12, 205);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(205, 28);
+            this.label3.Size = new System.Drawing.Size(201, 28);
             this.label3.TabIndex = 14;
-            this.label3.Text = "Selecteer een Thema";
+            this.label3.Text = "Selecteer een thema";
             // 
             // label4
             // 
@@ -132,15 +132,15 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(16, 251);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(142, 28);
+            this.label4.Size = new System.Drawing.Size(138, 28);
             this.label4.TabIndex = 15;
-            this.label4.Text = "Thema Naam:";
+            this.label4.Text = "Thema naam:";
             // 
             // Opties
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(980, 557);
             this.Controls.Add(this.dropdown);
             this.Controls.Add(this.label4);

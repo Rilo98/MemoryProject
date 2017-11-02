@@ -37,11 +37,11 @@
             // 
             this.SinglePlayer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SinglePlayer.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SinglePlayer.Location = new System.Drawing.Point(207, 216);
+            this.SinglePlayer.Location = new System.Drawing.Point(259, 206);
             this.SinglePlayer.Name = "SinglePlayer";
             this.SinglePlayer.Size = new System.Drawing.Size(219, 70);
             this.SinglePlayer.TabIndex = 0;
-            this.SinglePlayer.Text = "Single Player";
+            this.SinglePlayer.Text = "Singleplayer";
             this.SinglePlayer.UseVisualStyleBackColor = true;
             this.SinglePlayer.Click += new System.EventHandler(this.SinglePlayer_Click);
             // 
@@ -49,11 +49,11 @@
             // 
             this.MultiPlayer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MultiPlayer.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MultiPlayer.Location = new System.Drawing.Point(515, 216);
+            this.MultiPlayer.Location = new System.Drawing.Point(526, 206);
             this.MultiPlayer.Name = "MultiPlayer";
             this.MultiPlayer.Size = new System.Drawing.Size(219, 70);
             this.MultiPlayer.TabIndex = 1;
-            this.MultiPlayer.Text = "MultiPlayer";
+            this.MultiPlayer.Text = "Multiplayer";
             this.MultiPlayer.UseVisualStyleBackColor = true;
             this.MultiPlayer.Click += new System.EventHandler(this.MultiPlayer_Click);
             // 
@@ -61,7 +61,7 @@
             // 
             this.Terugspeler.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Terugspeler.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Terugspeler.Location = new System.Drawing.Point(357, 318);
+            this.Terugspeler.Location = new System.Drawing.Point(391, 306);
             this.Terugspeler.Name = "Terugspeler";
             this.Terugspeler.Size = new System.Drawing.Size(219, 70);
             this.Terugspeler.TabIndex = 2;
@@ -73,7 +73,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(980, 557);
             this.Controls.Add(this.Terugspeler);
             this.Controls.Add(this.MultiPlayer);

@@ -43,16 +43,11 @@
             this.Score = new System.Windows.Forms.Label();
             this.Gamemode = new System.Windows.Forms.Label();
             this.Gamemode_Label = new System.Windows.Forms.Label();
-            this.Zetten = new System.Windows.Forms.Label();
-            this.Zetten2 = new System.Windows.Forms.Label();
-            this.ZettenP1 = new System.Windows.Forms.Label();
-            this.ZettenP2 = new System.Windows.Forms.Label();
+            this.test = new System.Windows.Forms.Button();
+            this.TimerMP = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 250;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // tableLayoutPanel1
             // 
@@ -69,14 +64,13 @@
             // 
             // reset
             // 
-            this.reset.Font = new System.Drawing.Font("Segoe UI Emoji", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reset.Location = new System.Drawing.Point(13, 492);
+            this.reset.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reset.Location = new System.Drawing.Point(12, 446);
             this.reset.Name = "reset";
-            this.reset.Size = new System.Drawing.Size(126, 45);
+            this.reset.Size = new System.Drawing.Size(95, 29);
             this.reset.TabIndex = 26;
             this.reset.Text = "Hoofdmenu";
             this.reset.UseVisualStyleBackColor = true;
-            this.reset.Visible = false;
             this.reset.Click += new System.EventHandler(this.button1_Click);
             // 
             // Label_Player1score
@@ -111,7 +105,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI Emoji", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(35, 253);
+            this.label3.Location = new System.Drawing.Point(35, 231);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(104, 32);
             this.label3.TabIndex = 31;
@@ -124,7 +118,7 @@
             this.Label_Player2Score.BackColor = System.Drawing.Color.Transparent;
             this.Label_Player2Score.Font = new System.Drawing.Font("Segoe UI Emoji", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label_Player2Score.ForeColor = System.Drawing.Color.White;
-            this.Label_Player2Score.Location = new System.Drawing.Point(132, 253);
+            this.Label_Player2Score.Location = new System.Drawing.Point(132, 231);
             this.Label_Player2Score.Name = "Label_Player2Score";
             this.Label_Player2Score.Size = new System.Drawing.Size(28, 32);
             this.Label_Player2Score.TabIndex = 32;
@@ -144,7 +138,7 @@
             // BeurtIndicator2
             // 
             this.BeurtIndicator2.Enabled = false;
-            this.BeurtIndicator2.Location = new System.Drawing.Point(10, 257);
+            this.BeurtIndicator2.Location = new System.Drawing.Point(10, 235);
             this.BeurtIndicator2.Name = "BeurtIndicator2";
             this.BeurtIndicator2.Size = new System.Drawing.Size(25, 25);
             this.BeurtIndicator2.TabIndex = 34;
@@ -157,7 +151,7 @@
             this.Stopwatch.BackColor = System.Drawing.Color.Transparent;
             this.Stopwatch.Font = new System.Drawing.Font("Segoe UI Emoji", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Stopwatch.ForeColor = System.Drawing.Color.White;
-            this.Stopwatch.Location = new System.Drawing.Point(35, 221);
+            this.Stopwatch.Location = new System.Drawing.Point(35, 200);
             this.Stopwatch.Name = "Stopwatch";
             this.Stopwatch.Size = new System.Drawing.Size(108, 32);
             this.Stopwatch.TabIndex = 35;
@@ -196,73 +190,55 @@
             this.Gamemode_Label.ForeColor = System.Drawing.Color.White;
             this.Gamemode_Label.Location = new System.Drawing.Point(12, 9);
             this.Gamemode_Label.Name = "Gamemode_Label";
-            this.Gamemode_Label.Size = new System.Drawing.Size(124, 28);
+            this.Gamemode_Label.Size = new System.Drawing.Size(119, 28);
             this.Gamemode_Label.TabIndex = 38;
-            this.Gamemode_Label.Text = "Gamemode:";
+            this.Gamemode_Label.Text = "Spelmodus:";
             // 
-            // Zetten
+            // test
             // 
-            this.Zetten.AutoSize = true;
-            this.Zetten.BackColor = System.Drawing.Color.Transparent;
-            this.Zetten.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Zetten.ForeColor = System.Drawing.Color.DimGray;
-            this.Zetten.Location = new System.Drawing.Point(37, 200);
-            this.Zetten.Name = "Zetten";
-            this.Zetten.Size = new System.Drawing.Size(57, 21);
-            this.Zetten.TabIndex = 39;
-            this.Zetten.Text = "Zetten:";
-            this.Zetten.Visible = false;
+            this.test.Location = new System.Drawing.Point(19, 93);
+            this.test.Name = "test";
+            this.test.Size = new System.Drawing.Size(75, 23);
+            this.test.TabIndex = 43;
+            this.test.Text = "test";
+            this.test.UseVisualStyleBackColor = true;
             // 
-            // Zetten2
+            // TimerMP
             // 
-            this.Zetten2.AutoSize = true;
-            this.Zetten2.BackColor = System.Drawing.Color.Transparent;
-            this.Zetten2.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Zetten2.ForeColor = System.Drawing.Color.DimGray;
-            this.Zetten2.Location = new System.Drawing.Point(37, 285);
-            this.Zetten2.Name = "Zetten2";
-            this.Zetten2.Size = new System.Drawing.Size(57, 21);
-            this.Zetten2.TabIndex = 40;
-            this.Zetten2.Text = "Zetten:";
-            this.Zetten2.Visible = false;
+            this.TimerMP.Tick += new System.EventHandler(this.TimerMP_Tick);
             // 
-            // ZettenP1
+            // button1
             // 
-            this.ZettenP1.AutoSize = true;
-            this.ZettenP1.BackColor = System.Drawing.Color.Transparent;
-            this.ZettenP1.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ZettenP1.ForeColor = System.Drawing.Color.DimGray;
-            this.ZettenP1.Location = new System.Drawing.Point(100, 200);
-            this.ZettenP1.Name = "ZettenP1";
-            this.ZettenP1.Size = new System.Drawing.Size(19, 21);
-            this.ZettenP1.TabIndex = 41;
-            this.ZettenP1.Text = "0";
-            this.ZettenP1.Visible = false;
+            this.button1.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(12, 481);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(95, 29);
+            this.button1.TabIndex = 44;
+            this.button1.Text = "Herstart";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // ZettenP2
+            // button2
             // 
-            this.ZettenP2.AutoSize = true;
-            this.ZettenP2.BackColor = System.Drawing.Color.Transparent;
-            this.ZettenP2.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ZettenP2.ForeColor = System.Drawing.Color.DimGray;
-            this.ZettenP2.Location = new System.Drawing.Point(100, 285);
-            this.ZettenP2.Name = "ZettenP2";
-            this.ZettenP2.Size = new System.Drawing.Size(19, 21);
-            this.ZettenP2.TabIndex = 42;
-            this.ZettenP2.Text = "0";
-            this.ZettenP2.Visible = false;
+            this.button2.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(12, 516);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(95, 29);
+            this.button2.TabIndex = 45;
+            this.button2.Text = "Afsluiten";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Spel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(980, 557);
-            this.Controls.Add(this.ZettenP2);
-            this.Controls.Add(this.ZettenP1);
-            this.Controls.Add(this.Zetten2);
-            this.Controls.Add(this.Zetten);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.test);
             this.Controls.Add(this.Gamemode_Label);
             this.Controls.Add(this.Gamemode);
             this.Controls.Add(this.Score);
@@ -299,10 +275,10 @@
         private System.Windows.Forms.Label Score;
         private System.Windows.Forms.Label Gamemode;
         private System.Windows.Forms.Label Gamemode_Label;
-        private System.Windows.Forms.Label Zetten;
-        private System.Windows.Forms.Label Zetten2;
-        private System.Windows.Forms.Label ZettenP1;
-        private System.Windows.Forms.Label ZettenP2;
+        private System.Windows.Forms.Button test;
+        private System.Windows.Forms.Timer TimerMP;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 

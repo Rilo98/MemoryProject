@@ -47,7 +47,6 @@ namespace TestMDi3
                     f4.MdiParent = this.ParentForm;
                     f4.Show();
                     Close();
-                    
                 }
             }
 
@@ -78,7 +77,6 @@ namespace TestMDi3
                 }
                 else if (dialogResult == DialogResult.No)
                 {
-                    Spel spel = new Spel();
                     Spel.multiplayer = true;
                     MultiNameninvoeren f5 = new MultiNameninvoeren();
                     f5.MdiParent = this.ParentForm;
@@ -89,7 +87,6 @@ namespace TestMDi3
 
             else
             {
-                Spel spel = new Spel();
                 Spel.multiplayer = true;
                 MultiNameninvoeren f5 = new MultiNameninvoeren();
                 f5.MdiParent = this.ParentForm;
