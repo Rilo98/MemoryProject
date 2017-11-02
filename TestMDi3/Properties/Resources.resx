@@ -349,4 +349,40 @@
   <data name="_7747378_orig" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\7747378_orig.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="achtergrondccc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\achtergrondccc.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="achtergrondentrofee" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\achtergrondentrofee.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="achtergrondentrofee0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\achtergrondentrofee0.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="achtergrondentrofee1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\achtergrondentrofee1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="achtergrondentrofee2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\achtergrondentrofee2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="achtergrondentrofee3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\achtergrondentrofee3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="achtergrondvuurwerk0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\achtergrondvuurwerk0.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="celebrate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\celebrate.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="logo_trofee" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo_trofee.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo_trofee1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo_trofee.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo_trofee11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo_trofee1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trophybackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\trophybackground.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

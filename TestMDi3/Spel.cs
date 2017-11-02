@@ -20,9 +20,9 @@ namespace TestMDi3
     {
         public static int length, width;
         public static bool multiplayer, Player1_beurt, Player2_beurt, Doorgaan1Speler, DoorgaanMultiPlayer;
-        public static string singlenaam, multinaam1, multinaam2, selectedtheme = "Default";
+        public static string singlenaam, multinaam1, multinaam2, selectedtheme = "Default",winnaar, winnaar_score;
 
-        int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0, picturenumber2 = 1, Player1_score, Player2_score, counterint = (length * width / 2), x_kaarten, Player1_zetten, Player2_zetten;
+        public static int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0, picturenumber2 = 1, Player1_score, Player2_score, counterint = (length * width / 2), x_kaarten, Player1_zetten, Player2_zetten;
         Button firstButton = null, secondButton = null;
 
         public Spel()
@@ -299,7 +299,6 @@ namespace TestMDi3
             }
         }
 
-       
 
         public void LoadOldExceptionsMP(int[,,] array)
         {
@@ -671,10 +670,31 @@ namespace TestMDi3
                 counterint = counterint + (length * width / 4);
                 Stopwatch.Text = Convert.ToString(counterint);
             }
+
         }
 
-        
+        private static void checkwinnaar()
+        {
+            if (x_kaarten == textboxint3)
+            {
+                if (Player1_score > Player2_score)
+                {
+                    winnaar = multinaam1;
+                    winnaar_score = Convert.ToString(Player1_score);
+                    Winscherm winscherm = new Winscherm();
+                    winscherm.Show();
+                }
 
+                if (Player2_score > Player1_score)
+                {
+                    winnaar = multinaam2;
+                    winnaar_score = Convert.ToString(Player2_score);
+                    Winscherm winscherm = new Winscherm();
+                    winscherm.Show();
+                }
+            }
+        }
+        
         private void SwitchTurn()
         {
             if (BeurtIndicator2.BackColor == ColorTranslator.FromHtml("#76FF03"))
@@ -732,6 +752,7 @@ namespace TestMDi3
             if ((arrayid1 == arrayid2 - textboxint3) || (arrayid1 == arrayid2 + textboxint3))
             {
                 x_kaarten = x_kaarten + 1;
+                checkwinnaar();
                 PlayerScore();
                 firstButton.Enabled = false;
                 firstButton.BackgroundImage = null;

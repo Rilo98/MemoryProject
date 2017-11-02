@@ -23,10 +23,18 @@ namespace TestMDi3
 
         private void Speel_Click(object sender, EventArgs e)
         {
-            Spelers f3 = new Spelers();
-            f3.MdiParent = this.ParentForm;
-            f3.Show();
-            Close();
+            if (ModifierKeys.HasFlag(Keys.Control))
+            {
+                Winscherm winscherm = new Winscherm();
+                winscherm.Show();
+            }
+            else
+            {
+                Spelers f3 = new Spelers();
+                f3.MdiParent = this.ParentForm;
+                f3.Show();
+                Close();
+            }
         }
 
         private void Afsluiten_Click(object sender, EventArgs e)

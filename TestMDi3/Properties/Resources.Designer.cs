@@ -133,9 +133,118 @@ namespace TestMDi3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap achtergrondccc {
+            get {
+                object obj = ResourceManager.GetObject("achtergrondccc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap achtergrondentrofee {
+            get {
+                object obj = ResourceManager.GetObject("achtergrondentrofee", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap achtergrondentrofee0 {
+            get {
+                object obj = ResourceManager.GetObject("achtergrondentrofee0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap achtergrondentrofee1 {
+            get {
+                object obj = ResourceManager.GetObject("achtergrondentrofee1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap achtergrondentrofee2 {
+            get {
+                object obj = ResourceManager.GetObject("achtergrondentrofee2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap achtergrondentrofee3 {
+            get {
+                object obj = ResourceManager.GetObject("achtergrondentrofee3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap achtergrondvuurwerk0 {
+            get {
+                object obj = ResourceManager.GetObject("achtergrondvuurwerk0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream celebrate {
+            get {
+                return ResourceManager.GetStream("celebrate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap defaultpic {
             get {
                 object obj = ResourceManager.GetObject("defaultpic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo_trofee {
+            get {
+                object obj = ResourceManager.GetObject("logo_trofee", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo_trofee1 {
+            get {
+                object obj = ResourceManager.GetObject("logo_trofee1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo_trofee11 {
+            get {
+                object obj = ResourceManager.GetObject("logo_trofee11", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -817,6 +926,16 @@ namespace TestMDi3.Properties {
             get {
                 object obj = ResourceManager.GetObject("Spelregels", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap trophybackground {
+            get {
+                object obj = ResourceManager.GetObject("trophybackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

@@ -66,6 +66,12 @@
     <Compile Include="Dobbelsteen.designer.cs">
       <DependentUpon>Dobbelsteen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Winscherm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Winscherm.designer.cs">
+      <DependentUpon>Winscherm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Opties.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,9 @@
     </Compile>
     <EmbeddedResource Include="Dobbelsteen.resx">
       <DependentUpon>Dobbelsteen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Winscherm.resx">
+      <DependentUpon>Winscherm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Hoofdmenu.resx">
       <DependentUpon>Hoofdmenu.cs</DependentUpon>
@@ -390,6 +399,42 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\achtergrondccc.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\achtergrondentrofee.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\achtergrondentrofee0.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\achtergrondentrofee1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\achtergrondentrofee2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\achtergrondentrofee3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\achtergrondvuurwerk0.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\celebrate.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_trofee.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_trofee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_trofee1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trophybackground.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
