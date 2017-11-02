@@ -80,7 +80,7 @@ namespace TestMDi3
                     LoadOldExceptionsMP(array, disabledbuttons);
                     createbuttons(array, arrayimage,disabledbuttons , length, width);
                     PlayerBeurtStartGame();
-                    LoadDisabledButtons(array);
+                    LoadDisabledButtonsMP(array);
 
                     this.TimerMP.Enabled = true;
                     this.TimerMP.Interval = 1000;
@@ -155,6 +155,7 @@ namespace TestMDi3
                     theme(arrayimage);
                     LoadOldExceptionsSP(array,disabledbuttons);
                     createbuttons(array, arrayimage, disabledbuttons, length, width);
+                    LoadDisabledButtonsSP(array);
                     LoadOldSP();
                     // timer_Sw
                     // 
@@ -381,7 +382,7 @@ namespace TestMDi3
             }
         }
 
-        public void LoadDisabledButtons(int[,,] array)
+        public void LoadDisabledButtonsMP(int[,,] array)
         {
             XmlDocument MP = new XmlDocument();
             MP.Load("MPSave.xml");
@@ -401,6 +402,28 @@ namespace TestMDi3
                 }
             }
         }
+
+        public void LoadDisabledButtonsSP(int[,,] array)
+        {
+            XmlDocument SP = new XmlDocument();
+            SP.Load("SPSave.xml");
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    string button = SP.SelectSingleNode("values/arrays/arraydisabledbuttons/" + "disabledbuttons" + Convert.ToString(i) + "-" + Convert.ToString(j)).InnerText;
+                    if (button != "empty")
+                    {
+                        {
+                            tableLayoutPanel1.Controls[button].Enabled = false;
+                            tableLayoutPanel1.Controls[button].BackgroundImage = null;
+                            tableLayoutPanel1.Controls[button].BackColor = Color.Transparent;
+                        }
+                    }
+                }
+            }
+        }
+
         private void PlayerBeurtStartGame()
         {
             if (Player1_beurt == true)
