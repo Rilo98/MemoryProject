@@ -773,9 +773,9 @@ namespace TestMDi3
                 secondButton.BackgroundImage = null;
                 secondButton.BackColor = Color.Transparent;
 
-                disabledint++;
                 disabledbuttons[0, disabledint] = firstButton.Name;
                 disabledbuttons[1, disabledint] = secondButton.Name;
+                disabledint++;
 
                 firstButton = null;
                 secondButton = null;
