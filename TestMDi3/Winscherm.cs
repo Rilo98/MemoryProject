@@ -25,6 +25,7 @@ namespace TestMDi3
 {
     public partial class Winscherm : Form
     {
+        private Point pt;
         public Winscherm()
         {
             InitializeComponent();
@@ -34,6 +35,14 @@ namespace TestMDi3
             FireTimer.Start();
             label_winnaarnaam.Text = Spel.winnaar;
             label_score.Text = Spel.winnaar_score;
+            pt = this.Location;
+
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point(0, 0);
+
+            this.ShowInTaskbar = false;
+            this.ControlBox = false;
+            this.Text = null;
         }
 
         private int timertick = 0;
@@ -75,7 +84,7 @@ namespace TestMDi3
         private void button2_Click(object sender, EventArgs e)
         {
             Hoofdmenu f2 = new Hoofdmenu();
-            f2.MdiParent = this.ParentForm;
+            f2.MdiParent = this.MdiParent;
             f2.Show();
             Close();
         }
@@ -84,9 +93,14 @@ namespace TestMDi3
         private void button3_Click(object sender, EventArgs e)
         {
             Spelers f3 = new Spelers();
-            f3.MdiParent = this.MainForm;
+            f3.MdiParent = this.ParentForm;
             f3.Show();
             Close();
+        }
+
+        private void Form1_Move(object sender, EventArgs e)
+        {
+            this.Location = pt;
         }
     }
 }

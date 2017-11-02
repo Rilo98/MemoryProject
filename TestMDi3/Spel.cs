@@ -22,7 +22,7 @@ namespace TestMDi3
         public static bool multiplayer, Player1_beurt, Player2_beurt, Doorgaan1Speler, DoorgaanMultiPlayer;
         public static string singlenaam, multinaam1, multinaam2, selectedtheme = "Default",winnaar, winnaar_score;
 
-        int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0, picturenumber2 = 1, Player1_score, Player2_score, counterint = (length * width / 2), x_kaarten, Player1_zetten, Player2_zetten, disabledint;
+        public static int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0, picturenumber2 = 1, Player1_score, Player2_score, counterint = (length * width / 2), x_kaarten, Player1_zetten, Player2_zetten, disabledint;
         Button firstButton = null, secondButton = null;
 
         public Spel()
@@ -679,7 +679,7 @@ namespace TestMDi3
 
         }
 
-        private static void checkwinnaar()
+        private  void checkwinnaar()
         {
             if (x_kaarten == textboxint3)
             {
@@ -688,7 +688,9 @@ namespace TestMDi3
                     winnaar = multinaam1;
                     winnaar_score = Convert.ToString(Player1_score);
                     Winscherm winscherm = new Winscherm();
+                    winscherm.MdiParent = this.ParentForm;
                     winscherm.Show();
+                    Close();
                 }
 
                 if (Player2_score > Player1_score)
@@ -696,7 +698,9 @@ namespace TestMDi3
                     winnaar = multinaam2;
                     winnaar_score = Convert.ToString(Player2_score);
                     Winscherm winscherm = new Winscherm();
+                    winscherm.MdiParent = this.ParentForm;
                     winscherm.Show();
+                    Close();
                 }
             }
         }

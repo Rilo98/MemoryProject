@@ -42,7 +42,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(320, 393);
+            this.button1.Location = new System.Drawing.Point(563, 446);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(79, 26);
@@ -52,7 +52,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(245, 393);
+            this.button2.Location = new System.Drawing.Point(488, 446);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(70, 26);
@@ -65,7 +65,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(32, 49);
+            this.label1.Location = new System.Drawing.Point(275, 102);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(157, 29);
@@ -76,7 +76,7 @@
             // 
             this.label_winnaarnaam.AutoSize = true;
             this.label_winnaarnaam.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_winnaarnaam.Location = new System.Drawing.Point(40, 109);
+            this.label_winnaarnaam.Location = new System.Drawing.Point(283, 162);
             this.label_winnaarnaam.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_winnaarnaam.Name = "label_winnaarnaam";
             this.label_winnaarnaam.Size = new System.Drawing.Size(100, 29);
@@ -87,7 +87,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(33, 213);
+            this.label3.Location = new System.Drawing.Point(276, 266);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 24);
@@ -98,7 +98,7 @@
             // 
             this.label_score.AutoSize = true;
             this.label_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_score.Location = new System.Drawing.Point(112, 213);
+            this.label_score.Location = new System.Drawing.Point(355, 266);
             this.label_score.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_score.Name = "label_score";
             this.label_score.Size = new System.Drawing.Size(20, 24);
@@ -107,7 +107,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(404, 393);
+            this.button3.Location = new System.Drawing.Point(647, 446);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(79, 26);
@@ -120,7 +120,7 @@
             // 
             this.label_newhighscore.AutoSize = true;
             this.label_newhighscore.ForeColor = System.Drawing.Color.YellowGreen;
-            this.label_newhighscore.Location = new System.Drawing.Point(34, 199);
+            this.label_newhighscore.Location = new System.Drawing.Point(277, 252);
             this.label_newhighscore.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_newhighscore.Name = "label_newhighscore";
             this.label_newhighscore.Size = new System.Drawing.Size(100, 13);
@@ -137,7 +137,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::TestMDi3.Properties.Resources.achtergrondentrofee;
-            this.ClientSize = new System.Drawing.Size(511, 443);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ClientSize = new System.Drawing.Size(980, 557);
             this.Controls.Add(this.label_newhighscore);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label_score);
@@ -146,8 +147,12 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Winscherm";
+            this.ShowIcon = false;
             this.ResumeLayout(false);
             this.PerformLayout();
 
