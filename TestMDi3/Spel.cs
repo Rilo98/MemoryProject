@@ -157,7 +157,7 @@ namespace TestMDi3
                     createbuttons(array, arrayimage, disabledbuttons, length, width);
                     LoadDisabledButtonsSP(array);
                     LoadOldSP();
-                    // timer_Sw
+                    //timer_Sw
                     // 
                     Stopwatch.Text = Convert.ToString(counterint);
                     this.timer_Sw.Enabled = true;
@@ -723,25 +723,42 @@ namespace TestMDi3
 
         private  void checkwinnaar()
         {
-            if (x_kaarten == textboxint3)
+            if (multiplayer == true)
             {
-                if (Player1_score > Player2_score)
+                if (x_kaarten == textboxint3)
                 {
-                    winnaar = multinaam1;
+                    if (Player1_score > Player2_score)
+                    {
+                        winnaar = multinaam1;
+                        winnaar_score = Convert.ToString(Player1_score);
+                        Winscherm winscherm = new Winscherm();
+                        winscherm.MdiParent = this.ParentForm;
+                        winscherm.Show();
+                        Close();
+                    }
+
+                    if (Player2_score > Player1_score)
+                    {
+                        winnaar = multinaam2;
+                        winnaar_score = Convert.ToString(Player2_score);
+                        Winscherm winscherm = new Winscherm();
+                        winscherm.MdiParent = this.ParentForm;
+                        winscherm.Show();
+                        Close();
+                    }
+                    File.Delete("MPSave.xml");
+                }
+            }
+            else
+            {
+                if (x_kaarten == textboxint3)
+                {
+                    winnaar = singlenaam;
                     winnaar_score = Convert.ToString(Player1_score);
                     Winscherm winscherm = new Winscherm();
                     winscherm.MdiParent = this.ParentForm;
                     winscherm.Show();
-                    Close();
-                }
-
-                if (Player2_score > Player1_score)
-                {
-                    winnaar = multinaam2;
-                    winnaar_score = Convert.ToString(Player2_score);
-                    Winscherm winscherm = new Winscherm();
-                    winscherm.MdiParent = this.ParentForm;
-                    winscherm.Show();
+                    File.Delete("SPSave.xml");
                     Close();
                 }
             }
