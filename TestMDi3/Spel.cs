@@ -153,7 +153,7 @@ namespace TestMDi3
                     string[,] disabledbuttons = new string[2, textboxint3];
                     reset.Visible = Enabled;
                     theme(arrayimage);
-                    LoadOldExceptionsSP(array);
+                    LoadOldExceptionsSP(array,disabledbuttons);
                     createbuttons(array, arrayimage, disabledbuttons, length, width);
                     LoadOldSP();
                     // timer_Sw
@@ -162,7 +162,7 @@ namespace TestMDi3
                     this.timer_Sw.Enabled = true;
                     this.timer_Sw.Interval = 1000;
                     this.timer_Sw.Tick += delegate (object sender, EventArgs e)
-                    { timer_Sw_Tick(sender, e, arrayimage, array); };
+                    { timer_Sw_Tick(sender, e, arrayimage, array, disabledbuttons); };
                     Stopwatch.Visible = true;
                     timer_Sw.Enabled = true;
 
@@ -201,7 +201,7 @@ namespace TestMDi3
                     this.timer_Sw.Enabled = true;
                     this.timer_Sw.Interval = 1000;
                     this.timer_Sw.Tick += delegate (object sender, EventArgs e)
-                    { timer_Sw_Tick(sender, e, arrayimage, array); };
+                    { timer_Sw_Tick(sender, e, arrayimage, array, disabledbuttons); };
                     Stopwatch.Visible = true;
                     timer_Sw.Enabled = true;
 
@@ -213,7 +213,7 @@ namespace TestMDi3
         }
         
        
-        public void WriteSP(int[,,] array)
+        public void WriteSP(int[,,] array, string[,] disabledbuttons)
         {
             XmlTextWriter writer = new XmlTextWriter("SPSave.xml", Encoding.UTF8);
             writer.Formatting = Formatting.Indented;
@@ -243,8 +243,25 @@ namespace TestMDi3
                 }
             }
 
-            
 
+
+            writer.WriteEndElement();
+
+            writer.WriteStartElement("arraydisabledbuttons");
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    if (disabledbuttons[i, j] != null)
+                    {
+                        writer.WriteElementString("disabledbuttons" + i + "-" + j, Convert.ToString(disabledbuttons[i, j]));
+                    }
+                    else
+                    {
+                        writer.WriteElementString("disabledbuttons" + i + "-" + j, "empty");
+                    }
+                }
+            }
             writer.WriteEndElement();
             writer.WriteEndElement();
             writer.Close();
@@ -325,7 +342,7 @@ namespace TestMDi3
 
         }
 
-        public void LoadOldExceptionsSP(int[,,] array)
+        public void LoadOldExceptionsSP(int[,,] array, string[,] disabledbuttons)
         {
             XmlDocument doc = new XmlDocument();
             doc.Load("SPSave.xml");
@@ -333,6 +350,8 @@ namespace TestMDi3
             {
                 for (int j = 0; j<array.GetLength(1); j++)
                 {
+                    string button = doc.SelectSingleNode("values/arrays/arraydisabledbuttons/" + "disabledbuttons" + Convert.ToString(i) + "-" + Convert.ToString(j)).InnerText;
+                    disabledbuttons[i, j] = button;
                     for (int k = 0; k<array.GetLength(2); k++)
                     {
                         string ArrayXML = "arrayXML" + Convert.ToString(i) + "-" + Convert.ToString(j) + "-" + Convert.ToString(k);
@@ -744,9 +763,9 @@ namespace TestMDi3
             }
 
         }
-        private void timer_Sw_Tick(object sender, EventArgs e, Image[,] arrayimage, int[,,] array)                                                  //when the time is up in singleplayer it will stop the game and prompt the player to restart/go to the main menu
+        private void timer_Sw_Tick(object sender, EventArgs e, Image[,] arrayimage, int[,,] array, string[,] disabledbuttons)                                                  //when the time is up in singleplayer it will stop the game and prompt the player to restart/go to the main menu
         {
-            WriteSP(array);
+            WriteSP(array,disabledbuttons);
             Stopwatch.Text = Convert.ToString(counterint = counterint - 1);
             if (counterint == 0)
             {
