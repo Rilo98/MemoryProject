@@ -22,7 +22,7 @@ namespace TestMDi3
         public static bool multiplayer, Player1_beurt, Player2_beurt, Doorgaan1Speler, DoorgaanMultiPlayer, Player1_scorestreak, Player2_scorestreak;
         public static string singlenaam, multinaam1, multinaam2, selectedtheme = "Default",winnaar, winnaar_score;
 
-        public static int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0, picturenumber2 = 1, Player1_score, Player2_score, Combo_Player1, Combo_Player2, HighCombo_Player1, HighCombo_Player2, winaar_combo,  counterint = (length * width / 2), x_kaarten, Player1_zetten, Player2_zetten, disabledint;
+        public static int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0, picturenumber2 = 1, Player1_score, Player2_score, Combo_Player1, Combo_Player2, HighCombo_Player1, HighCombo_Player2, winnaar_combo,  counterint = (length * width / 2), x_kaarten, Player1_zetten, Player2_zetten, disabledint;
         Button firstButton = null, secondButton = null;
 
         public Spel()
@@ -776,12 +776,15 @@ namespace TestMDi3
             {
                 Combo_Player2_label.Visible = false;
                 labelcombo2.Visible = false;
-                Player1_scorestreak = true;
-                if (Player1_scorestreak == true)
+
+                Combo_Player1 = Combo_Player1 + 1;
+                Combo_Player1_label.Text = Convert.ToString(Combo_Player1);
+
+                if (Combo_Player1 > HighCombo_Player1)
                 {
-                    Combo_Player1 = Combo_Player1 + 1;
-                    Combo_Player1_label.Text = Convert.ToString(Combo_Player1);
+                    HighCombo_Player1 = Combo_Player1;
                 }
+
                 Player1_score = Player1_score + 1;
                 Label_Player1score.Text = Convert.ToString(Player1_score);
                 counterint = counterint + (length * width / 4);
@@ -800,7 +803,7 @@ namespace TestMDi3
                     {
                         winnaar = multinaam1;
                         winnaar_score = Convert.ToString(Player1_score);
-                        winaar_combo = (HighCombo_Player1);
+                        winnaar_combo = (HighCombo_Player1);
                         Winscherm winscherm = new Winscherm();
                         winscherm.MdiParent = this.ParentForm;
                         winscherm.Show();
@@ -811,7 +814,7 @@ namespace TestMDi3
                     {
                         winnaar = multinaam2;
                         winnaar_score = Convert.ToString(Player2_score);
-                        winaar_combo = (HighCombo_Player2);
+                        winnaar_combo = (HighCombo_Player2);
                         Winscherm winscherm = new Winscherm();
                         winscherm.MdiParent = this.ParentForm;
                         winscherm.Show();
@@ -826,6 +829,7 @@ namespace TestMDi3
                 {
                     winnaar = singlenaam;
                     winnaar_score = Convert.ToString(Player1_score);
+                    winnaar_combo = (HighCombo_Player1);
                     Winscherm winscherm = new Winscherm();
                     winscherm.MdiParent = this.ParentForm;
                     winscherm.Show();
@@ -946,6 +950,8 @@ namespace TestMDi3
                 if (selectedtheme =="Default")
                 {
                     SwitchTurn();
+                    Combo_Player1 = 0;
+                    Combo_Player1_label.Text = Convert.ToString(Combo_Player1);
                     firstButton.BackgroundImage = Properties.Resources.defaultpic;
                     secondButton.BackgroundImage = Properties.Resources.defaultpic;
                     firstButton = null;

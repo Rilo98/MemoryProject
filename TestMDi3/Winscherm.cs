@@ -23,7 +23,7 @@ namespace TestMDi3
             FireTimer.Start();
             label_winnaarnaam.Text = Spel.winnaar;
             label_score.Text = Spel.winnaar_score;
-            label_combo.Text = Convert.ToString(Spel.winaar_combo);
+            label_combo.Text = Convert.ToString(Spel.winnaar_combo);
             pt = this.Location;
 
             this.StartPosition = FormStartPosition.Manual;
