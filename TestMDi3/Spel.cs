@@ -19,10 +19,10 @@ namespace TestMDi3
     public partial class Spel : Form
     {
         public static int length, width;
-        public static bool multiplayer, Player1_beurt, Player2_beurt, Doorgaan1Speler, DoorgaanMultiPlayer;
+        public static bool multiplayer, Player1_beurt, Player2_beurt, Doorgaan1Speler, DoorgaanMultiPlayer, Player1_scorestreak, Player2_scorestreak;
         public static string singlenaam, multinaam1, multinaam2, selectedtheme = "Default",winnaar, winnaar_score;
 
-        public static int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0, picturenumber2 = 1, Player1_score, Player2_score, counterint = (length * width / 2), x_kaarten, Player1_zetten, Player2_zetten, disabledint;
+        public static int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0, picturenumber2 = 1, Player1_score, Player2_score, Combo_Player1, Combo_Player2, HighCombo_Player1, HighCombo_Player2, winaar_combo,  counterint = (length * width / 2), x_kaarten, Player1_zetten, Player2_zetten, disabledint;
         Button firstButton = null, secondButton = null;
 
         public Spel()
@@ -362,6 +362,10 @@ namespace TestMDi3
             }
         }
 
+        private void Combo_Player1_label_Click(object sender, EventArgs e)
+        {
+
+        }
 
         public void LoadOldExceptionsMP(int[,,] array, string[,] disabledbuttons)
         {
@@ -692,16 +696,34 @@ namespace TestMDi3
 
                 if (BeurtIndicator1.BackColor == ColorTranslator.FromHtml("#76FF03"))
                 {
-                    // Speler 1 scoort een punt
+                   
+                    // zet combo P2 op 0
+                    Combo_Player2 = 0;
+                    Combo_Player2_label.Text = Convert.ToString(Combo_Player2);
+                    // P1 combo verhoogt met 1
+                    Combo_Player1 = Combo_Player1 + 1;
+                    Combo_Player1_label.Text = Convert.ToString(Combo_Player1);
+                    //Speler 1 scoort een punt
                     Player1_score = Player1_score + 1;
-                    if (x_kaarten == textboxint3)
-                    {
+                     if (x_kaarten == textboxint3)
+                      {
                         Player1_score = Player1_score - 1;
-                    }
+                      }
                     Label_Player1score.Text = Convert.ToString(Player1_score);
+                    if (Combo_Player1 > HighCombo_Player1) // Bewaart waarde van hoogste combo
+                    {
+                        HighCombo_Player1 = Combo_Player1;
+                    }
                 }
                 if (BeurtIndicator2.BackColor == ColorTranslator.FromHtml("#76FF03"))
                 {
+                    
+                    // zet combo P1 op 0
+                    Combo_Player1 = 0;
+                    Combo_Player1_label.Text = Convert.ToString(Combo_Player1);
+                    // P2 combo verhoogt met 1
+                    Combo_Player2 = Combo_Player2 + 1;
+                    Combo_Player2_label.Text = Convert.ToString(Combo_Player2);
                     // Speler 2 scoort een punt
                     Player2_score = Player2_score + 1;
                     if (x_kaarten == textboxint3)
@@ -709,6 +731,10 @@ namespace TestMDi3
                         Player2_score = Player2_score - 1;
                     }
                     Label_Player2Score.Text = Convert.ToString(Player2_score);
+                    if (Combo_Player2 > HighCombo_Player2) // Bewaart waarde van hoogste combo
+                    {
+                        HighCombo_Player2 = Combo_Player2;
+                    }
                 }
             }
             else
@@ -731,6 +757,7 @@ namespace TestMDi3
                     {
                         winnaar = multinaam1;
                         winnaar_score = Convert.ToString(Player1_score);
+                        winaar_combo = (HighCombo_Player1);
                         Winscherm winscherm = new Winscherm();
                         winscherm.MdiParent = this.ParentForm;
                         winscherm.Show();
@@ -741,6 +768,7 @@ namespace TestMDi3
                     {
                         winnaar = multinaam2;
                         winnaar_score = Convert.ToString(Player2_score);
+                        winaar_combo = (HighCombo_Player2);
                         Winscherm winscherm = new Winscherm();
                         winscherm.MdiParent = this.ParentForm;
                         winscherm.Show();
@@ -768,7 +796,8 @@ namespace TestMDi3
         {
             if (BeurtIndicator2.BackColor == ColorTranslator.FromHtml("#76FF03"))
             {
-
+                Combo_Player2 = 0;
+                Combo_Player2_label.Text = Convert.ToString(Combo_Player2);
                 Player2_zetten = Player2_zetten + 1;
                 BeurtIndicator1.BackColor = ColorTranslator.FromHtml("#76FF03");
                 BeurtIndicator2.BackColor = ColorTranslator.FromHtml("#F5F5F5");
@@ -785,7 +814,8 @@ namespace TestMDi3
             }
             else if (BeurtIndicator1.BackColor == ColorTranslator.FromHtml("#76FF03"))
             {
-
+                Combo_Player1 = 0;
+                Combo_Player1_label.Text = Convert.ToString(Combo_Player1);
                 Player1_zetten = Player1_zetten + 1;
                 BeurtIndicator1.BackColor = ColorTranslator.FromHtml("#F5F5F5");
                 BeurtIndicator2.BackColor = ColorTranslator.FromHtml("#76FF03");
@@ -799,6 +829,7 @@ namespace TestMDi3
                 Label_Player2Score.Font = new Font(label3.Font, FontStyle.Bold);
                 label3.ForeColor = Color.White;
                 Label_Player2Score.ForeColor = Color.White;
+               
 
             }
 
@@ -863,22 +894,7 @@ namespace TestMDi3
                 disabledint++;
 
                 firstButton = null;
-                secondButton = null;
-
-                if (Player1_beurt == false)
-                {
-                    BeurtIndicator1.BackColor = ColorTranslator.FromHtml("#F5F5F5");
-                    BeurtIndicator2.BackColor = ColorTranslator.FromHtml("#76FF03");
-                    Player1_beurt = true;
-                    Player2_beurt = false;
-                }                                                                               
-                else if (Player2_beurt == false)
-                {
-                    BeurtIndicator1.BackColor = ColorTranslator.FromHtml("#76FF03");
-                    BeurtIndicator2.BackColor = ColorTranslator.FromHtml("#F5F5F5");
-                    Player2_beurt = true;
-                    Player1_beurt = false;
-                }                                                                               
+                secondButton = null;                                                                          
             }
             else
             {
