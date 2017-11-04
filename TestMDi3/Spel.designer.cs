@@ -51,6 +51,7 @@
             this.Combo_Player1_label = new System.Windows.Forms.Label();
             this.Combo_Player2_label = new System.Windows.Forms.Label();
             this.labelcombo2 = new System.Windows.Forms.Label();
+            this.message = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -293,6 +294,16 @@
             this.labelcombo2.TabIndex = 48;
             this.labelcombo2.Text = "Combo:";
             // 
+            // message
+            // 
+            this.message.AutoSize = true;
+            this.message.Font = new System.Drawing.Font("Segoe UI Emoji", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.message.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.message.Location = new System.Drawing.Point(204, 549);
+            this.message.Name = "message";
+            this.message.Size = new System.Drawing.Size(0, 40);
+            this.message.TabIndex = 50;
+            // 
             // Spel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -300,6 +311,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1307, 686);
+            this.Controls.Add(this.message);
             this.Controls.Add(this.Combo_Player2_label);
             this.Controls.Add(this.labelcombo2);
             this.Controls.Add(this.Combo_Player1_label);
@@ -351,6 +363,7 @@
         private System.Windows.Forms.Label Combo_Player1_label;
         private System.Windows.Forms.Label Combo_Player2_label;
         private System.Windows.Forms.Label labelcombo2;
+        private System.Windows.Forms.Label message;
     }
 }
 

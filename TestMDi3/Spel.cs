@@ -703,6 +703,24 @@ namespace TestMDi3
                     // P1 combo verhoogt met 1
                     Combo_Player1 = Combo_Player1 + 1;
                     Combo_Player1_label.Text = Convert.ToString(Combo_Player1);
+                    if (Combo_Player1 == 1)
+                    {
+                        Random rnd_messagge = new Random();
+                        int x = rnd_messagge.Next(0, 4);
+                        if (x == 1) message.Text = "Netjes";
+                        if (x == 2) message.Text = "Goed zo";
+                        if (x == 3) message.Text = "Oké dan";
+                    }
+                        if (Combo_Player1 > 1)
+                        {
+                            message.Text = "Goed bezig zeg!";
+                            
+                        }
+                    if (Combo_Player1 > 2)
+                    {
+                        message.Text = "Memory Master!";
+                    }
+
                     //Speler 1 scoort een punt
                     Player1_score = Player1_score + 1;
                      if (x_kaarten == textboxint3)
@@ -724,6 +742,23 @@ namespace TestMDi3
                     // P2 combo verhoogt met 1
                     Combo_Player2 = Combo_Player2 + 1;
                     Combo_Player2_label.Text = Convert.ToString(Combo_Player2);
+                    if (Combo_Player2 == 1)
+                    {
+                        Random rnd_messagge = new Random();
+                        int x = rnd_messagge.Next(0, 4);
+                        if (x == 1) message.Text = "Netjes";
+                        if (x == 2) message.Text = "Goed zo";
+                        if (x == 3) message.Text = "Oké dan";
+                    }
+                        if (Combo_Player2 > 1)
+                        {
+                            message.Text = "Goed bezig zeg!";
+                        }
+                    if (Combo_Player2 > 2)
+                    {
+                        message.Text = "Memory Master!";
+                    }
+
                     // Speler 2 scoort een punt
                     Player2_score = Player2_score + 1;
                     if (x_kaarten == textboxint3)
@@ -798,6 +833,7 @@ namespace TestMDi3
             {
                 Combo_Player2 = 0;
                 Combo_Player2_label.Text = Convert.ToString(Combo_Player2);
+                message.Text = "";
                 Player2_zetten = Player2_zetten + 1;
                 BeurtIndicator1.BackColor = ColorTranslator.FromHtml("#76FF03");
                 BeurtIndicator2.BackColor = ColorTranslator.FromHtml("#F5F5F5");
@@ -816,6 +852,7 @@ namespace TestMDi3
             {
                 Combo_Player1 = 0;
                 Combo_Player1_label.Text = Convert.ToString(Combo_Player1);
+                message.Text = "";
                 Player1_zetten = Player1_zetten + 1;
                 BeurtIndicator1.BackColor = ColorTranslator.FromHtml("#F5F5F5");
                 BeurtIndicator2.BackColor = ColorTranslator.FromHtml("#76FF03");
