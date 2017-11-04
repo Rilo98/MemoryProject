@@ -138,6 +138,8 @@ namespace TestMDi3
 
                     singlenaam = Convert.ToString(docSP.SelectSingleNode("values/ints/singlenaam").InnerText);
 
+                    labelcombo2.Visible = false;
+                    Combo_Player2_label.Visible = false;
                     BeurtIndicator1.Visible = false;
                     BeurtIndicator2.Visible = false;
                     label2.Text = singlenaam;
@@ -181,6 +183,9 @@ namespace TestMDi3
                     label3.Visible = false;
                     Label_Player1score.Visible = Enabled;
                     Label_Player2Score.Visible = false;
+
+                    labelcombo2.Visible = false;
+                    Combo_Player2_label.Visible = false;
 
                     Stopwatch.Visible = true;
                     timer_Sw.Enabled = true;
@@ -360,11 +365,6 @@ namespace TestMDi3
                     }
                 }
             }
-        }
-
-        private void Combo_Player1_label_Click(object sender, EventArgs e)
-        {
-
         }
 
         public void LoadOldExceptionsMP(int[,,] array, string[,] disabledbuttons)
@@ -774,6 +774,14 @@ namespace TestMDi3
             }
             else
             {
+                Combo_Player2_label.Visible = false;
+                labelcombo2.Visible = false;
+                Player1_scorestreak = true;
+                if (Player1_scorestreak == true)
+                {
+                    Combo_Player1 = Combo_Player1 + 1;
+                    Combo_Player1_label.Text = Convert.ToString(Combo_Player1);
+                }
                 Player1_score = Player1_score + 1;
                 Label_Player1score.Text = Convert.ToString(Player1_score);
                 counterint = counterint + (length * width / 4);
@@ -1018,6 +1026,9 @@ namespace TestMDi3
         {
             ((MainForm)this.MdiParent).afsluiten();
         }
+        private void Combo_Player1_label_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
