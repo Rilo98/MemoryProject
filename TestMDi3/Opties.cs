@@ -27,8 +27,8 @@ namespace TestMDi3
                 Directory.CreateDirectory(@"Themes\");
                 string[] files = Directory.GetDirectories(@"Themes\");
                 dropdown.Items.AddRange(files);
-                dropdown.Items.Add("Standaart");
-                dropdown.SelectedItem = "Standaart";
+                dropdown.Items.Add("Standaard");
+                dropdown.SelectedItem = "Standaard";
                 StartPosition = FormStartPosition.Manual;
                 Location = new Point(0, 0);
             }
@@ -37,8 +37,8 @@ namespace TestMDi3
             {
                 string[] files = Directory.GetDirectories(@"Themes\");
                 dropdown.Items.AddRange(files);
-                dropdown.Items.Add("Standaart");
-                dropdown.SelectedItem = "Standaart";
+                dropdown.Items.Add("Standaard");
+                dropdown.SelectedItem = "Standaard";
                 StartPosition = FormStartPosition.Manual;
                 Location = new Point(0, 0);
             }
@@ -154,7 +154,7 @@ namespace TestMDi3
         {
             applied = false;
 
-            if (dropdown.Text == "Standaart" && standaartcount == 0)
+            if (dropdown.Text == "Standaard" && standaartcount == 0)
             {
                 standaartcount++;
                 return;

@@ -29,7 +29,7 @@ namespace TestMDi3
             label_score.Text = Spel.winnaar_score;
             label_combo.Text = Convert.ToString(Spel.winnaar_combo);
             pt = this.Location;
-
+            WriteNewEntry();
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(0, 0);
 
@@ -45,6 +45,25 @@ namespace TestMDi3
         private Image win2 = Properties.Resources.achtergrondentrofee1;
         private Image win3 = Properties.Resources.achtergrondentrofee2;
         private Image win4 = Properties.Resources.achtergrondentrofee3;
+
+        public void WriteNewEntry()
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load("Highscore.xml");
+            XmlElement parentelement = doc.CreateElement("highscore");
+
+            XmlElement name = doc.CreateElement("name");
+            name.InnerText = Convert.ToString(Spel.winnaar);
+            XmlElement score = doc.CreateElement("score");
+            score.InnerText = Convert.ToString(Spel.winnaar_score);
+            XmlElement combo = doc.CreateElement("combo");
+            combo.InnerText = Convert.ToString(Spel.winnaar_combo);
+
+            parentelement.AppendChild(name);
+            parentelement.AppendChild(score);
+            parentelement.AppendChild(combo);
+            doc.DocumentElement.AppendChild(parentelement);
+        }
 
         private void FireTimer_Tick(object sender, EventArgs e)
         {
