@@ -41,8 +41,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.Volume = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Terug
@@ -62,7 +60,7 @@
             this.dropdown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.dropdown.Font = new System.Drawing.Font("Segoe UI Emoji", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dropdown.FormattingEnabled = true;
-            this.dropdown.Location = new System.Drawing.Point(144, 216);
+            this.dropdown.Location = new System.Drawing.Point(144, 205);
             this.dropdown.Name = "dropdown";
             this.dropdown.Size = new System.Drawing.Size(170, 34);
             this.dropdown.TabIndex = 8;
@@ -126,7 +124,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(13, 185);
+            this.label3.Location = new System.Drawing.Point(13, 174);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(201, 28);
             this.label3.TabIndex = 14;
@@ -137,7 +135,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Emoji", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(13, 219);
+            this.label4.Location = new System.Drawing.Point(13, 208);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(125, 26);
             this.label4.TabIndex = 15;
@@ -159,7 +157,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Emoji", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(12, 301);
+            this.label6.Location = new System.Drawing.Point(376, 9);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(104, 32);
             this.label6.TabIndex = 18;
@@ -170,7 +168,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(13, 347);
+            this.label8.Location = new System.Drawing.Point(377, 56);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(125, 28);
             this.label8.TabIndex = 20;
@@ -178,34 +176,12 @@
             // 
             // Volume
             // 
-            this.Volume.Location = new System.Drawing.Point(27, 378);
+            this.Volume.Location = new System.Drawing.Point(391, 83);
             this.Volume.Name = "Volume";
             this.Volume.Size = new System.Drawing.Size(40, 40);
             this.Volume.TabIndex = 21;
             this.Volume.UseVisualStyleBackColor = true;
             this.Volume.Click += new System.EventHandler(this.Volume_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Emoji", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(468, 84);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(447, 26);
-            this.label7.TabIndex = 22;
-            this.label7.Text = "* Het bestand moet 32 paren afbeeldingen bevatten";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI Emoji", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(468, 134);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(232, 26);
-            this.label9.TabIndex = 23;
-            this.label9.Text = "* Beste resolutie 133 x 123";
             // 
             // Opties
             // 
@@ -213,8 +189,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(980, 557);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.Volume);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
@@ -251,7 +225,5 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button Volume;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label9;
     }
 }

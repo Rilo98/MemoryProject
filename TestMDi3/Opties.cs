@@ -51,15 +51,16 @@ namespace TestMDi3
         {
             //upload een folder voor de themes 
             string targetPath = @"Themes\" + themename.Text;
-            string source = "";
+            int i=0;
+
             try
             {
                 FolderBrowserDialog dialog = new FolderBrowserDialog();
 
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    source = dialog.SelectedPath;
-                    if (Directory.GetFiles(source, "*.png").Length < 65)
+                    DirectoryInfo source = new DirectoryInfo(dialog.SelectedPath);
+                    if (Directory.GetFiles(source.Name).Length < 32)
                     {
                         MessageBox.Show("Er ontbreken foto's in deze folder");
                         return;
@@ -67,9 +68,21 @@ namespace TestMDi3
 
                     else
                     {
-                        DirectoryCopy(source, targetPath);
+                        foreach (var file in source.GetFiles())
+                        {
+                            Directory.Move(file.FullName, targetPath + "picture " + i.ToString() + ".png");
+                            i++;
+                            Directory.Move(file.FullName, targetPath + "picture " + i.ToString() + ".png");
+                            i++;
+                        }
                         string[] files = Directory.GetDirectories(@"Themes\");
-                        dropdown.Items.AddRange(files);
+
+                        OpenFileDialog fileDialog = new OpenFileDialog();
+                        if (dialog.ShowDialog() == DialogResult.OK)
+                        {
+                            File.Copy(fileDialog.FileName , targetPath + "defaultpic" + ".png");
+                        }                        
+                      dropdown.Items.AddRange(files);
                     }
                 }
             }
@@ -78,32 +91,6 @@ namespace TestMDi3
                 MessageBox.Show("An error occured", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
-        private static void DirectoryCopy(string sourceDirName, string destDirName)
-        {
-            // Haalt de mapjes op.
-            DirectoryInfo dir = new DirectoryInfo(sourceDirName);
-
-            if (!dir.Exists)
-            {
-                throw new DirectoryNotFoundException("De geselecteerde map kon niet worden gevonden: " + sourceDirName);
-            }
-
-            DirectoryInfo[] dirs = dir.GetDirectories();
-            if (!Directory.Exists(destDirName))
-            {
-                Directory.CreateDirectory(destDirName);
-            }
-
-            FileInfo[] files = dir.GetFiles();
-            foreach (FileInfo file in files)
-            {
-                string temppath = Path.Combine(destDirName, file.Name);
-                file.CopyTo(temppath, false);
-            }
-        }
-
 
         public void applysettings()
         {
@@ -180,6 +167,14 @@ namespace TestMDi3
                 Volume.BackgroundImageLayout = ImageLayout.Stretch;
                 mute = false;
             }
+        }
+
+        private void UploadPlaatje_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+
+
+         
         }
     }
 }
