@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Xml;
 
 namespace TestMDi3
 {
@@ -108,6 +109,13 @@ namespace TestMDi3
         private void Apply_Click(object sender, EventArgs e)
         {
             applysettings();
+        }
+
+        public void settings()
+        {
+            XmlTextWriter writer = new XmlTextWriter("settings.xml", Encoding.UTF8);
+            writer.Formatting = Formatting.Indented;
+
         }
 
         private void Terug_Click(object sender, EventArgs e)
