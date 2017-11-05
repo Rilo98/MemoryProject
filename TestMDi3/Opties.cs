@@ -14,7 +14,7 @@ namespace TestMDi3
 {
     public partial class Opties : Form
     {
-        public bool mute = false;
+        public static bool mute = false;
 
         bool applied = true;
         int standaartcount;
@@ -165,7 +165,7 @@ namespace TestMDi3
                 mute = true;
             }
 
-            if (mute == true)
+            else if (mute == true)
             {
                 Volume.BackgroundImage = Properties.Resources.Volume_max;
                 Volume.BackgroundImageLayout = ImageLayout.Stretch;

@@ -24,7 +24,7 @@ namespace TestMDi3
             InitializeComponent();
             this.BackgroundImage = win1;
             System.Media.SoundPlayer player0 = new System.Media.SoundPlayer(Properties.Resources.celebrate);
-            player0.Play();
+            
             FireTimer.Start();
             label_winnaarnaam.Text = Spel.winnaar;
             label_score.Text = Spel.winnaar_score;
@@ -38,7 +38,10 @@ namespace TestMDi3
             this.ControlBox = false;
             this.Text = null;
             
-
+            if(Opties.mute == false)
+            {
+                player0.Play();
+            }
         }
         
         private int timertick = 0;
