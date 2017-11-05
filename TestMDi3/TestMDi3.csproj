@@ -186,9 +186,6 @@
     <None Include="Resources\1c.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\defaultpic.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Picture 0.bmp" />
   </ItemGroup>
   <ItemGroup>
@@ -466,6 +463,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Volume_Mute.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\defaultpic.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
