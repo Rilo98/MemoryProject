@@ -44,8 +44,17 @@ namespace TestMDi3
                 Location = new Point(0, 0);
             }
 
-            Volume.BackgroundImage = Properties.Resources.Volume_max;
-            Volume.BackgroundImageLayout = ImageLayout.Stretch;
+
+            if (mute == false)
+            {
+                Volume.BackgroundImage = Properties.Resources.Volume_max;
+                Volume.BackgroundImageLayout = ImageLayout.Stretch;
+            }
+            else
+            {
+                Volume.BackgroundImage = Properties.Resources.Volume_Mute;
+                Volume.BackgroundImageLayout = ImageLayout.Stretch;
+            }
         }
 
         private void upload_Click(object sender, EventArgs e)

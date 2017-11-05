@@ -18,11 +18,14 @@ namespace TestMDi3
 {
     public partial class Spel : Form
     {
-        public static int length, width;
+        public static int length, width, winnaar_combo;
         public static bool multiplayer, Player1_beurt, Player2_beurt, Doorgaan1Speler, DoorgaanMultiPlayer, Player1_scorestreak, Player2_scorestreak;
         public static string singlenaam, multinaam1, multinaam2, selectedtheme = "Standaard", winnaar, winnaar_score;
+        int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0, picturenumber2 = 1, Player1_score, Player2_score, Combo_Player1, Combo_Player2, HighCombo_Player1, HighCombo_Player2, counterint, x_kaarten, Player1_zetten, Player2_zetten, disabledint;
 
-        public static int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0, picturenumber2 = 1, Player1_score, Player2_score, Combo_Player1, Combo_Player2, HighCombo_Player1, HighCombo_Player2, winnaar_combo,  counterint, x_kaarten, Player1_zetten, Player2_zetten, disabledint;
+
+
+
         Button firstButton = null, secondButton = null;
 
         public Spel()
@@ -841,7 +844,7 @@ namespace TestMDi3
                     Winscherm winscherm = new Winscherm();
                     winscherm.MdiParent = this.ParentForm;
                     winscherm.Show();
-                    
+                    File.Delete("SPSave.xml");
                     Close();
                 }
             }

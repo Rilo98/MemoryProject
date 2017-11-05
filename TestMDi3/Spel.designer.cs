@@ -277,7 +277,7 @@
             this.message.AutoSize = true;
             this.message.Font = new System.Drawing.Font("Segoe UI Emoji", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.message.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.message.Location = new System.Drawing.Point(153, 446);
+            this.message.Location = new System.Drawing.Point(11, 263);
             this.message.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.message.Name = "message";
             this.message.Size = new System.Drawing.Size(0, 32);
