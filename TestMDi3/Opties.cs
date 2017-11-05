@@ -50,7 +50,7 @@ namespace TestMDi3
         private void upload_Click(object sender, EventArgs e)
         {
             //upload een folder voor de themes 
-            string targetPath = @"Themes\" + themename.Text;
+            string targetPath = @"Themes\" + themename.Text + @"\";
             int i=0;
 
             try
@@ -60,29 +60,33 @@ namespace TestMDi3
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     DirectoryInfo source = new DirectoryInfo(dialog.SelectedPath);
-                    if (Directory.GetFiles(source.Name).Length < 32)
+                    if (Directory.GetFiles(Convert.ToString(source)).Length != 32)
                     {
-                        MessageBox.Show("Er ontbreken foto's in deze folder");
+                        MessageBox.Show("Deze map bevat te weinig/te veel foto's");
                         return;
                     }
 
                     else
                     {
+                        Directory.CreateDirectory(targetPath);
                         foreach (var file in source.GetFiles())
                         {
-                            Directory.Move(file.FullName, targetPath + "picture " + i.ToString() + ".png");
+                            File.Copy(file.FullName, targetPath + "picture " + i.ToString() + ".png");
                             i++;
-                            Directory.Move(file.FullName, targetPath + "picture " + i.ToString() + ".png");
+                            File.Copy(file.FullName, targetPath + "picture " + i.ToString() + ".png");
                             i++;
                         }
                         string[] files = Directory.GetDirectories(@"Themes\");
 
+                        MessageBox.Show("Selecteer een foto voor de achterkant van de kaartjes");
+
+
                         OpenFileDialog fileDialog = new OpenFileDialog();
-                        if (dialog.ShowDialog() == DialogResult.OK)
+                        if (fileDialog.ShowDialog() == DialogResult.OK)
                         {
-                            File.Copy(fileDialog.FileName , targetPath + "defaultpic" + ".png");
-                        }                        
-                      dropdown.Items.AddRange(files);
+                            File.Copy(fileDialog.FileName, targetPath + @"\defaultpic" + ".png");
+                        }
+                        dropdown.Items.AddRange(files);
                     }
                 }
             }
