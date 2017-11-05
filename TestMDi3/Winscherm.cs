@@ -49,7 +49,8 @@ namespace TestMDi3
 
         public void WriteNewEntry()
         {
-          
+            if (File.Exists("Highscore.xml"))
+            {
                 XmlDocument doc = new XmlDocument();
                 doc.Load("Highscore.xml");
                 XmlElement parentelement = doc.CreateElement("highscore");
@@ -67,14 +68,28 @@ namespace TestMDi3
                 doc.DocumentElement.AppendChild(parentelement);
                 doc.Save("Highscore.xml");
 
-            XElement root = XElement.Load("Highscore.xml");
+                XElement root = XElement.Load("Highscore.xml");
                 var orderedtabs = root.Elements("highscore")
                 .OrderByDescending(xtab => (int)xtab.Element("score"))
                 .ToArray();
-            root.RemoveAll();
-            foreach (XElement tab in orderedtabs)
-                root.Add(tab);
-            root.Save("Highscore.xml");
+                root.RemoveAll();
+                foreach (XElement tab in orderedtabs)
+                    root.Add(tab);
+                root.Save("Highscore.xml");
+            }
+            else
+            {
+                XmlTextWriter writer = new XmlTextWriter("Highscore.xml", Encoding.UTF8);
+                writer.Formatting = Formatting.Indented;
+                writer.WriteStartElement("scorelist");
+                writer.WriteStartElement("highscore");
+                writer.WriteElementString("name", Convert.ToString(label_winnaarnaam.Text));
+                writer.WriteElementString("score", Convert.ToString(label_score.Text));
+                writer.WriteElementString("combo", Convert.ToString(label_combo.Text));
+                writer.WriteEndElement();
+                writer.WriteEndElement();
+                writer.Close();
+            }
         }
 
         private void FireTimer_Tick(object sender, EventArgs e)
