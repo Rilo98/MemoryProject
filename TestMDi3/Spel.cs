@@ -22,7 +22,7 @@ namespace TestMDi3
         public static bool multiplayer, Player1_beurt, Player2_beurt, Doorgaan1Speler, DoorgaanMultiPlayer, Player1_scorestreak, Player2_scorestreak;
         public static string singlenaam, multinaam1, multinaam2, selectedtheme = "Default",winnaar, winnaar_score;
 
-        public static int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0, picturenumber2 = 1, Player1_score, Player2_score, Combo_Player1, Combo_Player2, HighCombo_Player1, HighCombo_Player2, winnaar_combo,  counterint = (length * width / 2), x_kaarten, Player1_zetten, Player2_zetten, disabledint;
+        public static int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0, picturenumber2 = 1, Player1_score, Player2_score, Combo_Player1, Combo_Player2, HighCombo_Player1, HighCombo_Player2, winnaar_combo,  counterint, x_kaarten, Player1_zetten, Player2_zetten, disabledint;
         Button firstButton = null, secondButton = null;
 
         public Spel()
@@ -161,6 +161,7 @@ namespace TestMDi3
                     LoadOldSP();
                     //timer_Sw
                     // 
+                    counterint = (length * width) / 2;
                     Stopwatch.Text = Convert.ToString(counterint);
                     this.timer_Sw.Enabled = true;
                     this.timer_Sw.Interval = 1000;
@@ -200,9 +201,10 @@ namespace TestMDi3
                     theme(arrayimage);
                     fillarray(array);
                     createbuttons(array, arrayimage, disabledbuttons, length, width);
-                    
+
                     // timer_Sw
                     // 
+                    counterint = (length * width) / 2;
                     Stopwatch.Text = Convert.ToString(counterint);
                     this.timer_Sw.Enabled = true;
                     this.timer_Sw.Interval = 1000;
