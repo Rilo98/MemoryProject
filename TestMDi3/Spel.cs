@@ -20,7 +20,7 @@ namespace TestMDi3
     {
         public static int length, width;
         public static bool multiplayer, Player1_beurt, Player2_beurt, Doorgaan1Speler, DoorgaanMultiPlayer, Player1_scorestreak, Player2_scorestreak;
-        public static string singlenaam, multinaam1, multinaam2, selectedtheme = "Default", winnaar, winnaar_score;
+        public static string singlenaam, multinaam1, multinaam2, selectedtheme = "Standaart", winnaar, winnaar_score;
 
         public static int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0, picturenumber2 = 1, Player1_score, Player2_score, Combo_Player1, Combo_Player2, HighCombo_Player1, HighCombo_Player2, winnaar_combo,  counterint, x_kaarten, Player1_zetten, Player2_zetten, disabledint;
         Button firstButton = null, secondButton = null;
@@ -469,7 +469,7 @@ namespace TestMDi3
 
         private void theme(Image[,] arrayimage)
         {
-            if (selectedtheme =="Default")
+            if (selectedtheme == "Standaart")
             {
                 defaulttheme(arrayimage);
             }
@@ -537,7 +537,7 @@ namespace TestMDi3
                 button.Name = "button" + (i + 1).ToString();
                 button.Dock = DockStyle.Fill;
                 this.tableLayoutPanel1.Controls.Add(button);
-                if (selectedtheme =="Default")
+                if (selectedtheme == "Standaart")
                 {
                     button.BackgroundImage = Properties.Resources.defaultpic;
                     button.BackgroundImageLayout = ImageLayout.Stretch;
@@ -983,7 +983,7 @@ namespace TestMDi3
             }
             else
             {
-                if (selectedtheme =="Default")
+                if (selectedtheme == "Standaart")
                 {
                     SwitchTurn();
                     Combo_Player1 = 0;
@@ -1067,10 +1067,6 @@ namespace TestMDi3
         private void button2_Click(object sender, EventArgs e)
         {
             ((MainForm)this.MdiParent).afsluiten();
-        }
-        private void Combo_Player1_label_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

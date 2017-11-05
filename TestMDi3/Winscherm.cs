@@ -39,10 +39,7 @@ namespace TestMDi3
             
 
         }
-
-
-
-
+        
         private int timertick = 0;
         private Image win1 = Properties.Resources.achtergrondentrofee0;
         private Image win2 = Properties.Resources.achtergrondentrofee1;

@@ -9,44 +9,37 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Runtime.InteropServices;
-using AudioSwitcher.AudioApi.CoreAudio;
 
 namespace TestMDi3
 {
     public partial class Opties : Form
     {
-        CoreAudioDevice defaultPlaybackDevice = new CoreAudioController().DefaultPlaybackDevice;
         bool applied = true;
-
+        int standaartcount;
         public Opties()
         {
             InitializeComponent();
-            //set volume values
-
-            trackBar1.Value = Convert.ToInt32(defaultPlaybackDevice.Volume);
-            checkVolume();
-
             //load all themes
             if (!Directory.Exists(@"Themes\" + themename.Text))
             {
                 Directory.CreateDirectory(@"Themes\");
                 string[] files = Directory.GetDirectories(@"Themes\");
-                this.dropdown.Items.AddRange(files);
-                this.dropdown.Items.Add("Default");
-                this.StartPosition = FormStartPosition.Manual;
-                this.Location = new Point(0, 0);
+                dropdown.Items.AddRange(files);
+                dropdown.Items.Add("Standaart");
+                dropdown.SelectedItem = "Standaart";
+                StartPosition = FormStartPosition.Manual;
+                Location = new Point(0, 0);
             }
 
             else
             {
                 string[] files = Directory.GetDirectories(@"Themes\");
-                this.dropdown.Items.AddRange(files);
-                this.dropdown.Items.Add("Default");
-                this.StartPosition = FormStartPosition.Manual;
-                this.Location = new Point(0, 0);
+                dropdown.Items.AddRange(files);
+                dropdown.Items.Add("Standaart");
+                dropdown.SelectedItem = "Standaart";
+                StartPosition = FormStartPosition.Manual;
+                Location = new Point(0, 0);
             }
-
-
         }
 
         private void upload_Click(object sender, EventArgs e)
@@ -63,8 +56,7 @@ namespace TestMDi3
                     source = dialog.SelectedPath;
                     DirectoryCopy(source, targetPath);
                     string[] files = Directory.GetDirectories(@"Themes\");
-                    this.dropdown.Items.AddRange(files);
-                    this.dropdown.Items.Add("Default");
+                    dropdown.Items.AddRange(files);
                 }
             }
             catch (Exception)
@@ -98,30 +90,11 @@ namespace TestMDi3
             }
         }
 
-        public void checkVolume()
-        {
-            if (trackBar1.Value > 101 || trackBar1.Value < 50)
-            {
-                pictureBox.Image = Properties.Resources.Volume_2;
-            }
-
-            if ((trackBar1.Value > 49 || trackBar1.Value < 1))
-            {
-                pictureBox.Image = Properties.Resources.Volume_max;
-            }
-
-            if (trackBar1.Value == 0)
-            {
-                pictureBox.Image = Properties.Resources.Volume_Mute;
-            }
-        }
 
         public void applysettings()
         {
             applied = true;
             Spel.selectedtheme = dropdown.Text;
-            MessageBox.Show("Instellingen zijn opsgeslagen", "Opgeslagen");
-
         }
 
 
@@ -140,6 +113,7 @@ namespace TestMDi3
                 if (dialogResult == DialogResult.Yes)
                 {
                     applysettings();
+                    MessageBox.Show("Instellingen zijn opsgeslagen", "Opgeslagen");
                     Hoofdmenu f2 = new Hoofdmenu();
                     f2.MdiParent = this.ParentForm;
                     f2.Show();
@@ -162,17 +136,19 @@ namespace TestMDi3
             }
         }
 
-        //Controls the Volume
-        private void trackBar1_Scroll(object sender, EventArgs e)
-        {
-            defaultPlaybackDevice.Volume = trackBar1.Value;
-            checkVolume();
-        }
-
         private void dropdown_SelectedIndexChanged(object sender, EventArgs e)
         {
             applied = false;
-            MessageBox.Show(dropdown.Text + " is geselecteerd!");
+
+            if (dropdown.Text == "Standaart" && standaartcount == 0)
+            {
+                standaartcount++;
+                return;
+            }
+            else
+            {
+                MessageBox.Show(dropdown.Text + " is geselecteerd!");
+            }
         }
     }
 }

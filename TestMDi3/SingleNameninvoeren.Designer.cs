@@ -47,16 +47,17 @@
             // 
             this.Singlenaam.Font = new System.Drawing.Font("Segoe UI Emoji", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Singlenaam.Location = new System.Drawing.Point(494, 111);
+            this.Singlenaam.MaxLength = 12;
             this.Singlenaam.Name = "Singlenaam";
             this.Singlenaam.Size = new System.Drawing.Size(200, 54);
-            this.Singlenaam.TabIndex = 0;
+            this.Singlenaam.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Emoji", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(364, 114);
+            this.label1.Location = new System.Drawing.Point(360, 114);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(124, 47);
             this.label1.TabIndex = 1;
@@ -69,7 +70,7 @@
             this.Volgende.Location = new System.Drawing.Point(528, 427);
             this.Volgende.Name = "Volgende";
             this.Volgende.Size = new System.Drawing.Size(166, 42);
-            this.Volgende.TabIndex = 2;
+            this.Volgende.TabIndex = 5;
             this.Volgende.Text = "Volgende";
             this.Volgende.UseVisualStyleBackColor = true;
             this.Volgende.Click += new System.EventHandler(this.Volgende_Click);
@@ -81,7 +82,7 @@
             this.Terug.Location = new System.Drawing.Point(356, 427);
             this.Terug.Name = "Terug";
             this.Terug.Size = new System.Drawing.Size(166, 42);
-            this.Terug.TabIndex = 3;
+            this.Terug.TabIndex = 4;
             this.Terug.Text = "Terug";
             this.Terug.UseVisualStyleBackColor = true;
             this.Terug.Click += new System.EventHandler(this.Terug_Click);
@@ -132,7 +133,7 @@
             // errornaam
             // 
             this.errornaam.AutoSize = true;
-            this.errornaam.Location = new System.Drawing.Point(391, 141);
+            this.errornaam.Location = new System.Drawing.Point(502, 95);
             this.errornaam.Name = "errornaam";
             this.errornaam.Size = new System.Drawing.Size(0, 13);
             this.errornaam.TabIndex = 10;
@@ -142,14 +143,14 @@
             this.Lengte.Location = new System.Drawing.Point(594, 279);
             this.Lengte.Name = "Lengte";
             this.Lengte.Size = new System.Drawing.Size(100, 20);
-            this.Lengte.TabIndex = 12;
+            this.Lengte.TabIndex = 2;
             // 
             // Breedte
             // 
             this.Breedte.Location = new System.Drawing.Point(594, 305);
             this.Breedte.Name = "Breedte";
             this.Breedte.Size = new System.Drawing.Size(100, 20);
-            this.Breedte.TabIndex = 13;
+            this.Breedte.TabIndex = 3;
             // 
             // SingleNameninvoeren
             // 
