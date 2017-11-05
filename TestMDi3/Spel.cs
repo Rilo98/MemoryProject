@@ -46,7 +46,7 @@ namespace TestMDi3
                 if (DoorgaanMultiPlayer == true)
                 {
                     XmlDocument docMP = new XmlDocument();
-                    docMP.Load("MPSave.xml");
+                    docMP.Load("MPSave.sav");
                     length = length = Convert.ToInt32(docMP.SelectSingleNode("values/ints/length").InnerText);
                     width = width = Convert.ToInt32(docMP.SelectSingleNode("values/ints/width").InnerText);
 
@@ -137,7 +137,7 @@ namespace TestMDi3
                 if (Doorgaan1Speler == true)
                 {
                     XmlDocument docSP = new XmlDocument();
-                    docSP.Load("SPSave.xml");
+                    docSP.Load("SPSave.sav");
                     length = length = Convert.ToInt32(docSP.SelectSingleNode("values/ints/length").InnerText);
                     width = width = Convert.ToInt32(docSP.SelectSingleNode("values/ints/width").InnerText);
 
@@ -228,7 +228,7 @@ namespace TestMDi3
 
         public void WriteSP(int[,,] array, string[,] disabledbuttons)
         {
-            XmlTextWriter writer = new XmlTextWriter("SPSave.xml", Encoding.UTF8);
+            XmlTextWriter writer = new XmlTextWriter("SPSave.sav", Encoding.UTF8);
             writer.Formatting = Formatting.Indented;
             writer.WriteStartElement("values");
             writer.WriteStartElement("ints");
@@ -282,7 +282,7 @@ namespace TestMDi3
 
         public void WriteMP(int[,,] arrayMP, string[,] disabledbuttons)
         {
-            XmlTextWriter writer = new XmlTextWriter("MPSave.xml", Encoding.UTF8);
+            XmlTextWriter writer = new XmlTextWriter("MPSave.sav", Encoding.UTF8);
             writer.Formatting = Formatting.Indented;
             writer.WriteStartElement("values");
             writer.WriteStartElement("ints");
@@ -334,7 +334,7 @@ namespace TestMDi3
         public void LoadOldSP()
         {
             XmlDocument doc = new XmlDocument();
-            doc.Load("SPSave.xml");
+            doc.Load("SPSave.sav");
             length                      = Convert.ToInt32(doc.SelectSingleNode("values/ints/length").InnerText);
             width                       = Convert.ToInt32(doc.SelectSingleNode("values/ints/width").InnerText);
             selectedtheme               = Convert.ToString(doc.SelectSingleNode("values/ints/selectedtheme").InnerText);
@@ -354,13 +354,13 @@ namespace TestMDi3
         public void LoadOldMP(int[,,] array)
         {
             XmlDocument MP = new XmlDocument();
-            MP.Load("MPSave.xml");
+            MP.Load("MPSave.sav");
         }
 
         public void LoadOldExceptionsSP(int[,,] array, string[,] disabledbuttons)
         {
             XmlDocument doc = new XmlDocument();
-            doc.Load("SPSave.xml");
+            doc.Load("SPSave.sav");
             for (int i = 0; i<array.GetLength(0); i++)
             {
                 for (int j = 0; j<array.GetLength(1); j++)
@@ -379,7 +379,7 @@ namespace TestMDi3
         public void LoadOldExceptionsMP(int[,,] array, string[,] disabledbuttons)
         {
             XmlDocument MP = new XmlDocument();
-            MP.Load("MPSave.xml");
+            MP.Load("MPSave.sav");
             for (int i = 0; i < array.GetLength(0); i++)
             {
                 for (int j = 0; j < array.GetLength(1); j++)
@@ -398,7 +398,7 @@ namespace TestMDi3
         public void LoadDisabledButtonsMP(int[,,] array)
         {
             XmlDocument MP = new XmlDocument();
-            MP.Load("MPSave.xml");
+            MP.Load("MPSave.sav");
             for (int i = 0; i < array.GetLength(0); i++)
             {
                 for (int j = 0; j < array.GetLength(1); j++)
@@ -419,7 +419,7 @@ namespace TestMDi3
         public void LoadDisabledButtonsSP(int[,,] array)
         {
             XmlDocument SP = new XmlDocument();
-            SP.Load("SPSave.xml");
+            SP.Load("SPSave.sav");
             for (int i = 0; i < array.GetLength(0); i++)
             {
                 for (int j = 0; j < array.GetLength(1); j++)
@@ -832,7 +832,7 @@ namespace TestMDi3
                         
                         Close();
                     }
-                    File.Delete("MPSave.xml");
+                    File.Delete("MPSave.sav");
                 }
             }
             else
@@ -845,7 +845,7 @@ namespace TestMDi3
                     Winscherm winscherm = new Winscherm();
                     winscherm.MdiParent = this.ParentForm;
                     winscherm.Show();
-                    File.Delete("SPSave.xml");
+                    File.Delete("SPSave.sav");
                     Close();
                 }
             }
@@ -911,7 +911,7 @@ namespace TestMDi3
 
                 // Displays the MessageBox.
                 result = MessageBox.Show(this, message, caption, buttons);
-                File.Delete("SPSave.xml");
+                File.Delete("SPSave.sav");
 
                 if (result == DialogResult.Yes)
                 {

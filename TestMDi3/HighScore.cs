@@ -21,14 +21,14 @@ namespace TestMDi3
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(0, 0);
 
-            if (File.Exists("Highscore.xml"))
+            if (File.Exists("Highscore.sav"))
             {
                 HighscoreName.Text = "";
                 Highscorecombo.Text = "";
                 Highscorescore.Text = "";
 
                 XmlDocument xml = new XmlDocument();
-                xml.Load("Highscore.xml");
+                xml.Load("Highscore.sav");
                 var name = "highscore/name";
                 var combo = "highscore/combo";
                 var score = "highscore/score";

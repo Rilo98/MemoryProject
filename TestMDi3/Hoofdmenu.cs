@@ -20,10 +20,10 @@ namespace TestMDi3
 
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(0, 0);
-            if (File.Exists("settings.xml"))
+            if (File.Exists("settings.sav"))
             {
                 XmlDocument settings = new XmlDocument();
-                settings.Load("settings.xml");
+                settings.Load("settings.sav");
                 Spel.selectedtheme = Convert.ToString(settings.SelectSingleNode("settings/theme").InnerText);
             }
         }

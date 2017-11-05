@@ -39,11 +39,11 @@ namespace TestMDi3
             this.Text = null;
             if (Spel.multiplayer == true)
             {
-                File.Delete("MPSave.xml");
+                File.Delete("MPSave.sav");
             }
             else
             {
-                File.Delete("SPSave.xml");
+                File.Delete("SPSave.sav");
             }
 
             
@@ -61,10 +61,10 @@ namespace TestMDi3
 
         public void WriteNewEntry()
         {
-            if (File.Exists("Highscore.xml"))
+            if (File.Exists("Highscore.sav"))
             {
                 XmlDocument doc = new XmlDocument();
-                doc.Load("Highscore.xml");
+                doc.Load("Highscore.sav");
                 XmlElement parentelement = doc.CreateElement("highscore");
 
                 XmlElement name = doc.CreateElement("name");
@@ -78,20 +78,20 @@ namespace TestMDi3
                 parentelement.AppendChild(score);
                 parentelement.AppendChild(combo);
                 doc.DocumentElement.AppendChild(parentelement);
-                doc.Save("Highscore.xml");
+                doc.Save("Highscore.sav");
 
-                XElement root = XElement.Load("Highscore.xml");
+                XElement root = XElement.Load("Highscore.sav");
                 var orderedtabs = root.Elements("highscore")
                 .OrderByDescending(xtab => (int)xtab.Element("score"))
                 .ToArray();
                 root.RemoveAll();
                 foreach (XElement tab in orderedtabs)
                     root.Add(tab);
-                root.Save("Highscore.xml");
+                root.Save("Highscore.sav");
             }
             else
             {
-                XmlTextWriter writer = new XmlTextWriter("Highscore.xml", Encoding.UTF8);
+                XmlTextWriter writer = new XmlTextWriter("Highscore.sav", Encoding.UTF8);
                 writer.Formatting = Formatting.Indented;
                 writer.WriteStartElement("scorelist");
                 writer.WriteStartElement("highscore");
