@@ -20,9 +20,9 @@ namespace TestMDi3
     {
         public static int length, width;
         public static bool multiplayer, Player1_beurt, Player2_beurt, Doorgaan1Speler, DoorgaanMultiPlayer, Player1_scorestreak, Player2_scorestreak;
-        public static string singlenaam, multinaam1, multinaam2, selectedtheme = "Default",winnaar, winnaar_score;
+        public static string singlenaam, multinaam1, multinaam2, selectedtheme = "Default", winnaar, winnaar_score;
 
-        public static int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0, picturenumber2 = 1, Player1_score, Player2_score, Combo_Player1, Combo_Player2, HighCombo_Player1, HighCombo_Player2, winnaar_combo,  counterint = (length * width / 2), x_kaarten, Player1_zetten, Player2_zetten, disabledint;
+        public static int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0, picturenumber2 = 1, Player1_score, Player2_score, Combo_Player1, Combo_Player2, HighCombo_Player1, HighCombo_Player2, winnaar_combo, counterint = (length * width / 2), x_kaarten, Player1_zetten, Player2_zetten, disabledint;
         Button firstButton = null, secondButton = null;
 
         public Spel()
@@ -78,7 +78,7 @@ namespace TestMDi3
 
                     theme(arrayimage);
                     LoadOldExceptionsMP(array, disabledbuttons);
-                    createbuttons(array, arrayimage,disabledbuttons , length, width);
+                    createbuttons(array, arrayimage, disabledbuttons, length, width);
                     PlayerBeurtStartGame();
                     LoadDisabledButtonsMP(array);
 
@@ -86,7 +86,7 @@ namespace TestMDi3
                     this.TimerMP.Interval = 1000;
                     this.TimerMP.Tick += delegate (object sender, EventArgs e)
                     { TimerMP_Tick(sender, e, disabledbuttons, array); };
-                    
+
                     this.timer1.Interval = 250;
                     this.timer1.Tick += delegate (object sender, EventArgs e)
                     { timer1_Tick(sender, e, disabledbuttons); };
@@ -155,7 +155,7 @@ namespace TestMDi3
                     string[,] disabledbuttons = new string[2, textboxint3];
                     reset.Visible = Enabled;
                     theme(arrayimage);
-                    LoadOldExceptionsSP(array,disabledbuttons);
+                    LoadOldExceptionsSP(array, disabledbuttons);
                     createbuttons(array, arrayimage, disabledbuttons, length, width);
                     LoadDisabledButtonsSP(array);
                     LoadOldSP();
@@ -173,7 +173,7 @@ namespace TestMDi3
                     this.timer1.Tick += delegate (object sender, EventArgs e)
                     { timer1_Tick(sender, e, disabledbuttons); };
                 }
-                
+
                 else
                 {
                     label2.Text = singlenaam;
@@ -200,7 +200,7 @@ namespace TestMDi3
                     theme(arrayimage);
                     fillarray(array);
                     createbuttons(array, arrayimage, disabledbuttons, length, width);
-                    
+
                     // timer_Sw
                     // 
                     Stopwatch.Text = Convert.ToString(counterint);
@@ -217,8 +217,8 @@ namespace TestMDi3
                 }
             }
         }
-        
-       
+
+
         public void WriteSP(int[,,] array, string[,] disabledbuttons)
         {
             XmlTextWriter writer = new XmlTextWriter("SPSave.xml", Encoding.UTF8);
@@ -239,7 +239,7 @@ namespace TestMDi3
             for (int i = 0; i < array.GetLength(0); i++)
             {
                 for (int j = 0; j < array.GetLength(1); j++)
-                    {
+                {
                     for (int k = 0; k < array.GetLength(2); k++)
                     {
                         string ArrayXML = "arrayXML" + Convert.ToString(i) + "-" + Convert.ToString(j) + "-" + Convert.ToString(k);
@@ -272,6 +272,9 @@ namespace TestMDi3
             writer.WriteEndElement();
             writer.Close();
         }
+
+       
+
         public void WriteMP(int[,,] arrayMP, string[,] disabledbuttons)
         {
             XmlTextWriter writer = new XmlTextWriter("MPSave.xml", Encoding.UTF8);
@@ -807,6 +810,17 @@ namespace TestMDi3
                         Winscherm winscherm = new Winscherm();
                         winscherm.MdiParent = this.ParentForm;
                         winscherm.Show();
+                            XmlTextWriter writer = new XmlTextWriter("Highscore.xml", Encoding.UTF8);
+                            writer.Formatting = Formatting.Indented;
+                            writer.WriteStartElement("values");
+                            writer.WriteStartElement("names");
+                            writer.WriteElementString("name", Convert.ToString(winnaar));
+                            writer.WriteEndElement();
+                            writer.WriteStartElement("scores");
+                            writer.WriteElementString("score", Convert.ToString(winnaar_score));
+                            writer.WriteEndElement();
+                            writer.WriteEndElement();
+                        
                         Close();
                     }
 
@@ -818,6 +832,16 @@ namespace TestMDi3
                         Winscherm winscherm = new Winscherm();
                         winscherm.MdiParent = this.ParentForm;
                         winscherm.Show();
+                        XmlTextWriter writer = new XmlTextWriter("Highscore.xml", Encoding.UTF8);
+                        writer.Formatting = Formatting.Indented;
+                        writer.WriteStartElement("values");
+                        writer.WriteStartElement("names");
+                        writer.WriteElementString("name", Convert.ToString(winnaar));
+                        writer.WriteEndElement();
+                        writer.WriteStartElement("scores");
+                        writer.WriteElementString("score", Convert.ToString(winnaar_score));
+                        writer.WriteEndElement();
+                        writer.WriteEndElement();
                         Close();
                     }
                     File.Delete("MPSave.xml");
@@ -833,6 +857,16 @@ namespace TestMDi3
                     Winscherm winscherm = new Winscherm();
                     winscherm.MdiParent = this.ParentForm;
                     winscherm.Show();
+                    XmlTextWriter writer = new XmlTextWriter("Highscore.xml", Encoding.UTF8);
+                    writer.Formatting = Formatting.Indented;
+                    writer.WriteStartElement("values");
+                    writer.WriteStartElement("names");
+                    writer.WriteElementString("name", Convert.ToString(winnaar));
+                    writer.WriteEndElement();
+                    writer.WriteStartElement("scores");
+                    writer.WriteElementString("score", Convert.ToString(winnaar_score));
+                    writer.WriteEndElement();
+                    writer.WriteEndElement();
                     File.Delete("SPSave.xml");
                     Close();
                 }

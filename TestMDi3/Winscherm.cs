@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.XmlConfiguration;
+using System.Xml.Linq;
+using System.Xml.Serialization;
 
 namespace TestMDi3
 {
@@ -32,10 +36,12 @@ namespace TestMDi3
             this.ShowInTaskbar = false;
             this.ControlBox = false;
             this.Text = null;
+            
+
         }
 
 
-        
+
 
         private int timertick = 0;
         private Image win1 = Properties.Resources.achtergrondentrofee0;
