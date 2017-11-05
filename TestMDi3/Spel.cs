@@ -812,16 +812,7 @@ namespace TestMDi3
                         Winscherm winscherm = new Winscherm();
                         winscherm.MdiParent = this.ParentForm;
                         winscherm.Show();
-                            XmlTextWriter writer = new XmlTextWriter("Highscore.xml", Encoding.UTF8);
-                            writer.Formatting = Formatting.Indented;
-                            writer.WriteStartElement("values");
-                            writer.WriteStartElement("names");
-                            writer.WriteElementString("name", Convert.ToString(winnaar));
-                            writer.WriteEndElement();
-                            writer.WriteStartElement("scores");
-                            writer.WriteElementString("score", Convert.ToString(winnaar_score));
-                            writer.WriteEndElement();
-                            writer.WriteEndElement();
+                        
                         
                         Close();
                     }
@@ -834,16 +825,7 @@ namespace TestMDi3
                         Winscherm winscherm = new Winscherm();
                         winscherm.MdiParent = this.ParentForm;
                         winscherm.Show();
-                        XmlTextWriter writer = new XmlTextWriter("Highscore.xml", Encoding.UTF8);
-                        writer.Formatting = Formatting.Indented;
-                        writer.WriteStartElement("values");
-                        writer.WriteStartElement("names");
-                        writer.WriteElementString("name", Convert.ToString(winnaar));
-                        writer.WriteEndElement();
-                        writer.WriteStartElement("scores");
-                        writer.WriteElementString("score", Convert.ToString(winnaar_score));
-                        writer.WriteEndElement();
-                        writer.WriteEndElement();
+                        
                         Close();
                     }
                     File.Delete("MPSave.xml");
@@ -859,17 +841,7 @@ namespace TestMDi3
                     Winscherm winscherm = new Winscherm();
                     winscherm.MdiParent = this.ParentForm;
                     winscherm.Show();
-                    XmlTextWriter writer = new XmlTextWriter("Highscore.xml", Encoding.UTF8);
-                    writer.Formatting = Formatting.Indented;
-                    writer.WriteStartElement("values");
-                    writer.WriteStartElement("names");
-                    writer.WriteElementString("name", Convert.ToString(winnaar));
-                    writer.WriteEndElement();
-                    writer.WriteStartElement("scores");
-                    writer.WriteElementString("score", Convert.ToString(winnaar_score));
-                    writer.WriteEndElement();
-                    writer.WriteEndElement();
-                    File.Delete("SPSave.xml");
+                    
                     Close();
                 }
             }

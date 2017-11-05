@@ -16,5 +16,13 @@ namespace TestMDi3
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Hoofdmenu f2 = new Hoofdmenu();
+            f2.MdiParent = this.MdiParent;
+            f2.Show();
+            Close();
+        }
     }
 }

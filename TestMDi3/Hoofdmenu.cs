@@ -54,5 +54,13 @@ namespace TestMDi3
         {
             Spel.helpmenu();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Highscore HS = new Highscore();
+            HS.MdiParent = this.MdiParent;
+            HS.Show();
+            Close();
+        }
     }
 }

@@ -12,6 +12,7 @@ using System.Xml;
 using System.Xml.XmlConfiguration;
 using System.Xml.Linq;
 using System.Xml.Serialization;
+using System.IO;
 
 namespace TestMDi3
 {
@@ -48,21 +49,32 @@ namespace TestMDi3
 
         public void WriteNewEntry()
         {
-            XmlDocument doc = new XmlDocument();
-            doc.Load("Highscore.xml");
-            XmlElement parentelement = doc.CreateElement("highscore");
+          
+                XmlDocument doc = new XmlDocument();
+                doc.Load("Highscore.xml");
+                XmlElement parentelement = doc.CreateElement("highscore");
 
-            XmlElement name = doc.CreateElement("name");
-            name.InnerText = Convert.ToString(Spel.winnaar);
-            XmlElement score = doc.CreateElement("score");
-            score.InnerText = Convert.ToString(Spel.winnaar_score);
-            XmlElement combo = doc.CreateElement("combo");
-            combo.InnerText = Convert.ToString(Spel.winnaar_combo);
+                XmlElement name = doc.CreateElement("name");
+                name.InnerText = Convert.ToString(Spel.winnaar);
+                XmlElement score = doc.CreateElement("score");
+                score.InnerText = Convert.ToString(Spel.winnaar_score);
+                XmlElement combo = doc.CreateElement("combo");
+                combo.InnerText = Convert.ToString(Spel.winnaar_combo);
 
-            parentelement.AppendChild(name);
-            parentelement.AppendChild(score);
-            parentelement.AppendChild(combo);
-            doc.DocumentElement.AppendChild(parentelement);
+                parentelement.AppendChild(name);
+                parentelement.AppendChild(score);
+                parentelement.AppendChild(combo);
+                doc.DocumentElement.AppendChild(parentelement);
+                doc.Save("Highscore.xml");
+
+            XElement root = XElement.Load("Highscore.xml");
+                var orderedtabs = root.Elements("highscore")
+                .OrderByDescending(xtab => (int)xtab.Element("score"))
+                .ToArray();
+            root.RemoveAll();
+            foreach (XElement tab in orderedtabs)
+                root.Add(tab);
+            root.Save("Highscore.xml");
         }
 
         private void FireTimer_Tick(object sender, EventArgs e)
@@ -116,6 +128,14 @@ namespace TestMDi3
         private void Form1_Move(object sender, EventArgs e)
         {
             this.Location = pt;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Highscore HS = new Highscore();
+            HS.MdiParent = this.MdiParent;
+            HS.Show();
+            Close();
         }
     }
 }
