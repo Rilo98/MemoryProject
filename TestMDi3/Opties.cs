@@ -59,9 +59,18 @@ namespace TestMDi3
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     source = dialog.SelectedPath;
-                    DirectoryCopy(source, targetPath);
-                    string[] files = Directory.GetDirectories(@"Themes\");
-                    dropdown.Items.AddRange(files);
+                    if (Directory.GetFiles(source, "*.png").Length < 65)
+                    {
+                        MessageBox.Show("Er ontbreken foto's in deze folder");
+                        return;
+                    }
+
+                    else
+                    {
+                        DirectoryCopy(source, targetPath);
+                        string[] files = Directory.GetDirectories(@"Themes\");
+                        dropdown.Items.AddRange(files);
+                    }
                 }
             }
             catch (Exception)
