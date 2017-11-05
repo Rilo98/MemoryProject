@@ -72,6 +72,12 @@
     <Compile Include="Dobbelsteen.designer.cs">
       <DependentUpon>Dobbelsteen.cs</DependentUpon>
     </Compile>
+    <Compile Include="HighScore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HighScore.Designer.cs">
+      <DependentUpon>HighScore.cs</DependentUpon>
+    </Compile>
     <Compile Include="Winscherm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,9 @@
     </Compile>
     <EmbeddedResource Include="Dobbelsteen.resx">
       <DependentUpon>Dobbelsteen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HighScore.resx">
+      <DependentUpon>HighScore.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Winscherm.resx">
       <DependentUpon>Winscherm.cs</DependentUpon>
