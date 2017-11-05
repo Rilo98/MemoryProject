@@ -118,6 +118,7 @@ namespace TestMDi3
         private void Apply_Click(object sender, EventArgs e)
         {
             applysettings();
+            MessageBox.Show("Instellingen zijn opgeslagen", "Opgeslagen");
         }
 
         public void settings()
@@ -131,11 +132,11 @@ namespace TestMDi3
         {
             if (applied == false)
             {
-                DialogResult dialogResult = MessageBox.Show("U heeft nog niet opgeslagen; Wilt u opslaan?", "Opslaan", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("U heeft nog niet opgeslagen, Wilt u opslaan?", "Opslaan", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     applysettings();
-                    MessageBox.Show("Instellingen zijn opsgeslagen", "Opgeslagen");
+                    MessageBox.Show("Instellingen zijn opgeslagen", "Opgeslagen");
                     Hoofdmenu f2 = new Hoofdmenu();
                     f2.MdiParent = this.ParentForm;
                     f2.Show();
@@ -160,8 +161,6 @@ namespace TestMDi3
 
         private void dropdown_SelectedIndexChanged(object sender, EventArgs e)
         {
-            applied = false;
-
             if (dropdown.Text == "Standaard" && standaartcount == 0)
             {
                 standaartcount++;
@@ -169,12 +168,14 @@ namespace TestMDi3
             }
             else
             {
+                applied = false;
                 MessageBox.Show(dropdown.Text + " is geselecteerd!");
             }
         }
 
         private void Volume_Click(object sender, EventArgs e)
         {
+            applied = false;
             if (mute == false)
             {
                 Volume.BackgroundImage = Properties.Resources.Volume_Mute;
@@ -188,14 +189,6 @@ namespace TestMDi3
                 Volume.BackgroundImageLayout = ImageLayout.Stretch;
                 mute = false;
             }
-        }
-
-        private void UploadPlaatje_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog fileDialog = new OpenFileDialog();
-
-
-         
         }
     }
 }
