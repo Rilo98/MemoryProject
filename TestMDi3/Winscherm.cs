@@ -37,6 +37,15 @@ namespace TestMDi3
             this.ShowInTaskbar = false;
             this.ControlBox = false;
             this.Text = null;
+            if (Spel.multiplayer == true)
+            {
+                File.Delete("MPSave.xml");
+            }
+            else
+            {
+                File.Delete("SPSave.xml");
+            }
+
             
             if(Opties.mute == false)
             {

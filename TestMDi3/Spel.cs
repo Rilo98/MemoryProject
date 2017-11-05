@@ -36,6 +36,7 @@ namespace TestMDi3
 
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(0, 0);
+           
 
 
             if (multiplayer == true)
