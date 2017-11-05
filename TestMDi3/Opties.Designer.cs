@@ -38,6 +38,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.Volume = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Terug
@@ -149,12 +152,46 @@
             this.label5.TabIndex = 17;
             this.label5.Text = "Thema\'s";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Emoji", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(12, 301);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(104, 32);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Volume";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI Emoji", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(13, 347);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(125, 28);
+            this.label8.TabIndex = 20;
+            this.label8.Text = "Spel volume";
+            // 
+            // Volume
+            // 
+            this.Volume.Location = new System.Drawing.Point(27, 378);
+            this.Volume.Name = "Volume";
+            this.Volume.Size = new System.Drawing.Size(40, 40);
+            this.Volume.TabIndex = 21;
+            this.Volume.UseVisualStyleBackColor = true;
+            this.Volume.Click += new System.EventHandler(this.Volume_Click);
+            // 
             // Opties
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(980, 557);
+            this.Controls.Add(this.Volume);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dropdown);
             this.Controls.Add(this.label4);
@@ -185,5 +222,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button Volume;
     }
 }

@@ -52,6 +52,7 @@ namespace TestMDi3
                     label2.Text = multinaam1;
                     label3.Text = multinaam2;
 
+                    x_kaarten = Convert.ToInt32(docMP.SelectSingleNode("values/ints/x_Kaarten").InnerText);
 
                     selectedtheme = Convert.ToString(docMP.SelectSingleNode("values/ints/selectedtheme").InnerText);
 
@@ -234,6 +235,7 @@ namespace TestMDi3
             writer.WriteElementString("selectedtheme", Convert.ToString(selectedtheme));
             writer.WriteElementString("counterint", Convert.ToString(counterint));
             writer.WriteElementString("score", Convert.ToString(Player1_score));
+            writer.WriteElementString("x_Kaarten", Convert.ToString(x_kaarten));
             writer.WriteEndElement();
             writer.WriteStartElement("arrays");
             writer.WriteStartElement("arrayimage");
@@ -251,10 +253,7 @@ namespace TestMDi3
                 }
             }
 
-
-
             writer.WriteEndElement();
-
             writer.WriteStartElement("arraydisabledbuttons");
             for (int i = 0; i < array.GetLength(0); i++)
             {
@@ -290,6 +289,7 @@ namespace TestMDi3
             writer.WriteElementString("length", Convert.ToString(length));
             writer.WriteElementString("width", Convert.ToString(width));
             writer.WriteElementString("selectedtheme", Convert.ToString(selectedtheme));
+            writer.WriteElementString("x_Kaarten", Convert.ToString(x_kaarten));
             writer.WriteEndElement();
             writer.WriteStartElement("arrays");
             writer.WriteStartElement("arrayimage");
@@ -336,7 +336,8 @@ namespace TestMDi3
             selectedtheme               = Convert.ToString(doc.SelectSingleNode("values/ints/selectedtheme").InnerText);
             Player1_score               = Convert.ToInt32(doc.SelectSingleNode("values/ints/score").InnerText);
             counterint                  = Convert.ToInt32(doc.SelectSingleNode("values/ints/counterint").InnerText);
-            label2.Text                 = Convert.ToString(doc.SelectSingleNode("values/ints/singlenaam").InnerText); 
+            label2.Text                 = Convert.ToString(doc.SelectSingleNode("values/ints/singlenaam").InnerText);
+            x_kaarten                   = Convert.ToInt32(doc.SelectSingleNode("values/ints/x_Kaarten").InnerText);
             Label_Player1score.Text     = Convert.ToString(Player1_score);
             Stopwatch.Text              = Convert.ToString(counterint);
         }
@@ -350,7 +351,6 @@ namespace TestMDi3
         {
             XmlDocument MP = new XmlDocument();
             MP.Load("MPSave.xml");
-
         }
 
         public void LoadOldExceptionsSP(int[,,] array, string[,] disabledbuttons)

@@ -14,6 +14,8 @@ namespace TestMDi3
 {
     public partial class Opties : Form
     {
+        public bool mute = false;
+
         bool applied = true;
         int standaartcount;
         public Opties()
@@ -40,6 +42,9 @@ namespace TestMDi3
                 StartPosition = FormStartPosition.Manual;
                 Location = new Point(0, 0);
             }
+
+            Volume.BackgroundImage = Properties.Resources.Volume_max;
+            Volume.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         private void upload_Click(object sender, EventArgs e)
@@ -148,6 +153,23 @@ namespace TestMDi3
             else
             {
                 MessageBox.Show(dropdown.Text + " is geselecteerd!");
+            }
+        }
+
+        private void Volume_Click(object sender, EventArgs e)
+        {
+            if (mute == false)
+            {
+                Volume.BackgroundImage = Properties.Resources.Volume_Mute;
+                Volume.BackgroundImageLayout = ImageLayout.Stretch;
+                mute = true;
+            }
+
+            if (mute == true)
+            {
+                Volume.BackgroundImage = Properties.Resources.Volume_max;
+                Volume.BackgroundImageLayout = ImageLayout.Stretch;
+                mute = false;
             }
         }
     }
