@@ -15,6 +15,17 @@ namespace TestMDi3
         public Highscore()
         {
             InitializeComponent();
+
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point(0, 0);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Hoofdmenu f2 = new Hoofdmenu();
+            f2.MdiParent = this.MdiParent;
+            f2.Show();
+            Close();
         }
     }
 }
