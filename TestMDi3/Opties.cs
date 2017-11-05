@@ -110,6 +110,7 @@ namespace TestMDi3
         {
             applied = true;
             Spel.selectedtheme = dropdown.Text;
+            settings();
         }
 
 
@@ -124,7 +125,9 @@ namespace TestMDi3
         {
             XmlTextWriter writer = new XmlTextWriter("settings.xml", Encoding.UTF8);
             writer.Formatting = Formatting.Indented;
-
+            writer.WriteStartElement("settings");
+            writer.WriteElementString("theme", Convert.ToString(Spel.selectedtheme));
+            writer.Close();
         }
 
         private void Terug_Click(object sender, EventArgs e)

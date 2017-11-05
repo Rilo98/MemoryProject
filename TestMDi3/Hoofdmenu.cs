@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Xml;
+using System.IO;
 
 namespace TestMDi3
 {
@@ -19,6 +20,12 @@ namespace TestMDi3
 
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(0, 0);
+            if (File.Exists("settings.xml"))
+            {
+                XmlDocument settings = new XmlDocument();
+                settings.Load("settings.xml");
+                Spel.selectedtheme = Convert.ToString(settings.SelectSingleNode("settings/theme").InnerText);
+            }
         }
 
         private void Speel_Click(object sender, EventArgs e)
@@ -46,6 +53,7 @@ namespace TestMDi3
         {
             Opties opties = new Opties();
             opties.MdiParent = this.ParentForm;
+            
             opties.Show();
             Close();
         }
