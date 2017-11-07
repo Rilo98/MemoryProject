@@ -22,6 +22,8 @@ namespace TestMDi3
         public Opties()
         {
             InitializeComponent();
+            Volume.BackgroundImage = Properties.Resources.Volume_max;
+
             //load all themes
             if (!Directory.Exists(@"Themes\" + themename.Text))
             {
@@ -109,28 +111,7 @@ namespace TestMDi3
                 }
             }
         }
-
-
-        /*private void Terug_Click(object sender, EventArgs e)
-        {
-            Hoofdmenu f2 = new Hoofdmenu();
-            f2.MdiParent = this.ParentForm;
-            f2.Show();
-            Close();
-        }*/
-
-
-            /*if (mute == false)
-            {
-                Volume.BackgroundImage = Properties.Resources.Volume_max;
-                Volume.BackgroundImageLayout = ImageLayout.Stretch;
-            }
-            else
-            {
-                Volume.BackgroundImage = Properties.Resources.Volume_Mute;
-                Volume.BackgroundImageLayout = ImageLayout.Stretch;
-            }*/
-        
+      
 
         private void upload_Click(object sender, EventArgs e)
         {
