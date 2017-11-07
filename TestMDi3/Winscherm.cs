@@ -24,13 +24,13 @@ namespace TestMDi3
             InitializeComponent();
             this.BackgroundImage = win1;
             System.Media.SoundPlayer player0 = new System.Media.SoundPlayer(Properties.Resources.celebrate);
-            
+            WriteNewEntryMP1();
+            WriteNewEntryMP2();
             FireTimer.Start();
             label_winnaarnaam.Text = Spel.winnaar;
             label_score.Text = Spel.winnaar_score;
             label_combo.Text = Convert.ToString(Spel.winnaar_combo);
             pt = this.Location;
-            WriteNewEntry();
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(0, 0);
 
@@ -39,6 +39,7 @@ namespace TestMDi3
             this.Text = null;
             if (Spel.multiplayer == true)
             {
+                
                 File.Delete("MPSave.sav");
             }
             else
@@ -59,12 +60,12 @@ namespace TestMDi3
         private Image win3 = Properties.Resources.achtergrondentrofee2;
         private Image win4 = Properties.Resources.achtergrondentrofee3;
 
-        public void WriteNewEntry()
+        public void WriteNewEntrySP()
         {
-            if (File.Exists("Highscore.sav"))
+            if (File.Exists("HighscoreSP.sav"))
             {
                 XmlDocument doc = new XmlDocument();
-                doc.Load("Highscore.sav");
+                doc.Load("HighscoreSP.sav");
                 XmlElement parentelement = doc.CreateElement("highscore");
 
                 XmlElement name = doc.CreateElement("name");
@@ -78,21 +79,116 @@ namespace TestMDi3
                 parentelement.AppendChild(score);
                 parentelement.AppendChild(combo);
                 doc.DocumentElement.AppendChild(parentelement);
-                doc.Save("Highscore.sav");
+                doc.Save("HighscoreSP.sav");
 
-                XElement root = XElement.Load("Highscore.sav");
+                XElement root = XElement.Load("HighscoreSP.sav");
                 var orderedtabs = root.Elements("highscore")
                 .OrderByDescending(xtab => (int)xtab.Element("score"))
                 .ToArray();
                 root.RemoveAll();
                 foreach (XElement tab in orderedtabs)
                     root.Add(tab);
-                root.Save("Highscore.sav");
+                root.Save("HighscoreSP.sav");
             }
             else
             {
-                XmlTextWriter writer = new XmlTextWriter("Highscore.sav", Encoding.UTF8);
+                XmlTextWriter writer = new XmlTextWriter("HighscoreSP.sav", Encoding.UTF8);
                 writer.Formatting = Formatting.Indented;
+                writer.WriteStartElement("scorelist");
+                writer.WriteStartElement("highscore");
+                writer.WriteElementString("name", Convert.ToString(label_winnaarnaam.Text));
+                writer.WriteElementString("score", Convert.ToString(label_score.Text));
+                writer.WriteElementString("combo", Convert.ToString(label_combo.Text));
+                writer.WriteEndElement();
+                writer.WriteEndElement();
+                writer.Close();
+            }
+        }
+
+        public void WriteNewEntryMP1()
+        {
+            if (File.Exists("HighscoreMP.sav"))
+            {
+                XmlDocument doc = new XmlDocument();
+                doc.Load("HighscoreMP.sav");
+                XmlElement parentelement = doc.CreateElement("highscore");
+
+                XmlElement name = doc.CreateElement("name");
+                XmlElement score = doc.CreateElement("score");
+                XmlElement combo = doc.CreateElement("combo");
+                name.InnerText = Convert.ToString(Spel.multinaam1);
+                score.InnerText = Convert.ToString(Spel.Player1_score);
+                combo.InnerText = Convert.ToString(Spel.HighCombo_Player1);
+
+                parentelement.AppendChild(name);
+                parentelement.AppendChild(score);
+                parentelement.AppendChild(combo);
+                doc.DocumentElement.AppendChild(parentelement);
+
+               
+
+                doc.Save("HighscoreMP.sav");
+
+                XElement root = XElement.Load("HighscoreMP.sav");
+                var orderedtabs = root.Elements("highscore")
+                .OrderByDescending(xtab => (int)xtab.Element("score"))
+                .ToArray();
+                root.RemoveAll();
+                foreach (XElement tab in orderedtabs)
+                    root.Add(tab);
+                root.Save("HighscoreMP.sav");
+            }
+            else
+            {
+                XmlTextWriter writer = new XmlTextWriter("HighscoreMP.sav", Encoding.UTF8);
+                writer.Formatting = Formatting.Indented;
+                writer.WriteStartElement("scorelist");
+                writer.WriteStartElement("highscore");
+                writer.WriteElementString("name", Convert.ToString(label_winnaarnaam.Text));
+                writer.WriteElementString("score", Convert.ToString(label_score.Text));
+                writer.WriteElementString("combo", Convert.ToString(label_combo.Text));
+                writer.WriteEndElement();
+                writer.WriteEndElement();
+                writer.Close();
+            }
+        }
+
+        public void WriteNewEntryMP2()
+        { 
+         if (File.Exists("HighscoreMP.sav"))
+            {
+                XmlDocument doc = new XmlDocument();
+        doc.Load("HighscoreMP.sav");
+                XmlElement parentelement = doc.CreateElement("highscore");
+
+        XmlElement name = doc.CreateElement("name");
+        XmlElement score = doc.CreateElement("score");
+        XmlElement combo = doc.CreateElement("combo");
+        name.InnerText = Convert.ToString(Spel.multinaam2);
+                score.InnerText = Convert.ToString(Spel.Player2_score);
+                combo.InnerText = Convert.ToString(Spel.HighCombo_Player2);
+
+                parentelement.AppendChild(name);
+                parentelement.AppendChild(score);
+                parentelement.AppendChild(combo);
+                doc.DocumentElement.AppendChild(parentelement);
+
+
+                doc.Save("HighscoreMP.sav");
+
+                XElement root = XElement.Load("HighscoreMP.sav");
+        var orderedtabs = root.Elements("highscore")
+        .OrderByDescending(xtab => (int)xtab.Element("score"))
+        .ToArray();
+        root.RemoveAll();
+                foreach (XElement tab in orderedtabs)
+                    root.Add(tab);
+                root.Save("HighscoreMP.sav");
+            }
+            else
+            {
+                XmlTextWriter writer = new XmlTextWriter("HighscoreMP.sav", Encoding.UTF8);
+    writer.Formatting = Formatting.Indented;
                 writer.WriteStartElement("scorelist");
                 writer.WriteStartElement("highscore");
                 writer.WriteElementString("name", Convert.ToString(label_winnaarnaam.Text));
@@ -159,10 +255,10 @@ namespace TestMDi3
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Highscore HS = new Highscore();
-            HS.MdiParent = this.MdiParent;
-            HS.Show();
-            Close();
+         //   Highscore HS = new Highscore();
+         //   HS.MdiParent = this.MdiParent;
+         //   HS.Show();
+         //   Close();
         }
     }
 }

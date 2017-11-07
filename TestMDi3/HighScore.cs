@@ -21,14 +21,14 @@ namespace TestMDi3
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(0, 0);
 
-            if (File.Exists("Highscore.sav"))
+            if (File.Exists("HighscoreSP.sav"))
             {
                 HighscoreName.Text = "";
                 Highscorecombo.Text = "";
                 Highscorescore.Text = "";
 
                 XmlDocument xml = new XmlDocument();
-                xml.Load("Highscore.sav");
+                xml.Load("HighscoreSP.sav");
                 var name = "highscore/name";
                 var combo = "highscore/combo";
                 var score = "highscore/score";
@@ -74,6 +74,110 @@ namespace TestMDi3
             f2.MdiParent = this.MdiParent;
             f2.Show();
             Close();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.Text == "Singleplayer")
+            {
+                if (File.Exists("HighscoreSP.sav"))
+                {
+                    HighscoreName.Text = "";
+                    Highscorecombo.Text = "";
+                    Highscorescore.Text = "";
+
+                    XmlDocument xml = new XmlDocument();
+                    xml.Load("HighscoreSP.sav");
+                    var name = "highscore/name";
+                    var combo = "highscore/combo";
+                    var score = "highscore/score";
+                    var i = 0;
+                    var j = 0;
+                    var k = 0;
+                    XmlNodeList names = xml.DocumentElement.SelectNodes(name);
+                    foreach (XmlNode node in names)
+                    {
+                        HighscoreName.Text += node.InnerXml + Environment.NewLine;
+                        i++;
+                        if (i >= 10) break;
+                    }
+
+                    XmlNodeList combos = xml.DocumentElement.SelectNodes(combo);
+                    foreach (XmlNode node in combos)
+                    {
+                        Highscorecombo.Text += node.InnerXml + Environment.NewLine;
+                        j++;
+                        if (j >= 10) break;
+                    }
+
+                    XmlNodeList scores = xml.DocumentElement.SelectNodes(score);
+                    foreach (XmlNode node in scores)
+                    {
+                        Highscorescore.Text += node.InnerXml + Environment.NewLine;
+                        k++;
+                        if (k >= 10) break;
+                    }
+                }
+                else
+                {
+                    HighscoreName.Text = "";
+                    Highscorecombo.Text = "";
+                    Highscorescore.Text = "";
+                }
+            }
+            if (comboBox1.Text == "Multiplayer")
+            {
+                if (File.Exists("HighscoreMP.sav"))
+                {
+                    HighscoreName.Text = "";
+                    Highscorecombo.Text = "";
+                    Highscorescore.Text = "";
+
+                    XmlDocument xml = new XmlDocument();
+                    xml.Load("HighscoreMP.sav");
+                    var name = "highscore/name";
+                    var combo = "highscore/combo";
+                    var score = "highscore/score";
+                    var i = 0;
+                    var j = 0;
+                    var k = 0;
+                    XmlNodeList names = xml.DocumentElement.SelectNodes(name);
+                    foreach (XmlNode node in names)
+                    {
+                        HighscoreName.Text += node.InnerXml + Environment.NewLine;
+                        i++;
+                        if (i >= 10) break;
+                    }
+
+                    XmlNodeList combos = xml.DocumentElement.SelectNodes(combo);
+                    foreach (XmlNode node in combos)
+                    {
+                        Highscorecombo.Text += node.InnerXml + Environment.NewLine;
+                        j++;
+                        if (j >= 10) break;
+                    }
+
+                    XmlNodeList scores = xml.DocumentElement.SelectNodes(score);
+                    foreach (XmlNode node in scores)
+                    {
+                        Highscorescore.Text += node.InnerXml + Environment.NewLine;
+                        k++;
+                        if (k >= 10) break;
+                    }
+                }
+                else
+                {
+                    HighscoreName.Text = "";
+                    Highscorecombo.Text = "";
+                    Highscorescore.Text = "";
+                }
+            }
+            else
+            {
+                HighscoreName.Text = "";
+                Highscorecombo.Text = "";
+                Highscorescore.Text = "";
+            }
         }
     }
 }

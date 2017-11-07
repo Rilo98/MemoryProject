@@ -18,10 +18,10 @@ namespace TestMDi3
 {
     public partial class Spel : Form
     {
-        public static int length, width, winnaar_combo;
+        public static int length, width, winnaar_combo, Player1_score, Player2_score, HighCombo_Player1, HighCombo_Player2;
         public static bool multiplayer, Player1_beurt, Player2_beurt, Doorgaan1Speler, DoorgaanMultiPlayer, Player1_scorestreak, Player2_scorestreak;
         public static string singlenaam, multinaam1, multinaam2, selectedtheme = "Standaard", winnaar, winnaar_score;
-        int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0, picturenumber2 = 1, Player1_score, Player2_score, Combo_Player1, Combo_Player2, HighCombo_Player1, HighCombo_Player2, counterint, x_kaarten, Player1_zetten, Player2_zetten, disabledint;
+        int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0, picturenumber2 = 1, Combo_Player1, Combo_Player2, counterint, x_kaarten, Player1_zetten, Player2_zetten, disabledint;
 
 
 
@@ -804,20 +804,21 @@ namespace TestMDi3
 
         private  void checkwinnaar()
         {
+            Winscherm win = new Winscherm();
+
             if (multiplayer == true)
             {
                 if (x_kaarten == textboxint3)
                 {
                     if (Player1_score > Player2_score)
                     {
+                       
                         winnaar = multinaam1;
                         winnaar_score = Convert.ToString(Player1_score);
                         winnaar_combo = (HighCombo_Player1);
                         Winscherm winscherm = new Winscherm();
                         winscherm.MdiParent = this.ParentForm;
                         winscherm.Show();
-                        
-                        
                         Close();
                     }
 
@@ -829,9 +830,9 @@ namespace TestMDi3
                         Winscherm winscherm = new Winscherm();
                         winscherm.MdiParent = this.ParentForm;
                         winscherm.Show();
-                        
                         Close();
                     }
+                    
                     File.Delete("MPSave.sav");
                 }
             }
