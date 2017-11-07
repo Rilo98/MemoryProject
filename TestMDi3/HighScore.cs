@@ -14,9 +14,10 @@ namespace TestMDi3
 {
     public partial class Highscore : Form
     {
-            
+       
         public Highscore()
         {
+            
             InitializeComponent();
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(0, 0);

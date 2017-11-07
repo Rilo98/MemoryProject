@@ -108,6 +108,10 @@ namespace TestMDi3
                     {
                         label.Text = "Themes";
                     }
+                    if (label.Text == "Selecteer een taal")
+                    {
+                        label.Text = "Select a language";
+                    }
                 }
             }
         }
@@ -351,6 +355,10 @@ namespace TestMDi3
                 {
                     label.Text = "Thema's";
                 }
+                if (label.Text == "Select a language")
+                {
+                    label.Text = "Selecteer een taal";
+                }
             }
             if (Spel.taalEngels == false)
             {
@@ -408,6 +416,10 @@ namespace TestMDi3
                 if (label.Text == "Thema's")
                 {
                     label.Text = "Themes";
+                }
+                if (label.Text == "Selecteer een taal")
+                {
+                    label.Text = "Select a language";
                 }
             }
             if (Spel.taalEngels == true)
