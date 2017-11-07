@@ -14,12 +14,16 @@ namespace TestMDi3
 {
     public partial class Highscore : Form
     {
+            
         public Highscore()
         {
             InitializeComponent();
 
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(0, 0);
+            HighscoreName.Text = "";
+            Highscorecombo.Text = "";
+            Highscorescore.Text = "";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -32,6 +36,7 @@ namespace TestMDi3
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             if (comboBox1.Text == "Singleplayer")
             {
                 if (File.Exists("HighscoreSP.sav"))
@@ -72,14 +77,9 @@ namespace TestMDi3
                         if (k >= 10) break;
                     }
                 }
-                else
-                {
-                    HighscoreName.Text = "";
-                    Highscorecombo.Text = "";
-                    Highscorescore.Text = "";
-                }
+                
             }
-            if (comboBox1.Text == "Multiplayer")
+            else if (comboBox1.Text == "Multiplayer")
             {
                 if (File.Exists("HighscoreMP.sav"))
                 {
@@ -126,12 +126,7 @@ namespace TestMDi3
                     Highscorescore.Text = "";
                 }
             }
-            else
-            {
-                HighscoreName.Text = "";
-                Highscorecombo.Text = "";
-                Highscorescore.Text = "";
-            }
+           
         }
     }
 }
