@@ -42,13 +42,14 @@ namespace TestMDi3
                         button.Text = "Quit";
                     }
                 }
+            }
                 if (File.Exists("settings.sav"))
                 {
                     XmlDocument settings = new XmlDocument();
                     settings.Load("settings.sav");
                     Spel.selectedtheme = Convert.ToString(settings.SelectSingleNode("settings/theme").InnerText);
                 }
-            }
+            
         }
             
         

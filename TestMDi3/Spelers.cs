@@ -50,23 +50,49 @@ namespace TestMDi3
         {
             if (File.Exists(@"SPSave.sav"))
             {
-                DialogResult dialogResult = MessageBox.Show("Er is een spel opgeslagen; Wilt u doorgaan?", "Doorgaan", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
+
+                if(Spel.taalEngels == false)
                 {
-                    Spel.Doorgaan1Speler = true;
-                    Spel.multiplayer = false;
-                    Spel spel = new Spel();
-                    spel.MdiParent = this.ParentForm;
-                    spel.Show();
-                    Close();
+                    DialogResult dialogResult = MessageBox.Show("Er is een spel opgeslagen; Wilt u doorgaan?", "Doorgaan", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        Spel.Doorgaan1Speler = true;
+                        Spel.multiplayer = false;
+                        Spel spel = new Spel();
+                        spel.MdiParent = this.ParentForm;
+                        spel.Show();
+                        Close();
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        SingleNameninvoeren f4 = new SingleNameninvoeren();
+                        f4.MdiParent = this.ParentForm;
+                        f4.Show();
+                        Close();
+                    }
                 }
-                else if (dialogResult == DialogResult.No)
+                if (Spel.taalEngels == true)
                 {
-                    SingleNameninvoeren f4 = new SingleNameninvoeren();
-                    f4.MdiParent = this.ParentForm;
-                    f4.Show();
-                    Close();
+                    DialogResult dialogResult = MessageBox.Show("There is an unfinished game saved, do you want to continue?", "Continue", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        Spel.Doorgaan1Speler = true;
+                        Spel.multiplayer = false;
+                        Spel spel = new Spel();
+                        spel.MdiParent = this.ParentForm;
+                        spel.Show();
+                        Close();
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        SingleNameninvoeren f4 = new SingleNameninvoeren();
+                        f4.MdiParent = this.ParentForm;
+                        f4.Show();
+                        Close();
+                    }
                 }
+                
+                
             }
 
             else
@@ -84,24 +110,49 @@ namespace TestMDi3
         {
             if (File.Exists(@"MPSave.sav"))
             {
-                DialogResult dialogResult = MessageBox.Show("Er is een spel opgeslagen; Wilt u doorgaan?", "Doorgaan", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
+                if(Spel.taalEngels == false)
                 {
-                    Spel.DoorgaanMultiPlayer = true;
-                    Spel.multiplayer = true;
-                    Spel spel = new Spel();
-                    spel.MdiParent = this.ParentForm;
-                    spel.Show();
-                    Close();
+                    DialogResult dialogResult = MessageBox.Show("Er is een spel opgeslagen; Wilt u doorgaan?", "Doorgaan", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        Spel.DoorgaanMultiPlayer = true;
+                        Spel.multiplayer = true;
+                        Spel spel = new Spel();
+                        spel.MdiParent = this.ParentForm;
+                        spel.Show();
+                        Close();
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        Spel.multiplayer = true;
+                        MultiNameninvoeren f5 = new MultiNameninvoeren();
+                        f5.MdiParent = this.ParentForm;
+                        f5.Show();
+                        Close();
+                    }
                 }
-                else if (dialogResult == DialogResult.No)
+                if (Spel.taalEngels == true)
                 {
-                    Spel.multiplayer = true;
-                    MultiNameninvoeren f5 = new MultiNameninvoeren();
-                    f5.MdiParent = this.ParentForm;
-                    f5.Show();
-                    Close();
+                    DialogResult dialogResult = MessageBox.Show("There is an unfinished game saved, do you want to continue?", "Continue", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        Spel.DoorgaanMultiPlayer = true;
+                        Spel.multiplayer = true;
+                        Spel spel = new Spel();
+                        spel.MdiParent = this.ParentForm;
+                        spel.Show();
+                        Close();
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        Spel.multiplayer = true;
+                        MultiNameninvoeren f5 = new MultiNameninvoeren();
+                        f5.MdiParent = this.ParentForm;
+                        f5.Show();
+                        Close();
+                    }
                 }
+
             }
 
             else

@@ -507,11 +507,14 @@ namespace TestMDi3
 
         private void theme(Image[,] arrayimage)
         {
+            if (selectedtheme == "Default")
+            {
+                selectedtheme = "Standaard";
+            }
             if (selectedtheme == "Standaard")
             {
                 defaulttheme(arrayimage);
             }
-
             else
             {
                 customtheme(arrayimage);

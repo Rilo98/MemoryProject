@@ -20,6 +20,23 @@ namespace TestMDi3
 
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(0, 0);
+            if(Spel.taalEngels == true)
+            {
+                foreach (Button button in this.Controls.OfType<Button>())
+                {
+                    if (button.Text == "Hoofdmenu")
+                    {
+                        button.Text = "Main menu:";
+                    }
+                }
+                foreach (Label label in this.Controls.OfType<Label>())
+                {
+                    if (label.Text == "Naam:")
+                    {
+                        label.Text = "Name:";
+                    }
+                }
+            } 
         }
 
         private void button1_Click(object sender, EventArgs e)

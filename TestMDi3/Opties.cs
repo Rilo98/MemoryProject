@@ -28,8 +28,16 @@ namespace TestMDi3
                 Directory.CreateDirectory(@"Themes\");
                 string[] files = Directory.GetDirectories(@"Themes\");
                 dropdown.Items.AddRange(files);
-                dropdown.Items.Add("Standaard");
-                dropdown.SelectedItem = "Standaard";
+                if (Spel.taalEngels == false)
+                {
+                    dropdown.Items.Add("Standaard");
+                    dropdown.SelectedItem = "Standaard";
+                }
+                if (Spel.taalEngels == true)
+                {
+                    dropdown.Items.Add("Default");
+                    dropdown.SelectedItem = "Default";
+                }
                 StartPosition = FormStartPosition.Manual;
                 Location = new Point(0, 0);
             }
@@ -38,8 +46,16 @@ namespace TestMDi3
             {
                 string[] files = Directory.GetDirectories(@"Themes\");
                 dropdown.Items.AddRange(files);
-                dropdown.Items.Add("Standaard");
-                dropdown.SelectedItem = "Standaard";
+                if (Spel.taalEngels == false)
+                {
+                    dropdown.Items.Add("Standaard");
+                    dropdown.SelectedItem = "Standaard";
+                }
+                if (Spel.taalEngels == true)
+                {
+                    dropdown.Items.Add("Default");
+                    dropdown.SelectedItem = "Default";
+                }
                 StartPosition = FormStartPosition.Manual;
                 Location = new Point(0, 0);
             }
@@ -82,6 +98,14 @@ namespace TestMDi3
                     {
                         label.Text = "Theme name:";
                     }
+                    if (label.Text == "Spel volume")
+                    {
+                        label.Text = "Game volume:";
+                    }
+                    if (label.Text == "Thema's")
+                    {
+                        label.Text = "Themes";
+                    }
                 }
             }
         }
@@ -123,7 +147,15 @@ namespace TestMDi3
                     DirectoryInfo source = new DirectoryInfo(dialog.SelectedPath);
                     if (Directory.GetFiles(Convert.ToString(source)).Length != 32)
                     {
-                        MessageBox.Show("Deze map bevat te weinig/te veel foto's");
+                        if(Spel.taalEngels == false)
+                        {
+                            MessageBox.Show("Deze map bevat te weinig/te veel foto's");
+                        }
+                        if (Spel.taalEngels == true)
+                        {
+                            MessageBox.Show("Pictures quantity out of range");
+                        }
+
                         return;
                     }
 
@@ -138,8 +170,14 @@ namespace TestMDi3
                             i++;
                         }
                         string[] files = Directory.GetDirectories(@"Themes\");
-
-                        MessageBox.Show("Selecteer een foto voor de achterkant van de kaartjes");
+                        if (Spel.taalEngels == false)
+                        {
+                            MessageBox.Show("Selecteer een foto voor de achterkant van de kaartjes");
+                        }
+                        if (Spel.taalEngels == true)
+                        {
+                            MessageBox.Show("Select a picture for the backside of the cards");
+                        }
 
 
                         OpenFileDialog fileDialog = new OpenFileDialog();
@@ -170,7 +208,14 @@ namespace TestMDi3
         private void Apply_Click(object sender, EventArgs e)
         {
             applysettings();
-            MessageBox.Show("Instellingen zijn opgeslagen", "Opgeslagen");
+            if(Spel.taalEngels == false)
+            {
+               
+            }
+            if(Spel.taalEngels == true)
+            {
+                MessageBox.Show("Settings are saved", "Saved");
+            }
         }
 
         public void settings()
@@ -186,23 +231,47 @@ namespace TestMDi3
         {
             if (applied == false)
             {
-                DialogResult dialogResult = MessageBox.Show("U heeft nog niet opgeslagen, Wilt u opslaan?", "Opslaan", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
+                if(Spel.taalEngels == false)
                 {
-                    applysettings();
-                    MessageBox.Show("Instellingen zijn opgeslagen", "Opgeslagen");
-                    Hoofdmenu f2 = new Hoofdmenu();
-                    f2.MdiParent = this.ParentForm;
-                    f2.Show();
-                    Close();
+                    DialogResult dialogResult = MessageBox.Show("U heeft nog niet opgeslagen, Wilt u opslaan?", "Opslaan", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        applysettings();
+                        MessageBox.Show("Instellingen zijn opgeslagen", "Opgeslagen");
+                        Hoofdmenu f2 = new Hoofdmenu();
+                        f2.MdiParent = this.ParentForm;
+                        f2.Show();
+                        Close();
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        Hoofdmenu f2 = new Hoofdmenu();
+                        f2.MdiParent = this.ParentForm;
+                        f2.Show();
+                        Close();
+                    }
                 }
-                else if (dialogResult == DialogResult.No)
+                if (Spel.taalEngels == true)
                 {
-                    Hoofdmenu f2 = new Hoofdmenu();
-                    f2.MdiParent = this.ParentForm;
-                    f2.Show();
-                    Close();
+                    DialogResult dialogResult = MessageBox.Show("You did not save your changes, do you want to save now?", "Save", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        applysettings();
+                        MessageBox.Show("Settings are saved", "Saved");
+                        Hoofdmenu f2 = new Hoofdmenu();
+                        f2.MdiParent = this.ParentForm;
+                        f2.Show();
+                        Close();
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        Hoofdmenu f2 = new Hoofdmenu();
+                        f2.MdiParent = this.ParentForm;
+                        f2.Show();
+                        Close();
+                    }
                 }
+
             }
             else
             {
@@ -223,7 +292,14 @@ namespace TestMDi3
             else
             {
                 applied = false;
-                MessageBox.Show(dropdown.Text + " is geselecteerd!");
+                if (Spel.taalEngels == false)
+                {
+                    MessageBox.Show(dropdown.Text + " is geselecteerd!");
+                }
+                if (Spel.taalEngels == true)
+                {
+                    MessageBox.Show(dropdown.Text + " is selected!");
+                }
             }
         }
 
@@ -286,6 +362,20 @@ namespace TestMDi3
                 {
                     label.Text = "Thema naam:";
                 }
+                if (label.Text == "Game volume:")
+                {
+                    label.Text = "Spel volume";
+                }
+                if (label.Text == "Themes")
+                {
+                    label.Text = "Thema's";
+                }
+            }
+            if (Spel.taalEngels == false)
+            {
+                dropdown.Items.Remove("Default");
+                dropdown.Items.Add("Standaard");
+                dropdown.SelectedItem = "Default";
             }
         }
 
@@ -330,6 +420,20 @@ namespace TestMDi3
                 {
                     label.Text = "Theme name:";
                 }
+                if (label.Text == "Spel volume")
+                {
+                    label.Text = "Game volume:";
+                }
+                if (label.Text == "Thema's")
+                {
+                    label.Text = "Themes";
+                }
+            }
+            if (Spel.taalEngels == true)
+            {
+                dropdown.Items.Remove("Standaard");
+                dropdown.Items.Add("Default");
+                dropdown.SelectedItem = "Default";
             }
         }
         }
