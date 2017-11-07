@@ -24,8 +24,6 @@ namespace TestMDi3
             InitializeComponent();
             this.BackgroundImage = win1;
             System.Media.SoundPlayer player0 = new System.Media.SoundPlayer(Properties.Resources.celebrate);
-            WriteNewEntryMP1();
-            WriteNewEntryMP2();
             FireTimer.Start();
             label_winnaarnaam.Text = Spel.winnaar;
             label_score.Text = Spel.winnaar_score;
@@ -39,11 +37,13 @@ namespace TestMDi3
             this.Text = null;
             if (Spel.multiplayer == true)
             {
-                
+                WriteNewEntryMP1();
+                WriteNewEntryMP2();
                 File.Delete("MPSave.sav");
             }
             else
             {
+                WriteNewEntrySP();
                 File.Delete("SPSave.sav");
             }
 
@@ -255,10 +255,10 @@ namespace TestMDi3
 
         private void button1_Click(object sender, EventArgs e)
         {
-         //   Highscore HS = new Highscore();
-         //   HS.MdiParent = this.MdiParent;
-         //   HS.Show();
-         //   Close();
+            Highscore HS = new Highscore();
+            HS.MdiParent = this.MdiParent;
+            HS.Show();
+            Close();
         }
     }
 }
