@@ -48,7 +48,6 @@ namespace TestMDi3
                 WriteNewEntrySP();
                 File.Delete("SPSave.sav");
             }
-
             if (Spel.taalEngels == true)
             {
                 foreach (Button button in this.Controls.OfType<Button>())
@@ -79,10 +78,6 @@ namespace TestMDi3
 
                 }
             }
-
-        
-
-            
             if(Opties.mute == false)
             {
                 player0.Play();
@@ -109,10 +104,13 @@ namespace TestMDi3
                 score.InnerText = Convert.ToString(Spel.winnaar_score);
                 XmlElement combo = doc.CreateElement("combo");
                 combo.InnerText = Convert.ToString(Spel.winnaar_combo);
+                XmlElement game = doc.CreateElement("game");
+                game.InnerText = Convert.ToString(Spel.length + "X" + Spel.width);
 
                 parentelement.AppendChild(name);
                 parentelement.AppendChild(score);
                 parentelement.AppendChild(combo);
+                parentelement.AppendChild(game);
                 doc.DocumentElement.AppendChild(parentelement);
                 doc.Save("HighscoreSP.sav");
 
@@ -134,6 +132,7 @@ namespace TestMDi3
                 writer.WriteElementString("name", Convert.ToString(label_winnaarnaam.Text));
                 writer.WriteElementString("score", Convert.ToString(label_score.Text));
                 writer.WriteElementString("combo", Convert.ToString(label_combo.Text));
+                writer.WriteElementString("game", Convert.ToString(Spel.length + "X" + Spel.width));
                 writer.WriteEndElement();
                 writer.WriteEndElement();
                 writer.Close();
@@ -151,6 +150,17 @@ namespace TestMDi3
                 XmlElement name = doc.CreateElement("name");
                 XmlElement score = doc.CreateElement("score");
                 XmlElement combo = doc.CreateElement("combo");
+                XmlElement game = doc.CreateElement("game");
+                XmlElement result = doc.CreateElement("result");
+                if (Spel.multinaam1 == Spel.winnaar)
+                {
+                    result.InnerText = "gewonnen";
+                }
+                else
+                {
+                    result.InnerText = "verloren";
+                }
+                game.InnerText = Convert.ToString(Spel.length + "X" + Spel.width);
                 name.InnerText = Convert.ToString(Spel.multinaam1);
                 score.InnerText = Convert.ToString(Spel.Player1_score);
                 combo.InnerText = Convert.ToString(Spel.HighCombo_Player1);
@@ -158,6 +168,8 @@ namespace TestMDi3
                 parentelement.AppendChild(name);
                 parentelement.AppendChild(score);
                 parentelement.AppendChild(combo);
+                parentelement.AppendChild(game);
+                parentelement.AppendChild(result);
                 doc.DocumentElement.AppendChild(parentelement);
 
                
@@ -170,7 +182,7 @@ namespace TestMDi3
                 .ToArray();
                 root.RemoveAll();
                 foreach (XElement tab in orderedtabs)
-                    root.Add(tab);
+                root.Add(tab);
                 root.Save("HighscoreMP.sav");
             }
             else
@@ -182,6 +194,15 @@ namespace TestMDi3
                 writer.WriteElementString("name", Convert.ToString(label_winnaarnaam.Text));
                 writer.WriteElementString("score", Convert.ToString(label_score.Text));
                 writer.WriteElementString("combo", Convert.ToString(label_combo.Text));
+                writer.WriteElementString("game", Convert.ToString(Spel.length + "X" + Spel.width));
+                if (Spel.multinaam1 == Spel.winnaar)
+                {
+                    writer.WriteElementString("result", ("gewonnen"));
+                }
+                else
+                {
+                    writer.WriteElementString("result", ("verloren"));
+                }
                 writer.WriteEndElement();
                 writer.WriteEndElement();
                 writer.Close();
@@ -193,42 +214,56 @@ namespace TestMDi3
          if (File.Exists("HighscoreMP.sav"))
             {
                 XmlDocument doc = new XmlDocument();
-        doc.Load("HighscoreMP.sav");
+                doc.Load("HighscoreMP.sav");
                 XmlElement parentelement = doc.CreateElement("highscore");
 
-        XmlElement name = doc.CreateElement("name");
-        XmlElement score = doc.CreateElement("score");
-        XmlElement combo = doc.CreateElement("combo");
-        name.InnerText = Convert.ToString(Spel.multinaam2);
+                XmlElement name = doc.CreateElement("name");
+                XmlElement score = doc.CreateElement("score");
+                XmlElement combo = doc.CreateElement("combo");
+                XmlElement game = doc.CreateElement("game");
+                XmlElement result = doc.CreateElement("result");
+                if (Spel.multinaam2 == Spel.winnaar)
+                {
+                    result.InnerText = "gewonnen";
+                }
+                else
+                {
+                    result.InnerText = "verloren";
+                }
+                game.InnerText = Convert.ToString(Spel.length + "X" + Spel.width);
+                name.InnerText = Convert.ToString(Spel.multinaam2);
                 score.InnerText = Convert.ToString(Spel.Player2_score);
                 combo.InnerText = Convert.ToString(Spel.HighCombo_Player2);
 
                 parentelement.AppendChild(name);
                 parentelement.AppendChild(score);
                 parentelement.AppendChild(combo);
+                parentelement.AppendChild(game);
+                parentelement.AppendChild(result);
                 doc.DocumentElement.AppendChild(parentelement);
 
 
                 doc.Save("HighscoreMP.sav");
 
                 XElement root = XElement.Load("HighscoreMP.sav");
-        var orderedtabs = root.Elements("highscore")
-        .OrderByDescending(xtab => (int)xtab.Element("score"))
-        .ToArray();
-        root.RemoveAll();
+                var orderedtabs = root.Elements("highscore")
+                .OrderByDescending(xtab => (int)xtab.Element("score"))
+                .ToArray();
+                root.RemoveAll();
                 foreach (XElement tab in orderedtabs)
-                    root.Add(tab);
+                root.Add(tab);
                 root.Save("HighscoreMP.sav");
             }
             else
             {
                 XmlTextWriter writer = new XmlTextWriter("HighscoreMP.sav", Encoding.UTF8);
-    writer.Formatting = Formatting.Indented;
+                writer.Formatting = Formatting.Indented;
                 writer.WriteStartElement("scorelist");
                 writer.WriteStartElement("highscore");
                 writer.WriteElementString("name", Convert.ToString(label_winnaarnaam.Text));
                 writer.WriteElementString("score", Convert.ToString(label_score.Text));
                 writer.WriteElementString("combo", Convert.ToString(label_combo.Text));
+                writer.WriteElementString("game", Convert.ToString(Spel.length + "X" + Spel.width));
                 writer.WriteEndElement();
                 writer.WriteEndElement();
                 writer.Close();

@@ -24,6 +24,8 @@ namespace TestMDi3
             HighscoreName.Text = "";
             Highscorecombo.Text = "";
             Highscorescore.Text = "";
+            resultaat.Text = "";
+            Size.Text = "";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -39,20 +41,26 @@ namespace TestMDi3
             
             if (comboBox1.Text == "Singleplayer")
             {
+                label7.Text = "";
+                resultaat.Text = "";
+
                 if (File.Exists("HighscoreSP.sav"))
                 {
                     HighscoreName.Text = "";
                     Highscorecombo.Text = "";
                     Highscorescore.Text = "";
+                    Size.Text = "";
 
                     XmlDocument xml = new XmlDocument();
                     xml.Load("HighscoreSP.sav");
                     var name = "highscore/name";
                     var combo = "highscore/combo";
                     var score = "highscore/score";
+                    var size = "highscore/game";
                     var i = 0;
                     var j = 0;
                     var k = 0;
+                    var m = 0;
                     XmlNodeList names = xml.DocumentElement.SelectNodes(name);
                     foreach (XmlNode node in names)
                     {
@@ -67,6 +75,14 @@ namespace TestMDi3
                         Highscorecombo.Text += node.InnerXml + Environment.NewLine;
                         j++;
                         if (j >= 10) break;
+                    }
+
+                    XmlNodeList sizes = xml.DocumentElement.SelectNodes(size);
+                    foreach (XmlNode node in sizes)
+                    {
+                        Size.Text += node.InnerXml + Environment.NewLine;
+                        j++;
+                        if (m >= 10) break;
                     }
 
                     XmlNodeList scores = xml.DocumentElement.SelectNodes(score);
@@ -92,15 +108,36 @@ namespace TestMDi3
                     var name = "highscore/name";
                     var combo = "highscore/combo";
                     var score = "highscore/score";
+                    var size = "highscore/game";
+                    var result = "highscore/result";
                     var i = 0;
                     var j = 0;
                     var k = 0;
+                    var m = 0;
+                    var n = 0;
+
                     XmlNodeList names = xml.DocumentElement.SelectNodes(name);
                     foreach (XmlNode node in names)
                     {
                         HighscoreName.Text += node.InnerXml + Environment.NewLine;
                         i++;
                         if (i >= 10) break;
+                    }
+
+                    XmlNodeList results = xml.DocumentElement.SelectNodes(result);
+                    foreach (XmlNode node in results)
+                    {
+                        resultaat.Text += node.InnerXml + Environment.NewLine;
+                        i++;
+                        if (i >= 10) break;
+                    }
+
+                    XmlNodeList sizes = xml.DocumentElement.SelectNodes(size);
+                    foreach (XmlNode node in sizes)
+                    {
+                        Size.Text += node.InnerXml + Environment.NewLine;
+                        j++;
+                        if (m >= 10) break;
                     }
 
                     XmlNodeList combos = xml.DocumentElement.SelectNodes(combo);
