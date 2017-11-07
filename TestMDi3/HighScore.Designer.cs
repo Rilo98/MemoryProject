@@ -236,7 +236,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label Size;
+        private new System.Windows.Forms.Label Size;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label resultaat;
         private System.Windows.Forms.Label label7;

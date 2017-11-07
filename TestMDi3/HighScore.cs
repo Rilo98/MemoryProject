@@ -128,8 +128,8 @@ namespace TestMDi3
                     foreach (XmlNode node in results)
                     {
                         resultaat.Text += node.InnerXml + Environment.NewLine;
-                        i++;
-                        if (i >= 10) break;
+                        n++;
+                        if (n >= 10) break;
                     }
 
                     XmlNodeList sizes = xml.DocumentElement.SelectNodes(size);
