@@ -804,8 +804,6 @@ namespace TestMDi3
 
         private  void checkwinnaar()
         {
-            Winscherm win = new Winscherm();
-
             if (multiplayer == true)
             {
                 if (x_kaarten == textboxint3)
