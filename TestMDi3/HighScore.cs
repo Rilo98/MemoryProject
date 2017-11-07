@@ -51,7 +51,7 @@ namespace TestMDi3
                     }
                 }
             } 
-        }
+        
 
             else if (Spel.multiplayer == false)
             {
