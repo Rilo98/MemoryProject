@@ -18,7 +18,6 @@ namespace TestMDi3
         public Highscore()
         {
             InitializeComponent();
-
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(0, 0);
             HighscoreName.Text = "";
@@ -26,6 +25,21 @@ namespace TestMDi3
             Highscorescore.Text = "";
             resultaat.Text = "";
             Size.Text = "";
+        }
+
+        private void Highscore_Load(object sender, EventArgs e)
+        {
+            if (Spel.multiplayer == true)
+            {
+                comboBox1.SelectedItem = "Multiplayer";
+                LoadCombobox();
+            }
+
+            else if (Spel.multiplayer == false)
+            {
+                comboBox1.SelectedItem = "Singleplayer";
+                LoadCombobox();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -38,7 +52,11 @@ namespace TestMDi3
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            LoadCombobox();
+        }
+
+        private void LoadCombobox()
+        {
             if (comboBox1.Text == "Singleplayer")
             {
                 label7.Text = "";
@@ -93,7 +111,7 @@ namespace TestMDi3
                         if (k >= 10) break;
                     }
                 }
-                
+
             }
             else if (comboBox1.Text == "Multiplayer")
             {
@@ -163,7 +181,6 @@ namespace TestMDi3
                     Highscorescore.Text = "";
                 }
             }
-           
         }
     }
 }

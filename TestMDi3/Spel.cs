@@ -19,10 +19,9 @@ namespace TestMDi3
     public partial class Spel : Form
     {
         public static int length, width, winnaar_combo, Player1_score, Player2_score, HighCombo_Player1, HighCombo_Player2;
-        public static bool multiplayer, Player1_beurt, Player2_beurt, Doorgaan1Speler, DoorgaanMultiPlayer, Player1_scorestreak, Player2_scorestreak;
+        public static bool multiplayer, Player1_beurt, Player2_beurt, Doorgaan1Speler, DoorgaanMultiPlayer, Player1_scorestreak, Player2_scorestreak, taalNederlands, taalEngels;
         public static string singlenaam, multinaam1, multinaam2, selectedtheme = "Standaard", winnaar, winnaar_score;
         int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0, picturenumber2 = 1, Combo_Player1, Combo_Player2, counterint, x_kaarten, Player1_zetten, Player2_zetten, disabledint;
-        public static bool  taalNederlands, taalEngels;
       
 
 
