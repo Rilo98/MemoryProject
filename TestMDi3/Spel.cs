@@ -18,11 +18,17 @@ namespace TestMDi3
 {
     public partial class Spel : Form
     {
+        public static int length, width, winnaar_combo, Player1_score, Player2_score, HighCombo_Player1, HighCombo_Player2;
+        public static bool multiplayer, Player1_beurt, Player2_beurt, Doorgaan1Speler, DoorgaanMultiPlayer, Player1_scorestreak, Player2_scorestreak;
+        public static string singlenaam, multinaam1, multinaam2, selectedtheme = "Standaard", winnaar, winnaar_score;
+        int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0, picturenumber2 = 1, Combo_Player1, Combo_Player2, counterint, x_kaarten, Player1_zetten, Player2_zetten, disabledint;
         public static int length, width;
         public static bool multiplayer, Player1_beurt, Player2_beurt, Doorgaan1Speler, DoorgaanMultiPlayer, taalNederlands, taalEngels;
         public static string singlenaam, multinaam1, multinaam2, selectedtheme = "Default",winnaar, winnaar_score;
 
-        public static int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0, picturenumber2 = 1, Player1_score, Player2_score, Combo_Player1, Combo_Player2, HighCombo_Player1, HighCombo_Player2, winnaar_combo,  counterint = (length * width / 2), x_kaarten, Player1_zetten, Player2_zetten, disabledint;
+
+
+
         Button firstButton = null, secondButton = null;
 
         public Spel()
@@ -60,6 +66,7 @@ namespace TestMDi3
                 }
             }
 
+
             if (multiplayer == true)
             {
                 Gamemode.Text = "Multiplayer";
@@ -67,7 +74,7 @@ namespace TestMDi3
                 if (DoorgaanMultiPlayer == true)
                 {
                     XmlDocument docMP = new XmlDocument();
-                    docMP.Load("MPSave.xml");
+                    docMP.Load("MPSave.sav");
                     length = length = Convert.ToInt32(docMP.SelectSingleNode("values/ints/length").InnerText);
                     width = width = Convert.ToInt32(docMP.SelectSingleNode("values/ints/width").InnerText);
 
@@ -77,6 +84,7 @@ namespace TestMDi3
                     label2.Text = multinaam1;
                     label3.Text = multinaam2;
 
+                    x_kaarten = Convert.ToInt32(docMP.SelectSingleNode("values/ints/x_Kaarten").InnerText);
 
                     selectedtheme = Convert.ToString(docMP.SelectSingleNode("values/ints/selectedtheme").InnerText);
 
@@ -103,7 +111,7 @@ namespace TestMDi3
 
                     theme(arrayimage);
                     LoadOldExceptionsMP(array, disabledbuttons);
-                    createbuttons(array, arrayimage,disabledbuttons , length, width);
+                    createbuttons(array, arrayimage, disabledbuttons, length, width);
                     PlayerBeurtStartGame();
                     LoadDisabledButtonsMP(array);
 
@@ -111,7 +119,7 @@ namespace TestMDi3
                     this.TimerMP.Interval = 1000;
                     this.TimerMP.Tick += delegate (object sender, EventArgs e)
                     { TimerMP_Tick(sender, e, disabledbuttons, array); };
-                    
+
                     this.timer1.Interval = 250;
                     this.timer1.Tick += delegate (object sender, EventArgs e)
                     { timer1_Tick(sender, e, disabledbuttons); };
@@ -164,7 +172,7 @@ namespace TestMDi3
                 if (Doorgaan1Speler == true)
                 {
                     XmlDocument docSP = new XmlDocument();
-                    docSP.Load("SPSave.xml");
+                    docSP.Load("SPSave.sav");
                     length = length = Convert.ToInt32(docSP.SelectSingleNode("values/ints/length").InnerText);
                     width = width = Convert.ToInt32(docSP.SelectSingleNode("values/ints/width").InnerText);
 
@@ -187,12 +195,13 @@ namespace TestMDi3
                     string[,] disabledbuttons = new string[2, textboxint3];
                     reset.Visible = Enabled;
                     theme(arrayimage);
-                    LoadOldExceptionsSP(array,disabledbuttons);
+                    LoadOldExceptionsSP(array, disabledbuttons);
                     createbuttons(array, arrayimage, disabledbuttons, length, width);
                     LoadDisabledButtonsSP(array);
                     LoadOldSP();
                     //timer_Sw
                     // 
+                    counterint = (length * width) / 2;
                     Stopwatch.Text = Convert.ToString(counterint);
                     this.timer_Sw.Enabled = true;
                     this.timer_Sw.Interval = 1000;
@@ -205,7 +214,7 @@ namespace TestMDi3
                     this.timer1.Tick += delegate (object sender, EventArgs e)
                     { timer1_Tick(sender, e, disabledbuttons); };
                 }
-                
+
                 else
                 {
                     label2.Text = singlenaam;
@@ -232,9 +241,10 @@ namespace TestMDi3
                     theme(arrayimage);
                     fillarray(array);
                     createbuttons(array, arrayimage, disabledbuttons, length, width);
-                    
+
                     // timer_Sw
                     // 
+                    counterint = (length * width) / 2;
                     Stopwatch.Text = Convert.ToString(counterint);
                     this.timer_Sw.Enabled = true;
                     this.timer_Sw.Interval = 1000;
@@ -249,11 +259,11 @@ namespace TestMDi3
                 }
             }
         }
-        
-       
+
+
         public void WriteSP(int[,,] array, string[,] disabledbuttons)
         {
-            XmlTextWriter writer = new XmlTextWriter("SPSave.xml", Encoding.UTF8);
+            XmlTextWriter writer = new XmlTextWriter("SPSave.sav", Encoding.UTF8);
             writer.Formatting = Formatting.Indented;
             writer.WriteStartElement("values");
             writer.WriteStartElement("ints");
@@ -264,6 +274,7 @@ namespace TestMDi3
             writer.WriteElementString("selectedtheme", Convert.ToString(selectedtheme));
             writer.WriteElementString("counterint", Convert.ToString(counterint));
             writer.WriteElementString("score", Convert.ToString(Player1_score));
+            writer.WriteElementString("x_Kaarten", Convert.ToString(x_kaarten));
             writer.WriteEndElement();
             writer.WriteStartElement("arrays");
             writer.WriteStartElement("arrayimage");
@@ -271,7 +282,7 @@ namespace TestMDi3
             for (int i = 0; i < array.GetLength(0); i++)
             {
                 for (int j = 0; j < array.GetLength(1); j++)
-                    {
+                {
                     for (int k = 0; k < array.GetLength(2); k++)
                     {
                         string ArrayXML = "arrayXML" + Convert.ToString(i) + "-" + Convert.ToString(j) + "-" + Convert.ToString(k);
@@ -281,10 +292,7 @@ namespace TestMDi3
                 }
             }
 
-
-
             writer.WriteEndElement();
-
             writer.WriteStartElement("arraydisabledbuttons");
             for (int i = 0; i < array.GetLength(0); i++)
             {
@@ -304,9 +312,12 @@ namespace TestMDi3
             writer.WriteEndElement();
             writer.Close();
         }
+
+       
+
         public void WriteMP(int[,,] arrayMP, string[,] disabledbuttons)
         {
-            XmlTextWriter writer = new XmlTextWriter("MPSave.xml", Encoding.UTF8);
+            XmlTextWriter writer = new XmlTextWriter("MPSave.sav", Encoding.UTF8);
             writer.Formatting = Formatting.Indented;
             writer.WriteStartElement("values");
             writer.WriteStartElement("ints");
@@ -317,6 +328,7 @@ namespace TestMDi3
             writer.WriteElementString("length", Convert.ToString(length));
             writer.WriteElementString("width", Convert.ToString(width));
             writer.WriteElementString("selectedtheme", Convert.ToString(selectedtheme));
+            writer.WriteElementString("x_Kaarten", Convert.ToString(x_kaarten));
             writer.WriteEndElement();
             writer.WriteStartElement("arrays");
             writer.WriteStartElement("arrayimage");
@@ -357,13 +369,14 @@ namespace TestMDi3
         public void LoadOldSP()
         {
             XmlDocument doc = new XmlDocument();
-            doc.Load("SPSave.xml");
+            doc.Load("SPSave.sav");
             length                      = Convert.ToInt32(doc.SelectSingleNode("values/ints/length").InnerText);
             width                       = Convert.ToInt32(doc.SelectSingleNode("values/ints/width").InnerText);
             selectedtheme               = Convert.ToString(doc.SelectSingleNode("values/ints/selectedtheme").InnerText);
             Player1_score               = Convert.ToInt32(doc.SelectSingleNode("values/ints/score").InnerText);
             counterint                  = Convert.ToInt32(doc.SelectSingleNode("values/ints/counterint").InnerText);
-            label2.Text                 = Convert.ToString(doc.SelectSingleNode("values/ints/singlenaam").InnerText); 
+            label2.Text                 = Convert.ToString(doc.SelectSingleNode("values/ints/singlenaam").InnerText);
+            x_kaarten                   = Convert.ToInt32(doc.SelectSingleNode("values/ints/x_Kaarten").InnerText);
             Label_Player1score.Text     = Convert.ToString(Player1_score);
             Stopwatch.Text              = Convert.ToString(counterint);
         }
@@ -376,14 +389,13 @@ namespace TestMDi3
         public void LoadOldMP(int[,,] array)
         {
             XmlDocument MP = new XmlDocument();
-            MP.Load("MPSave.xml");
-
+            MP.Load("MPSave.sav");
         }
 
         public void LoadOldExceptionsSP(int[,,] array, string[,] disabledbuttons)
         {
             XmlDocument doc = new XmlDocument();
-            doc.Load("SPSave.xml");
+            doc.Load("SPSave.sav");
             for (int i = 0; i<array.GetLength(0); i++)
             {
                 for (int j = 0; j<array.GetLength(1); j++)
@@ -402,7 +414,7 @@ namespace TestMDi3
         public void LoadOldExceptionsMP(int[,,] array, string[,] disabledbuttons)
         {
             XmlDocument MP = new XmlDocument();
-            MP.Load("MPSave.xml");
+            MP.Load("MPSave.sav");
             for (int i = 0; i < array.GetLength(0); i++)
             {
                 for (int j = 0; j < array.GetLength(1); j++)
@@ -421,7 +433,7 @@ namespace TestMDi3
         public void LoadDisabledButtonsMP(int[,,] array)
         {
             XmlDocument MP = new XmlDocument();
-            MP.Load("MPSave.xml");
+            MP.Load("MPSave.sav");
             for (int i = 0; i < array.GetLength(0); i++)
             {
                 for (int j = 0; j < array.GetLength(1); j++)
@@ -442,7 +454,7 @@ namespace TestMDi3
         public void LoadDisabledButtonsSP(int[,,] array)
         {
             XmlDocument SP = new XmlDocument();
-            SP.Load("SPSave.xml");
+            SP.Load("SPSave.sav");
             for (int i = 0; i < array.GetLength(0); i++)
             {
                 for (int j = 0; j < array.GetLength(1); j++)
@@ -496,7 +508,7 @@ namespace TestMDi3
 
         private void theme(Image[,] arrayimage)
         {
-            if (selectedtheme =="Default")
+            if (selectedtheme == "Standaard")
             {
                 defaulttheme(arrayimage);
             }
@@ -564,7 +576,7 @@ namespace TestMDi3
                 button.Name = "button" + (i + 1).ToString();
                 button.Dock = DockStyle.Fill;
                 this.tableLayoutPanel1.Controls.Add(button);
-                if (selectedtheme =="Default")
+                if (selectedtheme == "Standaard")
                 {
                     button.BackgroundImage = Properties.Resources.defaultpic;
                     button.BackgroundImageLayout = ImageLayout.Stretch;
@@ -851,6 +863,7 @@ namespace TestMDi3
                 {
                     if (Player1_score > Player2_score)
                     {
+                       
                         winnaar = multinaam1;
                         winnaar_score = Convert.ToString(Player1_score);
                         winnaar_combo = (HighCombo_Player1);
@@ -870,7 +883,8 @@ namespace TestMDi3
                         winscherm.Show();
                         Close();
                     }
-                    File.Delete("MPSave.xml");
+                    
+                    File.Delete("MPSave.sav");
                 }
             }
             else
@@ -883,7 +897,7 @@ namespace TestMDi3
                     Winscherm winscherm = new Winscherm();
                     winscherm.MdiParent = this.ParentForm;
                     winscherm.Show();
-                    File.Delete("SPSave.xml");
+                    File.Delete("SPSave.sav");
                     Close();
                 }
             }
@@ -957,7 +971,7 @@ namespace TestMDi3
 
                 // Displays the MessageBox.
                 result = MessageBox.Show(this, message, caption, buttons);
-                File.Delete("SPSave.xml");
+                File.Delete("SPSave.sav");
 
                 if (result == DialogResult.Yes)
                 {
@@ -1005,7 +1019,7 @@ namespace TestMDi3
             }
             else
             {
-                if (selectedtheme =="Default")
+                if (selectedtheme == "Standaard")
                 {
                     SwitchTurn();
                     Combo_Player1 = 0;
@@ -1089,10 +1103,6 @@ namespace TestMDi3
         private void button2_Click(object sender, EventArgs e)
         {
             ((MainForm)this.MdiParent).afsluiten();
-        }
-        private void Combo_Player1_label_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

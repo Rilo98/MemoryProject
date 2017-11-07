@@ -8,32 +8,40 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Runtime.InteropServices;
+using System.Xml;
 
 namespace TestMDi3
 {
     public partial class Opties : Form
     {
+        public static bool mute = false;
 
+        bool applied = true;
+        int standaartcount;
         public Opties()
         {
             InitializeComponent();
+            //load all themes
             if (!Directory.Exists(@"Themes\" + themename.Text))
             {
                 Directory.CreateDirectory(@"Themes\");
                 string[] files = Directory.GetDirectories(@"Themes\");
-                this.dropdown.Items.AddRange(files);
-                this.dropdown.Items.Add("Default");
-                this.StartPosition = FormStartPosition.Manual;
-                this.Location = new Point(0, 0);
+                dropdown.Items.AddRange(files);
+                dropdown.Items.Add("Standaard");
+                dropdown.SelectedItem = "Standaard";
+                StartPosition = FormStartPosition.Manual;
+                Location = new Point(0, 0);
             }
 
             else
             {
                 string[] files = Directory.GetDirectories(@"Themes\");
-                this.dropdown.Items.AddRange(files);
-                this.dropdown.Items.Add("Default");
-                this.StartPosition = FormStartPosition.Manual;
-                this.Location = new Point(0, 0);
+                dropdown.Items.AddRange(files);
+                dropdown.Items.Add("Standaard");
+                dropdown.SelectedItem = "Standaard";
+                StartPosition = FormStartPosition.Manual;
+                Location = new Point(0, 0);
             }
             if (Spel.taalEngels == true)
             {
@@ -87,22 +95,60 @@ namespace TestMDi3
             Close();
         }
 
+
+            if (mute == false)
+            {
+                Volume.BackgroundImage = Properties.Resources.Volume_max;
+                Volume.BackgroundImageLayout = ImageLayout.Stretch;
+            }
+            else
+            {
+                Volume.BackgroundImage = Properties.Resources.Volume_Mute;
+                Volume.BackgroundImageLayout = ImageLayout.Stretch;
+            }
+        }
+
         private void upload_Click(object sender, EventArgs e)
         {
             //upload een folder voor de themes 
-            string targetPath = @"Themes\" + themename.Text;
-            string source = "";
+            string targetPath = @"Themes\" + themename.Text + @"\";
+            int i=0;
+
             try
             {
                 FolderBrowserDialog dialog = new FolderBrowserDialog();
 
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    source = dialog.SelectedPath;
-                    DirectoryCopy(source, targetPath);
-                    string[] files = Directory.GetDirectories(@"Themes\");
-                    this.dropdown.Items.AddRange(files);
-                    this.dropdown.Items.Add("Default");
+                    DirectoryInfo source = new DirectoryInfo(dialog.SelectedPath);
+                    if (Directory.GetFiles(Convert.ToString(source)).Length != 32)
+                    {
+                        MessageBox.Show("Deze map bevat te weinig/te veel foto's");
+                        return;
+                    }
+
+                    else
+                    {
+                        Directory.CreateDirectory(targetPath);
+                        foreach (var file in source.GetFiles())
+                        {
+                            File.Copy(file.FullName, targetPath + "picture " + i.ToString() + ".png");
+                            i++;
+                            File.Copy(file.FullName, targetPath + "picture " + i.ToString() + ".png");
+                            i++;
+                        }
+                        string[] files = Directory.GetDirectories(@"Themes\");
+
+                        MessageBox.Show("Selecteer een foto voor de achterkant van de kaartjes");
+
+
+                        OpenFileDialog fileDialog = new OpenFileDialog();
+                        if (fileDialog.ShowDialog() == DialogResult.OK)
+                        {
+                            File.Copy(fileDialog.FileName, targetPath + @"\defaultpic" + ".png");
+                        }
+                        dropdown.Items.AddRange(files);
+                    }
                 }
             }
             catch (Exception)
@@ -111,35 +157,92 @@ namespace TestMDi3
             }
         }
 
-
-        private static void DirectoryCopy(string sourceDirName, string destDirName)
+        public void applysettings()
         {
-            // Haalt de mapjes op.
-            DirectoryInfo dir = new DirectoryInfo(sourceDirName);
-
-            if (!dir.Exists)
-            {
-                throw new DirectoryNotFoundException("De geselecteerde map kon niet worden gevonden: " + sourceDirName);
-            }
-
-            DirectoryInfo[] dirs = dir.GetDirectories();
-            if (!Directory.Exists(destDirName))
-            {
-                Directory.CreateDirectory(destDirName);
-            }
-
-            FileInfo[] files = dir.GetFiles();
-            foreach (FileInfo file in files)
-            {
-                string temppath = Path.Combine(destDirName, file.Name);
-                file.CopyTo(temppath, false);
-            }
+            applied = true;
+            Spel.selectedtheme = dropdown.Text;
+            settings();
         }
+
+
+        //buttons
 
         private void Apply_Click(object sender, EventArgs e)
         {
-            Spel.selectedtheme = dropdown.Text;
-            MessageBox.Show(dropdown.Text + " is geselecteerd!");
+            applysettings();
+            MessageBox.Show("Instellingen zijn opgeslagen", "Opgeslagen");
+        }
+
+        public void settings()
+        {
+            XmlTextWriter writer = new XmlTextWriter("settings.sav", Encoding.UTF8);
+            writer.Formatting = Formatting.Indented;
+            writer.WriteStartElement("settings");
+            writer.WriteElementString("theme", Convert.ToString(Spel.selectedtheme));
+            writer.Close();
+        }
+
+        private void Terug_Click(object sender, EventArgs e)
+        {
+            if (applied == false)
+            {
+                DialogResult dialogResult = MessageBox.Show("U heeft nog niet opgeslagen, Wilt u opslaan?", "Opslaan", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    applysettings();
+                    MessageBox.Show("Instellingen zijn opgeslagen", "Opgeslagen");
+                    Hoofdmenu f2 = new Hoofdmenu();
+                    f2.MdiParent = this.ParentForm;
+                    f2.Show();
+                    Close();
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    Hoofdmenu f2 = new Hoofdmenu();
+                    f2.MdiParent = this.ParentForm;
+                    f2.Show();
+                    Close();
+                }
+            }
+            else
+            {
+                Hoofdmenu f2 = new Hoofdmenu();
+                f2.MdiParent = this.ParentForm;
+                f2.Show();
+                Close();
+            }
+        }
+
+        private void dropdown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (dropdown.Text == "Standaard" && standaartcount == 0)
+            {
+                standaartcount++;
+                return;
+            }
+            else
+            {
+                applied = false;
+                MessageBox.Show(dropdown.Text + " is geselecteerd!");
+            }
+        }
+
+        private void Volume_Click(object sender, EventArgs e)
+        {
+            applied = false;
+            if (mute == false)
+            {
+                Volume.BackgroundImage = Properties.Resources.Volume_Mute;
+                Volume.BackgroundImageLayout = ImageLayout.Stretch;
+                mute = true;
+            }
+
+            else if (mute == true)
+            {
+                Volume.BackgroundImage = Properties.Resources.Volume_max;
+                Volume.BackgroundImageLayout = ImageLayout.Stretch;
+                mute = false;
+            }
         }
 
         private void taalNederlands_Click(object sender, EventArgs e)

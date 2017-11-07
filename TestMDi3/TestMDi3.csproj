@@ -11,6 +11,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,7 +24,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -65,6 +65,12 @@
     </Compile>
     <Compile Include="Dobbelsteen.designer.cs">
       <DependentUpon>Dobbelsteen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HighScore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HighScore.Designer.cs">
+      <DependentUpon>HighScore.cs</DependentUpon>
     </Compile>
     <Compile Include="Winscherm.cs">
       <SubType>Form</SubType>
@@ -119,6 +125,9 @@
     <EmbeddedResource Include="Dobbelsteen.resx">
       <DependentUpon>Dobbelsteen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HighScore.resx">
+      <DependentUpon>HighScore.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Winscherm.resx">
       <DependentUpon>Winscherm.cs</DependentUpon>
     </EmbeddedResource>
@@ -153,6 +162,7 @@
     <EmbeddedResource Include="Spelers.resx">
       <DependentUpon>Spelers.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -174,9 +184,6 @@
     <None Include="Resources\3c.png" />
     <None Include="Resources\2c.png" />
     <None Include="Resources\1c.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\defaultpic.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Picture 0.bmp" />
@@ -435,6 +442,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\trophybackground.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mute-volume-control.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Volume_up_font_awesome.svg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mute.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Volume_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Volume_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Volume_max.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Volume_Mute.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\defaultpic.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -48,7 +48,7 @@ namespace TestMDi3
 
         public void SinglePlayer_Click(object sender, EventArgs e)
         {
-            if (File.Exists(@"SPSave.XML"))
+            if (File.Exists(@"SPSave.sav"))
             {
                 DialogResult dialogResult = MessageBox.Show("Er is een spel opgeslagen; Wilt u doorgaan?", "Doorgaan", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
@@ -82,7 +82,7 @@ namespace TestMDi3
 
         public void MultiPlayer_Click(object sender, EventArgs e)
         {
-            if (File.Exists(@"MPSave.XML"))
+            if (File.Exists(@"MPSave.sav"))
             {
                 DialogResult dialogResult = MessageBox.Show("Er is een spel opgeslagen; Wilt u doorgaan?", "Doorgaan", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)

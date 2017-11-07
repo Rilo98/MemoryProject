@@ -24,13 +24,13 @@ namespace TestMDi3
             InitializeComponent();
             this.BackgroundImage = win1;
             System.Media.SoundPlayer player0 = new System.Media.SoundPlayer(Properties.Resources.celebrate);
-            player0.Play();
+            WriteNewEntryMP1();
+            WriteNewEntryMP2();
             FireTimer.Start();
             label_winnaarnaam.Text = Spel.winnaar;
             label_score.Text = Spel.winnaar_score;
             label_combo.Text = Convert.ToString(Spel.winnaar_combo);
             pt = this.Location;
-
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(0, 0);
 
@@ -39,48 +39,13 @@ namespace TestMDi3
             this.Text = null;
             if (Spel.multiplayer == true)
             {
-                WriteNewEntryMP1();
-                WriteNewEntryMP2();
+                
                 File.Delete("MPSave.sav");
             }
             else
             {
-                WriteNewEntrySP();
                 File.Delete("SPSave.sav");
             }
-
-            if (Spel.taalEngels == true)
-            {
-                foreach (Button button in this.Controls.OfType<Button>())
-                {
-                    if (button.Text == "Hoofdmenu")
-                    {
-                        button.Text = "Main Menu";
-                    }
-                    if (button.Text == "Ranglijst")
-                    {
-                        button.Text = "Highscores";
-                    }
-                    if (button.Text == "Nieuw spel")
-                    {
-                        button.Text = "New game";
-                    }
-                }
-                foreach (Label label in this.Controls.OfType<Label>())
-                {
-                    if (label.Text == "Gefeliciteerd!")
-                    {
-                        label.Text = "Congratulations";
-                    }
-                    if (label.Text == "NIEUWE HIGHSCORE")
-                    {
-                        label.Text = "NEW HIGHSCORE";
-                    }
-
-                }
-            }
-
-        }
 
             
             if(Opties.mute == false)
@@ -193,13 +158,13 @@ namespace TestMDi3
          if (File.Exists("HighscoreMP.sav"))
             {
                 XmlDocument doc = new XmlDocument();
-        doc.Load("HighscoreMP.sav");
+                doc.Load("HighscoreMP.sav");
                 XmlElement parentelement = doc.CreateElement("highscore");
 
-        XmlElement name = doc.CreateElement("name");
-        XmlElement score = doc.CreateElement("score");
-        XmlElement combo = doc.CreateElement("combo");
-        name.InnerText = Convert.ToString(Spel.multinaam2);
+                XmlElement name = doc.CreateElement("name");
+                XmlElement score = doc.CreateElement("score");
+                XmlElement combo = doc.CreateElement("combo");
+                name.InnerText = Convert.ToString(Spel.multinaam2);
                 score.InnerText = Convert.ToString(Spel.Player2_score);
                 combo.InnerText = Convert.ToString(Spel.HighCombo_Player2);
 
@@ -212,18 +177,18 @@ namespace TestMDi3
                 doc.Save("HighscoreMP.sav");
 
                 XElement root = XElement.Load("HighscoreMP.sav");
-        var orderedtabs = root.Elements("highscore")
-        .OrderByDescending(xtab => (int)xtab.Element("score"))
-        .ToArray();
-        root.RemoveAll();
+                var orderedtabs = root.Elements("highscore")
+                .OrderByDescending(xtab => (int)xtab.Element("score"))
+                .ToArray();
+                root.RemoveAll();
                 foreach (XElement tab in orderedtabs)
-                    root.Add(tab);
+                root.Add(tab);
                 root.Save("HighscoreMP.sav");
             }
             else
             {
                 XmlTextWriter writer = new XmlTextWriter("HighscoreMP.sav", Encoding.UTF8);
-    writer.Formatting = Formatting.Indented;
+                writer.Formatting = Formatting.Indented;
                 writer.WriteStartElement("scorelist");
                 writer.WriteStartElement("highscore");
                 writer.WriteElementString("name", Convert.ToString(label_winnaarnaam.Text));

@@ -49,6 +49,7 @@
             // 
             this.speler1.Font = new System.Drawing.Font("Segoe UI Emoji", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.speler1.Location = new System.Drawing.Point(505, 68);
+            this.speler1.MaxLength = 12;
             this.speler1.Name = "speler1";
             this.speler1.Size = new System.Drawing.Size(200, 54);
             this.speler1.TabIndex = 1;
@@ -58,7 +59,7 @@
             this.NaamSpeler1.AutoSize = true;
             this.NaamSpeler1.Font = new System.Drawing.Font("Segoe UI Emoji", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NaamSpeler1.ForeColor = System.Drawing.Color.White;
-            this.NaamSpeler1.Location = new System.Drawing.Point(346, 71);
+            this.NaamSpeler1.Location = new System.Drawing.Point(346, 68);
             this.NaamSpeler1.Name = "NaamSpeler1";
             this.NaamSpeler1.Size = new System.Drawing.Size(153, 47);
             this.NaamSpeler1.TabIndex = 2;
@@ -69,7 +70,7 @@
             this.NaamSpeler2.AutoSize = true;
             this.NaamSpeler2.Font = new System.Drawing.Font("Segoe UI Emoji", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NaamSpeler2.ForeColor = System.Drawing.Color.White;
-            this.NaamSpeler2.Location = new System.Drawing.Point(346, 131);
+            this.NaamSpeler2.Location = new System.Drawing.Point(346, 128);
             this.NaamSpeler2.Name = "NaamSpeler2";
             this.NaamSpeler2.Size = new System.Drawing.Size(153, 47);
             this.NaamSpeler2.TabIndex = 3;
@@ -79,9 +80,10 @@
             // 
             this.speler2.Font = new System.Drawing.Font("Segoe UI Emoji", 26.25F);
             this.speler2.Location = new System.Drawing.Point(505, 128);
+            this.speler2.MaxLength = 12;
             this.speler2.Name = "speler2";
             this.speler2.Size = new System.Drawing.Size(200, 54);
-            this.speler2.TabIndex = 4;
+            this.speler2.TabIndex = 2;
             // 
             // Terug
             // 
@@ -90,7 +92,7 @@
             this.Terug.Location = new System.Drawing.Point(369, 430);
             this.Terug.Name = "Terug";
             this.Terug.Size = new System.Drawing.Size(165, 42);
-            this.Terug.TabIndex = 6;
+            this.Terug.TabIndex = 0;
             this.Terug.Text = "Terug";
             this.Terug.UseVisualStyleBackColor = true;
             this.Terug.Click += new System.EventHandler(this.Terug_Click);
@@ -102,7 +104,7 @@
             this.Volgende.Location = new System.Drawing.Point(540, 430);
             this.Volgende.Name = "Volgende";
             this.Volgende.Size = new System.Drawing.Size(165, 42);
-            this.Volgende.TabIndex = 5;
+            this.Volgende.TabIndex = 0;
             this.Volgende.Text = "Volgende";
             this.Volgende.UseVisualStyleBackColor = true;
             this.Volgende.Click += new System.EventHandler(this.Volgende_Click);
@@ -142,7 +144,7 @@
             // errornaam
             // 
             this.errornaam.AutoSize = true;
-            this.errornaam.Location = new System.Drawing.Point(402, 91);
+            this.errornaam.Location = new System.Drawing.Point(511, 52);
             this.errornaam.Name = "errornaam";
             this.errornaam.Size = new System.Drawing.Size(0, 13);
             this.errornaam.TabIndex = 16;
@@ -163,14 +165,14 @@
             this.Breedte.Location = new System.Drawing.Point(603, 315);
             this.Breedte.Name = "Breedte";
             this.Breedte.Size = new System.Drawing.Size(100, 20);
-            this.Breedte.TabIndex = 18;
+            this.Breedte.TabIndex = 4;
             // 
             // Lengte
             // 
             this.Lengte.Location = new System.Drawing.Point(603, 289);
             this.Lengte.Name = "Lengte";
             this.Lengte.Size = new System.Drawing.Size(100, 20);
-            this.Lengte.TabIndex = 17;
+            this.Lengte.TabIndex = 3;
             // 
             // MultiNameninvoeren
             // 

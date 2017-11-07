@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Xml;
+using System.IO;
 
 namespace TestMDi3
 {
@@ -43,6 +44,13 @@ namespace TestMDi3
                 }
             }
         }
+            if (File.Exists("settings.sav"))
+            {
+                XmlDocument settings = new XmlDocument();
+                settings.Load("settings.sav");
+                Spel.selectedtheme = Convert.ToString(settings.SelectSingleNode("settings/theme").InnerText);
+            }
+        }
 
         private void Speel_Click(object sender, EventArgs e)
         {
@@ -69,6 +77,7 @@ namespace TestMDi3
         {
             Opties opties = new Opties();
             opties.MdiParent = this.ParentForm;
+            
             opties.Show();
             Close();
         }
@@ -76,6 +85,14 @@ namespace TestMDi3
         private void button1_Click(object sender, EventArgs e)
         {
             Spel.helpmenu();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Highscore HS = new Highscore();
+            HS.MdiParent = this.MdiParent;
+            HS.Show();
+            Close();
         }
     }
 }
