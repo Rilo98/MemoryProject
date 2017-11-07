@@ -17,6 +17,25 @@ namespace TestMDi3
             InitializeComponent();
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(0, 0);
+
+            if (Spel.taalEngels == true)
+            {
+                foreach (Button button in this.Controls.OfType<Button>())
+                {
+                    if (button.Text == "Singleplayer")
+                    {
+                        button.Text = "Singleplayer";
+                    }
+                    if (button.Text == "Multiplayer")
+                    {
+                        button.Text = "Multiplayer";
+                    }
+                    if (button.Text == "Terug")
+                    {
+                        button.Text = "Back";
+                    }
+                }
+            }
         }
 
         private void Terugspeler_Click(object sender, EventArgs e)

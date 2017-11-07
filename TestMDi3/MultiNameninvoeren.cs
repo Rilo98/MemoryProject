@@ -32,6 +32,43 @@ namespace TestMDi3
             Breedte.Maximum = 8;
             Breedte.Minimum = 4;
 
+            if (Spel.taalEngels == true)
+            {
+                foreach (Button button in this.Controls.OfType<Button>())
+                {
+                    if (button.Text == "Terug")
+                    {
+                        button.Text = "Back";
+                    }
+                    if (button.Text == "Volgende")
+                    {
+                        button.Text = "Next";
+                    }
+                }
+                foreach (Label label in this.Controls.OfType<Label>())
+                {
+                    if (label.Text == "Speler 1:")
+                    {
+                        label.Text = "Player 1:";
+                    }
+                    if (label.Text == "Speler 2")
+                    {
+                        label.Text = "Player 2";
+                    }
+                    if (label.Text == "Formaat speelveld <4-8>")
+                    {
+                        label.Text = "Size game board <4-8>";
+                    }
+                    if (label.Text == "Lengte:")
+                    {
+                        label.Text = "Length:";
+                    }
+                    if (label.Text == "Breedte:")
+                    {
+                        label.Text = "Width:";
+                    }
+                }
+            }
         }
 
         private void Lengte_TextChanged(object sender, EventArgs e)
@@ -51,14 +88,31 @@ namespace TestMDi3
         {
             if (Breedte.Text == "" || Lengte.Text == "" || (Convert.ToInt32(Lengte.Text) > 8 || Convert.ToInt32(Lengte.Text) < 4) || (Convert.ToInt32(Breedte.Text) > 8 || Convert.ToInt32(Breedte.Text) < 4))
             {
-                status.Text = "Voer een getal tussen de 4 en de 8 in.";
-                status.ForeColor = Color.Red;
+                if (Spel.taalEngels != true)
+                {
+                    status.Text = "Voer een getal tussen de 4 en de 8 in.";
+                    status.ForeColor = Color.Red;
+                }
+                if (Spel.taalEngels == true)
+                {
+                    if(Spel.taalEngels == true)
+                    status.Text = "Enter a number between 4 and 8.";
+                    status.ForeColor = Color.Red;
+                }
                 return;
             }
             else if ((Convert.ToInt32(Lengte.Text) == 7 && Convert.ToInt32(Breedte.Text) == 7) || (Convert.ToInt32(Lengte.Text) == 5 && Convert.ToInt32(Breedte.Text) == 5) || (Convert.ToInt32(Lengte.Text) == 7 && Convert.ToInt32(Breedte.Text) == 5) || (Convert.ToInt32(Lengte.Text) == 5 && Convert.ToInt32(Breedte.Text) == 7))
             {
-                status.Text = "Voer 2 even getallen, of een even en oneven getal.";
-                status.ForeColor = Color.Red;
+                if(Spel.taalEngels != true)
+                {
+                    status.Text = "Voer 2 even getallen, of een even en oneven getal.";
+                    status.ForeColor = Color.Red;
+                }
+               if(Spel.taalEngels == true)
+                {
+                    status.Text = "Enter 2 odd numbers, or an even and odd number.";
+                    status.ForeColor = Color.Red;
+                }
                 return;
             }
 
@@ -66,8 +120,16 @@ namespace TestMDi3
             {
                 if (speler1.Text == "" || speler2.Text == "")
                 {
-                    errornaam.Text = "Vul een naam in.";
-                    errornaam.ForeColor = Color.Red;
+                    if(Spel.taalEngels != true)
+                    {
+                        errornaam.Text = "Vul een naam in.";
+                        errornaam.ForeColor = Color.Red;
+                    }
+                 if(Spel.taalEngels == true)
+                    {
+                        errornaam.Text = "Enter a name.";
+                        errornaam.ForeColor = Color.Red;
+                    }
                     return;
                 }
 

@@ -28,6 +28,40 @@ namespace TestMDi3
             Breedte.Value = 4;
             Breedte.Maximum = 8;
             Breedte.Minimum = 4;
+
+            if (Spel.taalEngels == true)
+            {
+                foreach (Button button in this.Controls.OfType<Button>())
+                {
+                    if (button.Text == "Terug")
+                    {
+                        button.Text = "Back";
+                    }
+                    if (button.Text == "Volgende")
+                    {
+                        button.Text = "Next";
+                    }
+                }
+                foreach (Label label in this.Controls.OfType<Label>())
+                {
+                    if (label.Text == "Speler:")
+                    {
+                        label.Text = "Player:";
+                    }
+                    if (label.Text == "Formaat speelveld <4-8>")
+                    {
+                        label.Text = "Size game board <4-8>";
+                    }
+                    if (label.Text == "Lengte:")
+                    {
+                        label.Text = "Length:";
+                    }
+                    if (label.Text == "Breedte:")
+                    {
+                        label.Text = "Width:";
+                    }
+                }
+            }
         }
 
         private void Terug_Click(object sender, EventArgs e)

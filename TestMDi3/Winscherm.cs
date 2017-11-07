@@ -32,6 +32,38 @@ namespace TestMDi3
             this.ShowInTaskbar = false;
             this.ControlBox = false;
             this.Text = null;
+
+            if (Spel.taalEngels == true)
+            {
+                foreach (Button button in this.Controls.OfType<Button>())
+                {
+                    if (button.Text == "Hoofdmenu")
+                    {
+                        button.Text = "Main Menu";
+                    }
+                    if (button.Text == "Ranglijst")
+                    {
+                        button.Text = "Highscores";
+                    }
+                    if (button.Text == "Nieuw spel")
+                    {
+                        button.Text = "New game";
+                    }
+                }
+                foreach (Label label in this.Controls.OfType<Label>())
+                {
+                    if (label.Text == "Gefeliciteerd!")
+                    {
+                        label.Text = "Congratulations";
+                    }
+                    if (label.Text == "NIEUWE HIGHSCORE")
+                    {
+                        label.Text = "NEW HIGHSCORE";
+                    }
+
+                }
+            }
+
         }
 
 

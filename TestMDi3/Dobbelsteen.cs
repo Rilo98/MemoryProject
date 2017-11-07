@@ -29,6 +29,57 @@ namespace TestMDi3
 
             Speler1.Text = Spel.multinaam1;
             Speler2.Text = Spel.multinaam2;
+
+            if (Spel.taalEngels == true)
+            {
+                foreach (Button button in this.Controls.OfType<Button>())
+                {
+                    if (button.Text == "Gooi")
+                    {
+                        button.Text = "Throw";
+                    }
+                    if (button.Text == "Volgende")
+                    {
+                        button.Text = "Next";
+                    }
+                    if (button.Text == "Terug")
+                    {
+                        button.Text = "Back";
+                    }
+                    if (button.Text == "Gooi!")
+                    {
+                        button.Text = "Throw!";
+                    }
+                }
+                foreach (Label label in this.Controls.OfType<Label>())
+                {
+                    if (label.Text == "Gooi om te bepalen wie begint!")
+                    {
+                        label.Text = "Throw a dice to determine who plays first!";
+                    }
+                    if (label.Text == "Speler 1")
+                    {
+                        label.Text = "Player 1";
+                    }
+                    if (label.Text == "Speler 2")
+                    {
+                        label.Text = "Player 2";
+                    }
+                    
+                    if (label.Text == "" + Spel.multinaam2 + " mag als eerste beginnen.")
+                    {
+                        label.Text = "" + Spel.multinaam2 + " draws first card.";
+                    }
+                    if (label.Text == "Lengte")
+                    {
+                        label.Text = "Length";
+                    }
+                    if (label.Text == "Breedte")
+                    {
+                        label.Text = "Width";
+                    }
+                }
+            }
         }
 
         private void Gooi_1_Click(object sender, EventArgs e)           //Gooi button
@@ -135,8 +186,17 @@ namespace TestMDi3
 
             if (dice_1 > dice_2)
             {
-                tekst = tekst +  Spel.multinaam1+" mag als eerste beginnen.";
-                afterlb.Text = Convert.ToString(tekst);
+                if(Spel.taalEngels != true)
+                {
+                    tekst = tekst + Spel.multinaam1 + " mag als eerste beginnen.";
+                    afterlb.Text = Convert.ToString(tekst);
+                }
+
+                if (Spel.taalEngels == true)
+                {
+                    tekst = tekst + Spel.multinaam1 + " draws first card.";
+                    afterlb.Text = Convert.ToString(tekst);
+                }
                 Gooi_1.Enabled = false;
                 volgende.Enabled = true;
                 Spel.Player1_beurt = true;
@@ -145,8 +205,17 @@ namespace TestMDi3
 
             if (dice_1 < dice_2)
             {
-                tekst = tekst + Spel.multinaam2+" mag als eerste beginnen.";
-                afterlb.Text = Convert.ToString(tekst);
+                if (Spel.taalEngels != true)
+                {
+                    tekst = tekst + Spel.multinaam2 + " mag als eerste beginnen.";
+                    afterlb.Text = Convert.ToString(tekst);
+                }
+               
+                if (Spel.taalEngels == true)
+                {
+                    tekst = tekst + Spel.multinaam2 + " draws first card.";
+                    afterlb.Text = Convert.ToString(tekst);
+                }
                 Gooi_1.Enabled = false;
                 volgende.Enabled = true;
                 Spel.Player1_beurt = false;
@@ -155,8 +224,18 @@ namespace TestMDi3
 
             if (dice_1 == dice_2)
             {
-                tekst = tekst + "Gooi opnieuw!";
-                afterlb.Text = Convert.ToString(tekst);
+                if(Spel.taalEngels != true)
+                {
+                    tekst = tekst + "Gooi opnieuw!";
+                    afterlb.Text = Convert.ToString(tekst);
+                }
+
+                if(Spel.taalEngels == true)
+                {
+                    tekst = tekst + "Throw again!";
+                    afterlb.Text = Convert.ToString(tekst);
+                }
+
             }
 
         }

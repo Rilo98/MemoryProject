@@ -19,6 +19,29 @@ namespace TestMDi3
 
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(0, 0);
+
+            if (Spel.taalEngels == true)
+            {
+                foreach (Button button in this.Controls.OfType<Button>())
+                {
+                    if (button.Text == "Speel")
+                    {
+                        button.Text = "Play";
+                    }
+                    if (button.Text == "Ranglijst")
+                    {
+                        button.Text = "Highscores";
+                    }
+                    if (button.Text == "Opties")
+                    {
+                        button.Text = "Settings";
+                    }
+                    if (button.Text == "Afsluiten")
+                    {
+                        button.Text = "Quit";
+                    }
+                }
+            }
         }
 
         private void Speel_Click(object sender, EventArgs e)

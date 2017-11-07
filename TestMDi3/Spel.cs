@@ -19,7 +19,7 @@ namespace TestMDi3
     public partial class Spel : Form
     {
         public static int length, width;
-        public static bool multiplayer, Player1_beurt, Player2_beurt, Doorgaan1Speler, DoorgaanMultiPlayer, Player1_scorestreak, Player2_scorestreak;
+        public static bool multiplayer, Player1_beurt, Player2_beurt, Doorgaan1Speler, DoorgaanMultiPlayer, taalNederlands, taalEngels;
         public static string singlenaam, multinaam1, multinaam2, selectedtheme = "Default",winnaar, winnaar_score;
 
         public static int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0, picturenumber2 = 1, Player1_score, Player2_score, Combo_Player1, Combo_Player2, HighCombo_Player1, HighCombo_Player2, winnaar_combo,  counterint = (length * width / 2), x_kaarten, Player1_zetten, Player2_zetten, disabledint;
@@ -34,6 +34,31 @@ namespace TestMDi3
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(0, 0);
 
+            if (Spel.taalEngels == true)
+            {
+                foreach (Button button in this.Controls.OfType<Button>())
+                {
+                    if (button.Text == "Hoofdmenu")
+                    {
+                        button.Text = "Main menu";
+                    }
+                    if (button.Text == "Herstart")
+                    {
+                        button.Text = "Restart";
+                    }
+                    if (button.Text == "Afsluiten")
+                    {
+                        button.Text = "Quit";
+                    }
+                }
+                foreach (Label label in this.Controls.OfType<Label>())
+                {
+                    if (label.Text == "Spelmodus:")
+                    {
+                        label.Text = "Game mode";
+                    }
+                }
+            }
 
             if (multiplayer == true)
             {
@@ -128,7 +153,14 @@ namespace TestMDi3
 
             else
             {
-                Gamemode.Text = "Race tegen de klok";
+                if(Spel.taalEngels == false)
+                {
+                    Gamemode.Text = "Race tegen de klok";
+                }
+                if (Spel.taalEngels == true)
+                {
+                    Gamemode.Text = "Race against the clock";
+                }
                 if (Doorgaan1Speler == true)
                 {
                     XmlDocument docSP = new XmlDocument();
@@ -707,13 +739,31 @@ namespace TestMDi3
                     {
                         Random rnd_messagge = new Random();
                         int x = rnd_messagge.Next(0, 4);
-                        if (x == 1) message.Text = "Netjes";
-                        if (x == 2) message.Text = "Goed zo";
-                        if (x == 3) message.Text = "Oké dan";
+                        if(Spel.taalEngels == true)
+                        {
+                            if (x == 1) message.Text = "Nice";
+                            if (x == 2) message.Text = "Good job";
+                            if (x == 3) message.Text = "Allright";
+                        }
+                        if(Spel.taalEngels == false)
+                        {
+                            if (x == 1) message.Text = "Netjes";
+                            if (x == 2) message.Text = "Goed zo";
+                            if (x == 3) message.Text = "Oké dan";
+                        }
+                        
                     }
                         if (Combo_Player1 > 1)
                         {
+                        if (Spel.taalEngels == true)
+                        {
+                            message.Text = "Amazing!";
+                        }
+                            if (Spel.taalEngels == false)
+                        {
                             message.Text = "Goed bezig zeg!";
+                        }
+                            
                             
                         }
                     if (Combo_Player1 > 2)
@@ -892,8 +942,16 @@ namespace TestMDi3
                 timer_Sw.Stop();
 
                 MainForm mainform = new MainForm();
-                string message = "Wilt u het spel herstarten?." + Environment.NewLine + "Druk op Yes om te herstarten." + Environment.NewLine + "Druk op No om terug te gaan naar het hoofdmenu.";
-                string caption = "De tijd is om!";
+                
+                    string message = "Wilt u het spel herstarten?." + Environment.NewLine + "Druk op Yes om te herstarten." + Environment.NewLine + "Druk op No om terug te gaan naar het hoofdmenu.";
+                    string caption = "De tijd is om!";
+               
+                /*  if (Spel.taalEngels == true)
+                {
+                    string message = "Do you wanne play again?." + Environment.NewLine + "Click yes to restart" + Environment.NewLine + "Click yes to return to home.";
+                    string caption = "Time's Up";
+                }*/
+                
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                 DialogResult result;
 

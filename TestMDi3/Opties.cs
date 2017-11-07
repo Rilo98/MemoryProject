@@ -35,9 +35,49 @@ namespace TestMDi3
                 this.StartPosition = FormStartPosition.Manual;
                 this.Location = new Point(0, 0);
             }
-
-
+            if (Spel.taalEngels == true)
+            {
+                foreach (Button button in this.Controls.OfType<Button>())
+                {
+                    if (button.Text == "Terug")
+                    {
+                        button.Text = "Back";
+                    }
+                    if (button.Text == "Engels")
+                    {
+                        button.Text = "English";
+                    }
+                    if (button.Text == "Nederlands")
+                    {
+                        button.Text = "Dutch";
+                    }
+                    if (button.Text == "Uploaden")
+                    {
+                        button.Text = "Upload";
+                    }
+                    if (button.Text == "Toepassen")
+                    {
+                        button.Text = "Commit";
+                    }
+                }
+                foreach (Label label in this.Controls.OfType<Label>())
+                {
+                    if (label.Text == "Nieuw thema")
+                    {
+                        label.Text = "New theme";
+                    }
+                    if (label.Text == "Selecteer een thema")
+                    {
+                        label.Text = "Select a theme";
+                    }
+                    if (label.Text == "Thema naam:")
+                    {
+                        label.Text = "Theme name:";
+                    }
+                }
+            }
         }
+
 
         private void Terug_Click(object sender, EventArgs e)
         {
@@ -101,5 +141,93 @@ namespace TestMDi3
             Spel.selectedtheme = dropdown.Text;
             MessageBox.Show(dropdown.Text + " is geselecteerd!");
         }
+
+        private void taalNederlands_Click(object sender, EventArgs e)
+        {
+            Spel.taalNederlands = true;
+            Spel.taalEngels = false;
+            foreach (Button button in this.Controls.OfType<Button>())
+            {
+                if (button.Text == "Back")
+                {
+                    button.Text = "Terug";
+                }
+                if (button.Text == "English")
+                {
+                    button.Text = "Engels";
+                }
+                if (button.Text == "Dutch")
+                {
+                    button.Text = "Nederlands";
+                }
+                if (button.Text == "Upload")
+                {
+                    button.Text = "Uploaden";
+                }
+                if (button.Text == "Commit")
+                {
+                    button.Text = "Toepassen";
+                }
+            }
+            foreach (Label label in this.Controls.OfType<Label>())
+            {
+                if (label.Text == "New theme")
+                {
+                    label.Text = "Nieuw thema";
+                }
+                if (label.Text == "Select a theme")
+                {
+                    label.Text = "Selecteer een thema";
+                }
+                if (label.Text == "Theme name:")
+                {
+                    label.Text = "Thema naam:";
+                }
+            }
+        }
+
+        private void taalEngels_Click(object sender, EventArgs e)
+        {
+            Spel.taalEngels = true;
+            Spel.taalNederlands = false;
+            foreach (Button button in this.Controls.OfType<Button>())
+            {
+                if (button.Text == "Terug")
+                {
+                    button.Text = "Back";
+                }
+                if (button.Text == "Engels")
+                {
+                    button.Text = "English";
+                }
+                if (button.Text == "Nederlands")
+                {
+                    button.Text = "Dutch";
+                }
+                if (button.Text == "Uploaden")
+                {
+                    button.Text = "Upload";
+                }
+                if (button.Text == "Toepassen")
+                {
+                    button.Text = "Commit";
+                }
+            }
+            foreach (Label label in this.Controls.OfType<Label>())
+            {
+                if (label.Text == "Nieuw thema")
+                {
+                    label.Text = "New theme";
+                }
+                if (label.Text == "Selecteer een thema")
+                {
+                    label.Text = "Select a theme";
+                }
+                if (label.Text == "Thema naam:")
+                {
+                    label.Text = "Theme name:";
+                }
+            }
+        }
+        }
     }
-}
