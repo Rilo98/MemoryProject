@@ -22,9 +22,8 @@ namespace TestMDi3
         public static bool multiplayer, Player1_beurt, Player2_beurt, Doorgaan1Speler, DoorgaanMultiPlayer, Player1_scorestreak, Player2_scorestreak;
         public static string singlenaam, multinaam1, multinaam2, selectedtheme = "Standaard", winnaar, winnaar_score;
         int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0, picturenumber2 = 1, Combo_Player1, Combo_Player2, counterint, x_kaarten, Player1_zetten, Player2_zetten, disabledint;
-        public static int length, width;
-        public static bool multiplayer, Player1_beurt, Player2_beurt, Doorgaan1Speler, DoorgaanMultiPlayer, taalNederlands, taalEngels;
-        public static string singlenaam, multinaam1, multinaam2, selectedtheme = "Default",winnaar, winnaar_score;
+        public static bool  taalNederlands, taalEngels;
+      
 
 
 

@@ -87,16 +87,16 @@ namespace TestMDi3
         }
 
 
-        private void Terug_Click(object sender, EventArgs e)
+        /*private void Terug_Click(object sender, EventArgs e)
         {
             Hoofdmenu f2 = new Hoofdmenu();
             f2.MdiParent = this.ParentForm;
             f2.Show();
             Close();
-        }
+        }*/
 
 
-            if (mute == false)
+            /*if (mute == false)
             {
                 Volume.BackgroundImage = Properties.Resources.Volume_max;
                 Volume.BackgroundImageLayout = ImageLayout.Stretch;
@@ -105,8 +105,8 @@ namespace TestMDi3
             {
                 Volume.BackgroundImage = Properties.Resources.Volume_Mute;
                 Volume.BackgroundImageLayout = ImageLayout.Stretch;
-            }
-        }
+            }*/
+        
 
         private void upload_Click(object sender, EventArgs e)
         {
