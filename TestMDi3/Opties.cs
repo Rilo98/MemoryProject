@@ -154,7 +154,7 @@ namespace TestMDi3
             MessageBox.Show("Instellingen zijn opgeslagen", "Opgeslagen");
         }
 
-        public void settings()
+        public void settings()                         
         {
             XmlTextWriter writer = new XmlTextWriter("settings.sav", Encoding.UTF8);
             writer.Formatting = Formatting.Indented;

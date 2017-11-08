@@ -12,9 +12,11 @@ using System.IO;
 
 namespace TestMDi3
 {
+    /// <summary>Class Highscore.cs form</summary>
+    /// <para>This class is the main class for the Highscore.cs form. </para>
     public partial class Highscore : Form
     {
-            
+        ///<summary>Method to start the form and clears the form of unnecessary text</summary>   
         public Highscore()
         {
             InitializeComponent();
@@ -27,7 +29,9 @@ namespace TestMDi3
             Size.Text = "";
         }
 
-        private void Highscore_Load(object sender, EventArgs e)
+        /// <summary>Method for going to the highscore from "winscherm" and then loads the scores for the gamemode you've played</summary>
+        
+        private void Highscore_Load(object sender, EventArgs e)  //wanneer er vanaf een winscherm naar het highscoremenu wordt genavigeerd wordt meteen de scores weergegeven van de gamemode
         {
             if (Spel.multiplayer == true)
             {
@@ -42,7 +46,7 @@ namespace TestMDi3
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //deze knop navigeerd naar het hoofdmenu
         {
             Hoofdmenu f2 = new Hoofdmenu();
             f2.MdiParent = this.MdiParent;
@@ -50,26 +54,26 @@ namespace TestMDi3
             Close();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) //hier wordt het dropdownmenu geladen
         {
             LoadCombobox();
         }
 
-        private void LoadCombobox()
+        private void LoadCombobox()                 //hier wordt in de dropdownmenu in het highscoremenu aangegeven wat moet worden weergegeven
         {
             if (comboBox1.Text == "Singleplayer")
             {
                 label7.Text = "";
                 resultaat.Text = "";
 
-                if (File.Exists("HighscoreSP.sav"))
+                if (File.Exists("HighscoreSP.sav")) //hier kijkt het programma of de desbetreffende savefile bestaat
                 {
                     HighscoreName.Text = "";
                     Highscorecombo.Text = "";
                     Highscorescore.Text = "";
                     Size.Text = "";
 
-                    XmlDocument xml = new XmlDocument();
+                    XmlDocument xml = new XmlDocument();    //hier wordt de informatie vanuit de file geladen
                     xml.Load("HighscoreSP.sav");
                     var name = "highscore/name";
                     var combo = "highscore/combo";
@@ -80,7 +84,7 @@ namespace TestMDi3
                     var k = 0;
                     var m = 0;
                     XmlNodeList names = xml.DocumentElement.SelectNodes(name);
-                    foreach (XmlNode node in names)
+                    foreach (XmlNode node in names)         //voor elke node in de file met de naam name wordt die waarde geladen
                     {
                         HighscoreName.Text += node.InnerXml + Environment.NewLine;
                         i++;
