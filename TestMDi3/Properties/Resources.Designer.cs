@@ -123,16 +123,6 @@ namespace TestMDi3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _7747378_orig {
-            get {
-                object obj = ResourceManager.GetObject("_7747378_orig", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap achtergrondccc {
             get {
                 object obj = ResourceManager.GetObject("achtergrondccc", resourceCulture);
@@ -965,16 +955,6 @@ namespace TestMDi3.Properties {
         internal static System.Drawing.Bitmap Volume_Mute {
             get {
                 object obj = ResourceManager.GetObject("Volume_Mute", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap win30 {
-            get {
-                object obj = ResourceManager.GetObject("win30", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
