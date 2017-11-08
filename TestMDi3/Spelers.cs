@@ -16,6 +16,7 @@ namespace TestMDi3
     {
         /// <summary>Method Spelers</summary>
         /// <para>This method initializes the form and checks if the buttons need to have an other language</para>
+        /// <para>Creator: Richard en Hidzer</para>
         public Spelers()
         {
             InitializeComponent();
@@ -43,6 +44,7 @@ namespace TestMDi3
         }
         /// <summary>Method for button Terugspeler_Click</summary>
         /// <para>This method will load the Hoofdmenu form when clicked on this button</para>
+        /// <para>Creator: Richard</para>
         private void Terugspeler_Click(object sender, EventArgs e)
         {
             Hoofdmenu f2 = new Hoofdmenu();
@@ -53,6 +55,7 @@ namespace TestMDi3
         /// <summary>Method SinglePlayer_Click</summary>
         /// <para>This method will load the singleplayer game and checks if an savefile is available and will load the old values if answered yes in the popupbox and loads the game with old values</para>
         /// <para>If answered no it will load the "singlenameninvoeren" form</para>
+        /// <para>Creator: Kevin</para>
         public void SinglePlayer_Click(object sender, EventArgs e)
         {
             if (File.Exists(@"SPSave.sav"))
@@ -110,6 +113,7 @@ namespace TestMDi3
         /// <summary>Method MinglePlayer_Click</summary>
         /// <para>This method will load the singleplayer game and checks if an savefile is available and will load the old values if answered yes in the popupbox and loads the game with old values</para>
         /// <para>If answered no it will load the "multinameninvoeren" form</para>
+        /// <para>Creator: Kevin</para>
         public void MultiPlayer_Click(object sender, EventArgs e)
         {
             if (File.Exists(@"MPSave.sav"))

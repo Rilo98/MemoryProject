@@ -16,6 +16,7 @@ namespace TestMDi3
     {
         /// <summary>method MainForm</summary>
         /// <para>This method loads the location of the form, and loads the main menu mdi in the form</para>
+        /// <para>Creator: Richard</para>
         public MainForm()
         {
             InitializeComponent();
@@ -31,6 +32,7 @@ namespace TestMDi3
 
         /// <summary>method afsluiten</summary>
         /// <para>this method closes the form</para>
+        /// <para>Creator: Richard</para>
         public void afsluiten()
         {
             Close();

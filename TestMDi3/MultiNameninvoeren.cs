@@ -26,6 +26,7 @@ namespace TestMDi3
 
         /// <summary>Method MultiNameninvoeren</summary>
         /// <para>This method initializes the default values and changes the language based on the spel.taalengels bool</para>
+        /// <para>Creator: Hidzer en Richard</para>
         public MultiNameninvoeren()
         {
             InitializeComponent();
@@ -83,8 +84,7 @@ namespace TestMDi3
 
         /// <summary>method Terug_Click</summary>
         /// <para>this mehtod loads the select gamemode menu</para>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <para>Creator: Richard</para>
         private void Terug_Click(object sender, EventArgs e)
         {
             Spelers f3 = new Spelers();
@@ -95,8 +95,7 @@ namespace TestMDi3
 
         /// <summary>method Volgende_Click</summary>
         /// <para>this method checks the values the players put in, if the value is correct the game will load the game > else it will give an error</para>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <para>Creator: Kevin en Richard</para>
         private void Volgende_Click(object sender, EventArgs e)
         {
             if (Breedte.Text == "" || Lengte.Text == "" || (Convert.ToInt32(Lengte.Text) > 8 || Convert.ToInt32(Lengte.Text) < 4) || (Convert.ToInt32(Breedte.Text) > 8 || Convert.ToInt32(Breedte.Text) < 4))

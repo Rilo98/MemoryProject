@@ -16,9 +16,15 @@ using System.IO;
 
 namespace TestMDi3
 {
+    /// <summary>class Winscherm : Form</summary>
+    /// <para>This class is the main class for the winscherm.cs form. </para>
     public partial class Winscherm : Form
     {
+        /// <summary>private Point pt | this brings the form in the right location within the main form</summary>
         private Point pt;
+        /// <summary>Method winscherm</summary>
+        /// <para>This method loads the form and deletes savefiles when that gamemode has finished</para>
+        /// <para>Creator: Hidzer en Andries</para>
         public Winscherm()
         {
             InitializeComponent();
@@ -83,13 +89,17 @@ namespace TestMDi3
                 player0.Play();
             }
         }
-        
+        /// <summary>private int timertick sets the timer on 0</summary>
         private int timertick = 0;
+        /// <summary>private Image loads a specific image</summary>
         private Image win1 = Properties.Resources.achtergrondentrofee0;
         private Image win2 = Properties.Resources.achtergrondentrofee1;
         private Image win3 = Properties.Resources.achtergrondentrofee2;
         private Image win4 = Properties.Resources.achtergrondentrofee3;
 
+        /// <summary>Method WriteNewEntrySP</summary>
+        /// <para>This method will send the values to the savefile for the highscores and arranges them om score</para>
+        /// <para>Creator: Andries</para>
         public void WriteNewEntrySP()
         {
             if (File.Exists("HighscoreSP.sav"))
@@ -139,6 +149,9 @@ namespace TestMDi3
             }
         }
 
+        /// <summary>Method WriteNewEntryMP1</summary>
+        /// <para>This method will send the values to the savefile for the highscores and arranges them om score</para>
+        /// <para>Creator: Andries</para>
         public void WriteNewEntryMP1()
         {
             if (File.Exists("HighscoreMP.sav"))
@@ -209,6 +222,9 @@ namespace TestMDi3
             }
         }
 
+        /// <summary>Method WriteNewEntryMP2</summary>
+        /// <para>This method will send the values to the savefile for the highscores and arranges them om score</para>
+        /// <para>Creator: Andries</para>
         public void WriteNewEntryMP2()
         { 
          if (File.Exists("HighscoreMP.sav"))
@@ -270,6 +286,9 @@ namespace TestMDi3
             }
         }
 
+        /// <summary>Method FireTimer_Tick</summary>
+        /// <param>This method loops through images and shows fireworks in the form "winscherm"</param>
+        /// <para>Creator: Hidzer</para>
         private void FireTimer_Tick(object sender, EventArgs e)
         {
             timertick += 1;
@@ -298,9 +317,11 @@ namespace TestMDi3
 
             }
         }
-        
 
-        //menu knop
+
+        /// <summary>Method button2_Click</summary>
+        /// <param>This method loads Hoofdmenu.cs form</param>
+        /// <para>Creator: Richard</para>
         private void button2_Click(object sender, EventArgs e)
         {
             Hoofdmenu f2 = new Hoofdmenu();
@@ -308,8 +329,9 @@ namespace TestMDi3
             f2.Show();
             Close();
         }
-
-        //new game knop
+        /// <summary>Method button3_Click</summary>
+        /// <param>This method loads spelers.cs form</param>
+        /// <para>Creator: Richard</para>
         private void button3_Click(object sender, EventArgs e)
         {
             Spelers f3 = new Spelers();
@@ -317,12 +339,16 @@ namespace TestMDi3
             f3.Show();
             Close();
         }
-
+        /// <summary>Method Form1_Move</summary>
+        /// <param>This method moves the loaded form to the zero location</param>
+        /// <para>Creator: Richard</para>
         private void Form1_Move(object sender, EventArgs e)
         {
             this.Location = pt;
         }
-
+        /// <summary>Method button1_Click</summary>
+        /// <param>This method loads Highscore.cs form</param>
+        /// <para>Creator: Richard</para>
         private void button1_Click(object sender, EventArgs e)
         {
             Highscore HS = new Highscore();
