@@ -12,8 +12,12 @@ using TestMDi3;
 
 namespace TestMDi3
 {
+    /// <summary>class SingleNameninvoeren : Form</summary>
+    /// <para>This class is the main class SingleNameninvoerencs Form</para>
     public partial class SingleNameninvoeren : Form
     {
+        /// <summary>Method Singlenameninvoeren</summary>
+        /// <para>Method to let the user fill in the textboxes and changes the text in the form for which language is selected</para>
         public SingleNameninvoeren()
         {
             InitializeComponent();
@@ -64,6 +68,8 @@ namespace TestMDi3
             }
         }
 
+        /// <summary>Method for the button Terug_Click</summary>
+        /// <para>This method will go back to the Spelers.cs form</para>
         private void Terug_Click(object sender, EventArgs e)
         {
             Spelers f3 = new Spelers();
@@ -72,6 +78,8 @@ namespace TestMDi3
             Close();
         }
 
+        /// <summary>Method for the the button Volgende_Click</summary>
+        /// <para>This method will check if everything has a value and of that is true it will load the game with the values given</para>
         public void Volgende_Click(object sender, EventArgs e)
         {
             if (Breedte.Text == "" || Lengte.Text == "" || (Convert.ToInt32(Lengte.Text) > 8 || Convert.ToInt32(Lengte.Text) < 4) || (Convert.ToInt32(Breedte.Text) > 8 || Convert.ToInt32(Breedte.Text) < 4))
