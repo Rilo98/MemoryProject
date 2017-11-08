@@ -18,14 +18,54 @@ namespace TestMDi3
 {
     public partial class Spel : Form
     {
-        //initializes values
+        /// <summary>Initializes the values for the game</summary>
+        /// <pare>public static int length: sets the length for the game</pare>
+        /// <pare>public static int width: sets the width for the game</pare>
+        /// <pare>public static int winnaar_combo: keeps track of the winners highest combo</pare>
+        /// <pare>public static int Player1_score: keeps track of the Player1_score score</pare>
+        /// <pare>public static int Player2_score: keeps track of the Player2_score score</pare>
+        /// <pare>public static int HighCombo_Player1: keeps track of the HighCombo_Player1 highest combo</pare>
+        /// <pare>public static int HighCombo_Player2: keeps track of the HighCombo_Player2 highest combo</pare>
         public static int length, width, winnaar_combo, Player1_score, Player2_score, HighCombo_Player1, HighCombo_Player2;
+        /// <pare>public static bool multiplayer: determines if the game is multiplayer</pare>
+        /// <pare>public static bool Player1_beurt: determines if its Players 1's turn</pare>
+        /// <pare>public static bool Player2_beurt: determines if its Players 2's turn</pare>
+        /// <pare>public static bool Doorgaan1Speler: determines if the game is going to be loaded from file or not when its a singleplayer game</pare>
+        /// <pare>public static bool DoorgaanMultiPlayer: determines if the game is going to be loaded from file or not when its a mutliplayer game</pare>
+        /// <pare>public static bool Player1_scorestreak: determines if player1 is on a score streak</pare>
+        /// <pare>public static bool Player2_scorestreak: determines if player2 is on a score streak</pare>
+        /// <pare>public static bool taalNederlands: determines the language</pare>
+        /// <pare>public static bool taalEngels: determines the language</pare>
         public static bool multiplayer, Player1_beurt, Player2_beurt, Doorgaan1Speler, DoorgaanMultiPlayer, Player1_scorestreak, Player2_scorestreak, taalNederlands, taalEngels;
+        /// <para>public static string singlenaam: sets the singleplayer players name</para>
+        /// <para>public static string multinaam1: sets in multiplayer players1s name</para>
+        /// <para>public static string multinaam2: sets in multiplayer players2s name</para>
+        /// <para>public static string selectedtheme: sets the selectedtheme</para>
+        /// <para>public static string winnaar: stores the winners name</para>
+        /// <para>public static string winnaar_score: stores the winners score</para>
         public static string singlenaam, multinaam1, multinaam2, selectedtheme = "Standaard", winnaar, winnaar_score;
+        /// <para>int arrayid1: stores the id of the card1</para>
+        /// <para>int arrayid2: stores the id of the card2</para>
+        /// <para>int textboxint3: stores (length * width) / 2 in textboxint3</para>
+        /// <para>int textboxint4: stores (length * width) + 1 in textboxint3</para>
+        /// <para>int textboxint5: stores (length * width) in textboxint3</para>
+        /// <para>int picturenumber1: stores the picturesnumber to genetate a name for the picture dynamically</para>
+        /// <para>int picturenumber2: stores the picturesnumber to genetate a name for the picture dynamically</para>
+        /// <para>int Combo_Player1: keeps track of the combo of the player and based on that combo it will display a message</para>
+        /// <para>int Combo_Player2: keeps track of the combo of the player and based on that combo it will display a message</para>
+        /// <para>int counterint: its a number for the stopwatch</para>
+        /// <para>int x_kaarten: stores the number of cards played so its can finish the game when all cards are gone</para>
+        /// <para>int Player1_zetten: stores the players attempts</para>
+        /// <para>int Player2_zetten: stores the players attempts</para>
+        /// <para>int disabledint: the amount of disabled buttons to count</para>
         int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0, picturenumber2 = 1, Combo_Player1, Combo_Player2, counterint, x_kaarten, Player1_zetten, Player2_zetten, disabledint;
+        /// <para>button firstbutton: stores the firstbutton</para>
+        /// <para>button secondButton: stores the secondButton</para>
         Button firstButton = null, secondButton = null;
 
-        //initializes language
+        /// <summary>method Spel</summary>
+        /// <para>Initializes the code for default values - when a save file excist the game will attempt to load the save.</para>
+        /// <para>Creator: Kevin/Andries/Hidzer</para>
         public Spel()
         {
             InitializeComponent();
@@ -61,7 +101,7 @@ namespace TestMDi3
                 }
             }
 
-            //Initializes the code for default values - when a save file excist the game will attempt to load the save.
+            //
             if (multiplayer == true)
             {
                 Gamemode.Text = "Multiplayer";
@@ -255,7 +295,11 @@ namespace TestMDi3
             }
         }
 
-        //Writes the save file for singleplayer to the SPSave.sav file
+        /// <summary>method WriteSP</summary>
+        /// <para>Writes the save file for singleplayer to the SPSave.sav file</para>
+        /// <para>Creator: Andries</para>
+        /// <param name="array"></param>
+        /// <param name="disabledbuttons">this is the array wich conaints the disabled button</param>
         public void WriteSP(int[,,] array, string[,] disabledbuttons)
         {
             XmlTextWriter writer = new XmlTextWriter("SPSave.sav", Encoding.UTF8);
@@ -308,7 +352,12 @@ namespace TestMDi3
             writer.Close();
         }
 
-        //Writes the save file for multiplayer to the Mpsave.sav file
+
+        /// <summary>method WriteMP</summary>
+        /// <para>Writes the save file for multiplayer to the Mpsave.sav file</para>
+        /// <para>Creator: Andries</para>
+        /// <param name="arrayMP">this is the array with all the information of the game</param>
+        /// <param name="disabledbuttons">this is the array with the disabled buttons</param>
         public void WriteMP(int[,,] arrayMP, string[,] disabledbuttons)
         {
             XmlTextWriter writer = new XmlTextWriter("MPSave.sav", Encoding.UTF8);
@@ -360,7 +409,9 @@ namespace TestMDi3
             writer.Close();
         }
 
-        //loads the singleplayer values from the SPSave.sav file
+        /// <summary>method LoadOldSP</summary>
+        /// <para>loads the singleplayer values from the SPSave.sav file</para>
+        /// <para>Creator: Andries </para>
         public void LoadOldSP()
         {
             XmlDocument doc = new XmlDocument();
@@ -376,14 +427,11 @@ namespace TestMDi3
             Stopwatch.Text              = Convert.ToString(counterint);
         }
 
-        //loads the multiplayer values from the MPSave.sav file
-        public void LoadOldMP(int[,,] array)
-        {
-            XmlDocument MP = new XmlDocument();
-            MP.Load("MPSave.sav");
-        }
-
-        //loads the image array from the SPSave.sav file
+        /// <summary>method LoadOldExceptionsSP</summary>
+        /// <para>loads the image array from the SPSave.sav file</para>
+        /// <para>Creator: Andries</para>
+        /// <param name="array"></param>
+        /// <param name="disabledbuttons"></param>
         public void LoadOldExceptionsSP(int[,,] array, string[,] disabledbuttons)
         {
             XmlDocument doc = new XmlDocument();
@@ -403,7 +451,11 @@ namespace TestMDi3
             }
         }
 
-        //loads the image array from the MPSave.sav file
+        /// <summary>method LoadOldExceptionsSP</summary>
+        /// <para>loads the image array from the MPSave.sav file</para>
+        /// <para>Creator: Andries</para>
+        /// <param name="array"></param>
+        /// <param name="disabledbuttons"></param>
         public void LoadOldExceptionsMP(int[,,] array, string[,] disabledbuttons)
         {
             XmlDocument MP = new XmlDocument();
@@ -423,7 +475,10 @@ namespace TestMDi3
             }
         }
 
-        //loads the disabled buttons from the MPSave.sav file
+        /// <summary>Method LoadDisabledButtonsMP</summary>
+        /// <para>loads the disabled buttons from the MPSave.sav file</para>
+        /// <para>Creator: Andries</para>
+        /// <param name="array"></param>
         public void LoadDisabledButtonsMP(int[,,] array)
         {
             XmlDocument MP = new XmlDocument();
@@ -445,7 +500,10 @@ namespace TestMDi3
             }
         }
 
-        //loads the disabled buttons from the MPSave.sav file
+        /// <summary>Method LoadDisabledButtonsSP</summary>
+        /// <para>loads the disabled buttons from the SPSave.sav file</para>
+        /// <para>Creator: Andries</para>
+        /// <param name="array"></param>
         public void LoadDisabledButtonsSP(int[,,] array)
         {
             XmlDocument SP = new XmlDocument();
@@ -467,6 +525,9 @@ namespace TestMDi3
             }
         }
 
+        /// <summary>Method PlayerBeurtStartGame</summary>
+        /// <para>this method determines who is the beginner in the game</para>
+        /// <para>Creator: Kevin</para>
         private void PlayerBeurtStartGame()
         {
             if (Player1_beurt == true)
@@ -501,6 +562,10 @@ namespace TestMDi3
             }
         }
 
+        /// <summary>Method Theme</summary>
+        /// <para>changes the theme based on the theme name</para>
+        /// <para>Creator: Kevin</para>
+        /// <param name="arrayimage"></param>
         private void theme(Image[,] arrayimage)
         {
             if (selectedtheme == "Default")
@@ -517,6 +582,10 @@ namespace TestMDi3
             }
         }
 
+        /// <summary>Method defaulttheme</summary>
+        /// <para>changes the pictures background image based on the theme name</para>
+        /// <para>Creator: Kevin</para>
+        /// <param name="arrayimage"></param>
         private void defaulttheme(Image[,] arrayimage)
         {
             var rm = new System.Resources.ResourceManager(((System.Reflection.Assembly)System.Reflection.Assembly.GetExecutingAssembly()).GetName().Name + ".Properties.Resources", ((System.Reflection.Assembly)System.Reflection.Assembly.GetExecutingAssembly()));
@@ -533,6 +602,10 @@ namespace TestMDi3
             }
         }
 
+        /// <summary>Method customtheme</summary>
+        /// <para>changes the pictures background image based on the theme name</para>
+        /// <para>Creator: Kevin</para>
+        /// <param name="arrayimage"></param>
         private void customtheme(Image[,] arrayimage)
         {
             for (int i = 0; i < textboxint5 / 2; i++)
@@ -548,6 +621,14 @@ namespace TestMDi3
             }
         }
 
+        /// <summary>method createbuttons</summary>
+        /// <para>creates buttons dynamically based length and width</para>
+        /// <para>Creator: Kevin</para>
+        /// <param name="array"></param>
+        /// <param name="arrayimage"></param>
+        /// <param name="disabledbuttons"></param>
+        /// <param name="length"></param>
+        /// <param name="width"></param>
         private void createbuttons(int[,,] array, Image[,] arrayimage,string[,] disabledbuttons, int length, int width)
         {
             var columnCount = length;
@@ -593,7 +674,11 @@ namespace TestMDi3
             }
         }
 
-        private void fillarray(int[,,] array)                                            //fills the array with numbers & colors & ID's
+        /// <summary>method fillarray</summary>
+        /// <para>fills the array "array" with ID's for the buttons so it can be checked to the pairs to see if they are the same</para>
+        /// <para>Creator: Kevin</para>
+        /// <param name="array">stores the values of the game</param>
+        private void fillarray(int[,,] array)
         {
             //fill id's
                 for (int e = 0; e < array.GetLength(1); e++)
@@ -613,7 +698,11 @@ namespace TestMDi3
             }
         }
 
-        private int checkarray(int[,,] array)                               //Checks if the Array conains a certain number - if the rng'ed number isnt in the array yet then it will return a new number for the array
+        /// <summary>method checkarray</summary>
+        /// <para>Checks if the Array conains a certain number - if the rng'ed number isnt in the array yet then it will return a new number for the array</para>
+        /// <para>Creator: Kevin</para>
+        /// <param name="array">stores the values of the game</param>
+        private int checkarray(int[,,] array)                             
         {
             Random rng = new Random();
 
@@ -637,6 +726,13 @@ namespace TestMDi3
             return tmpnumber;
         }
 
+        /// <summary>method rotate</summary>
+        /// <para>turns the cards around and shows the image </para>
+        /// <para>Creator: Kevin</para>
+        /// <param name="sender"></param>
+        /// <param name="array"></param>
+        /// <param name="arrayimage"></param>
+        /// <param name="disabledbuttons"></param>
         private void rotatebutton(object sender, int[,,] array, Image[,] arrayimage, string[,] disabledbuttons)                            //changes image based on button number
         {
             Button button = (Button)sender;
@@ -731,14 +827,15 @@ namespace TestMDi3
             }
         }
 
+        /// <summary>method PlayerScore</summary>
+        /// <para>this method changes the player's score based on its turn</para>
+        /// <para>Creator: Kevin</para>
         private void PlayerScore()                                                                                                          //adds score based on player turn
         {
             if (multiplayer == true)
             {
-
                 if (BeurtIndicator1.BackColor == ColorTranslator.FromHtml("#76FF03"))
                 {
-                   
                     // zet combo P2 op 0
                     Combo_Player2 = 0;
                     Combo_Player2_label.Text = Convert.ToString(Combo_Player2);
@@ -853,7 +950,10 @@ namespace TestMDi3
 
         }
 
-        private  void checkwinnaar()
+        /// <summary>method checkwinnaar</summary>
+        /// <para>this method checkwinnaar checks who won</para>
+        /// <para>Creator: Kevin</para>
+        private void checkwinnaar()
         {
             if (multiplayer == true)
             {
@@ -901,6 +1001,9 @@ namespace TestMDi3
             }
         }
         
+        /// <summary>method SwitchTurn</summary>
+        /// <para>this method switches turn</para>
+        /// <para>Creator: Kevin</para>
         private void SwitchTurn()
         {
             if (BeurtIndicator2.BackColor == ColorTranslator.FromHtml("#76FF03"))
@@ -940,11 +1043,17 @@ namespace TestMDi3
                 Label_Player2Score.Font = new Font(label3.Font, FontStyle.Bold);
                 label3.ForeColor = Color.White;
                 Label_Player2Score.ForeColor = Color.White;
-               
-
             }
-
         }
+
+        /// <summary>method timer_Sw_Tick</summary>
+        /// <para>this is for the singleplayer, when you are playing s</para>
+        /// <para>Creator: Kevin</para>
+        /// <param name="sender">sender = the button</param>
+        /// <param name="e"> e = eventhandler</param>
+        /// <param name="arrayimage">arrayimage = the image array wich contains the array</param>
+        /// <param name="array"> the array with the info for the images</param>
+        /// <param name="disabledbuttons">all the disabled buttons</param>
         private void timer_Sw_Tick(object sender, EventArgs e, Image[,] arrayimage, int[,,] array, string[,] disabledbuttons)                                                  //when the time is up in singleplayer it will stop the game and prompt the player to restart/go to the main menu
         {
             WriteSP(array,disabledbuttons);
@@ -957,13 +1066,7 @@ namespace TestMDi3
                 
                     string message = "Wilt u het spel herstarten?." + Environment.NewLine + "Druk op Yes om te herstarten." + Environment.NewLine + "Druk op No om terug te gaan naar het hoofdmenu.";
                     string caption = "De tijd is om!";
-               
-                /*  if (Spel.taalEngels == true)
-                {
-                    string message = "Do you wanne play again?." + Environment.NewLine + "Click yes to restart" + Environment.NewLine + "Click yes to return to home.";
-                    string caption = "Time's Up";
-                }*/
-                
+                               
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                 DialogResult result;
 
@@ -992,6 +1095,13 @@ namespace TestMDi3
                 }
             }
         }
+
+        /// <summary>method timer1_Tick</summary>
+        /// <para>this timer saves waits a few seconds before turning the cards back around</para>
+        /// <para>creator: kevin</para>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <param name="disabledbuttons"></param>
         private void timer1_Tick(object sender, EventArgs e, string[,] disabledbuttons)                                             //timer waits 250ms before turning the cards back around
         {
             timer1.Stop();
@@ -1039,12 +1149,21 @@ namespace TestMDi3
             }
         }
 
-
+        /// <summary>method TimerMP_Tick</summary>
+        /// <para>Saves the settings for multiplayer every second</para>
+        /// <para>Creator: Andries</para>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <param name="disabledbuttons"></param>
+        /// <param name="array"></param>
         private void TimerMP_Tick(object sender, EventArgs e, string[,] disabledbuttons, int[,,] array)                         
         {
             WriteMP(array, disabledbuttons);
         }
 
+        /// <summary>method helpmenu</summary>
+        /// <para>this method opens the helpmenu(its a method so it can be opened from other menu's)</para>
+        /// <para>Creator: Richard</para>
         public static void helpmenu()
         {
             byte[] PDF = Properties.Resources.Spelregels;

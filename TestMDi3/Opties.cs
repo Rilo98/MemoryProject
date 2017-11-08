@@ -406,7 +406,7 @@ namespace TestMDi3
             {
                 dropdown.Items.Remove("Default");
                 dropdown.Items.Add("Standaard");
-                dropdown.SelectedItem = "Default";
+                dropdown.SelectedItem = "Standaard";
             }
         }
 

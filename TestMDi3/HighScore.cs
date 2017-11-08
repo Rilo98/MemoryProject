@@ -75,29 +75,32 @@ namespace TestMDi3
         /// <summary>
         /// comboBox1_SelectedIndexChanged
         /// </summary>
-        /// <para>This method loads</para>
+        /// <para>This method loads the LoadCombobox method</para>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) //hier wordt het dropdownmenu geladen
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) 
         {
             LoadCombobox();
         }
-
-        private void LoadCombobox()                 //hier wordt in de dropdownmenu in het highscoremenu aangegeven wat moet worden weergegeven
+        /// <summary>
+        /// Method LoadCombobox
+        /// </summary>
+        /// <para>When the dropdownbox gets a predefined value it will load the defined savefile and puts it in the labels or leaves them empty</para>
+        private void LoadCombobox()                 
         {
             if (comboBox1.Text == "Singleplayer")
             {
                 label7.Text = "";
                 resultaat.Text = "";
 
-                if (File.Exists("HighscoreSP.sav")) //hier kijkt het programma of de desbetreffende savefile bestaat
+                if (File.Exists("HighscoreSP.sav"))
                 {
                     HighscoreName.Text = "";
                     Highscorecombo.Text = "";
                     Highscorescore.Text = "";
                     Size.Text = "";
 
-                    XmlDocument xml = new XmlDocument();    //hier wordt de informatie vanuit de file geladen
+                    XmlDocument xml = new XmlDocument();  
                     xml.Load("HighscoreSP.sav");
                     var name = "highscore/name";
                     var combo = "highscore/combo";
@@ -108,7 +111,7 @@ namespace TestMDi3
                     var k = 0;
                     var m = 0;
                     XmlNodeList names = xml.DocumentElement.SelectNodes(name);
-                    foreach (XmlNode node in names)         //voor elke node in de file met de naam name wordt die waarde geladen
+                    foreach (XmlNode node in names)        
                     {
                         HighscoreName.Text += node.InnerXml + Environment.NewLine;
                         i++;
@@ -139,7 +142,6 @@ namespace TestMDi3
                         if (k >= 10) break;
                     }
                 }
-
             }
             else if (comboBox1.Text == "Multiplayer")
             {
