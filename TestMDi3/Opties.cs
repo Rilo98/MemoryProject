@@ -13,12 +13,22 @@ using System.Xml;
 
 namespace TestMDi3
 {
+    /// <summary>class Opties</summary>
+    /// <para>in this class you can change the settings of the game</para>
+    /// <para>Creator: Kevin</para>
     public partial class Opties : Form
     {
+        /// <summary>these are the initial values of the settings</summary>
+        /// <para>public static bool mute: this is the public bool to turn of the sound at the winscreen</para>
         public static bool mute = false;
-
+        /// <para>bool applied: when the settings are changed the bool goes to false, so you need to apply before you exit</para>
         bool applied = true;
+        /// <para>int standaartcount: when the default theme is selected the counter goes to 1 so when the settings are changed the count goes to 1, so you need to apply before you exit </para>
         int standaartcount;
+
+        /// <summary>method options</summary>
+        /// <para>this value loads the default values and fills the dropdown menu</para>
+        /// <para>Creator: Kevin</para>
         public Opties()
         {
             InitializeComponent();
@@ -115,8 +125,12 @@ namespace TestMDi3
                 }
             }
         }
-      
 
+        /// <summary>mehtod upload_Click</summary>
+        /// <para>this method opens the filebrowser dialog and it will then copy files and check the images</para>
+        /// <para>Creator: Kevin</para>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void upload_Click(object sender, EventArgs e)
         {
             //upload een folder voor de themes 
@@ -180,6 +194,9 @@ namespace TestMDi3
             }
         }
 
+        /// <summary>method applysettings</summary>
+        /// <para>this method applies the settings and calls the settings mehtod</para>
+        /// <para>Creator: Kevin</para>
         public void applysettings()
         {
             applied = true;
@@ -187,9 +204,11 @@ namespace TestMDi3
             settings();
         }
 
-
-        //buttons
-
+        /// <summary>method Apply_Click</summary>
+        /// <para>this mehtod calls the apply settings method and changes the settings</para>
+        /// <para>Creator: Kevin</para>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Apply_Click(object sender, EventArgs e)
         {
             applysettings();
@@ -203,6 +222,9 @@ namespace TestMDi3
             }
         }
 
+        /// <summary>method settings</summary>
+        /// <para>this writes the settings to a save file</para>
+        /// <para>Creator: Andries </para>
         public void settings()                         
         {
             XmlTextWriter writer = new XmlTextWriter("settings.sav", Encoding.UTF8);
@@ -212,6 +234,11 @@ namespace TestMDi3
             writer.Close();
         }
 
+        /// <summary>method Terug_Click</summary>
+        /// <para>this method is made to go back to the main menu and checks if you have saved your settings if not you will be prompted to save the settings</para>
+        /// <para>Creator: Kevin </para>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Terug_Click(object sender, EventArgs e)
         {
             if (applied == false)
@@ -267,6 +294,11 @@ namespace TestMDi3
             }
         }
 
+        /// <summary>method dropdown_SelectedIndexChanged</summary>
+        /// <para>when the dropdown value is changed it will give you a prompt that the settings have been changed</para>
+        /// <para>Creator: Kevin</para>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dropdown_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (dropdown.Text == "Standaard" && standaartcount == 0)
@@ -288,6 +320,11 @@ namespace TestMDi3
             }
         }
 
+        /// <summary>method Volume_Click</summary>
+        /// <para>when the button is clicked the image will change based on the bool value</para>
+        /// <para>Creator: Kevin</para>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Volume_Click(object sender, EventArgs e)
         {
             applied = false;
@@ -306,6 +343,11 @@ namespace TestMDi3
             }
         }
 
+        /// <summary>method taalNederlands_Click</summary>
+        /// <para>when the language is selected the language of all text and buttons will change to the selected language</para>
+        /// <para>Creator: Hidzer</para>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void taalNederlands_Click(object sender, EventArgs e)
         {
             Spel.taalNederlands = true;
@@ -368,6 +410,11 @@ namespace TestMDi3
             }
         }
 
+        /// <summary>method taalEngels_Click</summary>
+        /// <para>when the language is selected the language of all text and buttons will change to the selected language</para>
+        /// <para>Creator: Hidzer</para>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void taalEngels_Click(object sender, EventArgs e)
         {
             Spel.taalEngels = true;
