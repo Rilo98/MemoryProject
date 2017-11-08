@@ -37,7 +37,6 @@ namespace TestMDi3
             if (Spel.multiplayer == true)
             {
                 comboBox1.SelectedItem = "Multiplayer";
-                LoadCombobox();
             }
             if(Spel.taalEngels == true)
             {
@@ -61,7 +60,6 @@ namespace TestMDi3
             else if (Spel.multiplayer == false)
             {
                 comboBox1.SelectedItem = "Singleplayer";
-                LoadCombobox();
             }
         }
 
@@ -91,17 +89,19 @@ namespace TestMDi3
         /// <para>Creator: Andries</para>
         private void LoadCombobox()                 
         {
+
             if (comboBox1.Text == "Singleplayer")
             {
-                label7.Text = "";
+                HighscoreName.Text = "";
+                Highscorecombo.Text = "";
+                Highscorescore.Text = "";
                 resultaat.Text = "";
+                Size.Text = "";
+                label7.Text = "";
 
                 if (File.Exists("HighscoreSP.sav"))
                 {
-                    HighscoreName.Text = "";
-                    Highscorecombo.Text = "";
-                    Highscorescore.Text = "";
-                    Size.Text = "";
+
 
                     XmlDocument xml = new XmlDocument();  
                     xml.Load("HighscoreSP.sav");
@@ -153,6 +153,11 @@ namespace TestMDi3
                     HighscoreName.Text = "";
                     Highscorecombo.Text = "";
                     Highscorescore.Text = "";
+                    resultaat.Text = "";
+                    Size.Text = "";
+                    label7.Text = "Resultaat:";
+
+
 
                     XmlDocument xml = new XmlDocument();
                     xml.Load("HighscoreMP.sav");
@@ -187,7 +192,7 @@ namespace TestMDi3
                     foreach (XmlNode node in sizes)
                     {
                         Size.Text += node.InnerXml + Environment.NewLine;
-                        j++;
+                        m++;
                         if (m >= 10) break;
                     }
 
