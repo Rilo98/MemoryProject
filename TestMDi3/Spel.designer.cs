@@ -198,10 +198,6 @@
             this.Gamemode_Label.TabIndex = 38;
             this.Gamemode_Label.Text = "Spelmodus:";
             // 
-            // TimerMP
-            // 
-            this.TimerMP.Tick += new System.EventHandler(this.TimerMP_Tick);
-            // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

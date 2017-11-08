@@ -118,9 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="_1c" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1c.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="_2c" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\2c.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -340,12 +337,6 @@
   <data name="Spelregels" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Spelregels.pdf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="win30" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\win30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_7747378_orig" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\7747378_orig.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="achtergrondccc" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\achtergrondccc.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -393,5 +384,8 @@
   </data>
   <data name="defaultpic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\defaultpic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_1c" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1c.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

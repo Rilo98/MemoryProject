@@ -19,6 +19,7 @@ namespace TestMDi3
         ///<summary>Method to start the form and clears the form of unnecessary text</summary>   
         public Highscore()
         {
+            
             InitializeComponent();
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(0, 0);
@@ -38,6 +39,24 @@ namespace TestMDi3
                 comboBox1.SelectedItem = "Multiplayer";
                 LoadCombobox();
             }
+            if(Spel.taalEngels == true)
+            {
+                foreach (Button button in this.Controls.OfType<Button>())
+                {
+                    if (button.Text == "Hoofdmenu")
+                    {
+                        button.Text = "Main menu:";
+                    }
+                }
+                foreach (Label label in this.Controls.OfType<Label>())
+                {
+                    if (label.Text == "Naam:")
+                    {
+                        label.Text = "Name:";
+                    }
+                }
+            } 
+        
 
             else if (Spel.multiplayer == false)
             {

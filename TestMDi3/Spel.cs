@@ -18,17 +18,14 @@ namespace TestMDi3
 {
     public partial class Spel : Form
     {
+        //initializes values
         public static int length, width, winnaar_combo, Player1_score, Player2_score, HighCombo_Player1, HighCombo_Player2;
         public static bool multiplayer, Player1_beurt, Player2_beurt, Doorgaan1Speler, DoorgaanMultiPlayer, Player1_scorestreak, Player2_scorestreak, taalNederlands, taalEngels;
         public static string singlenaam, multinaam1, multinaam2, selectedtheme = "Standaard", winnaar, winnaar_score;
         int arrayid1, arrayid2, textboxint3, textboxint4, textboxint5, picturenumber1 = 0, picturenumber2 = 1, Combo_Player1, Combo_Player2, counterint, x_kaarten, Player1_zetten, Player2_zetten, disabledint;
-      
-
-
-
-
         Button firstButton = null, secondButton = null;
 
+        //initializes language
         public Spel()
         {
             InitializeComponent();
@@ -64,7 +61,7 @@ namespace TestMDi3
                 }
             }
 
-
+            //Initializes the code for default values - when a save file excist the game will attempt to load the save.
             if (multiplayer == true)
             {
                 Gamemode.Text = "Multiplayer";
@@ -258,7 +255,7 @@ namespace TestMDi3
             }
         }
 
-
+        //Writes the save file for singleplayer to the SPSave.sav file
         public void WriteSP(int[,,] array, string[,] disabledbuttons)
         {
             XmlTextWriter writer = new XmlTextWriter("SPSave.sav", Encoding.UTF8);
@@ -311,8 +308,7 @@ namespace TestMDi3
             writer.Close();
         }
 
-       
-
+        //Writes the save file for multiplayer to the Mpsave.sav file
         public void WriteMP(int[,,] arrayMP, string[,] disabledbuttons)
         {
             XmlTextWriter writer = new XmlTextWriter("MPSave.sav", Encoding.UTF8);
@@ -364,6 +360,7 @@ namespace TestMDi3
             writer.Close();
         }
 
+        //loads the singleplayer values from the SPSave.sav file
         public void LoadOldSP()
         {
             XmlDocument doc = new XmlDocument();
@@ -379,17 +376,14 @@ namespace TestMDi3
             Stopwatch.Text              = Convert.ToString(counterint);
         }
 
-        private void TimerMP_Tick(object sender, EventArgs e)
-        {
-
-        }
-
+        //loads the multiplayer values from the MPSave.sav file
         public void LoadOldMP(int[,,] array)
         {
             XmlDocument MP = new XmlDocument();
             MP.Load("MPSave.sav");
         }
 
+        //loads the image array from the SPSave.sav file
         public void LoadOldExceptionsSP(int[,,] array, string[,] disabledbuttons)
         {
             XmlDocument doc = new XmlDocument();
@@ -409,6 +403,7 @@ namespace TestMDi3
             }
         }
 
+        //loads the image array from the MPSave.sav file
         public void LoadOldExceptionsMP(int[,,] array, string[,] disabledbuttons)
         {
             XmlDocument MP = new XmlDocument();
@@ -428,6 +423,7 @@ namespace TestMDi3
             }
         }
 
+        //loads the disabled buttons from the MPSave.sav file
         public void LoadDisabledButtonsMP(int[,,] array)
         {
             XmlDocument MP = new XmlDocument();
@@ -449,6 +445,7 @@ namespace TestMDi3
             }
         }
 
+        //loads the disabled buttons from the MPSave.sav file
         public void LoadDisabledButtonsSP(int[,,] array)
         {
             XmlDocument SP = new XmlDocument();
@@ -506,11 +503,14 @@ namespace TestMDi3
 
         private void theme(Image[,] arrayimage)
         {
+            if (selectedtheme == "Default")
+            {
+                selectedtheme = "Standaard";
+            }
             if (selectedtheme == "Standaard")
             {
                 defaulttheme(arrayimage);
             }
-
             else
             {
                 customtheme(arrayimage);

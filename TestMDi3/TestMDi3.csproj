@@ -36,6 +36,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\TestMDi3.html</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -66,11 +67,11 @@
     <Compile Include="Dobbelsteen.designer.cs">
       <DependentUpon>Dobbelsteen.cs</DependentUpon>
     </Compile>
-    <Compile Include="HighScore.cs">
+    <Compile Include="Highscore.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HighScore.Designer.cs">
-      <DependentUpon>HighScore.cs</DependentUpon>
+    <Compile Include="Highscore.Designer.cs">
+      <DependentUpon>Highscore.cs</DependentUpon>
     </Compile>
     <Compile Include="Winscherm.cs">
       <SubType>Form</SubType>
@@ -125,8 +126,8 @@
     <EmbeddedResource Include="Dobbelsteen.resx">
       <DependentUpon>Dobbelsteen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HighScore.resx">
-      <DependentUpon>HighScore.cs</DependentUpon>
+    <EmbeddedResource Include="Highscore.resx">
+      <DependentUpon>Highscore.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Winscherm.resx">
       <DependentUpon>Winscherm.cs</DependentUpon>
@@ -172,7 +173,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Resources\Spelregels.pdf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -384,16 +384,11 @@
     <None Include="Resources\Picture 65.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Spelregels.pdf" />
     <None Include="Resources\win30.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\question.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\7747378_orig.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\wallpaper.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">

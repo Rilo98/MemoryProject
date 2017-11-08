@@ -10,15 +10,28 @@ using System.Windows.Forms;
 
 namespace TestMDi3
 {
+    /// <summary>Class Dobbelsteen:From</summary>
+    /// <para>This Class is the main class for the Dobbelsteen.cs form. </para>
     public partial class Dobbelsteen : Form
     {
+        /// <summary>Variables in Class Dobbelsteen</summary>
+        /// <para>int dice_1: this is the value for the first dice when rolling for who may start</para>
+        /// <para>int dice_2: this is the value for the second dice when rolling for who may start</para>
+        /// <para>These dices determine who start</para>
         int dice_1, dice_2;
 
+        /// <para>public static string multispeler1: Multispeler1 is the first player, this name is assigned to a dice</para>
+        /// <para>public static string multispeler2: Multispeler2 is the second players' name</para>
+        /// <para>public static int length: Divines the size of the lenght of the game between 4 & 8, needs to be 2 even or an even or an odd number</para>
+        /// <para>public static int width: Divines the size of the width of the game between 4 & 8, needs to be 2 even or an even or an odd number</para>
+        /// <para>public static bool spelmultiplayer: Spelmultiplayer is either true or false; this tells the spel.cs form if the game is multiplayer or singleplayer</para>
         public static string multispeler1, multispeler2;
         public static int length, width;
         public static bool spelmultiplayer;
 
-        public Dobbelsteen()                                            //Main
+        /// <summary>Method Dobbelsteen</summary>
+        /// <para>This method loads the names from other forms and initializes the default values</para>
+        public Dobbelsteen()
         {
             InitializeComponent();
 
@@ -82,13 +95,19 @@ namespace TestMDi3
             }
         }
 
-        private void Gooi_1_Click(object sender, EventArgs e)           //Gooi button
+        /// <summary>Method Gooi_1_Click</summary>
+        /// <para>This method calls the methods: dobbelsteen and after</para>
+        /// <param name="e"></param>
+        /// <param name="sender"></param>
+        private void Gooi_1_Click(object sender, EventArgs e)          
         {
             dobbelsteen();
             after();
         }
 
-        private void dobbelsteen()                                     //Dobbelsteen code
+        /// <summary>Method Gooi_1_Click</summary>
+        /// <para>This method random genarates numbers between 1 and 6 for the dice, based on that it will display a dice on the screen</para>
+        private void dobbelsteen()                         
         {
             Random rnd = new Random();
 
@@ -161,6 +180,10 @@ namespace TestMDi3
 
         }
 
+        /// <summary>Method Terug_Click</summary>
+        /// <para>This method will retrun you to the screen where you can fill in your name</para>
+        /// <param name="e"></param>
+        /// <param name="sender"></param>
         private void Terug_Click(object sender, EventArgs e)
         {
             MultiNameninvoeren f5 = new MultiNameninvoeren();
@@ -169,6 +192,10 @@ namespace TestMDi3
             Close();
         }
 
+        /// <summary>Method volgende_Click</summary>
+        /// <para>This method will bring you to the game from called spel.cs</para>
+        /// <param name="e"></param>
+        /// <param name="sender"></param>
         private void volgende_Click(object sender, EventArgs e)
         {
             spelmultiplayer = true;
@@ -178,7 +205,9 @@ namespace TestMDi3
             Close();
         }
 
-        private void after()                    //Geeft aan wie gewonnen heeft
+        /// <summary>Method after</summary>
+        /// <para>This method will check wich dice is the highest dice, based on that it will determine who is allowed to start</para>
+        private void after() 
         {
             dobbelsteen();
 
@@ -235,9 +264,7 @@ namespace TestMDi3
                     tekst = tekst + "Throw again!";
                     afterlb.Text = Convert.ToString(tekst);
                 }
-
             }
-
         }
     }
 }
