@@ -24,6 +24,7 @@ namespace TestMDi3
         private Point pt;
         /// <summary>Method winscherm</summary>
         /// <para>This method loads the form and deletes savefiles when that gamemode has finished</para>
+        /// <para>Creator: Hidzer en Andries</para>
         public Winscherm()
         {
             InitializeComponent();
@@ -98,6 +99,7 @@ namespace TestMDi3
 
         /// <summary>Method WriteNewEntrySP</summary>
         /// <para>This method will send the values to the savefile for the highscores and arranges them om score</para>
+        /// <para>Creator: Andries</para>
         public void WriteNewEntrySP()
         {
             if (File.Exists("HighscoreSP.sav"))
@@ -149,6 +151,7 @@ namespace TestMDi3
 
         /// <summary>Method WriteNewEntryMP1</summary>
         /// <para>This method will send the values to the savefile for the highscores and arranges them om score</para>
+        /// <para>Creator: Andries</para>
         public void WriteNewEntryMP1()
         {
             if (File.Exists("HighscoreMP.sav"))
@@ -221,6 +224,7 @@ namespace TestMDi3
 
         /// <summary>Method WriteNewEntryMP2</summary>
         /// <para>This method will send the values to the savefile for the highscores and arranges them om score</para>
+        /// <para>Creator: Andries</para>
         public void WriteNewEntryMP2()
         { 
          if (File.Exists("HighscoreMP.sav"))
@@ -284,6 +288,7 @@ namespace TestMDi3
 
         /// <summary>Method FireTimer_Tick</summary>
         /// <param>This method loops through images and shows fireworks in the form "winscherm"</param>
+        /// <para>Creator: Hidzer</para>
         private void FireTimer_Tick(object sender, EventArgs e)
         {
             timertick += 1;
@@ -316,6 +321,7 @@ namespace TestMDi3
 
         /// <summary>Method button2_Click</summary>
         /// <param>This method loads Hoofdmenu.cs form</param>
+        /// <para>Creator: Richard</para>
         private void button2_Click(object sender, EventArgs e)
         {
             Hoofdmenu f2 = new Hoofdmenu();
@@ -325,6 +331,7 @@ namespace TestMDi3
         }
         /// <summary>Method button3_Click</summary>
         /// <param>This method loads spelers.cs form</param>
+        /// <para>Creator: Richard</para>
         private void button3_Click(object sender, EventArgs e)
         {
             Spelers f3 = new Spelers();
@@ -334,12 +341,14 @@ namespace TestMDi3
         }
         /// <summary>Method Form1_Move</summary>
         /// <param>This method moves the loaded form to the zero location</param>
+        /// <para>Creator: Richard</para>
         private void Form1_Move(object sender, EventArgs e)
         {
             this.Location = pt;
         }
         /// <summary>Method button1_Click</summary>
         /// <param>This method loads Highscore.cs form</param>
+        /// <para>Creator: Richard</para>
         private void button1_Click(object sender, EventArgs e)
         {
             Highscore HS = new Highscore();
