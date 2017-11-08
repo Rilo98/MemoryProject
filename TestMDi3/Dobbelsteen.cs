@@ -97,6 +97,8 @@ namespace TestMDi3
 
         /// <summary>Method Gooi_1_Click</summary>
         /// <para>This method calls the methods: dobbelsteen and after</para>
+        /// <param name="e"></param>
+        /// <param name="sender"></param>
         private void Gooi_1_Click(object sender, EventArgs e)          
         {
             dobbelsteen();
@@ -180,6 +182,8 @@ namespace TestMDi3
 
         /// <summary>Method Terug_Click</summary>
         /// <para>This method will retrun you to the screen where you can fill in your name</para>
+        /// <param name="e"></param>
+        /// <param name="sender"></param>
         private void Terug_Click(object sender, EventArgs e)
         {
             MultiNameninvoeren f5 = new MultiNameninvoeren();
@@ -190,6 +194,8 @@ namespace TestMDi3
 
         /// <summary>Method volgende_Click</summary>
         /// <para>This method will bring you to the game from called spel.cs</para>
+        /// <param name="e"></param>
+        /// <param name="sender"></param>
         private void volgende_Click(object sender, EventArgs e)
         {
             spelmultiplayer = true;
