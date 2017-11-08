@@ -16,7 +16,11 @@ namespace TestMDi3
     /// <para>This class is the main class for the Highscore.cs form. </para>
     public partial class Highscore : Form
     {
+<<<<<<< HEAD
         ///<summary>Method to start the form and clears the form of unnecessary text</summary>   
+=======
+       
+>>>>>>> 13acc273b62a93550a188d3fe1d67deb7b71778d
         public Highscore()
         {
             
@@ -32,7 +36,7 @@ namespace TestMDi3
 
         /// <summary>Method for going to the highscore from "winscherm" and then loads the scores for the gamemode you've played</summary>
         
-        private void Highscore_Load(object sender, EventArgs e)  //wanneer er vanaf een winscherm naar het highscoremenu wordt genavigeerd wordt meteen de scores weergegeven van de gamemode
+        private void Highscore_Load(object sender, EventArgs e)  
         {
             if (Spel.multiplayer == true)
             {
