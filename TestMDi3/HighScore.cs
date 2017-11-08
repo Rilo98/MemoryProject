@@ -16,14 +16,9 @@ namespace TestMDi3
     /// <para>This class is the main class for the Highscore.cs form. </para>
     public partial class Highscore : Form
     {
-<<<<<<< HEAD
         ///<summary>Method to start the form and clears the form of unnecessary text</summary>   
-=======
-       
->>>>>>> 13acc273b62a93550a188d3fe1d67deb7b71778d
         public Highscore()
         {
-            
             InitializeComponent();
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(0, 0);
@@ -35,7 +30,6 @@ namespace TestMDi3
         }
 
         /// <summary>Method for going to the highscore from "winscherm" and then loads the scores for the gamemode you've played</summary>
-        
         private void Highscore_Load(object sender, EventArgs e)  
         {
             if (Spel.multiplayer == true)
@@ -69,14 +63,21 @@ namespace TestMDi3
             }
         }
 
-        private void button1_Click(object sender, EventArgs e) //deze knop navigeerd naar het hoofdmenu
+        /// <summary>Method button1_Click</summary>
+        /// <para>If this button is clicked it will show the "hoofdmenu" form</para>
+        private void button1_Click(object sender, EventArgs e) 
         {
             Hoofdmenu f2 = new Hoofdmenu();
             f2.MdiParent = this.MdiParent;
             f2.Show();
             Close();
         }
-
+        /// <summary>
+        /// comboBox1_SelectedIndexChanged
+        /// </summary>
+        /// <para>This method loads</para>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) //hier wordt het dropdownmenu geladen
         {
             LoadCombobox();
