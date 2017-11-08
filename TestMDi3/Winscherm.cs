@@ -204,9 +204,9 @@ namespace TestMDi3
                 writer.Formatting = Formatting.Indented;
                 writer.WriteStartElement("scorelist");
                 writer.WriteStartElement("highscore");
-                writer.WriteElementString("name", Convert.ToString(label_winnaarnaam.Text));
-                writer.WriteElementString("score", Convert.ToString(label_score.Text));
-                writer.WriteElementString("combo", Convert.ToString(label_combo.Text));
+                writer.WriteElementString("name", Convert.ToString(Spel.multinaam1));
+                writer.WriteElementString("score", Convert.ToString(Spel.Player1_score));
+                writer.WriteElementString("combo", Convert.ToString(Spel.HighCombo_Player1));
                 writer.WriteElementString("game", Convert.ToString(Spel.length + "X" + Spel.width));
                 if (Spel.multinaam1 == Spel.winnaar)
                 {
@@ -276,10 +276,18 @@ namespace TestMDi3
                 writer.Formatting = Formatting.Indented;
                 writer.WriteStartElement("scorelist");
                 writer.WriteStartElement("highscore");
-                writer.WriteElementString("name", Convert.ToString(label_winnaarnaam.Text));
-                writer.WriteElementString("score", Convert.ToString(label_score.Text));
-                writer.WriteElementString("combo", Convert.ToString(label_combo.Text));
+                writer.WriteElementString("name", Convert.ToString(Spel.multinaam2));
+                writer.WriteElementString("score", Convert.ToString(Spel.Player2_score));
+                writer.WriteElementString("combo", Convert.ToString(Spel.HighCombo_Player2));
                 writer.WriteElementString("game", Convert.ToString(Spel.length + "X" + Spel.width));
+                if (Spel.multinaam1 == Spel.winnaar)
+                {
+                    writer.WriteElementString("result", ("gewonnen"));
+                }
+                else
+                {
+                    writer.WriteElementString("result", ("verloren"));
+                }
                 writer.WriteEndElement();
                 writer.WriteEndElement();
                 writer.Close();

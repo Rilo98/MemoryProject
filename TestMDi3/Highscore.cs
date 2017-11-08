@@ -16,7 +16,8 @@ namespace TestMDi3
     /// <para>This class is the main class for the Highscore.cs form. </para>
     public partial class Highscore : Form
     {
-        ///<summary>Method to start the form and clears the form of unnecessary text</summary>   
+        ///<summary>Method to start the form and clears the form of unnecessary text</summary>
+        ///<para>Creator: Andries</para>
         public Highscore()
         {
             InitializeComponent();
@@ -30,6 +31,7 @@ namespace TestMDi3
         }
 
         /// <summary>Method for going to the highscore from "winscherm" and then loads the scores for the gamemode you've played</summary>
+        /// <para>Creator:Andries en Hidzer</para>
         private void Highscore_Load(object sender, EventArgs e)  
         {
             if (Spel.multiplayer == true)
@@ -65,6 +67,7 @@ namespace TestMDi3
 
         /// <summary>Method button1_Click</summary>
         /// <para>If this button is clicked it will show the "hoofdmenu" form</para>
+        /// <para>Creator: Andries</para>
         private void button1_Click(object sender, EventArgs e) 
         {
             Hoofdmenu f2 = new Hoofdmenu();
@@ -76,8 +79,7 @@ namespace TestMDi3
         /// comboBox1_SelectedIndexChanged
         /// </summary>
         /// <para>This method loads the LoadCombobox method</para>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <para>Creator: Kevin</para>
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) 
         {
             LoadCombobox();
@@ -86,6 +88,7 @@ namespace TestMDi3
         /// Method LoadCombobox
         /// </summary>
         /// <para>When the dropdownbox gets a predefined value it will load the defined savefile and puts it in the labels or leaves them empty</para>
+        /// <para>Creator: Andries</para>
         private void LoadCombobox()                 
         {
             if (comboBox1.Text == "Singleplayer")
