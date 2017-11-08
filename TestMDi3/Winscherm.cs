@@ -280,7 +280,7 @@ namespace TestMDi3
                 writer.WriteElementString("score", Convert.ToString(Spel.Player2_score));
                 writer.WriteElementString("combo", Convert.ToString(Spel.HighCombo_Player2));
                 writer.WriteElementString("game", Convert.ToString(Spel.length + "X" + Spel.width));
-                if (Spel.multinaam1 == Spel.winnaar)
+                if (Spel.multinaam2 == Spel.winnaar)
                 {
                     writer.WriteElementString("result", ("gewonnen"));
                 }
