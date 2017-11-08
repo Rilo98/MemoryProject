@@ -22,11 +22,11 @@ namespace TestMDi3
 
         /// <para>public static string multispeler1: Multispeler1 is the first player, this name is assigned to a dice</para>
         /// <para>public static string multispeler2: Multispeler2 is the second players' name</para>
-        /// <para>public static int length: Divines the size of the lenght of the game between 4 & 8, needs to be 2 even or an even or an odd number</para>
-        /// <para>public static int width: Divines the size of the width of the game between 4 & 8, needs to be 2 even or an even or an odd number</para>
-        /// <para>public static bool spelmultiplayer: Spelmultiplayer is either true or false; this tells the spel.cs form if the game is multiplayer or singleplayer</para>
         public static string multispeler1, multispeler2;
+        /// <para>public static int length: Divines the size of the lenght of the game between 4 and 8, needs to be 2 even or an even or an odd number</para>
+        /// <para>public static int width: Divines the size of the width of the game between 4 and 8, needs to be 2 even or an even or an odd number</para>
         public static int length, width;
+        /// <para>public static bool spelmultiplayer: Spelmultiplayer is either true or false; this tells the spel.cs form if the game is multiplayer or singleplayer</para>
         public static bool spelmultiplayer;
 
         /// <summary>Method Dobbelsteen</summary>
@@ -114,8 +114,6 @@ namespace TestMDi3
             dice_1 = rnd.Next(1, 7);
             dice_2 = rnd.Next(1, 7);
 
-            ///Dice_1
-
             if (dice_1 == 1)                                            
             {
                 pictureBox1.Image = Properties.Resources._1c;
@@ -145,9 +143,8 @@ namespace TestMDi3
             {                                             
                 pictureBox1.Image = Properties.Resources._6c;
             }                                              
-                                                           
-            ///Dice_2                                      
-                                                           
+
+                                           
             if (dice_2 == 1)                                            
             {                                              
                 pictureBox2.Image = Properties.Resources._1c;

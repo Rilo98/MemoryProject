@@ -10,12 +10,22 @@ using System.Windows.Forms;
 
 namespace TestMDi3
 {
+    /// <summary>class MultiNameninvoeren</summary>
+    /// <para>this class allows you to fill in your name for multiple players.</para>
     public partial class MultiNameninvoeren : Form
     {
+        /// <summary>these are the initial public variables</summary>
+        /// <para>public static string multispeler1: Multispeler1 is the first player, this name is assigned to a dice</para>
+        /// <para>public static string multispeler2: Multispeler2 is the second players' name</para>
         public static string multispeler1, multispeler2;
+        /// <para>public static int length: Divines the size of the lenght of the game between 4 and 8, needs to be 2 even or an even or an odd number</para>
+        /// <para>public static int width: Divines the size of the width of the game between 4 and 8, needs to be 2 even or an even or an odd number</para>
         public static int length, width;
+        /// <para>public static bool spelmultiplayer: Spelmultiplayer is either true or false; this tells the spel.cs form if the game is multiplayer or singleplayer</para>
         public static bool spelmultiplayer;
 
+        /// <summary>Method MultiNameninvoeren</summary>
+        /// <para>This method initializes the default values and changes the language based on the spel.taalengels bool</para>
         public MultiNameninvoeren()
         {
             InitializeComponent();
@@ -71,11 +81,10 @@ namespace TestMDi3
             }
         }
 
-        private void Lengte_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>method Terug_Click</summary>
+        /// <para>this mehtod loads the select gamemode menu</para>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Terug_Click(object sender, EventArgs e)
         {
             Spelers f3 = new Spelers();
@@ -84,6 +93,10 @@ namespace TestMDi3
             Close();
         }
 
+        /// <summary>method Volgende_Click</summary>
+        /// <para>this method checks the values the players put in, if the value is correct the game will load the game > else it will give an error</para>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Volgende_Click(object sender, EventArgs e)
         {
             if (Breedte.Text == "" || Lengte.Text == "" || (Convert.ToInt32(Lengte.Text) > 8 || Convert.ToInt32(Lengte.Text) < 4) || (Convert.ToInt32(Breedte.Text) > 8 || Convert.ToInt32(Breedte.Text) < 4))
